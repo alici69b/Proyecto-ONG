@@ -26,7 +26,7 @@ Tablas principales:
 Aun no definidas
 
 ## - Estructura de carpetas (ejemplo)
-
+```text
 /reset-ong
 │
 ├── public/
@@ -64,11 +64,13 @@ Aun no definidas
 │   └── navbar.php
 │
 └── README.md
+```
 
 ## - Clonar Repositorio
 
 
 
 Te vas a la carpeta htdocs y abres una terminal 
-git clone https://github.com/alici69b/Proyecto-ONG.git
+
+pones este comando en la terminal git clone https://github.com/alici69b/Proyecto-ONG.git
 
