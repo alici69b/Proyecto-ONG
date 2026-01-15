@@ -65,10 +65,10 @@ Aun no definidas
 │
 └── README.md
 
+## - Clonar Repositorio
 
-## - Instalación
-1. Clonar el repositorio:
-git clone https://github.com/usuario/reset.gitmarkdown
-2. Configurar base de datos MySQL.
-3. Ajustar `config.php` con tus credenciales.
-4. Abrir en servidor local (XAMPP, MAMP, LAMP…).
+
+
+Te vas a la carpeta htdocs y abres una terminal 
+git clone https://github.com/alici69b/Proyecto-ONG.git
+
