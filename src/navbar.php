@@ -17,11 +17,13 @@
 
 
 </head>
-<body>
-    <div class="d-flex justify-content-around align-items-center py-3 border">
-        <div class="d-flex align-items-center gap-1">
+<body class="">
+
+    <nav class="d-flex justify-content-around align-items-center py-3 border navbar navbar-expand-lg navbar-light bg-light p-auto">
+        <div class="d-flex align-items-center gap-1 ">
             <!--Imagen svg para que ocupe menos -->
             <svg
+            href="../public/Inicio.php"
             class="icon-reset"
             class="border rounded-circle bg-beige  "
             height="45px" width="45px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 473.68 473.68" xml:space="preserve" fill="#000000" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#ff3b30;" d="M0,236.844C0,106.025,106.036,0,236.836,0C367.644,0,473.68,106.025,473.68,236.844 c0,130.793-106.036,236.836-236.844,236.836C106.04,473.68,0,367.636,0,236.844z"></path> <g> <path style="fill:#FFFFFF;" d="M292.77,322.372c-18.04,29.52-50.062,48.192-80.282,23.264 c-18.376-15.164-28.514-38.013-33.574-61.707c12.644-0.034,25.287-0.064,37.931-0.09c2.558-0.004,4.372-1.144,5.497-2.752 c1.825-1.963,2.52-4.835,0.602-7.808c-17.374-26.97-34.756-53.94-52.134-80.906c-2.917-4.532-9.226-4.495-12.12,0.045 c-17.243,27.049-34.494,54.105-51.741,81.153c-2.853,4.476,0.905,10.531,6.021,10.52c12.543-0.03,25.078-0.06,37.62-0.09 c6.701,34.752,22.449,67.425,51.745,88.995c42.258,31.121,91.067,2.12,114.731-36.592 C326.512,320.936,302.197,306.95,292.77,322.372z"></path> <path style="fill:#FFFFFF;" d="M361.141,188.106c-12.543,0.03-25.082,0.064-37.624,0.09c-6.705-34.748-22.453-67.421-51.749-88.991 c-42.261-31.117-91.063-2.117-114.723,36.596c-9.446,15.46,14.869,29.446,24.292,14.023c18.044-29.517,50.058-48.192,80.278-23.26 c18.376,15.16,28.518,38.009,33.578,61.703c-12.644,0.034-25.291,0.064-37.935,0.093c-2.55,0.007-4.364,1.141-5.486,2.741 c-1.836,1.963-2.535,4.843-0.613,7.82c17.378,26.97,34.76,53.94,52.141,80.906c2.921,4.532,9.226,4.495,12.12-0.045 c17.243-27.052,34.494-54.108,51.741-81.161C370.015,194.145,366.257,188.091,361.141,188.106z"></path> </g> </g></svg>
@@ -29,20 +31,23 @@
 
         </div>
 
-        <div class="d-flex gap-3 ">
-            <!-- Menú de navegación, para recorrer la pagina que queramos -->
-             <a class="link-navbar text-decoration-none text-secondary" href="../public/Inicio.php">Inicio</a>
+        
+                
+        <!-- Menú de navegación, para recorrer la pagina que queramos -->
+        <div class="d-flex  gap-3 gap-lg-3 py-lg-0">
+             <a class="link-navbar text-decoration-none text-secondary" id="here" href="../public/Inicio.php">Inicio</a>
              <a class="link-navbar text-decoration-none text-secondary" href="../public/Historys.php">Historias</a>
              <a class="link-navbar text-decoration-none text-secondary" href="../public/Impact.php">Impacto</a>
              <a class="link-navbar text-decoration-none text-secondary" href="../public/Volunteers.php">Voluntarios</a>
              <a class="link-navbar text-decoration-none text-secondary" href="../public/Contact.php">Contacto</a>
         </div>
+       
 
         <!-- boton de resetearse, donde llevará a un formulario -->
-        <div class="botton-reset border rounded-pill p-2 bg-button-reset">
+        <div class="botton-reset border rounded-pill p-2 bg-button-reset d-lg-block">
             <a class="text-decoration-none text-dark" href="../public/RequestReset.php">Solicitar RESET</a>
         </div>
-    </div>
+    </nav>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60nZlUvaW3" crossorigin="anonymous"></script>
 </body>

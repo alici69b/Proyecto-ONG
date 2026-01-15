@@ -28,7 +28,9 @@ h1, h2, h3 {
     transform: scale(1.1);
     transition: transform 0.3s ease;
 }
-
 .link-navbar:hover {
     color: #ff3b30 !important; 
+}
+#here {
+    color: #ff3b30 !important;
 }
