@@ -7,16 +7,13 @@
     <!-- Link al css -->
     <link rel="stylesheet" href="../public/css/style.css">
 
-    <!-- Link de Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
     <!-- Link de las fuentes de la pagina cargadas en el css -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <!--color: coral principal #ff3b30
-    color:  -->
+    color: beige #f5f1e6 -->
 
 </head>
 <body class="">
@@ -50,7 +47,43 @@
             <a class="text-decoration-none text-dark" href="../public/RequestReset.php">Solicitar RESET</a>
         </div>
     </nav>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60nZlUvaW3" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
+<!-- :root {
+    --color-primary: #ff3b30;  /* coral */
+    --color-secondary: #f5f1e6; /* beige */
+}
+/* ---- Font-Family globales ----- */
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* ----- NAVBAR ----- */
+.bg-button-reset {
+    background-color: #ff3b30;
+}
+.bg-beige {
+    background-color: var(--color-secondary);
+}
+.btn:hover {
+    background-color: #e63228;
+    transform: translateY(-2px);
+}
+.icon-reset:hover, .botton-reset:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+.link-navbar:hover {
+    color: #ff3b30 !important; 
+}
+#here {
+    color: #ff3b30 !important;
+} -->
