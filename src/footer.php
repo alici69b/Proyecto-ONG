@@ -1,5 +1,89 @@
-<svg
-            href="../public/Inicio.php"
-            class="icon-reset"
-            class="border rounded-circle bg-beige  "
-            height="45px" width="45px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 473.68 473.68" xml:space="preserve" fill="#000000" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#ff3b30;" d="M0,236.844C0,106.025,106.036,0,236.836,0C367.644,0,473.68,106.025,473.68,236.844 c0,130.793-106.036,236.836-236.844,236.836C106.04,473.68,0,367.636,0,236.844z"></path> <g> <path style="fill:#FFFFFF;" d="M292.77,322.372c-18.04,29.52-50.062,48.192-80.282,23.264 c-18.376-15.164-28.514-38.013-33.574-61.707c12.644-0.034,25.287-0.064,37.931-0.09c2.558-0.004,4.372-1.144,5.497-2.752 c1.825-1.963,2.52-4.835,0.602-7.808c-17.374-26.97-34.756-53.94-52.134-80.906c-2.917-4.532-9.226-4.495-12.12,0.045 c-17.243,27.049-34.494,54.105-51.741,81.153c-2.853,4.476,0.905,10.531,6.021,10.52c12.543-0.03,25.078-0.06,37.62-0.09 c6.701,34.752,22.449,67.425,51.745,88.995c42.258,31.121,91.067,2.12,114.731-36.592 C326.512,320.936,302.197,306.95,292.77,322.372z"></path> <path style="fill:#FFFFFF;" d="M361.141,188.106c-12.543,0.03-25.082,0.064-37.624,0.09c-6.705-34.748-22.453-67.421-51.749-88.991 c-42.261-31.117-91.063-2.117-114.723,36.596c-9.446,15.46,14.869,29.446,24.292,14.023c18.044-29.517,50.058-48.192,80.278-23.26 c18.376,15.16,28.518,38.009,33.578,61.703c-12.644,0.034-25.291,0.064-37.935,0.093c-2.55,0.007-4.364,1.141-5.486,2.741 c-1.836,1.963-2.535,4.843-0.613,7.82c17.378,26.97,34.76,53.94,52.141,80.906c2.921,4.532,9.226,4.495,12.12-0.045 c17.243-27.052,34.494-54.108,51.741-81.161C370.015,194.145,366.257,188.091,361.141,188.106z"></path> </g> </g></svg>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESET-ong</title>
+
+    <!-- Link al css -->
+    <link rel="stylesheet" href="../public/css/style.css">
+
+    <!-- Link del Tailwind -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Link de las fuentes de la pagina cargadas en el css -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+<body class="bg-gray-100 font-poppins m-auto">
+
+    <footer class="bg-gray-900 text-white py-12 mt-12 ">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-around md:justify-around-12 gap-8">
+                
+                <!-- Logo y descripción -->
+                <div class="md:col-span-4">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="text-red-500 text-2xl">
+                            <i class="bi bi-arrow-repeat"></i>
+                        </div>
+                        <span class="font-bold text-xl">RESET</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Damos segundas oportunidades a proyectos, estudios, hábitos e ideas que fueron abandonados. 
+                        Porque nunca es tarde para empezar de nuevo.
+                    </p>
+                </div>
+
+                <!-- Enlaces rápidos -->
+                <div class="md:col-span-2">
+                    <h6 class="uppercase mb-3 font-semibold">Navegación</h6>
+                    <ul class="space-y-2">
+                        <li><a href="../public/Inicio.php" class="text-gray-400 hover:text-[#ff3b30] transition">Inicio</a></li>
+                        <li><a href="../public/RequestReset.php" class="text-gray-400 hover:text-[#ff3b30] transition">Solicitar RESET</a></li>
+                        <li><a href="../public/Historys.php" class="text-gray-400 hover:text-[#ff3b30] transition">Historias</a></li>
+                        <li><a href="../public/Inicio.phpVolunteers.php" class="text-gray-400 hover:text-[#ff3b30] transition">Voluntarios</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto -->
+                <div class="md:col-span-4">
+                    <h6 class="uppercase mb-3 font-semibold">Contacto</h6>
+                    <ul class="text-gray-400 space-y-2">
+                        <li class="flex items-center gap-2">
+                            <i class="bi bi-envelope"></i> aliciaalonso_antoniojesuscarrasco@resetong.org
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="bi bi-telephone"></i> +34 625 51 59 33
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="bi bi-geo-alt"></i> Lepe, España
+                        </li>
+                    </ul>
+    
+                </div>
+
+            </div>
+
+            <hr class="my-6 border-gray-700">
+
+            <div class="flex flex-col md:flex-row justify-between text-gray-400 text-sm">
+                <p class="text-center md:text-left mb-2 md:mb-0">
+                    ©RESET ONG. Mini-proyecto 1º DAW.
+                </p>
+                <div class="flex gap-4">
+                <p class=" text-center md:text-right">
+                    Politica y privacidad 
+                </p>
+                <p class="text-center md:text-right"> 
+                    Aviso legal
+                </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

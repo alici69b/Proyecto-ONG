@@ -20,31 +20,45 @@
     color: beige #f5f1e6 -->
 
 </head>
-<body>
-    <nav class="flex">
-        <div class="">
-            <!--Imagen svg para que ocupe menos -->
-            <svg
-            href="../public/Inicio.php"
-            class=""
-            class="  "
-            height="45px" width="45px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 473.68 473.68" xml:space="preserve" fill="#000000" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#ff3b30;" d="M0,236.844C0,106.025,106.036,0,236.836,0C367.644,0,473.68,106.025,473.68,236.844 c0,130.793-106.036,236.836-236.844,236.836C106.04,473.68,0,367.636,0,236.844z"></path> <g> <path style="fill:#FFFFFF;" d="M292.77,322.372c-18.04,29.52-50.062,48.192-80.282,23.264 c-18.376-15.164-28.514-38.013-33.574-61.707c12.644-0.034,25.287-0.064,37.931-0.09c2.558-0.004,4.372-1.144,5.497-2.752 c1.825-1.963,2.52-4.835,0.602-7.808c-17.374-26.97-34.756-53.94-52.134-80.906c-2.917-4.532-9.226-4.495-12.12,0.045 c-17.243,27.049-34.494,54.105-51.741,81.153c-2.853,4.476,0.905,10.531,6.021,10.52c12.543-0.03,25.078-0.06,37.62-0.09 c6.701,34.752,22.449,67.425,51.745,88.995c42.258,31.121,91.067,2.12,114.731-36.592 C326.512,320.936,302.197,306.95,292.77,322.372z"></path> <path style="fill:#FFFFFF;" d="M361.141,188.106c-12.543,0.03-25.082,0.064-37.624,0.09c-6.705-34.748-22.453-67.421-51.749-88.991 c-42.261-31.117-91.063-2.117-114.723,36.596c-9.446,15.46,14.869,29.446,24.292,14.023c18.044-29.517,50.058-48.192,80.278-23.26 c18.376,15.16,28.518,38.009,33.578,61.703c-12.644,0.034-25.291,0.064-37.935,0.093c-2.55,0.007-4.364,1.141-5.486,2.741 c-1.836,1.963-2.535,4.843-0.613,7.82c17.378,26.97,34.76,53.94,52.141,80.906c2.921,4.532,9.226,4.495,12.12-0.045 c17.243-27.052,34.494-54.108,51.741-81.161C370.015,194.145,366.257,188.091,361.141,188.106z"></path> </g> </g></svg>
-            <h3>RESET</h3>
-
+<body class="bg-white">
+    <nav class="bg-white shadow-md px-6 py-4 flex items-center justify-around">
+        <!-- Logo svg para que ocupe menos y no pese tanto la pagina  -->
+        <div class="flex items-center gap-2">
+            <svg fill="#ff3b30" height="40px" width="40px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 612.00 612.00" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M44.563,250.179l237.89,41.871c0.485,0.085,0.964,0.118,1.451,0.118c4.33-0.027,7.831-3.545,7.831-7.88 c0-1.831-0.624-3.516-1.672-4.853l-39.919-61.25c24.027-10.024,64.762-23.283,112.095-23.283c24.594,0,48.118,3.69,69.918,10.972 c19.861,6.631,47.495,24.447,70.4,45.389c16.415,15.01,31.403,32.073,45.896,48.573c3.34,3.802,6.682,7.607,10.048,11.396 c1.521,1.713,3.677,2.648,5.894,2.648c0.788,0,1.581-0.116,2.357-0.361c2.961-0.928,5.101-3.508,5.468-6.588l0.116-0.991 c6.506-56.017-7.174-114.855-37.531-161.427c-32.502-49.852-84.035-85.972-145.111-101.71 c-24.353-6.275-49.973-9.456-76.149-9.456c-34.717,0-69.827,5.501-104.373,16.35c-18.876,5.971-37.136,13.429-54.376,22.198 L110.264,3.574c-1.714-2.631-4.832-3.978-7.921-3.467c-3.096,0.526-5.584,2.838-6.333,5.887L38.278,240.535 c-0.521,2.118-0.142,4.359,1.05,6.186C40.519,248.549,42.415,249.802,44.563,250.179z"></path> <path d="M572.67,365.274c-1.191-1.827-3.087-3.08-5.236-3.458l-237.888-41.872c-3.094-0.54-6.212,0.8-7.942,3.419 c-1.73,2.619-1.74,6.017-0.027,8.648l40.278,61.802c-24.027,10.024-64.762,23.283-112.093,23.283 c-24.594,0-48.118-3.692-69.92-10.974c-19.864-6.632-47.498-24.449-70.4-45.389c-16.415-15.01-31.403-32.071-45.896-48.568 c-3.34-3.803-6.684-7.608-10.049-11.398c-2.065-2.323-5.301-3.219-8.265-2.282c-2.964,0.935-5.101,3.526-5.456,6.612l-0.111,0.962 c-6.508,56.021,7.172,114.855,37.532,161.42c32.5,49.855,84.034,85.977,145.109,101.712c24.358,6.275,49.982,9.456,76.16,9.456 c0.003,0,0.002,0,0.007,0c34.71,0,69.819-5.499,104.355-16.35c18.876-5.971,37.136-13.427,54.375-22.196l44.53,68.321 c1.47,2.255,3.967,3.578,6.6,3.578c0.438,0,0.88-0.036,1.321-0.109c3.096-0.526,5.583-2.838,6.335-5.887l57.734-234.541 C574.242,369.342,573.863,367.103,572.67,365.274z"></path> </g> </g> </g></svg>
+            <h3 class="font-bold text-xl">RESET</h3>
         </div>
-            <!-- Menú de navegación, para recorrer la pagina que queramos -->
-        <div class="">
-             <a class="" id="here" href="../public/Inicio.php">Inicio</a>
-             <a class="" href="../public/Historys.php">Historias</a>
-             <a class="" href="../public/Impact.php">Impacto</a>
-             <a class="" href="../public/Volunteers.php">Voluntarios</a>
-             <a class="" href="../public/Contact.php">Contacto</a>
-        </div>
-       
 
-        <!-- boton de resetearse, donde llevará a un formulario -->
-        <div class="">
-            <a class="" href="../public/RequestReset.php">Solicitar RESET</a>
+        <!-- Contenedor para checkbox y menú -->
+        <div class="md:hidden relative">
+        
+            <input type="checkbox" id="menu-toggle" class="peer hidden" />
+
+            <!-- Botón hamburguesa -->
+            <label for="menu-toggle" class="cursor-pointer z-20 block">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0,0,256,256">
+                <g fill="#ff3b30" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(10.66667,10.66667)"><path d="M2,5v2h20v-2zM2,11v2h20v-2zM2,17v2h20v-2z"></path></g></g>
+                </svg>
+            </label>
+
+            <!-- Menú móvil -->
+            <div class="absolute right-0 mt-2 w-48 bg-white shadow-md flex-col hidden peer-checked:flex z-10">
+                <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../public/Inicio.php">Inicio</a>
+                <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../public/Historys.php">Historias</a>
+                <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../public/Impact.php">Impacto</a>
+                <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../public/Volunteers.php">Voluntarios</a>
+                <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../public/Contact.php">Contacto</a>
+                <a class="block px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition" href="../public/RequestReset.php">Solicitar RESET</a>
+            </div>
+        </div>
+
+        <!-- Menú desktop -->
+        <div class="hidden md:flex gap-6 items-center">
+            <a class="hover:text-red-500 transition" href="../public/Inicio.php">Inicio</a>
+            <a class="hover:text-red-500 transition" href="../public/Historys.php">Historias</a>
+            <a class="hover:text-red-500 transition" href="../public/Impact.php">Impacto</a>
+            <a class="hover:text-red-500 transition" href="../public/Volunteers.php">Voluntarios</a>
+            <a class="hover:text-red-500 transition" href="../public/Contact.php">Contacto</a>
+            <a class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition" href="../public/RequestReset.php">Solicitar RESET</a>
         </div>
     </nav>
 </body>
