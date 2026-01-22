@@ -14,7 +14,7 @@
 <body>
 <?php
 
-require_once "../src/navbar.php";
+require_once "../src/Header.php";
 require_once "../src/footer.php";
 
 ?>
