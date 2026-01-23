@@ -38,9 +38,22 @@
         </div>
 
 
-        <div class="flex justify-center mx-85 text-center my-10 sm:mx-22 md:mx-42 lg:mx-85">
-            <h1 class="text-gray-900 font-bold text-5xl sm:text-6xl ">Nada está <i class="text-white">perdido</i> hasta que decides <i class="text-white">reiniciarlo</i></h1>
+        <div class="flex justify-center mx-auto text-center my-10 p-2">
+            <h1 class="max-w-3xl text-gray-900 font-bold text-4xl sm:text-5xl lg:text-6xl">
+                Nada está <i class="text-white">perdido</i> hasta que decides <i class="text-white">reiniciarlo</i>
+            </h1>
+            
         </div>
+
+        <div class="max-w-xl mx-auto text-center my-8 top-0">
+            <p class="mb-8">Volvemos a dar vida a proyectos, hábitos, ideas, estudios y pequeños sueños que quedaron en pausa</p>
+            <div class="flex justify-center text-center items-center  gap-3 p-2">
+                <a class="block w-47 px-4 py-2 bg-red-500 text-white rounded-lg shadow-md  hover:shadow-lg hover:-translate-y-1 transition transform duration-300 " href="../public/RequestReset.php">Solicitar RESET</a>
+                <a class="block w-47 px-4 py-2 bg-white border border-red-500 text-red-500  hover:bg-red-500 hover:text-white rounded-lg shadow-md  hover:shadow-lg hover:-translate-y-1 transition transform duration-300 " href="../public/Volunteers.php">Quiero ser voluntario</a>
+            </div>
+        </div>
+
+
             
     </main>
 

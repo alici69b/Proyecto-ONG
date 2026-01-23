@@ -47,7 +47,7 @@
                 <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../public/Impact.php">Impacto</a>
                 <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../public/Volunteers.php">Voluntarios</a>
                 <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../public/Contact.php">Contacto</a>
-                <a class="block px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition" href="../public/RequestReset.php">Solicitar RESET</a>
+                <a class="block px-4 py-2 bg-red-500 text-white  hover:bg-red-600 rounded-lg shadow-md  hover:shadow-lg hover:-translate-y-1 transition transform duration-300 " href="../public/RequestReset.php">Solicitar RESET</a>
             </div>
         </div>
 
@@ -58,7 +58,7 @@
             <a class="hover:text-red-500 transition" href="../public/Impact.php">Impacto</a>
             <a class="hover:text-red-500 transition" href="../public/Volunteers.php">Voluntarios</a>
             <a class="hover:text-red-500 transition" href="../public/Contact.php">Contacto</a>
-            <a class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition" href="../public/RequestReset.php">Solicitar RESET</a>
+            <a class="bg-red-500 text-white px-4 py-2  hover:bg-red-600 rounded-lg shadow-md  hover:shadow-lg hover:-translate-y-1 transition transform duration-300" href="../public/RequestReset.php">Solicitar RESET</a>
         </div>
     </nav>
 </body>
