@@ -11,16 +11,12 @@
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <!-- Link de las fuentes de la pagina cargadas en el css -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+   
 <!--color: coral principal #ff3b30
     color: beige #f6f6f2 -->
 
 </head>
-<body class="bg-white ">
+<body class=" font-sans bg-white ">
     <nav class="bg-white shadow-md px-6 py-4 flex items-center justify-around ">
         <!-- Logo svg para que ocupe menos y no pese tanto la pagina  -->
         <div class="flex items-center gap-2">

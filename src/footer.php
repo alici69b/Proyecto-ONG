@@ -11,13 +11,9 @@
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <!-- Link de las fuentes de la pagina cargadas en el css -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+    
 </head>
-<body class="bg-gray-100 font-poppins max-w-screen m-auto">
+<body class="font-sans bg-gray-100 font-poppins max-w-screen m-auto">
 
     <footer class="bg-gray-900 text-white py-12 mt-12 max-w-screen bottom-0 left-0 right-0">
         <div class="max-w-7xl mx-auto px-6">
