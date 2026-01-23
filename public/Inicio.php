@@ -39,7 +39,7 @@
 
 
         <div class="flex justify-center mx-auto text-center my-10 p-2">
-            <h1 class="max-w-3xl text-gray-900 font-bold text-4xl sm:text-5xl lg:text-6xl">
+            <h1 class="max-w-3xl text-gray-900 font-bold text-4xl sm:text-5xl sm:p-3 lg:text-6xl">
                 Nada está <i class="text-white">perdido</i> hasta que decides <i class="text-white">reiniciarlo</i>
             </h1>
             
