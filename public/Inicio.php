@@ -16,6 +16,7 @@
     color: coral principal #ff3b30
     color: beige #f6f6f2
     color footer gray-900 
+    color numeros conectados con la base de datos #1441a5
     color fondo-ayudar-reiniciar #ffe7e5-->
 
 </head>
@@ -54,7 +55,22 @@
                     <a class="block w-47 px-4 py-2 bg-white border border-red-500 text-red-500  hover:bg-red-500 hover:text-white rounded-lg shadow-md  hover:shadow-lg hover:-translate-y-1 transition transform duration-300 " href="../public/Volunteers.php">Quiero ser voluntario</a>
                 </div>
             </div>
-        </div>      
+        </div> 
+        
+        <div class="flex justify-center gap-10 m-4 pt-3">
+            <div class="text-center">
+                <p class="text-[#1441a5] sm:text-xl md:text-xl lg:text-3xl"><b>127</b></p>
+                <p class="text-gray-900">Reset Iniciados</p>
+            </div>
+            <div class="text-center">
+                <p class="text-[#1441a5] lg:text-3xl"><b>89</b></p>
+                <p class="text-gray-900">Completados</p>
+            </div>
+            <div class="text-center">
+                <p class="text-[#1441a5] lg:text-3xl"><b>34</b></p>
+                <p class="text-gray-900">Voluntarios</p>
+            </div>
+        </div>
     </main>
 
     <!-- Tarjetas donde se explican sobre que pueden escribir los que tienen problemas -->
