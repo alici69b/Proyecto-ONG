@@ -57,17 +57,17 @@
             </div>
         </div> 
         
-        <div class="flex justify-center gap-10 m-4 pt-3">
+        <div class="flex justify-center gap-10  p-5">
             <div class="text-center">
-                <p class="text-[#1441a5] sm:text-xl md:text-xl lg:text-3xl"><b>127</b></p>
+                <p class="text-white sm:text-xl md:text-xl lg:text-3xl"><b>127</b></p>
                 <p class="text-gray-900">Reset Iniciados</p>
             </div>
             <div class="text-center">
-                <p class="text-[#1441a5] lg:text-3xl"><b>89</b></p>
+                <p class="text-white lg:text-3xl"><b>89</b></p>
                 <p class="text-gray-900">Completados</p>
             </div>
             <div class="text-center">
-                <p class="text-[#1441a5] lg:text-3xl"><b>34</b></p>
+                <p class="text-white lg:text-3xl"><b>34</b></p>
                 <p class="text-gray-900">Voluntarios</p>
             </div>
         </div>
