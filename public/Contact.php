@@ -116,7 +116,7 @@
                     <!-- Botón -->
                     <button
                         type="submit"
-                        class="w-full bg-[#ff3b30] hover:bg-emerald-700 text-white font-semibold py-4 rounded-xl flex items-center justify-center gap-2 transition">
+                        class="w-full bg-[#ff3b30] hover:bg-red-600  shadow-md  hover:shadow-lg  text-white font-semibold py-4 rounded-xl">
                         Enviar mensaje
                     </button>
                 </form>
