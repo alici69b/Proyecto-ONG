@@ -14,10 +14,11 @@
    
 <!--font-family: font-serif
     color: coral principal #ff3b30
+    color regundario #ffe7e5
     color: beige #f6f6f2
     color footer gray-900 
     color numeros conectados con la base de datos #1441a5
-    color fondo-ayudar-reiniciar #ffe7e5-->
+    -->
 
 </head>
 <body class="font-sans">
