@@ -32,7 +32,7 @@
             - Los botones principales 
                 - Reset
                 -Voluntarios -->
-    <main class=" bg-linear-to-r from-red-100 to-red-500 min-h-130  py-15">
+    <main class=" bg-linear-to-r from-red-100 to-red-500 min-h-150  py-15">
         <div class="px-4 py-6 sm:px-10 md:px-20 flex justify-center ">
             <div class="flex bg-[#f6f6f2] items-center justify-center rounded-full px-4 py-2 sm:px-3 sm:py-2 gap-3 border border-gray-100">
             <svg class="w-6 h-6 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
