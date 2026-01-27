@@ -348,7 +348,7 @@
 
             <!-- Card para Solicitar RESET -->
             <div class="text-center mt-12">
-                <div class="bg-linear-to-br from-teal-600 to-red-300 rounded-3xl p-12 text-white shadow-lg">
+                <div class="bg-linear-to-r from-red-100 to-red-500 rounded-3xl p-12 text-white shadow-lg">
                     <h1 class="text-3xl lg:text-4xl font-bold mb-4">Tu historia puede ser la próxima</h1>
                     <p class="text-lg lg:text-xl mb-8 leading-relaxed">Cada una de estas personas estuvo donde tú estás ahora. El primer paso es siempre el más difícil, pero no tienes que darlo solo/a.</p>
                     <a href="RequestReset.php" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-red-600 font-bold rounded-xl shadow-md hover:bg-red-600 hover:text-white transition-colors duration-300">

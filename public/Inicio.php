@@ -17,13 +17,15 @@
     color regundario #ffe7e5
     color primario verde #00807A
     color segundario #A0c8c3
+    color card #FFFFFF
+    color de fondo p.inicio #FBFAF8
     color: beige #f6f6f2
     color footer gray-900 
     color numeros conectados con la base de datos #1441a5
     -->
 
 </head>
-<body class="font-sans">
+<body class="font-sans animate-fade-in">
     <!-- importamos el Header, para tenelo en esta pagina -->
     <?php
     require_once "../src/Header.php";
@@ -94,7 +96,7 @@
     <div class="max-w-7xl mx-auto px-4 py-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center pb-30">
 
       
-        <div class="relative bg-white rounded-lg p-8 flex flex-col items-center gap-4 hover:shadow-lg hover:-translate-y-1 transition duration-300">
+        <div class="relative bg-[#FFFFFF] border-[#FFFFFF] rounded-lg p-8 flex flex-col items-center gap-4 hover:shadow-lg hover:-translate-y-1 transition duration-300">
 
             <div class="flex absolute -top-5 left-1/2 -translate-x-1/2 w-8 h-8 text-sm md:w-9 md:h-9 md:text-base lg:w-10 lg:h-10 lg:-top-6 rounded-full bg-gray-900 text-white items-center justify-center font-bold z-10">1</div>
 
