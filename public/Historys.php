@@ -43,7 +43,7 @@
                 <!-- Foto -->
                 <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
                     <div class="relative inline-block"> 
-                        <img src="img/MariaGarcia.jpg" alt="María García" class="w-[400px] h-[400px] aspect-square object-cover rounded-3xl shadow-medium">
+                        <img src="img/MariaGarcia.jpg" alt="María García" class="w-100 h-100 aspect-square object-cover rounded-3xl shadow-medium">
                         <!-- Etiqueta Foto -->
                         <div class="absolute -bottom-4 -right-4 px-4 py-2 rounded-xl text-sm font-medium shadow-lg text-white bg-teal-600">
                             Estudios
@@ -119,7 +119,7 @@
                 <!-- Foto -->
                 <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
                     <div class="relative"> 
-                        <img src="img/CarlosRuiz.jpg" alt="María García" class="w-[400px] h-[400px] aspect-square object-cover rounded-3xl shadow-medium">
+                        <img src="img/CarlosRuiz.jpg" alt="María García" class="w-100 h-100 aspect-square object-cover rounded-3xl shadow-medium">
                         <!-- Etiqueta Foto -->
                         <div class="absolute -bottom-4 -right-4 px-4 py-2 rounded-xl text-sm font-medium shadow-lg text-white bg-teal-600">
                             Proyecto
@@ -195,7 +195,7 @@
                 <!-- Foto -->
                 <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
                     <div class="relative inline-block"> 
-                        <img src="img/LauraMartinez.jpg" alt="María García" class="w-[400px] h-[400px] aspect-square object-cover rounded-3xl shadow-medium">
+                        <img src="img/LauraMartinez.jpg" alt="María García" class="w-100 h-100 aspect-square object-cover rounded-3xl shadow-medium">
                         <!-- Etiqueta Foto -->
                         <div class="absolute -bottom-4 -right-4 px-4 py-2 rounded-xl text-sm font-medium shadow-lg text-white bg-teal-600">
                             Creatividad
@@ -271,7 +271,7 @@
                 <!-- Foto -->
                 <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
                     <div class="relative"> 
-                        <img src="img/JavierMoreno.jpg" alt="María García" class="w-[400px] h-[400px] aspect-square object-cover rounded-3xl shadow-medium">
+                        <img src="img/JavierMoreno.jpg" alt="María García" class="w-100 h-100 aspect-square object-cover rounded-3xl shadow-medium">
                         <!-- Etiqueta Foto -->
                         <div class="absolute -bottom-4 -right-4 px-4 py-2 rounded-xl text-sm font-medium shadow-lg text-white bg-teal-600">
                             Salud
