@@ -6,7 +6,7 @@
     <title>Reset-ONG</title>
 
     <!-- Link al css -->
-    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../../public/css/style.css">
 
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -27,7 +27,7 @@
   <div class="flex w-full flex-col justify-center px-8 md:px-16 lg:w-1/2 xl:px-24 bg-white">
     <div class="mx-auto w-full max-w-md">
       
-      <a href="../../../public/Inicio.php" class="mb-10 flex items-center text-sm text-gray-500 hover:text-gray-700">
+      <a href="../../public/Inicio.php" class="mb-10 flex items-center text-sm text-gray-500 hover:text-gray-700">
         <span class="mr-2">←</span> Volver al inicio
       </a>
 
@@ -111,7 +111,7 @@
       </form>
 
       <p class="mt-10 text-center text-sm text-gray-600">
-        ¿Ya tienes cuenta? <a href="../Login.php" class="font-bold text-[#ff3b30] hover:underline">Inicia Sesión</a>
+        ¿Ya tienes cuenta? <a href="../vista/Login.php" class="font-bold text-[#ff3b30] hover:underline">Inicia Sesión</a>
       </p>
     
   </div>
