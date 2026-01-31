@@ -92,7 +92,7 @@
 
     <div class=" relative bg-gradient-to-r from-[#00a5cf] to-[#9fffcb] w-full pt-20 pb-40">
   
-  <div class="relative z-10"> ... </div>
+  <div class="relative z-10"></div>
 
   <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
     <svg class="relative block w-full h-[120px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
