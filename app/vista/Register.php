@@ -54,21 +54,22 @@
       
       <!-- Menu de ayuda o quiero ayudar, depede lo que escojas te mostrará algo diferente -->
       <div class="flex w-full flex-col mx-auto mb-5">
-          <input type="radio" name="tipo" id="soy-usuario" class="peer/usuario hidden" checked>
+          <input type="radio" name="tipo" id="soy-usuario" class="peer/usuario hidden" >
           <input type="radio" name="tipo" id="soy-voluntario" class="peer/voluntario hidden">
+          <input type="radio" name="tipo" id="soy-explorador" class="peer/explorador hidden " checked>
 
           <div class="flex gap-2 mb-8 bg-[#004e64] p-1 rounded-xl">
-              <label for="soy-usuario" class="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg font-medium cursor-pointer transition-all
-              peer-checked/usuario:bg-white peer-checked/usuario:text-blue-600 peer-checked/usuario:shadow-sm
-              text-white hover:bg-[#00a5cf]">
+              <label for="soy-usuario" class="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg font-medium cursor-pointer transition-all text-white hover:bg-[#00a5cf]">
               Necesito ayuda
               </label>
 
-              <label for="soy-voluntario" class="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg font-medium cursor-pointer transition-all
-              peer-checked/voluntario:bg-white peer-checked/voluntario:text-indigo-600 peer-checked/voluntario:shadow-sm
-              text-white  hover:bg-[#00a5cf]">
+              <label for="soy-voluntario" class="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg font-medium cursor-pointer transition-all text-white  hover:bg-[#00a5cf]">
               Quiero ayudar
               </label>
+
+              <label for="soy-explorador" class="flex-1 flex items-center justify-center text-center py-2.5 px-2 rounded-lg font-medium cursor-pointer transition-all peer-checked/explorador:bg-white peer-checked:bg-[#00a5cf]  text-white hover:bg-[#00a5cf] text-sm md:text-base">
+              Solo mirar
+        </label>
           </div>
 
           <div class="hidden peer-checked/usuario:block animate-in fade-in duration-300">
@@ -89,6 +90,12 @@
               <option>Guía creativa</option>
               </select>
           </div>
+
+          <div class="hidden peer-checked:bg-[#00a5cf] peer-checked/explorador:block animate-in fade-in duration-300 p-4 bg-slate-50 rounded-xl border border-slate-300">
+        <p class="text-sm text-slate-600 italic">
+            "¡No hay problema! Puedes unirte para ver la comunidad y aprender de otros. Siempre podrás cambiar tu perfil más tarde."
+        </p>
+    </div>
       </div>
 
 
