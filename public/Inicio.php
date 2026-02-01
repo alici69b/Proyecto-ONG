@@ -169,7 +169,7 @@
             </section>
 
     <!-- Tarjetas donde se explican sobre que pueden escribir los que tienen problemas -->
-            <section class=" min-h-150 max-w-full pb-25 text-white">
+            <section class=" min-h-150 max-w-full pb-25 text-white mt-30">
                 <div class="bg-[#004e64] m-6 rounded-[2vw] ">
                 <div class=" text-center pt-30 pb-5">
                     <p class=" text-[#00a5cf] text-xl sm:text-xl sm:p-2 lg:text-xl"><b>¿Qué ayudamos a reiniciar?</b></p>
@@ -209,7 +209,7 @@
             </section>
 
             <!-- Ola de los botones reset y voluntarios del final de la pagina -->
-                <div class="relative bg-transparent pt-50">
+                <div class="relative bg-transparent pt-20">
                     <div class="relative overflow-hidden leading-[0] h-[150px]">
                         <svg class="relative block w-full h-[150px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
                             <defs>
