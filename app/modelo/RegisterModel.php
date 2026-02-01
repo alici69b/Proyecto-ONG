@@ -45,7 +45,7 @@ function validarcontrasena($contrasena) {
     }
 
     //medimos la logitud de la contraseña
-    if(strlen($contrasena)) {
+    if(strlen($contrasena) < 8) {
         $errorescontra[] = "Debe tener al menos 8 caracteres";
     }
 
