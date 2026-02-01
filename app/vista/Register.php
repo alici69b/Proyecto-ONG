@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -72,7 +73,7 @@
 
           <div class="hidden peer-checked/usuario:block animate-in fade-in duration-300">
               <label class="block text-sm font-medium text-slate-700 mb-2">¿Qué quieres <i class="text-[#00a5cf]">reiniciar</i>?</label>
-              <select class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#00a5cf]">
+              <select name="tipo_ayuda_usuario" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#00a5cf]">
                   <option value="estudios">Estudios</option>
                   <option value="proyecto">Proyecto/Emprendimiento</option>
                   <option value="personal">Personal/Bienestar</option>
@@ -82,13 +83,22 @@
 
           <div class="hidden peer-checked/voluntario:block animate-in fade-in duration-300">
               <label class="block text-sm font-medium text-slate-700 mb-2">¿Cómo puedes <i class="text-[#00a5cf]">ayudar</i>?</label>
-              <select class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] ">
+              <select name="tipo_ayuda_voluntario" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] ">
               <option>Apoyo emocional</option>
               <option>Ayuda técnica</option>
               <option>Guía creativa</option>
               </select>
           </div>
       </div>
+
+      <ul>
+          <?php if(!empty($_SESSION['errorayuda'])): ?>
+            <?php foreach($_SESSION['errorayuda'] as $erroresayuda): ?>
+              <li class="text-[#ff3b30] font-bold text-sm"><?php echo $erroresayuda; ?></li>
+              <?php endforeach ?>
+            <?php endif ?>
+          
+        </ul>
 
       <!-- Formulario con los campos: nombre, email, contraseña y el boton -->
       <form class="space-y-5" method="post" action="../controlador/RegisterController.php">
@@ -100,7 +110,7 @@
         <ul>
           <?php if(!empty($_SESSION['erroresnombre'])): ?>
             <?php foreach($_SESSION['erroresnombre'] as $erroresnombre): ?>
-              <li><?php echo $erroresnombre ?></li>
+              <li class="text-[#ff3b30] font-bold text-sm"><?php echo $erroresnombre; ?></li>
               <?php endforeach ?>
             <?php endif ?>
           
@@ -111,10 +121,28 @@
           <input name="email" type="email" placeholder="tu@email.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] transition-all" >
         </div>
 
+        <ul>
+          <?php if(!empty($_SESSION['erroresemail'])): ?>
+            <?php foreach($_SESSION['erroresemail'] as $erroresemail): ?>
+              <li class="text-[#ff3b30] font-bold text-sm"><?php echo $erroresemail; ?></li>
+              <?php endforeach ?>
+            <?php endif ?>
+          
+        </ul>
+
         <div>
           <label for="contrasena" class="block text-sm font-medium text-slate-700 mb-2">Contraseña</label>
           <input name="contrasena" type="password" placeholder="Mínimo 8 caracteres" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] transition-all" >
         </div>
+
+        <ul>
+          <?php if(!empty($_SESSION['errorcontrasena'])): ?>
+            <?php foreach($_SESSION['errorcontrasena'] as $errorescontrasena): ?>
+              <li class="text-[#ff3b30] font-bold text-sm"><?php echo $errorescontrasena; ?></li>
+              <?php endforeach ?>
+            <?php endif ?>
+          
+        </ul>
 
         <button name="crear_cuenta" id="crear_cuenta" type="submit" class="w-full bg-[#00a5cf] hover:bg-black text-white font-semibold py-4 rounded-xl shadow-lg  transition-all flex items-center justify-center gap-2 ">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="16" y1="11" x2="22" y2="11"/></svg>
