@@ -27,8 +27,7 @@ if(isset($_POST['crear_cuenta'])) {
     $_SESSION['erroresemail'] = $erroresemail;
     $errorcontrasena = validarcontrasena($contrasena);
     $_SESSION['errorcontrasena'] = $errorcontrasena;
-    $errorayuda = validarSeleccion($opcion, $rol);
-    $_SESSION['errorayuda'] = $errorayuda;
+
 }
  header("Location: ../vista/Register.php");
  exit();

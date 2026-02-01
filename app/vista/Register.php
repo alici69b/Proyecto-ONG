@@ -91,14 +91,6 @@
           </div>
       </div>
 
-      <ul>
-          <?php if(!empty($_SESSION['errorayuda'])): ?>
-            <?php foreach($_SESSION['errorayuda'] as $erroresayuda): ?>
-              <li class="text-[#ff3b30] font-bold text-sm"><?php echo $erroresayuda; ?></li>
-              <?php endforeach ?>
-            <?php endif ?>
-          
-        </ul>
 
       <!-- Formulario con los campos: nombre, email, contraseña y el boton -->
       <form class="space-y-5" method="post" action="../controlador/RegisterController.php">

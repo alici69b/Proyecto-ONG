@@ -67,23 +67,4 @@ function validarcontrasena($contrasena) {
     
 }
 
-function validarSeleccion($opcion, $rol) {
-    $errores = [];
-    
-    // Lista de opciones permitidas
-    $opcionesUsuario = ['estudios', 'proyecto', 'personal', 'otro'];
-    $opcionesVoluntario = ['Apoyo emocional', 'Ayuda técnica', 'Guía creativa'];
-
-    if ($rol == "soy-usuario") {
-        if (!in_array($opcion, $opcionesUsuario)) {
-            $errores[] = "La opción de ayuda no es válida.";
-        }
-    } else {
-        if (!in_array($opcion, $opcionesVoluntario)) {
-            $errores[] = "La opción de voluntariado no es válida.";
-        }
-    }
-
-    return $errores;
-}
 ?>
