@@ -208,8 +208,26 @@
                 </div>
             </section>
 
+            <!-- Ola de los botones reset y voluntarios del final de la pagina -->
+                <div class="relative bg-transparent pt-50">
+                    <div class="relative overflow-hidden leading-[0] h-[150px]">
+                        <svg class="relative block w-full h-[150px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#9fffcb" />
+                                    <stop offset="100%" stop-color="#00a5cf" />
+                                </linearGradient>
+                            </defs>
+                            <path fill="url(#waveGradient)" fill-opacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                        </svg>
+                    </div>
+                </div>
+                
             <!-- Botones de reset y voluntarios en la pagina -->
-            <section class=" bg-linear-to-r from-[#9fffcb] to-[#00a5cf] min-h-150  py-20">
+            <section class="relative  bg-linear-to-r from-[#9fffcb] to-[#00a5cf] min-h-150  py-20">
+            
+                
+
                 <div>
                     <div class="flex justify-center  text-center my-10 p-2">
                         <h1 class="max-w-3xl text-gray-900 font-bold text-4xl sm:text-5xl sm:p-3 lg:text-6xl">
