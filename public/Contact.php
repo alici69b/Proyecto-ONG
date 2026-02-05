@@ -48,7 +48,7 @@
 
         <!-- Texto de la izquierda -->
         <!-- Informacion sobre nosotros y preguntas frecuentes que hemos recibido -->
-        <section class="mb-4 grid  sm:grid-cols-1 lg:grid-cols-2 grid-cols-[1fr_1fr]">
+        <section class="mb-4 grid  grid-cols-1 lg:grid-cols-2 ">
             <div id="InformaciondeContacto" class="bg-white m-6 rounded-xl border border-stone-300 px-5 py-4 focus:outline-none border-stone-300 border-white bg-white">
         
             <p class=" text-black font-bold text-lg sm:text-lg sm:p-2 lg:text-lg">Información de contacto</p>
