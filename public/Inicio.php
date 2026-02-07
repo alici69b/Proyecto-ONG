@@ -6,10 +6,10 @@
     <title>Reset-ONG</title>
     
     <!-- Link al css -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../src/output.css">
 
     <!-- Link del Tailwind -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
 
    
 <!--font-family: font-serif
