@@ -6,10 +6,10 @@
     <title>Reset-ONG</title>
 
     <!-- Link al css -->
-    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="public/css/style.css">
 
     <!-- Link del Tailwind -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
    
 <!--color: coral principal #ff3b30
