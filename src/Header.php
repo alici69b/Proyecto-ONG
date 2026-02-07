@@ -25,7 +25,7 @@
         </div>
 
         <!-- Contenedor para checkbox y menú -->
-        <div class="md:hidden relative">
+        <div class="md:hidden relative flex justify-around">
         
             <input type="checkbox" id="menu-toggle" class="peer hidden" />
 
@@ -37,14 +37,14 @@
             </label>
 
             <!-- Menú móvil -->
-            <div class="absolute right-0 mt-2 w-48 bg-white shadow-md flex-col hidden peer-checked:flex z-10">
+            <div class="absolute mt-13  w-screen left-1/2 -translate-x-1/2 bg-gray-100 shadow-md flex-col hidden peer-checked:flex z-10">
                 <a class="block px-4 py-2 hover:text-[#25a18e]  transition" href="../public/Inicio.php">Inicio</a>
                 <a class="block px-4 py-2 hover:text-[#25a18e]  transition" href="../public/Historys.php">Historias</a>
                 <a class="block px-4 py-2 hover:text-[#25a18e]  transition" href="../public/Impact.php">Impacto</a>
                 <a class="block px-4 py-2 hover:text-[#25a18e]  transition" href="../public/Volunteers.php">Voluntarios</a>
                 <a class="block px-4 py-2 hover:text-[#25a18e]  transition" href="../public/Contact.php">Contacto</a>
-                <a class="block px-4 py-2 text-[#25a18e] text-white  rounded-lg shadow-md  hover:shadow-lg  " href="../app/vista/Login.php">Iniciar Sesión</a>
-                <a class="block w-47 px-4 py-2 bg-white border hover:bg-[#1a7a6b] text-white  hover:bg-[#1a7a6b] hover:text-white rounded-lg shadow-md  hover:shadow-lg  " href="../app/vista/Register.php">Registro</a>
+                <a class="block px-4 py-2 text-[#ff3b30] hover:bg-[#1a7a6b] hover:text-white " href="../app/vista/Login.php">Iniciar Sesión</a>
+                <a class="block px-4 py-2  text-[#ff3b30]  hover:bg-[#1a7a6b]  hover:bg-[#1a7a6b] hover:text-white     " href="../app/vista/Register.php">Registro</a>
                 </div>
             </div>
             </div>
