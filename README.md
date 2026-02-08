@@ -27,43 +27,42 @@ Aun no definidas
 
 ## - Estructura de carpetas (ejemplo)
 ```text
-/reset-ong
-│
-├── public/
-│   ├── index.php           
-│   ├── resets.php            
-│   ├── solicitar_reset.php   
-│   ├── voluntarios.php       
-│   ├── historias.php        
-│   ├── impacto.php            
-│   │
-│   ├── css/
-│   │   └── style.css         
-│   │
-│   └── img/
-│       
-│       
-│
-├── app/
-│   ├── Config/
-│   │   └── database.php      
-│   │
-│   ├── Models/
-│   │   ├── Reset.php         
-│   │   ├── Voluntario.php    
-│   │   └── Historia.php       
-│   │
-│   └── Controllers/
-│       ├── ResetController.php
-│       ├── VoluntarioController.php
-│       └── HistoriaController.php
-│
-├── src/
-│   ├── header.php
-│   ├── footer.php
-│   └── navbar.php
-│
-└── README.md
+RESET-ONG/
+├── app/                      # Lógica principal de la aplicación
+│   ├── config/               # Configuración global
+│   │   └── db.php            # Conexión a la base de datos
+│   ├── controlador/          # Los controladores de todos los formularios
+│   │   ├── ContactController.php
+│   │   ├── LoginController.php
+│   │   ├── RegisterController.php
+│   │   ├── resetcontrolador.php
+│   │   └── voluntariocontrolador.php
+│   ├── modelo/               # Los modelos, con la validación de los datos
+│   │   ├── RegisterModel.php
+│   │   ├── reset.php
+│   │   └── voluntario.php
+│   └── vista/                # Páginas que requieren lógica (Formularios)
+│       ├── Login.php
+│       └── Register.php
+├── pages/                    # Páginas estáticas o de información general
+│       ├── Contact.php
+│       ├── Historys.php
+│       ├── Impact.php
+│       ├── resets.php
+│       └── Volunteers.php
+├── public/                   # Archivos accesibles directamente por el navegador
+│   └── assets/
+│       └── img/              # Fotos de perfil y recursos visuales
+│           ├── CarlosRuiz.jpg
+│           ├── LauraMartinez.jpg
+│           └── ...
+├── src/                      # Recursos compartidos del código
+│   └── components/           # Partes de la web que se repiten
+│       ├── footer.php
+│       └── Header.php        
+├── .htaccess                 # Configuración del servidor (rutas amigables)
+├── 404.php                   # Página de error personalizada
+└── index.php                 # Puerta de entrada principal al proyecto
 ```
 
 ## - Clonar Repositorio

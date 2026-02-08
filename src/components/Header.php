@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset-ONG</title>
 
-    <!-- Link al css -->
-    <link rel="stylesheet" href="public/css/style.css">
 
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head> 
+<body class="font-sans flex items-center justify-center ">
+    <nav class="max-w-10xl mx-auto bg-white/60 md:px-5 absolute left-1/2 -translate-x-1/2 rounded-full top-6  backdrop-blur-md z-50  px-10 py-4 flex  justify-between gap-10">
+<!-- Logo svg para que ocupe menos y no pese tanto la pagina  -->
 
    
 <!--color: coral principal #ff3b30
     color: beige #f6f6f2 -->
 
 </head>
-<body class=" font-sans bg-white text-[#004e64]">
+<body class=" font-sans bg-white rounded-full">
     <nav class="bg-white shadow-md px-6 py-4 flex items-center justify-around ">
         <!-- Logo svg para que ocupe menos y no pese tanto la pagina  -->
         <div class="flex items-center gap-2">
@@ -25,40 +27,36 @@
         </div>
 
         <!-- Contenedor para checkbox y menú -->
-        <div class="md:hidden relative flex justify-around">
+        <div class="md:hidden relative">
         
             <input type="checkbox" id="menu-toggle" class="peer hidden" />
 
             <!-- Botón hamburguesa -->
             <label for="menu-toggle" class="cursor-pointer z-20 block">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewBox="0,0,256,256">
-                <g fill="#004e64" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(10.66667,10.66667)"><path d="M2,5v2h20v-2zM2,11v2h20v-2zM2,17v2h20v-2z"></path></g></g>
+                <g fill="#ff3b30" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(10.66667,10.66667)"><path d="M2,5v2h20v-2zM2,11v2h20v-2zM2,17v2h20v-2z"></path></g></g>
                 </svg>
             </label>
 
             <!-- Menú móvil -->
-            <div class="absolute mt-13  w-screen left-1/2 -translate-x-1/2 bg-gray-100 shadow-md flex-col hidden peer-checked:flex z-10">
-                <a class="block px-4 py-2 hover:text-[#25a18e]  transition" href="../public/Inicio.php">Inicio</a>
-                <a class="block px-4 py-2 hover:text-[#25a18e]  transition" href="../public/Historys.php">Historias</a>
-                <a class="block px-4 py-2 hover:text-[#25a18e]  transition" href="../public/Impact.php">Impacto</a>
-                <a class="block px-4 py-2 hover:text-[#25a18e]  transition" href="../public/Volunteers.php">Voluntarios</a>
-                <a class="block px-4 py-2 hover:text-[#25a18e]  transition" href="../public/Contact.php">Contacto</a>
-                <a class="block px-4 py-2 text-[#ff3b30] hover:bg-[#1a7a6b] hover:text-white " href="../app/vista/Login.php">Iniciar Sesión</a>
-                <a class="block px-4 py-2  text-[#ff3b30]  hover:bg-[#1a7a6b]  hover:bg-[#1a7a6b] hover:text-white     " href="../app/vista/Register.php">Registro</a>
-                </div>
-            </div>
+            <div class="absolute right-0 mt-2 w-48 bg-white shadow-md flex-col hidden peer-checked:flex z-10">
+                <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../pages/Inicio.php">Inicio</a>
+                <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../pages/Historys.php">Historias</a>
+                <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../pages/Impact.php">Impacto</a>
+                <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../pages/Volunteers.php">Voluntarios</a>
+                <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../pages/Contact.php">Contacto</a>
+                <a class="block px-4 py-2 bg-red-500 text-white  hover:bg-red-600 rounded-lg shadow-md  hover:shadow-lg hover:-translate-y-1 transition transform duration-300 " href="../pages/RequestReset.php">Solicitar RESET</a>
             </div>
         </div>
 
         <!-- Menú desktop -->
         <div class="hidden md:flex gap-6 items-center">
-            <a class="hover:text-[#25a18e] transition" href="../public/Inicio.php">Inicio</a>
-            <a class="hover:text-[#25a18e] transition" href="../public/Historys.php">Historias</a>
-            <a class="hover:text-[#25a18e] transition" href="../public/Impact.php">Impacto</a>
-            <a class="hover:text-[#25a18e] transition" href="../public/Volunteers.php">Voluntarios</a>
-            <a class="hover:text-[#25a18e] transition" href="../public/Contact.php">Contacto</a>
-            <a class="block px-4 py-2 bg-white border border-[#25a18e] text-[#25a18e]  hover:bg-[#25a18e] hover:text-white rounded-lg shadow-md  hover:shadow-lg hover:-translate-y-1 transition transform duration-300" href="../app/vista/Login.php">Iniciar Sesión</a>
-            <a class="px-4 py-2 bg-[#25a18e] text-white  hover:bg-[#1a7a6b] rounded-lg shadow-md  hover:shadow-lg hover:-translate-y-1 transition transform duration-300  " href="../app/vista/Register.php">Registro</a>
+            <a class="hover:text-red-500 transition" href="../pages/Inicio.php">Inicio</a>
+            <a class="hover:text-red-500 transition" href="../pages/Historys.php">Historias</a>
+            <a class="hover:text-red-500 transition" href="../pages/Impact.php">Impacto</a>
+            <a class="hover:text-red-500 transition" href="../pages/Volunteers.php">Voluntarios</a>
+            <a class="hover:text-red-500 transition" href="../pages/Contact.php">Contacto</a>
+            <a class="bg-red-500 text-white px-4 py-2  hover:bg-red-600 rounded-lg shadow-md  hover:shadow-lg hover:-translate-y-1 transition transform duration-300" href="../pages/RequestReset.php">Solicitar RESET</a>
         </div>
     </nav>
 </body>
