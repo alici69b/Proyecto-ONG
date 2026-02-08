@@ -26,10 +26,10 @@
     -->
 
 </head>
-<body class="font-sans bg-[#f4f9fa]" id="contacto">
+<body class="font-sans bg-[#EBEBEB] pt-25 " id="contacto">
     <!-- importamos el Header, para tenelo en esta pagina -->
     <?php
-    require_once "../src/Header.php";
+    require_once "../src/components/Header.php";
     ?>
 
     <!-- BOTON DE IR AL PRINCIPIO DE LA PAGINA CONTACTO -->
@@ -170,7 +170,7 @@
         
     
     <?php
-    require_once "../src/Footer.php";
+    require_once "../src/components/Footer.php";
     ?>
 
 </body>

@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset-ONG</title>
 
-    <!-- Link al css -->
-    <link rel="stylesheet" href="../../public/css/style.css">
 
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -30,7 +28,7 @@
   <div class="flex w-full flex-col justify-center px-8 md:px-16 lg:w-1/2 xl:px-24 bg-white">
     <div class="mx-auto w-full max-w-md">
       
-      <a href="../../public/Inicio.php" class="mb-10 flex items-center text-sm text-gray-500 hover:text-gray-700">
+      <a href="../../index.php" class="mb-10 flex items-center text-sm text-gray-500 hover:text-gray-700">
         <span class="mr-2">←</span> Volver al inicio
       </a>
 
@@ -45,12 +43,12 @@
 
       <form action="#" class="space-y-6">
         <div>
-          <label class="block text-sm font-medium text-gray-700">Email</label>
+          <label class="block text-sm  text-gray-700">Email</label>
           <input type="email" placeholder="tu@email.com" class="mt-1 w-full rounded-lg border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] " />
         </div>
 
         <div class="relative">
-          <label class="block text-sm font-medium text-gray-700">Contraseña</label>
+          <label class="block text-sm  text-gray-700">Contraseña</label>
           <input type="password" placeholder="••••••••" class="mt-1 w-full rounded-lg border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] " />
           <button type="button" class="absolute right-3 top-10 text-gray-400 hover:text-gray-600">
         
@@ -62,7 +60,7 @@
             <input type="checkbox" class="mr-2 h-4 w-4 rounded border-gray-300 text-[#00a5cf] " />
             Recordarme
           </label>
-          <a href="#" class="text-sm font-medium text-[#00a5cf] hover:underline">¿Olvidaste tu contraseña?</a>
+          <a href="#" class="text-sm  text-[#00a5cf] hover:underline">¿Olvidaste tu contraseña?</a>
         </div>
 
         <button type="submit" class="flex w-full items-center justify-center gap-2 rounded-lg bg-[#00a5cf] p-3 font-semibold text-white transition hover:bg-black">

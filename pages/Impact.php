@@ -24,7 +24,7 @@
 <body class="font-sans bg-[#fAfAfA]">
     <!-- Importamos el Menú de navegación -->
     <?php
-    require_once "../src/Header.php";
+    require_once "../src/components/Header.php";
     ?>
     <!-- Contenido Principal Impacto -->
     <main>
@@ -194,7 +194,7 @@
     <!-- Importamos el footer -->
     <footer>
     <?php
-    require_once "../src/Footer.php";
+    require_once "../src/components/Footer.php";
     ?>    
     </footer>
 </body>

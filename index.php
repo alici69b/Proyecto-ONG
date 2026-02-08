@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset-ONG</title>
     
-    <!-- Link al css -->
-    <link rel="stylesheet" href="css/style.css">
 
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -29,11 +27,11 @@
 <body class="font-sans animacion-entrada bg-[#f4f9fa] " id="inicio">
     <!-- importamos el Header, para tenelo en esta pagina -->
     <?php
-    require_once "../src/Header.php";
+    require_once "src/components/Header.php";
     ?>
 
     <!-- BOTON DE IR A INICIO -->
-    <div  class="scroll-smooth">
+    <div  class="scroll-smooth ">
 
         <a href="#inicio" class="fixed bottom-10 right-20 z-50 p-3 rounded-full bg-[#8CBEB2] text-white hover:bg-[#F2EBBF] transition shadow-lg flex items-center justify-center" aria-label="Volver al inicio">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg></a>
@@ -48,8 +46,8 @@
                 -Voluntarios
             - REcuento de las personas que participan en esta ong
      -->
-    <main class=" bg-linear-to-r from-[#00a5cf] to-[#9fffcb] min-h-150  py-20">
-        <div class="px-4 py-6 sm:px-10 md:px-20 flex justify-center ">
+    <main class=" bg-linear-to-r from-[#00a5cf] to-[#9fffcb] min-h-150  pt-40">
+        <div class="p-4 py-6 sm:px-10 md:px-20 flex justify-center ">
             <div class="flex bg-[#f6f6f2] items-center justify-center rounded-full px-4 py-2 sm:px-3 sm:py-2 gap-3 border border-gray-100">
             <svg class="w-6 h-6 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10.5766 8.70419C11.2099 7.56806 11.5266 7 12 7C12.4734 7 12.7901 7.56806 13.4234 8.70419L13.5873 8.99812C13.7672 9.32097 13.8572 9.48239 13.9975 9.5889C14.1378 9.69541 14.3126 9.73495 14.6621 9.81402L14.9802 9.88601C16.2101 10.1643 16.825 10.3034 16.9713 10.7739C17.1176 11.2443 16.6984 11.7345 15.86 12.715L15.643 12.9686C15.4048 13.2472 15.2857 13.3865 15.2321 13.5589C15.1785 13.7312 15.1965 13.9171 15.2325 14.2888L15.2653 14.6272C15.3921 15.9353 15.4554 16.5894 15.0724 16.8801C14.6894 17.1709 14.1137 16.9058 12.9622 16.3756L12.6643 16.2384C12.337 16.0878 12.1734 16.0124 12 16.0124C11.8266 16.0124 11.663 16.0878 11.3357 16.2384L11.0378 16.3756C9.88634 16.9058 9.31059 17.1709 8.92757 16.8801C8.54456 16.5894 8.60794 15.9353 8.7347 14.6272L8.76749 14.2888C8.80351 13.9171 8.82152 13.7312 8.76793 13.5589C8.71434 13.3865 8.59521 13.2472 8.35696 12.9686L8.14005 12.715C7.30162 11.7345 6.88241 11.2443 7.02871 10.7739C7.17501 10.3034 7.78993 10.1643 9.01977 9.88601L9.33794 9.81402C9.68743 9.73495 9.86217 9.69541 10.0025 9.5889C10.1428 9.48239 10.2328 9.32097 10.4127 8.99812L10.5766 8.70419Z" stroke="#ead757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> </svg>
@@ -69,8 +67,8 @@
             <div class="max-w-xl mx-auto text-center my-8 top-0">
                 <p class="pl-3 pr-3 mb-5  text-gray-900  sm:text-sm sm:p-2 lg:text-lg">Volvemos a dar vida a proyectos, hábitos, ideas, estudios y pequeños sueños que quedaron en pausa</p>
                 <div class=" flex justify-center text-center items-center  gap-3 p-2">
-                    <a class="block w-47 px-4 py-2 bg-[#1a7a6b] text-black text-white  rounded-lg shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="../public/RequestReset.php">Solicitar RESET</a>
-                <a class="block w-47 px-4 py-2   bg-[#1a7a6b] text-white  hover:bg-[#1a7a6b] hover:text-white rounded-lg shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="../public/Volunteers.php">Quiero ser voluntario</a>
+                    <a class="block w-47 px-4 py-2 bg-[#1a7a6b] text-black text-white  rounded-lg shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/RequestReset.php">Solicitar RESET</a>
+                <a class="block w-47 px-4 py-2   bg-[#1a7a6b] text-white  hover:bg-[#1a7a6b] hover:text-white rounded-lg shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/Volunteers.php">Quiero ser voluntario</a>
                
                 </div>
             </div>
@@ -237,8 +235,8 @@
                     <div class="max-w-xl mx-auto text-center my-8 top-0">
                         <p class="pl-3 pr-3 mb-5  text-gray-900  sm:text-sm sm:p-2 lg:text-lg">No tienes que hacerlo solo/a. Da el primer paso y déjanos ayudarte a reiniciar lo que quedó pendiente.</p>
                         <div class=" flex justify-center text-center items-center  gap-3 p-2">
-                            <a class="block w-47 px-4 py-2 bg-[#1a7a6b] text-black text-white  rounded-lg shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="../public/RequestReset.php">Solicitar RESET</a>
-                        <a class="block w-47 px-4 py-2   bg-[#1a7a6b] text-white  hover:bg-[#1a7a6b] hover:text-white rounded-lg shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="../public/Volunteers.php">Quiero ser voluntario</a>
+                            <a class="block w-47 px-4 py-2 bg-[#1a7a6b] text-black text-white  rounded-lg shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/RequestReset.php">Solicitar RESET</a>
+                        <a class="block w-47 px-4 py-2   bg-[#1a7a6b] text-white  hover:bg-[#1a7a6b] hover:text-white rounded-lg shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/Volunteers.php">Quiero ser voluntario</a>
                     
                         </div>
                     </div>
@@ -247,7 +245,7 @@
     
     <!-- Importacion del footer -->
     <?php
-    require_once "../src/Footer.php";
+    require_once "src/components/Footer.php";
     ?>
 
 </body>

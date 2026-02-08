@@ -24,10 +24,10 @@
 <body class="font-sans bg-[#fAfAfA]">
     <!-- Importamos el Menú de navegación -->
     <?php
-    require_once "../src/Header.php";
+    require_once "../src/components/Header.php";
     ?>
 
-    <main class="max-w-7xl mx-auto px-4 py-12">
+    <main class="max-w-7xl mx-auto px-4 py-12 pt-25">
         <div>
             
             
@@ -43,7 +43,7 @@
                 <!-- Foto -->
                 <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
                     <div class="relative inline-block"> 
-                        <img src="img/MariaGarcia.jpg" alt="María García" class="w-100 h-100 aspect-square object-cover rounded-3xl shadow-medium">
+                        <img src="../public/img/MariaGarcia.jpg" alt="María García" class="w-100 h-100 aspect-square object-cover rounded-3xl shadow-medium">
                         <!-- Etiqueta Foto -->
                         <div class="absolute -bottom-4 -right-4 px-4 py-2 rounded-xl text-sm font-medium shadow-lg text-white bg-teal-600">
                             Estudios
@@ -77,7 +77,7 @@
                         <div class="flex flex-wrap items-center gap-4 text-sm">
                             <!--Nombre-->
                             <div class="flex items-center gap-3">
-                                <img src="img/MariaGarcia.jpg" class="h-10 rounded-full object-cover">
+                                <img src="../public/img/MariaGarcia.jpg" class="h-10 rounded-full object-cover">
                                 <div>
                                     <p class="font-semibold">María García</p>
                                     <p class="text-gray-500 text-sm">28 años</p> 
@@ -119,7 +119,7 @@
                 <!-- Foto -->
                 <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
                     <div class="relative"> 
-                        <img src="img/CarlosRuiz.jpg" alt="María García" class="w-100 h-100 aspect-square object-cover rounded-3xl shadow-medium">
+                        <img src="../public/img/CarlosRuiz.jpg" alt="María García" class="w-100 h-100 aspect-square object-cover rounded-3xl shadow-medium">
                         <!-- Etiqueta Foto -->
                         <div class="absolute -bottom-4 -right-4 px-4 py-2 rounded-xl text-sm font-medium shadow-lg text-white bg-teal-600">
                             Proyecto
@@ -153,7 +153,7 @@
                         <div class="flex flex-wrap items-center gap-6 text-sm">
                             <!--Contenido-->
                             <div class="flex items-center gap-3">
-                                <img src="img/CarlosRuiz.jpg" class="h-10 rounded-full object-cover">
+                                <img src="../public/img/CarlosRuiz.jpg" class="h-10 rounded-full object-cover">
                                 <div>
                                     <p class="font-semibold ">Carlos Ruiz</p>
                                     <p class="text-gray-500 text-sm">34 años</p> 
@@ -195,7 +195,7 @@
                 <!-- Foto -->
                 <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
                     <div class="relative inline-block"> 
-                        <img src="img/LauraMartinez.jpg" alt="María García" class="w-100 h-100 aspect-square object-cover rounded-3xl shadow-medium">
+                        <img src="../public/img/LauraMartinez.jpg" alt="María García" class="w-100 h-100 aspect-square object-cover rounded-3xl shadow-medium">
                         <!-- Etiqueta Foto -->
                         <div class="absolute -bottom-4 -right-4 px-4 py-2 rounded-xl text-sm font-medium shadow-lg text-white bg-teal-600">
                             Creatividad
@@ -229,7 +229,7 @@
                         <div class="flex flex-wrap items-center gap-4 text-sm">
                             <!--Nombre-->
                             <div class="flex items-center gap-3">
-                                <img src="img/LauraMartinez.jpg" class="h-10 rounded-full object-cover">
+                                <img src="../public/img/LauraMartinez.jpg" class="h-10 rounded-full object-cover">
                                 <div>
                                     <p class="font-semibold">María García</p>
                                     <p class="text-gray-500 text-sm">29 años</p> 
@@ -271,7 +271,7 @@
                 <!-- Foto -->
                 <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
                     <div class="relative"> 
-                        <img src="img/JavierMoreno.jpg" alt="María García" class="w-100 h-100 aspect-square object-cover rounded-3xl shadow-medium">
+                        <img src="../public/img/JavierMoreno.jpg" alt="María García" class="w-100 h-100 aspect-square object-cover rounded-3xl shadow-medium">
                         <!-- Etiqueta Foto -->
                         <div class="absolute -bottom-4 -right-4 px-4 py-2 rounded-xl text-sm font-medium shadow-lg text-white bg-teal-600">
                             Salud
@@ -305,7 +305,7 @@
                         <div class="flex flex-wrap items-center gap-6 text-sm">
                             <!--Contenido-->
                             <div class="flex items-center gap-3">
-                                <img src="img/JavierMoreno.jpg" class="h-10 rounded-full object-cover">
+                                <img src="../public/img/JavierMoreno.jpg" class="h-10 rounded-full object-cover">
                                 <div>
                                     <p class="font-semibold ">Javier Moreno</p>
                                     <p class="text-gray-500 text-sm">31 años</p> 
@@ -358,7 +358,7 @@
     <!-- Importamos el footer -->
     <footer>
     <?php
-    require_once "../src/Footer.php";
+    require_once "../src/components/Footer.php";
     ?>    
     </footer>
     
