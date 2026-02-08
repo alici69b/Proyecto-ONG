@@ -14,7 +14,7 @@ $base = "/RESET-ONG/";
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head> 
 <body class="font-sans flex items-center justify-center ">
-    <nav class="max-w-10xl mx-auto bg-white/60  absolute left-1/2 -translate-x-1/2 rounded-full top-6  backdrop-blur-md z-50  px-10 py-4 flex  justify-between gap-10">
+    <nav class="max-w-10xl mx-auto bg-white/60 md:px-5 absolute left-1/2 -translate-x-1/2 rounded-full top-6  backdrop-blur-md z-50  px-10 py-4 flex  justify-between gap-10">
 <!-- Logo svg para que ocupe menos y no pese tanto la pagina  -->
 
 
