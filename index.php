@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset-ONG</title>
     
-    <!-- Link al css -->
-    <link rel="stylesheet" href="css/style.css">
 
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -29,11 +27,11 @@
 <body class="font-sans animacion-entrada bg-[#f4f9fa] " id="inicio">
     <!-- importamos el Header, para tenelo en esta pagina -->
     <?php
-    require_once "../src/Header.php";
+    require_once "src/components/Header.php";
     ?>
 
     <!-- BOTON DE IR A INICIO -->
-    <div  class="scroll-smooth">
+    <div  class="scroll-smooth ">
 
         <a href="#inicio" class="fixed bottom-10 right-20 z-50 p-3 rounded-full bg-[#8CBEB2] text-white hover:bg-[#F2EBBF] transition shadow-lg flex items-center justify-center" aria-label="Volver al inicio">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg></a>
@@ -48,7 +46,7 @@
                 -Voluntarios
             - REcuento de las personas que participan en esta ong
      -->
-    <main class=" bg-linear-to-r from-[#00a5cf] to-[#9fffcb] min-h-150  py-20">
+    <main class=" bg-linear-to-r from-[#00a5cf] to-[#9fffcb] min-h-150  py-40">
         <div class="px-4 py-6 sm:px-10 md:px-20 flex justify-center ">
             <div class="flex bg-[#f6f6f2] items-center justify-center rounded-full px-4 py-2 sm:px-3 sm:py-2 gap-3 border border-gray-100">
             <svg class="w-6 h-6 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,8 +67,8 @@
             <div class="max-w-xl mx-auto text-center my-8 top-0">
                 <p class="pl-3 pr-3 mb-5  text-gray-900  sm:text-sm sm:p-2 lg:text-lg">Volvemos a dar vida a proyectos, hábitos, ideas, estudios y pequeños sueños que quedaron en pausa</p>
                 <div class=" flex justify-center text-center items-center  gap-3 p-2">
-                    <a class="block w-47 px-4 py-2 bg-[#1a7a6b] text-black text-white  rounded-lg shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="../public/RequestReset.php">Solicitar RESET</a>
-                <a class="block w-47 px-4 py-2   bg-[#1a7a6b] text-white  hover:bg-[#1a7a6b] hover:text-white rounded-lg shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="../public/Volunteers.php">Quiero ser voluntario</a>
+                    <a class="block w-47 px-4 py-2 bg-[#1a7a6b] text-black text-white  rounded-lg shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/RequestReset.php">Solicitar RESET</a>
+                <a class="block w-47 px-4 py-2   bg-[#1a7a6b] text-white  hover:bg-[#1a7a6b] hover:text-white rounded-lg shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/Volunteers.php">Quiero ser voluntario</a>
                
                 </div>
             </div>
@@ -237,8 +235,8 @@
                     <div class="max-w-xl mx-auto text-center my-8 top-0">
                         <p class="pl-3 pr-3 mb-5  text-gray-900  sm:text-sm sm:p-2 lg:text-lg">No tienes que hacerlo solo/a. Da el primer paso y déjanos ayudarte a reiniciar lo que quedó pendiente.</p>
                         <div class=" flex justify-center text-center items-center  gap-3 p-2">
-                            <a class="block w-47 px-4 py-2 bg-[#1a7a6b] text-black text-white  rounded-lg shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="../public/RequestReset.php">Solicitar RESET</a>
-                        <a class="block w-47 px-4 py-2   bg-[#1a7a6b] text-white  hover:bg-[#1a7a6b] hover:text-white rounded-lg shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="../public/Volunteers.php">Quiero ser voluntario</a>
+                            <a class="block w-47 px-4 py-2 bg-[#1a7a6b] text-black text-white  rounded-lg shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/RequestReset.php">Solicitar RESET</a>
+                        <a class="block w-47 px-4 py-2   bg-[#1a7a6b] text-white  hover:bg-[#1a7a6b] hover:text-white rounded-lg shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/Volunteers.php">Quiero ser voluntario</a>
                     
                         </div>
                     </div>
@@ -247,7 +245,7 @@
     
     <!-- Importacion del footer -->
     <?php
-    require_once "../src/Footer.php";
+    require_once "src/components/Footer.php";
     ?>
 
 </body>

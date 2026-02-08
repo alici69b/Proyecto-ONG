@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historias</title>
 
-     
-    <!-- Link al css -->
-    <link rel="stylesheet" href="../public/css/style.css">
 
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -24,7 +21,7 @@
 <body class="font-sans bg-[#fAfAfA]">
     <!-- Importamos el Menú de navegación -->
     <?php
-    require_once "../src/Header.php";
+    require_once "../src/components/Header.php";
     ?>
     <!-- Contenido Principal Impacto -->
     <main>
@@ -194,7 +191,7 @@
     <!-- Importamos el footer -->
     <footer>
     <?php
-    require_once "../src/Footer.php";
+    require_once "../src/components/Footer.php";
     ?>    
     </footer>
 </body>
