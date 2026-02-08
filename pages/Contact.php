@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset-ONG</title>
 
-     <!-- Link al css -->
-    <link rel="stylesheet" href="../public/css/style.css">
 
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -26,21 +24,21 @@
     -->
 
 </head>
-<body class="font-sans bg-[#f4f9fa]" id="contacto">
+<body class="font-sans bg-[#EBEBEB] " id="contacto" >
     <!-- importamos el Header, para tenelo en esta pagina -->
     <?php
-    require_once "../src/Header.php";
+    require_once "../src/components/Header.php";
     ?>
 
     <!-- BOTON DE IR AL PRINCIPIO DE LA PAGINA CONTACTO -->
-    <div  class="scroll-smooth">
+    <div  class="scroll-smooth ">
 
         <a href="#contacto" class="fixed bottom-10 right-20 z-50 p-3 rounded-full bg-[#8CBEB2] text-white hover:bg-[#F2EBBF] transition shadow-lg flex items-center justify-center" aria-label="Volver al inicio">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg></a>
 
     </div>
 
-        <div class="text-center pt-15 pb-15">
+        <div class="text-center pt-35   pb-15">
             <p class=" text-[#00a5cf] text-xl sm:text-xl sm:p-2 lg:text-xl"><b>Contacto</b></p>
             <p class=" text-3xl sm:text-4xl sm:p-3 md:text-3xl lg:text-5xl"><b>¿Tienes alguna <i class="text-[#ff3b30]">pregunta</i>?</b></p>
             <p class="text-gray-500  sm:text-lg sm:p-2 lg:text-lg px-7">Puede ponerse en contacto con nosotros y le responderemos a la mayor brevedad posible.</p>
@@ -170,7 +168,7 @@
         
     
     <?php
-    require_once "../src/Footer.php";
+    require_once "../src/components/Footer.php";
     ?>
 
 </body>

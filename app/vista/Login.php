@@ -30,7 +30,7 @@
   <div class="flex w-full flex-col justify-center px-8 md:px-16 lg:w-1/2 xl:px-24 bg-white">
     <div class="mx-auto w-full max-w-md">
       
-      <a href="../../public/Inicio.php" class="mb-10 flex items-center text-sm text-gray-500 hover:text-gray-700">
+      <a href="../../index.php" class="mb-10 flex items-center text-sm text-gray-500 hover:text-gray-700">
         <span class="mr-2">←</span> Volver al inicio
       </a>
 
