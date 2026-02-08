@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset-ONG</title>
 
-    <!-- Link al css -->
-    <link rel="stylesheet" href="../public/css/style.css">
 
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -16,7 +14,7 @@
     color: beige #f6f6f2 -->
 
 </head>
-<body class=" font-sans bg-white ">
+<body class=" font-sans bg-white rounded-full">
     <nav class="bg-white shadow-md px-6 py-4 flex items-center justify-around ">
         <!-- Logo svg para que ocupe menos y no pese tanto la pagina  -->
         <div class="flex items-center gap-2">
@@ -38,23 +36,23 @@
 
             <!-- Menú móvil -->
             <div class="absolute right-0 mt-2 w-48 bg-white shadow-md flex-col hidden peer-checked:flex z-10">
-                <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../public/Inicio.php">Inicio</a>
-                <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../public/Historys.php">Historias</a>
-                <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../public/Impact.php">Impacto</a>
-                <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../public/Volunteers.php">Voluntarios</a>
-                <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../public/Contact.php">Contacto</a>
-                <a class="block px-4 py-2 bg-red-500 text-white  hover:bg-red-600 rounded-lg shadow-md  hover:shadow-lg hover:-translate-y-1 transition transform duration-300 " href="../public/RequestReset.php">Solicitar RESET</a>
+                <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../pages/Inicio.php">Inicio</a>
+                <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../pages/Historys.php">Historias</a>
+                <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../pages/Impact.php">Impacto</a>
+                <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../pages/Volunteers.php">Voluntarios</a>
+                <a class="block px-4 py-2 hover:bg-red-50 hover:text-red-500 transition" href="../pages/Contact.php">Contacto</a>
+                <a class="block px-4 py-2 bg-red-500 text-white  hover:bg-red-600 rounded-lg shadow-md  hover:shadow-lg hover:-translate-y-1 transition transform duration-300 " href="../pages/RequestReset.php">Solicitar RESET</a>
             </div>
         </div>
 
         <!-- Menú desktop -->
         <div class="hidden md:flex gap-6 items-center">
-            <a class="hover:text-red-500 transition" href="../public/Inicio.php">Inicio</a>
-            <a class="hover:text-red-500 transition" href="../public/Historys.php">Historias</a>
-            <a class="hover:text-red-500 transition" href="../public/Impact.php">Impacto</a>
-            <a class="hover:text-red-500 transition" href="../public/Volunteers.php">Voluntarios</a>
-            <a class="hover:text-red-500 transition" href="../public/Contact.php">Contacto</a>
-            <a class="bg-red-500 text-white px-4 py-2  hover:bg-red-600 rounded-lg shadow-md  hover:shadow-lg hover:-translate-y-1 transition transform duration-300" href="../public/RequestReset.php">Solicitar RESET</a>
+            <a class="hover:text-red-500 transition" href="../pages/Inicio.php">Inicio</a>
+            <a class="hover:text-red-500 transition" href="../pages/Historys.php">Historias</a>
+            <a class="hover:text-red-500 transition" href="../pages/Impact.php">Impacto</a>
+            <a class="hover:text-red-500 transition" href="../pages/Volunteers.php">Voluntarios</a>
+            <a class="hover:text-red-500 transition" href="../pages/Contact.php">Contacto</a>
+            <a class="bg-red-500 text-white px-4 py-2  hover:bg-red-600 rounded-lg shadow-md  hover:shadow-lg hover:-translate-y-1 transition transform duration-300" href="../pages/RequestReset.php">Solicitar RESET</a>
         </div>
     </nav>
 </body>

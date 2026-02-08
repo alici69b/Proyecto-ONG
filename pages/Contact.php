@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset-ONG</title>
 
-     <!-- Link al css -->
-    <link rel="stylesheet" href="../public/css/style.css">
-
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
@@ -23,7 +20,7 @@
 <body class="font-sans bg-[#fAfAfA]">
     <!-- importamos el Header, para tenelo en esta pagina -->
     <?php
-    require_once "../src/Header.php";
+    require_once "src/components/Header.php";
     ?>
         <div class="text-center pt-15 pb-15">
             <p class=" text-[#ff3b30] text-xl sm:text-xl sm:p-2 lg:text-xl"><b>Contacto</b></p>
@@ -124,7 +121,7 @@
         </section>
     
     <?php
-    require_once "../src/Footer.php";
+    require_once "src/components/Footer.php";
     ?>
 
 </body>

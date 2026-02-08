@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RESET-ong</title>
 
-    <!-- Link al css -->
-    <link rel="stylesheet" href="../public/css/style.css">
-
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
