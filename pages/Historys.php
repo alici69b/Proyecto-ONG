@@ -21,6 +21,27 @@
     -->
 
 </head>
+<!-- Script para efecto Sticky Stack -->
+<script>
+    window.addEventListener('scroll', () => {
+        const cards = document.querySelectorAll('.story-card');
+        
+        cards.forEach((card) => {
+            const rect = card.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            const scrollProgress = 1 - (rect.top / windowHeight);
+            
+            if (rect.top < windowHeight && rect.top > -rect.height) {
+                // Solo escala, SIN opacidad (100% opaco siempre)
+                const scale = Math.max(0.92, 1 - (scrollProgress * 0.03));
+                
+                card.style.transform = `scale(${scale})`;
+                card.style.opacity = 1; // ✅ SIEMPRE opaco
+            }
+        });
+    });
+</script>
 <body class="font-sans bg-[#fAfAfA]">
     <!-- Importamos el Menú de navegación -->
     <?php
@@ -33,318 +54,320 @@
             
             <!-- Título -->
              <div class="text-center my-12">
-                <h1 class="text-3xl font-bold mb-4">Historias de Éxito</h1>
+                <h1 class="text-3xl font-bold mb-4">Historias de <span class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] bg-clip-text text-transparent text-4xl">Éxito</span></h1>
                 <p class="max-w-2xl mx-auto  text-gray-500">Personas reales que decidieron darse otra oportunidad. Lee sus historias y encuentra inspiración para la tuya.</p>
             </div>
             
-            <!-- Historias de Éxito ( Contenido Principal ) -->
-            <!-- Primera Historia -->
-            <div class="flex flex-col lg:flex-row gap-12 items-center mb-12">
-                <!-- Foto -->
-                <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
-                    <div class="relative inline-block"> 
-                        <img src="../public/img/MariaGarcia.jpg" alt="María García" class="w-100 h-100 aspect-square object-cover rounded-3xl shadow-medium">
-                        <!-- Etiqueta Foto -->
-                        <div class="absolute -bottom-4 -right-4 px-4 py-2 rounded-xl text-sm font-medium shadow-lg text-white bg-teal-600">
-                            Estudios
-                        </div>
-                    </div>
-                </div>  
-                <!-- Card -->
-                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col lg:flex-row gap-6">
-                    <!-- Card Historia -->
-                    <div class="lg:w-auto p-8 lg:p-12 flex flex-col">
-                        <div class="relative mb-8">
-                            <!-- Icono Comillas -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-quote text-teal-600 opacity-30"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5a2 2 0 0 1 2 2v6c0 3.13 -1.65 5.193 -4.757 5.97a1 1 0 1 1 -.486 -1.94c2.227 -.557 3.243 -1.827 3.243 -4.03v-1h-3a2 2 0 0 1 -1.995 -1.85l-.005 -.15v-3a2 2 0 0 1 2 -2z" /><path d="M18 5a2 2 0 0 1 2 2v6c0 3.13 -1.65 5.193 -4.757 5.97a1 1 0 1 1 -.486 -1.94c2.227 -.557 3.243 -1.827 3.243 -4.03v-1h-3a2 2 0 0 1 -1.995 -1.85l-.005 -.15v-3a2 2 0 0 1 2 -2z" /></svg>
-                            <!--Titulo-->
-                            <h1 class="text-2xl lg:text-3xl font-bold ml-0">De abandonar Enfermería a estar en mi último año</h1>
-                        </div>
-                        <!-- Card Antes y Despues -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                            <!-- Card Antes -->
-                            <div class="bg-red-50 rounded-2xl p-6">
-                                <p class="text-sm font-semibold text-orange-600 mb-2">ANTES</p>
-                                <p class="text-gray-700 text-sm leading-relaxed">Dejé la carrera en segundo año cuando murió mi padre. No podía concentrarme, no tenía fuerzas. Los años pasaron y cada vez me parecía más imposible volver.</p>
-                            </div>
-                            <!-- Card Después -->
-                            <div class="bg-teal-50 rounded-2xl p-6">
-                                <p class="text-sm font-semibold text-teal-600 mb-2">DESPUÉS</p>
-                                <p class="text-gray-700 text-sm leading-relaxed">Gracias a RESET y a mi voluntaria Ana, que también había pasado por algo similar, encontré la forma de retomarlo. Hoy estoy en mi último año y me graduaré con honores.</p>
+            <!-- Contenedor Sticky -->
+            <div class="relative min-h-[300vh]">
+                <!-- Historias de Éxito ( Contenido Principal ) -->
+                <!-- Primera Historia -->
+                <div class="story-card sticky top-24 flex flex-col lg:flex-row gap-12 items-center mb-12 transition-all duration-300 bg-white rounded-3xl shadow-2xl p-6 z-10">
+                    <!-- Foto -->
+                    <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
+                        <div class="relative inline-block"> 
+                            <img src="../public/img/MariaGarcia.jpg" alt="María García" class="w-100 h-100 aspect-square object-cover rounded-3xl shadow-medium">
+                            <!-- Etiqueta Foto -->
+                            <div class="absolute -bottom-4 -right-4 px-4 py-2 rounded-xl text-sm font-medium shadow-lg text-white bg-teal-600">
+                                Estudios
                             </div>
                         </div>
-                        <!-- Card Footer -->
-                        <div class="flex flex-wrap items-center gap-4 text-sm">
-                            <!--Nombre-->
-                            <div class="flex items-center gap-3">
-                                <img src="../public/img/MariaGarcia.jpg" class="h-10 rounded-full object-cover">
-                                <div>
-                                    <p class="font-semibold">María García</p>
-                                    <p class="text-gray-500 text-sm">28 años</p> 
+                    </div>  
+                    <!-- Card -->
+                    <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col lg:flex-row gap-6">
+                        <!-- Card Historia -->
+                        <div class="lg:w-auto p-8 lg:p-12 flex flex-col">
+                            <div class="relative mb-8">
+                                <!-- Icono Comillas -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-quote text-teal-600 opacity-30"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5a2 2 0 0 1 2 2v6c0 3.13 -1.65 5.193 -4.757 5.97a1 1 0 1 1 -.486 -1.94c2.227 -.557 3.243 -1.827 3.243 -4.03v-1h-3a2 2 0 0 1 -1.995 -1.85l-.005 -.15v-3a2 2 0 0 1 2 -2z" /><path d="M18 5a2 2 0 0 1 2 2v6c0 3.13 -1.65 5.193 -4.757 5.97a1 1 0 1 1 -.486 -1.94c2.227 -.557 3.243 -1.827 3.243 -4.03v-1h-3a2 2 0 0 1 -1.995 -1.85l-.005 -.15v-3a2 2 0 0 1 2 -2z" /></svg>
+                                <!--Titulo-->
+                                <h1 class="text-2xl lg:text-3xl font-bold ml-0">De abandonar Enfermería a estar en mi último año</h1>
+                            </div>
+                            <!-- Card Antes y Despues -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                <!-- Card Antes -->
+                                <div class="bg-red-50 rounded-2xl p-6">
+                                    <p class="text-sm font-semibold text-orange-600 mb-2">ANTES</p>
+                                    <p class="text-gray-700 text-sm leading-relaxed">Dejé la carrera en segundo año cuando murió mi padre. No podía concentrarme, no tenía fuerzas. Los años pasaron y cada vez me parecía más imposible volver.</p>
+                                </div>
+                                <!-- Card Después -->
+                                <div class="bg-teal-50 rounded-2xl p-6">
+                                    <p class="text-sm font-semibold text-teal-600 mb-2">DESPUÉS</p>
+                                    <p class="text-gray-700 text-sm leading-relaxed">Gracias a RESET y a mi voluntaria Ana, que también había pasado por algo similar, encontré la forma de retomarlo. Hoy estoy en mi último año y me graduaré con honores.</p>
                                 </div>
                             </div>
-                            <!--Separador-->
-                            <div class="h-8 w-px bg-gray-300"></div>
-                            <!--Voluntario-->
-                            <div class="flex items-center gap-1">
-                                <p>
-                                    <span class="text-gray-500">Voluntario:</span>
-                                    <span class="font-medium text-gray-800"> Ana López</span>
-                                </p>
-                            </div>
-                            <!--Separador-->
-                            <div class="h-8 w-px bg-gray-300"></div>
-                            <!--Duración-->
-                            <div class="flex items-center gap-1">
-                                <p>
-                                    <span class="text-gray-500">Duración:</span>
-                                    <span class="font-medium text-gray-800"> 8 meses</span>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Valoración -->
-                        <div class="flex gap-1 text-yellow-400 ml-auto cursor-pointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
-                        </div> 
-                    </div> 
-                </div>
-            </div>
-
-            <!-- Segunda Historia -->
-            <div class="flex flex-col lg:flex-row-reverse gap-12 items-center mb-12">
-                <!-- Foto -->
-                <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
-                    <div class="relative"> 
-                        <img src="../public/img/CarlosRuiz.jpg" alt="María García" class="w-100 h-100 aspect-square object-cover rounded-3xl shadow-medium">
-                        <!-- Etiqueta Foto -->
-                        <div class="absolute -bottom-4 -right-4 px-4 py-2 rounded-xl text-sm font-medium shadow-lg text-white bg-teal-600">
-                            Proyecto
-                        </div>
-                    </div>
-                </div>  
-                <!-- Card -->
-                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col lg:flex-row gap-6">
-                    <!-- Card Historia -->
-                    <div class="lg:w-auto p-8 lg:p-12 flex flex-col">
-                        <div class="relative mb-8">
-                            <!-- Icono Comillas -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-quote text-teal-600 opacity-30"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5a2 2 0 0 1 2 2v6c0 3.13 -1.65 5.193 -4.757 5.97a1 1 0 1 1 -.486 -1.94c2.227 -.557 3.243 -1.827 3.243 -4.03v-1h-3a2 2 0 0 1 -1.995 -1.85l-.005 -.15v-3a2 2 0 0 1 2 -2z" /><path d="M18 5a2 2 0 0 1 2 2v6c0 3.13 -1.65 5.193 -4.757 5.97a1 1 0 1 1 -.486 -1.94c2.227 -.557 3.243 -1.827 3.243 -4.03v-1h-3a2 2 0 0 1 -1.995 -1.85l-.005 -.15v-3a2 2 0 0 1 2 -2z" /></svg>
-                            <!--Titulo-->
-                            <h1 class="text-2xl lg:text-3xl font-bold ml-0">Mi tienda online que llevaba 2 años en un cajón</h1>
-                        </div>
-                        <!-- Card Antes y Despues -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                            <!-- Card Antes -->
-                            <div class="bg-red-50 rounded-2xl p-6">
-                                <p class="text-sm font-semibold text-orange-600 mb-2">ANTES</p>
-                                <p class="text-gray-700 text-sm leading-relaxed">Tenía el proyecto, el producto, los proveedores... pero el miedo al fracaso me paralizaba. Cada día que pasaba era más difícil empezar.</p>
-                            </div>
-                            <!-- Card Después -->
-                            <div class="bg-teal-50 rounded-2xl p-6">
-                                <p class="text-sm font-semibold text-teal-600 mb-2">DESPUÉS</p>
-                                <p class="text-gray-700 text-sm leading-relaxed">Mi mentor Pablo me ayudó a ver que el único obstáculo era yo mismo. Lanzamos juntos en 3 meses. Hoy facturo 4.000€ mensuales vendiendo artesanía local.</p>
-                            </div>
-                        </div>
-                        <!-- Card Footer -->
-                        <div class="flex flex-wrap items-center gap-6 text-sm">
-                            <!--Contenido-->
-                            <div class="flex items-center gap-3">
-                                <img src="../public/img/CarlosRuiz.jpg" class="h-10 rounded-full object-cover">
-                                <div>
-                                    <p class="font-semibold ">Carlos Ruiz</p>
-                                    <p class="text-gray-500 text-sm">34 años</p> 
+                            <!-- Card Footer -->
+                            <div class="flex flex-wrap items-center gap-4 text-sm">
+                                <!--Nombre-->
+                                <div class="flex items-center gap-3">
+                                    <img src="../public/img/MariaGarcia.jpg" class="h-10 rounded-full object-cover">
+                                    <div>
+                                        <p class="font-semibold">María García</p>
+                                        <p class="text-gray-500 text-sm">28 años</p> 
+                                    </div>
+                                </div>
+                                <!--Separador-->
+                                <div class="h-8 w-px bg-gray-300"></div>
+                                <!--Voluntario-->
+                                <div class="flex items-center gap-1">
+                                    <p>
+                                        <span class="text-gray-500">Voluntario:</span>
+                                        <span class="font-medium text-gray-800"> Ana López</span>
+                                    </p>
+                                </div>
+                                <!--Separador-->
+                                <div class="h-8 w-px bg-gray-300"></div>
+                                <!--Duración-->
+                                <div class="flex items-center gap-1">
+                                    <p>
+                                        <span class="text-gray-500">Duración:</span>
+                                        <span class="font-medium text-gray-800"> 8 meses</span>
+                                    </p>
                                 </div>
                             </div>
-                            <!--Separador-->
-                            <div class="h-8 w-px bg-gray-300"></div>
-                            <!--Contenido-->
-                            <div class="hidden sm:block">
-                                <p>
-                                    <span class="text-gray-500">Voluntario:</span>
-                                    <span class="font-medium text-gray-800"> Pablo Fernández</span>
-                                </p>
-                            </div>
-                            <!--Separador-->
-                            <div class="h-8 w-px bg-gray-300"></div>
-                            <!--Contenido-->
-                            <div class="hidden sm:block">
-                                <p>
-                                    <span class="text-gray-500">Duración:</span>
-                                    <span class="font-medium text-gray-800"> 4 meses</span>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Valoración -->
-                        <div class="flex gap-1 text-yellow-400 ml-auto cursor-pointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                            <!-- Valoración -->
+                            <div class="flex gap-1 text-yellow-400 ml-auto cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                            </div> 
                         </div> 
-                    </div> 
-                </div>
-            </div>
-
-            <!-- Tercera Historia -->
-            <div class="flex flex-col lg:flex-row gap-12 items-center mb-12">
-                <!-- Foto -->
-                <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
-                    <div class="relative inline-block"> 
-                        <img src="../public/img/LauraMartinez.jpg" alt="María García" class="w-100 h-100 aspect-square object-cover rounded-3xl shadow-medium">
-                        <!-- Etiqueta Foto -->
-                        <div class="absolute -bottom-4 -right-4 px-4 py-2 rounded-xl text-sm font-medium shadow-lg text-white bg-teal-600">
-                            Creatividad
-                        </div>
                     </div>
-                </div>  
-                <!-- Card -->
-                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col lg:flex-row gap-6">
-                    <!-- Card Historia -->
-                    <div class="lg:w-auto p-8 lg:p-12 flex flex-col">
-                        <div class="relative mb-8">
-                            <!-- Icono Comillas -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-quote text-teal-600 opacity-30"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5a2 2 0 0 1 2 2v6c0 3.13 -1.65 5.193 -4.757 5.97a1 1 0 1 1 -.486 -1.94c2.227 -.557 3.243 -1.827 3.243 -4.03v-1h-3a2 2 0 0 1 -1.995 -1.85l-.005 -.15v-3a2 2 0 0 1 2 -2z" /><path d="M18 5a2 2 0 0 1 2 2v6c0 3.13 -1.65 5.193 -4.757 5.97a1 1 0 1 1 -.486 -1.94c2.227 -.557 3.243 -1.827 3.243 -4.03v-1h-3a2 2 0 0 1 -1.995 -1.85l-.005 -.15v-3a2 2 0 0 1 2 -2z" /></svg>
-                            <!--Titulo-->
-                            <h1 class="text-2xl lg:text-3xl font-bold ml-0">Volver a pintar después de ser madre</h1>
-                        </div>
-                        <!-- Card Antes y Despues -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                            <!-- Card Antes -->
-                            <div class="bg-red-50 rounded-2xl p-6">
-                                <p class="text-sm font-semibold text-orange-600 mb-2">ANTES</p>
-                                <p class="text-gray-700 text-sm leading-relaxed">Dejé de pintar cuando nació mi hijo. Creía que era egoísta dedicarme tiempo a mí. 5 años sin tocar un pincel.</p>
-                            </div>
-                            <!-- Card Después -->
-                            <div class="bg-teal-50 rounded-2xl p-6">
-                                <p class="text-sm font-semibold text-teal-600 mb-2">DESPUÉS</p>
-                                <p class="text-gray-700 text-sm leading-relaxed">RESET me conectó con una artista que había pasado por lo mismo. Me ayudó a ver que cuidarme también era cuidar a mi familia. Ahora tengo mi propia exposición en una galería local.</p>
+                </div>
+
+                <!-- Segunda Historia -->
+                <div class="story-card sticky top-32 flex flex-col lg:flex-row-reverse gap-12 items-center mb-12 transition-all duration-300 bg-white rounded-3xl shadow-2xl p-6 z-20">
+                    <!-- Foto -->
+                    <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
+                        <div class="relative"> 
+                            <img src="../public/img/CarlosRuiz.jpg" alt="María García" class="w-100 h-100 aspect-square object-cover rounded-3xl shadow-medium">
+                            <!-- Etiqueta Foto -->
+                            <div class="absolute -bottom-4 -right-4 px-4 py-2 rounded-xl text-sm font-medium shadow-lg text-white bg-teal-600">
+                                Proyecto
                             </div>
                         </div>
-                        <!-- Card Footer -->
-                        <div class="flex flex-wrap items-center gap-4 text-sm">
-                            <!--Nombre-->
-                            <div class="flex items-center gap-3">
-                                <img src="../public/img/LauraMartinez.jpg" class="h-10 rounded-full object-cover">
-                                <div>
-                                    <p class="font-semibold">María García</p>
-                                    <p class="text-gray-500 text-sm">29 años</p> 
+                    </div>  
+                    <!-- Card -->
+                    <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col lg:flex-row gap-6">
+                        <!-- Card Historia -->
+                        <div class="lg:w-auto p-8 lg:p-12 flex flex-col">
+                            <div class="relative mb-8">
+                                <!-- Icono Comillas -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-quote text-teal-600 opacity-30"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5a2 2 0 0 1 2 2v6c0 3.13 -1.65 5.193 -4.757 5.97a1 1 0 1 1 -.486 -1.94c2.227 -.557 3.243 -1.827 3.243 -4.03v-1h-3a2 2 0 0 1 -1.995 -1.85l-.005 -.15v-3a2 2 0 0 1 2 -2z" /><path d="M18 5a2 2 0 0 1 2 2v6c0 3.13 -1.65 5.193 -4.757 5.97a1 1 0 1 1 -.486 -1.94c2.227 -.557 3.243 -1.827 3.243 -4.03v-1h-3a2 2 0 0 1 -1.995 -1.85l-.005 -.15v-3a2 2 0 0 1 2 -2z" /></svg>
+                                <!--Titulo-->
+                                <h1 class="text-2xl lg:text-3xl font-bold ml-0">Mi tienda online que llevaba 2 años en un cajón</h1>
+                            </div>
+                            <!-- Card Antes y Despues -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                <!-- Card Antes -->
+                                <div class="bg-red-50 rounded-2xl p-6">
+                                    <p class="text-sm font-semibold text-orange-600 mb-2">ANTES</p>
+                                    <p class="text-gray-700 text-sm leading-relaxed">Tenía el proyecto, el producto, los proveedores... pero el miedo al fracaso me paralizaba. Cada día que pasaba era más difícil empezar.</p>
+                                </div>
+                                <!-- Card Después -->
+                                <div class="bg-teal-50 rounded-2xl p-6">
+                                    <p class="text-sm font-semibold text-teal-600 mb-2">DESPUÉS</p>
+                                    <p class="text-gray-700 text-sm leading-relaxed">Mi mentor Pablo me ayudó a ver que el único obstáculo era yo mismo. Lanzamos juntos en 3 meses. Hoy facturo 4.000€ mensuales vendiendo artesanía local.</p>
                                 </div>
                             </div>
-                            <!--Separador-->
-                            <div class="h-8 w-px bg-gray-300"></div>
-                            <!--Voluntario-->
-                            <div class="flex items-center gap-1">
-                                <p>
-                                    <span class="text-gray-500">Voluntario:</span>
-                                    <span class="font-medium text-gray-800"> Elena Santos</span>
-                                </p>
-                            </div>
-                            <!--Separador-->
-                            <div class="h-8 w-px bg-gray-300"></div>
-                            <!--Duración-->
-                            <div class="flex items-center gap-1">
-                                <p>
-                                    <span class="text-gray-500">Duración:</span>
-                                    <span class="font-medium text-gray-800"> 6 meses</span>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Valoración -->
-                        <div class="flex gap-1 text-yellow-400 ml-auto cursor-pointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
-                        </div> 
-                    </div> 
-                </div>
-            </div>
-
-           <!-- Cuarta Historia -->
-            <div class="flex flex-col lg:flex-row-reverse gap-12 items-center mb-12">
-                <!-- Foto -->
-                <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
-                    <div class="relative"> 
-                        <img src="../public/img/JavierMoreno.jpg" alt="María García" class="w-100 h-100 aspect-square object-cover rounded-3xl shadow-medium">
-                        <!-- Etiqueta Foto -->
-                        <div class="absolute -bottom-4 -right-4 px-4 py-2 rounded-xl text-sm font-medium shadow-lg text-white bg-teal-600">
-                            Salud
-                        </div>
-                    </div>
-                </div>  
-                <!-- Card -->
-                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col lg:flex-row gap-6">
-                    <!-- Card Historia -->
-                    <div class="lg:w-auto p-8 lg:p-12 flex flex-col">
-                        <div class="relative mb-8">
-                            <!-- Icono Comillas -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-quote text-teal-600 opacity-30"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5a2 2 0 0 1 2 2v6c0 3.13 -1.65 5.193 -4.757 5.97a1 1 0 1 1 -.486 -1.94c2.227 -.557 3.243 -1.827 3.243 -4.03v-1h-3a2 2 0 0 1 -1.995 -1.85l-.005 -.15v-3a2 2 0 0 1 2 -2z" /><path d="M18 5a2 2 0 0 1 2 2v6c0 3.13 -1.65 5.193 -4.757 5.97a1 1 0 1 1 -.486 -1.94c2.227 -.557 3.243 -1.827 3.243 -4.03v-1h-3a2 2 0 0 1 -1.995 -1.85l-.005 -.15v-3a2 2 0 0 1 2 -2z" /></svg>
-                            <!--Titulo-->
-                            <h1 class="text-2xl lg:text-3xl font-bold ml-0">Del sofá a mi primera media maratón</h1>
-                        </div>
-                        <!-- Card Antes y Despues -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                            <!-- Card Antes -->
-                            <div class="bg-red-50 rounded-2xl p-6">
-                                <p class="text-sm font-semibold text-orange-600 mb-2">ANTES</p>
-                                <p class="text-gray-700 text-sm leading-relaxed">La pandemia me destruyó físicamente. Gané 15 kilos, dejé todo tipo de ejercicio. Me daba vergüenza hasta salir a la calle.</p>
-                            </div>
-                            <!-- Card Después -->
-                            <div class="bg-teal-50 rounded-2xl p-6">
-                                <p class="text-sm font-semibold text-teal-600 mb-2">DESPUÉS</p>
-                                <p class="text-gray-700 text-sm leading-relaxed">Mi coach de RESET, que había perdido 40 kilos, me entendía perfectamente. Paso a paso, sin presiones. Hace un mes corrí mi primera media maratón.</p>
-                            </div>
-                        </div>
-                        <!-- Card Footer -->
-                        <div class="flex flex-wrap items-center gap-6 text-sm">
-                            <!--Contenido-->
-                            <div class="flex items-center gap-3">
-                                <img src="../public/img/JavierMoreno.jpg" class="h-10 rounded-full object-cover">
-                                <div>
-                                    <p class="font-semibold ">Javier Moreno</p>
-                                    <p class="text-gray-500 text-sm">31 años</p> 
+                            <!-- Card Footer -->
+                            <div class="flex flex-wrap items-center gap-6 text-sm">
+                                <!--Contenido-->
+                                <div class="flex items-center gap-3">
+                                    <img src="../public/img/CarlosRuiz.jpg" class="h-10 rounded-full object-cover">
+                                    <div>
+                                        <p class="font-semibold ">Carlos Ruiz</p>
+                                        <p class="text-gray-500 text-sm">34 años</p> 
+                                    </div>
+                                </div>
+                                <!--Separador-->
+                                <div class="h-8 w-px bg-gray-300"></div>
+                                <!--Contenido-->
+                                <div class="hidden sm:block">
+                                    <p>
+                                        <span class="text-gray-500">Voluntario:</span>
+                                        <span class="font-medium text-gray-800"> Pablo Fernández</span>
+                                    </p>
+                                </div>
+                                <!--Separador-->
+                                <div class="h-8 w-px bg-gray-300"></div>
+                                <!--Contenido-->
+                                <div class="hidden sm:block">
+                                    <p>
+                                        <span class="text-gray-500">Duración:</span>
+                                        <span class="font-medium text-gray-800"> 4 meses</span>
+                                    </p>
                                 </div>
                             </div>
-                            <!--Separador-->
-                            <div class="h-8 w-px bg-gray-300"></div>
-                            <!--Contenido-->
-                            <div class="hidden sm:block">
-                                <p>
-                                    <span class="text-gray-500">Voluntario:</span>
-                                    <span class="font-medium text-gray-800"> Roberto Silva</span>
-                                </p>
-                            </div>
-                            <!--Separador-->
-                            <div class="h-8 w-px bg-gray-300"></div>
-                            <!--Contenido-->
-                            <div class="hidden sm:block">
-                                <p>
-                                    <span class="text-gray-500">Duración:</span>
-                                    <span class="font-medium text-gray-800"> 12 meses</span>
-                                </p>
+                            <!-- Valoración -->
+                            <div class="flex gap-1 text-yellow-400 ml-auto cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                            </div> 
+                        </div> 
+                    </div>
+                </div>
+
+                <!-- Tercera Historia -->
+                <div class="story-card sticky top-40 flex flex-col lg:flex-row gap-12 items-center mb-12 transition-all duration-300 bg-white rounded-3xl shadow-2xl p-6 z-30">
+                    <!-- Foto -->
+                    <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
+                        <div class="relative inline-block"> 
+                            <img src="../public/img/LauraMartinez.jpg" alt="María García" class="w-100 h-100 aspect-square object-cover rounded-3xl shadow-medium">
+                            <!-- Etiqueta Foto -->
+                            <div class="absolute -bottom-4 -right-4 px-4 py-2 rounded-xl text-sm font-medium shadow-lg text-white bg-teal-600">
+                                Creatividad
                             </div>
                         </div>
-                        <!-- Valoración -->
-                        <div class="flex gap-1 text-yellow-400 ml-auto cursor-pointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                    </div>  
+                    <!-- Card -->
+                    <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col lg:flex-row gap-6">
+                        <!-- Card Historia -->
+                        <div class="lg:w-auto p-8 lg:p-12 flex flex-col">
+                            <div class="relative mb-8">
+                                <!-- Icono Comillas -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-quote text-teal-600 opacity-30"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5a2 2 0 0 1 2 2v6c0 3.13 -1.65 5.193 -4.757 5.97a1 1 0 1 1 -.486 -1.94c2.227 -.557 3.243 -1.827 3.243 -4.03v-1h-3a2 2 0 0 1 -1.995 -1.85l-.005 -.15v-3a2 2 0 0 1 2 -2z" /><path d="M18 5a2 2 0 0 1 2 2v6c0 3.13 -1.65 5.193 -4.757 5.97a1 1 0 1 1 -.486 -1.94c2.227 -.557 3.243 -1.827 3.243 -4.03v-1h-3a2 2 0 0 1 -1.995 -1.85l-.005 -.15v-3a2 2 0 0 1 2 -2z" /></svg>
+                                <!--Titulo-->
+                                <h1 class="text-2xl lg:text-3xl font-bold ml-0">Volver a pintar después de ser madre</h1>
+                            </div>
+                            <!-- Card Antes y Despues -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                <!-- Card Antes -->
+                                <div class="bg-red-50 rounded-2xl p-6">
+                                    <p class="text-sm font-semibold text-orange-600 mb-2">ANTES</p>
+                                    <p class="text-gray-700 text-sm leading-relaxed">Dejé de pintar cuando nació mi hijo. Creía que era egoísta dedicarme tiempo a mí. 5 años sin tocar un pincel.</p>
+                                </div>
+                                <!-- Card Después -->
+                                <div class="bg-teal-50 rounded-2xl p-6">
+                                    <p class="text-sm font-semibold text-teal-600 mb-2">DESPUÉS</p>
+                                    <p class="text-gray-700 text-sm leading-relaxed">RESET me conectó con una artista que había pasado por lo mismo. Me ayudó a ver que cuidarme también era cuidar a mi familia. Ahora tengo mi propia exposición en una galería local.</p>
+                                </div>
+                            </div>
+                            <!-- Card Footer -->
+                            <div class="flex flex-wrap items-center gap-4 text-sm">
+                                <!--Nombre-->
+                                <div class="flex items-center gap-3">
+                                    <img src="../public/img/LauraMartinez.jpg" class="h-10 rounded-full object-cover">
+                                    <div>
+                                        <p class="font-semibold">María García</p>
+                                        <p class="text-gray-500 text-sm">29 años</p> 
+                                    </div>
+                                </div>
+                                <!--Separador-->
+                                <div class="h-8 w-px bg-gray-300"></div>
+                                <!--Voluntario-->
+                                <div class="flex items-center gap-1">
+                                    <p>
+                                        <span class="text-gray-500">Voluntario:</span>
+                                        <span class="font-medium text-gray-800"> Elena Santos</span>
+                                    </p>
+                                </div>
+                                <!--Separador-->
+                                <div class="h-8 w-px bg-gray-300"></div>
+                                <!--Duración-->
+                                <div class="flex items-center gap-1">
+                                    <p>
+                                        <span class="text-gray-500">Duración:</span>
+                                        <span class="font-medium text-gray-800"> 6 meses</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Valoración -->
+                            <div class="flex gap-1 text-yellow-400 ml-auto cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                            </div> 
                         </div> 
-                    </div> 
+                    </div>
                 </div>
-            </div> 
 
+                <!-- Cuarta Historia -->
+                <div class="story-card sticky top-48 flex flex-col lg:flex-row-reverse gap-12 items-center mb-12 transition-all duration-300 bg-white rounded-3xl shadow-2xl p-6 z-40">
+                    <!-- Foto -->
+                    <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
+                        <div class="relative"> 
+                            <img src="../public/img/JavierMoreno.jpg" alt="María García" class="w-100 h-100 aspect-square object-cover rounded-3xl shadow-medium">
+                            <!-- Etiqueta Foto -->
+                            <div class="absolute -bottom-4 -right-4 px-4 py-2 rounded-xl text-sm font-medium shadow-lg text-white bg-teal-600">
+                                Salud
+                            </div>
+                        </div>
+                    </div>  
+                    <!-- Card -->
+                    <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col lg:flex-row gap-6">
+                        <!-- Card Historia -->
+                        <div class="lg:w-auto p-8 lg:p-12 flex flex-col">
+                            <div class="relative mb-8">
+                                <!-- Icono Comillas -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-quote text-teal-600 opacity-30"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5a2 2 0 0 1 2 2v6c0 3.13 -1.65 5.193 -4.757 5.97a1 1 0 1 1 -.486 -1.94c2.227 -.557 3.243 -1.827 3.243 -4.03v-1h-3a2 2 0 0 1 -1.995 -1.85l-.005 -.15v-3a2 2 0 0 1 2 -2z" /><path d="M18 5a2 2 0 0 1 2 2v6c0 3.13 -1.65 5.193 -4.757 5.97a1 1 0 1 1 -.486 -1.94c2.227 -.557 3.243 -1.827 3.243 -4.03v-1h-3a2 2 0 0 1 -1.995 -1.85l-.005 -.15v-3a2 2 0 0 1 2 -2z" /></svg>
+                                <!--Titulo-->
+                                <h1 class="text-2xl lg:text-3xl font-bold ml-0">Del sofá a mi primera media maratón</h1>
+                            </div>
+                            <!-- Card Antes y Despues -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                <!-- Card Antes -->
+                                <div class="bg-red-50 rounded-2xl p-6">
+                                    <p class="text-sm font-semibold text-orange-600 mb-2">ANTES</p>
+                                    <p class="text-gray-700 text-sm leading-relaxed">La pandemia me destruyó físicamente. Gané 15 kilos, dejé todo tipo de ejercicio. Me daba vergüenza hasta salir a la calle.</p>
+                                </div>
+                                <!-- Card Después -->
+                                <div class="bg-teal-50 rounded-2xl p-6">
+                                    <p class="text-sm font-semibold text-teal-600 mb-2">DESPUÉS</p>
+                                    <p class="text-gray-700 text-sm leading-relaxed">Mi coach de RESET, que había perdido 40 kilos, me entendía perfectamente. Paso a paso, sin presiones. Hace un mes corrí mi primera media maratón.</p>
+                                </div>
+                            </div>
+                            <!-- Card Footer -->
+                            <div class="flex flex-wrap items-center gap-6 text-sm">
+                                <!--Contenido-->
+                                <div class="flex items-center gap-3">
+                                    <img src="../public/img/JavierMoreno.jpg" class="h-10 rounded-full object-cover">
+                                    <div>
+                                        <p class="font-semibold ">Javier Moreno</p>
+                                        <p class="text-gray-500 text-sm">31 años</p> 
+                                    </div>
+                                </div>
+                                <!--Separador-->
+                                <div class="h-8 w-px bg-gray-300"></div>
+                                <!--Contenido-->
+                                <div class="hidden sm:block">
+                                    <p>
+                                        <span class="text-gray-500">Voluntario:</span>
+                                        <span class="font-medium text-gray-800"> Roberto Silva</span>
+                                    </p>
+                                </div>
+                                <!--Separador-->
+                                <div class="h-8 w-px bg-gray-300"></div>
+                                <!--Contenido-->
+                                <div class="hidden sm:block">
+                                    <p>
+                                        <span class="text-gray-500">Duración:</span>
+                                        <span class="font-medium text-gray-800"> 12 meses</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Valoración -->
+                            <div class="flex gap-1 text-yellow-400 ml-auto cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+                            </div> 
+                        </div> 
+                    </div>
+                </div> 
+            </div>  
             <!-- Card para Solicitar RESET -->
-            <div class="text-center mt-12">
-                <div class="bg-linear-to-br from-teal-600 to-red-300 rounded-3xl p-12 text-white shadow-lg">
+            <div class="text-center mt-12 relative z-50">
+                <div class="bg-gradient-to-br from-teal-600 to-red-300 rounded-3xl p-12 text-white shadow-lg">
                     <h1 class="text-3xl lg:text-4xl font-bold mb-4">Tu historia puede ser la próxima</h1>
                     <p class="text-lg lg:text-xl mb-8 leading-relaxed">Cada una de estas personas estuvo donde tú estás ahora. El primer paso es siempre el más difícil, pero no tienes que darlo solo/a.</p>
                     <a href="RequestReset.php" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-red-600 font-bold rounded-xl shadow-md hover:bg-red-600 hover:text-white transition-colors duration-300">

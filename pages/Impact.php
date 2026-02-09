@@ -3,143 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historias</title>
-
-     
-    <!-- Link al css -->
-    <link rel="stylesheet" href="../public/css/style.css">
+    <title>Impactos</title>
 
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <!--font-family: font-serif
-    color: coral principal #ff3b30
-    color regundario #ffe7e5
-    color: beige #f6f6f2
-    color footer gray-900
-    color numeros conectados con la base de datos #1441a5
+   <!--font-family: font-serif
+    colores
+        -azul oscuro: #004e64
+        -azul: #00a5cf
+        - verdeagua  #9fffcb
+        -verde : #25a18e
+        -verde vivo: #7ae582
+        -coral: #ff3b30
+        -poner letras con el degradado del inicio: bg-linear-to-r from-[#00a5cf] to-[#9fffcb] bg-clip-text text-transparent 
+        -color del  bg-[#f4f9fa]
+
     -->
 
 </head>
-<body class="font-sans bg-[#fAfAfA]">
-    <!-- Importamos el Menú de navegación -->
+<body class="font-serif bg-[#fAfAfA]">
+    
+<!-- Importamos el Menú de navegación -->
     <?php
     require_once "../src/components/Header.php";
     ?>
-    <!-- Contenido Principal Impacto -->
-    <main>
-        <div>
-            <!-- Título -->
-            <div>
-                <p>
+   
+   <!-- Contenido Principal Impacto -->
+    <main class="pt-40">
+        <div class="flex flex-col">
+           
+            <!-- Título de la página -->
+            <div class="flex md:flex-col flex-col  items-center justify-center">
+                <p class="text-[#25a18e] uppercase font-semibold">
                     Nuestro impacto
                 </p>
-                <h1>
-                    Cada número es una historia real
+                <h1 class="font-semibold font-serif md:text-5xl text-4xl flex flex-col text-center items-center">
+                    Cada número es una <span class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] bg-clip-text text-transparent"> historia real</span>
                 </h1>
-                <p>
+                <p class="font-normal md:text-lg text-normal text-gray-600/60 ">
                     Detrás de cada estadística hay una persona que decidió no rendirse
                 </p>
             </div>
+            
             <!-- Estadisticas -->
-            <div>
+            <div class="flex flex-row justify-around pt-24 space-x-6 p-4">
+
                 <!-- Resets Iniciados -->
-                <div>
-                    <div></div>
-                    <!-- Cantidad -->
-                    <div>127</div>
-                    <h2>Resets Iniciados</h2>
-                    <p>Proyectos y sueños retomados</p>
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 min-h-[250px] p-5 transition-transform transform hover:-translate-y-2 hover:shadow-2xl hover:bg-[#e0f7f2] duration-300">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-refresh bg-[#d6f3ee] text-[#25a18e] w-10 h-10 rounded-lg mt-5">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
+                            <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
+                        </svg>
+                    </div>
+                    <div class="font-semibold text-5xl mt-5">127</div>
+                    <h2 class="font-semibold text-lg mt-5">Resets Iniciados</h2>
+                    <p class="font-thin text-gray-600/60">Proyectos y sueños retomados</p>
                 </div>
+
                 <!-- Resets Completados -->
-                <div>
-                    <div></div>
-                    <!-- Cantidad -->
-                    <div>89</div>
-                    <h2>Resets Completados</h2>
-                    <p>Historias de éxito</p>
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 min-h-[250px] p-5 transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-[#fff4e6] duration-300">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-circle-check bg-[#f3e0d5] text-[#b96b2a] w-10 h-10 rounded-lg mt-5">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                            <path d="M9 12l2 2l4 -4" />
+                        </svg>
+                    </div>
+                    <div class="font-semibold text-5xl mt-5">89</div>
+                    <h2 class="font-semibold text-lg mt-5">Resets Completados</h2>
+                    <p class="font-thin text-gray-600/60">Historias de éxito</p>
                 </div>
+
                 <!-- Voluntarios Activos -->
-                <div>
-                    <div></div>
-                    <!-- Cantidad -->
-                    <div>34</div>
-                    <h2>Voluntarios Activos</h2>
-                    <p>Personas que ayudan</p>
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 min-h-[250px] p-5 transition-all transform hover:-translate-y-1 hover:scale-105 hover:shadow-xl hover:bg-[#fffdf0] duration-300">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-users bg-[#f3f3d5] text-[#b9af2a] w-10 h-10 rounded-lg mt-5">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                            <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+                        </svg>
+                    </div>
+                    <div class="font-semibold text-5xl mt-5">34</div>
+                    <h2 class="font-semibold text-lg mt-5">Voluntarios Activos</h2>
+                    <p class="font-thin text-gray-600/60">Personas que ayudan</p>
                 </div>
+
                 <!-- Tasa de Satisfacción -->
-                <div>
-                    <div></div>
-                    <!-- Porcentaje -->
-                    <div>95%</div>
-                    <h2>Tasa de Satisfacción</h2>
-                    <p>De nuestros usuarios</p>
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 min-h-[250px] p-5 transition-transform transform hover:rotate-1 hover:scale-105 hover:shadow-2xl hover:bg-[#e0f7f2] duration-300">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-trending-up bg-[#d6f3ee] text-[#25a18e] w-10 h-10 rounded-lg mt-5">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M3 17l6 -6l4 4l8 -8" />
+                            <path d="M14 7l7 0l0 7" />
+                        </svg>
+                    </div>
+                    <div class="font-semibold text-5xl mt-5">95%</div>
+                    <h2 class="font-semibold text-lg mt-5">Tasa de Satisfacción</h2>
+                    <p class="font-thin text-gray-600/60">De nuestros usuarios</p>
                 </div>
             </div>
+            
             <!-- Card Categorías y Evolución mensual -->
-            <div>
+            <div class="flex flex-row pt-24 p-4 space-x-6">
                 <!-- Categorías -->
-                <div>
-                    <h2>Por categoría</h2>
-                    <div>
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 p-7 space-y-5">
+                    <h2 class="font-semibold text-xl">Por categoría</h2>
+                    <div class="flex flex-col space-y-6">
                         <!-- Categoría 1 -->
                         <div>
                             <!-- Nombre Categoría -->
-                            <div>
-                                <div>Estudios</div>
+                            <div class="flex flex-row items-center space-y-1 justify-between">
+                                <div class="flex flex-row space-x-5 items-center">
+                                    <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-book w-10 h-10 text-[#00a5cf] bg-[#d6f3ee] p-2 rounded-lg"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" /><path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" /><path d="M3 6l0 13" /><path d="M12 6l0 13" /><path d="M21 6l0 13" />
+                                        </svg>
+                                    </div>
+                                    <div class="">Estudios</div>
+                                </div>
+                                <div>
+                                    42
+                                </div>
                                 <!-- Número de casos -->
                                 <span></span>
                             </div>
                             <!-- Medidor Categoría -->
-                            <div>
-                                
-                            </div>
+                            <div class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] h-6 rounded-full transition-all duration-500" style="width: 50%;"></div>
                         </div>
                         <!-- Categoría 2 -->
                         <div>
                             <!-- Nombre Categoría -->
-                            <div>
-                                <div>Proyectos</div>
+                            <div class="flex flex-row items-center space-y-1 justify-between">
+                                <div class="flex flex-row space-x-5 items-center">
+                                    <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-clipboard-list  w-10 h-10 text-[#00a5cf] bg-[#d6f3ee] p-2 rounded-lg"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" /><path d="M9 5a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2" /><path d="M9 12l.01 0" /><path d="M13 12l2 0" /><path d="M9 16l.01 0" /><path d="M13 16l2 0" /></svg>
+                                    </div>
+                                    <div>Proyectos</div>
+                                </div>
                                 <!-- Número de casos -->
-                                <span></span>
+                                <div>
+                                    15
+                                </div>
                             </div>
                             <!-- Medidor Categoría -->
-                            <div>
-                                
-                            </div>
+                            <div class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] h-6 rounded-full transition-all duration-500" style="width: 10%;"></div>
                         </div>
                         <!-- Categoría 3 -->
                         <div>
                             <!-- Nombre Categoría -->
-                            <div>
-                                <div>Hábitos</div>
+                            <div class="flex flex-row space-x-5 items-center space-y-1">
+                                <div>
+                                    <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart w-10 h-10 text-[#00a5cf] bg-[#d6f3ee] p-2 rounded-lg"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg></div>
+                                    <div>Hábitos</div>
+                                </div>
+                                
                                 <!-- Número de casos -->
                                 <span></span>
                             </div>
                             <!-- Medidor Categoría -->
-                            <div>
-                                
-                            </div>
+                            <div class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] h-6 rounded-full transition-all duration-500" style="width: 30%;"></div>
                         </div>
                         <!-- Categoría 4 -->
                         <div>
                             <!-- Nombre Categoría -->
-                            <div>
+                            <div class="flex flex-row space-x-5 items-center space-y-1">
+                                <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-medal w-10 h-10 text-[#00a5cf] bg-[#d6f3ee] p-2 rounded-lg"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 4v3m-4 -3v6m8 -6v6" /><path d="M12 18.5l-3 1.5l.5 -3.5l-2 -2l3 -.5l1.5 -3l1.5 3l3 .5l-2 2l.5 3.5l-3 -1.5" /></svg></div>
                                 <div>Otros sueños</div>
                                 <!-- Número de casos -->
                                 <span></span>
                             </div>
                             <!-- Medidor Categoría -->
-                            <div>
-                                
-                            </div>
+                            <div class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] h-6 rounded-full transition-all duration-500" style="width: 70%;"></div>
                         </div>
                     </div>
                 </div>
                 <!-- Evolución mensual -->
-                <div>
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 p-7">
                     <!-- Titulo -->
-                    <h2>Evolución mensual</h2>
+                    <h2 class="font-semibold text-xl">Evolución mensual</h2>
                     <div>
                         <div>
                             <span>8</span>
@@ -176,16 +227,17 @@
             </div>
             
             <!-- Card Footer Porcentaje -->
-            <div>
-                <div>
-                    <div>
-                        <h2></h2>
-                        <p></p>
+             <div class="text-center pt-24 p-4">
+                <div class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] rounded-3xl p-12 text-white shadow-lg flex flex-row justify-between items-center text-center align-middle space-x-30">
+                    <div class="flex flex-col space-y-4 items-start justify-start text-start">
+                        <div class="text-2xl md:text-3xl font-bold mb-4">El 70% de las personas que piden un RESET logran completar su objetivo</div>
+                        <div class="text-normal md:text-lg mb-8 leading-relaxed">Con el apoyo adecuado, la motivación correcta y un plan claro, la mayoría de las personas consiguen retomar aquello que abandonaron.</div>
                     </div>
-                    <div>
-                        <div></div>
-                        <div></div>
+                    <div class="flex flex-col space-y-1">
+                        <div class="font-semibold md:text-8xl text-6xl">70%</div>
+                        <div class="font-thin text-normal md:text-lg">Tasa de éxito</div>
                     </div>
+                    </a>
                 </div>
             </div>
         </div>
