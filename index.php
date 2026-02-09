@@ -72,7 +72,7 @@
             <div class=" max-w-xl mx-auto text-center my-4 top-0">
                 <p class="pl-3 pr-3 mb-5  text-gray-700  sm:text-sm sm:p-2 lg:text-lg font-["Archivo Black"]">Volvemos a dar vida a proyectos, hábitos, ideas, estudios y pequeños sueños que quedaron en pausa</p>
                 <div class=" flex justify-center text-center items-center  gap-3 p-2">
-                    <a class="block w-47 px-4 py-2 bg-[#1a7a6b] text-black text-white  rounded-full shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/RequestReset.php">Solicitar RESET</a>
+                    <a class="block w-47 px-4 py-2 bg-[#1a7a6b]  text-white  rounded-full shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/RequestReset.php">Solicitar RESET</a>
                 <a class="block w-47 px-4 py-2   bg-[#1a7a6b] text-white  hover:bg-[#1a7a6b] hover:text-white rounded-full shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/Volunteers.php">Quiero ser voluntario</a>
                
                 </div>
