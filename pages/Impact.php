@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impactos</title>
+    <!-- Link css -->
+    <link rel="stylesheet" href="../public/styles.css">
 
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -34,7 +36,7 @@
         <div class="flex flex-col">
            
             <!-- Título de la página -->
-            <div class="flex md:flex-col flex-col  items-center justify-center">
+            <div class="flex flex-col items-center justify-center">
                 <p class="text-[#25a18e] uppercase font-semibold">
                     Nuestro impacto
                 </p>
@@ -46,9 +48,8 @@
                 </p>
             </div>
             
-            <!-- Estadisticas -->
-            <div class="flex flex-row justify-around pt-24 space-x-6 p-4">
-
+            <!-- CARDS -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-16 p-4">
                 <!-- Resets Iniciados -->
                 <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 min-h-[250px] p-5 transition-transform transform hover:-translate-y-2 hover:shadow-2xl hover:bg-[#e0f7f2] duration-300">
                     <div>
@@ -60,7 +61,7 @@
                             <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
                         </svg>
                     </div>
-                    <div class="font-semibold text-5xl mt-5">127</div>
+                    <div class="font-semibold text-4xl md:text-5xl mt-5">127</div>
                     <h2 class="font-semibold text-lg mt-5">Resets Iniciados</h2>
                     <p class="font-thin text-gray-600/60">Proyectos y sueños retomados</p>
                 </div>
@@ -76,7 +77,7 @@
                             <path d="M9 12l2 2l4 -4" />
                         </svg>
                     </div>
-                    <div class="font-semibold text-5xl mt-5">89</div>
+                    <div class="font-semibold text-4xl md:text-5xl mt-5">89</div>
                     <h2 class="font-semibold text-lg mt-5">Resets Completados</h2>
                     <p class="font-thin text-gray-600/60">Historias de éxito</p>
                 </div>
@@ -94,7 +95,7 @@
                             <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
                         </svg>
                     </div>
-                    <div class="font-semibold text-5xl mt-5">34</div>
+                    <div class="font-semibold text-4xl md:text-5xl mt-5">34</div>
                     <h2 class="font-semibold text-lg mt-5">Voluntarios Activos</h2>
                     <p class="font-thin text-gray-600/60">Personas que ayudan</p>
                 </div>
@@ -110,16 +111,17 @@
                             <path d="M14 7l7 0l0 7" />
                         </svg>
                     </div>
-                    <div class="font-semibold text-5xl mt-5">95%</div>
+                    <div class="font-semibold text-4xl md:text-5xl mt-5">95%</div>
                     <h2 class="font-semibold text-lg mt-5">Tasa de Satisfacción</h2>
                     <p class="font-thin text-gray-600/60">De nuestros usuarios</p>
                 </div>
             </div>
-            
+
+            <!-- Segundos CARDS -->
             <!-- Card Categorías y Evolución mensual -->
-            <div class="flex flex-row pt-24 p-4 space-x-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-16 p-4 items-stretch">
                 <!-- Categorías -->
-                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 p-7 space-y-5">
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 p-7 space-y-5 h-full">
                     <h2 class="font-semibold text-xl">Por categoría</h2>
                     <div class="flex flex-col space-y-6">
                         <!-- Categoría 1 -->
@@ -132,11 +134,10 @@
                                     </div>
                                     <div class="">Estudios</div>
                                 </div>
-                                <div>
+                                <!-- Número de casos -->
+                                <div class="text-gray-400">
                                     42
                                 </div>
-                                <!-- Número de casos -->
-                                <span></span>
                             </div>
                             <!-- Medidor Categoría -->
                             <div class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] h-6 rounded-full transition-all duration-500" style="width: 50%;"></div>
@@ -151,7 +152,7 @@
                                     <div>Proyectos</div>
                                 </div>
                                 <!-- Número de casos -->
-                                <div>
+                                <div class="text-gray-400">
                                     15
                                 </div>
                             </div>
@@ -161,14 +162,15 @@
                         <!-- Categoría 3 -->
                         <div>
                             <!-- Nombre Categoría -->
-                            <div class="flex flex-row space-x-5 items-center space-y-1">
-                                <div>
+                            <div class="flex flex-row items-center space-y-1 justify-between">
+                                <div class="flex flex-row space-x-5 items-center">
                                     <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart w-10 h-10 text-[#00a5cf] bg-[#d6f3ee] p-2 rounded-lg"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg></div>
                                     <div>Hábitos</div>
                                 </div>
-                                
                                 <!-- Número de casos -->
-                                <span></span>
+                                <div class="text-gray-400">
+                                    30
+                                </div>
                             </div>
                             <!-- Medidor Categoría -->
                             <div class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] h-6 rounded-full transition-all duration-500" style="width: 30%;"></div>
@@ -176,72 +178,77 @@
                         <!-- Categoría 4 -->
                         <div>
                             <!-- Nombre Categoría -->
-                            <div class="flex flex-row space-x-5 items-center space-y-1">
-                                <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-medal w-10 h-10 text-[#00a5cf] bg-[#d6f3ee] p-2 rounded-lg"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 4v3m-4 -3v6m8 -6v6" /><path d="M12 18.5l-3 1.5l.5 -3.5l-2 -2l3 -.5l1.5 -3l1.5 3l3 .5l-2 2l.5 3.5l-3 -1.5" /></svg></div>
-                                <div>Otros sueños</div>
+                            <div class="flex flex-row items-center space-y-1 justify-between">
+                                <div class="flex flex-row space-x-5 items-center">
+                                    <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-medal w-10 h-10 text-[#00a5cf] bg-[#d6f3ee] p-2 rounded-lg"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 4v3m-4 -3v6m8 -6v6" /><path d="M12 18.5l-3 1.5l.5 -3.5l-2 -2l3 -.5l1.5 -3l1.5 3l3 .5l-2 2l.5 3.5l-3 -1.5" /></svg></div>
+                                    <div>Otros sueños</div>
+                                </div>
                                 <!-- Número de casos -->
-                                <span></span>
+                                <div class="text-gray-400">
+                                    55
+                                </div>
                             </div>
                             <!-- Medidor Categoría -->
-                            <div class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] h-6 rounded-full transition-all duration-500" style="width: 70%;"></div>
+                            <div class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] h-6 rounded-full transition-all duration-500" style="width: 55%;"></div>
                         </div>
                     </div>
                 </div>
                 <!-- Evolución mensual -->
-                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 p-7">
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 p-7 lg:h-full h-70 justify-between lg:justify-normal lg:space-y-38">
                     <!-- Titulo -->
                     <h2 class="font-semibold text-xl">Evolución mensual</h2>
-                    <div>
+                    <div class="flex flex-row justify-around items-center text-center">
                         <div>
                             <span>8</span>
                             <div></div>
-                            <span>Ago</span>
+                            <span class="text-gray-400">Ago</span>
                         </div>
                         <div>
                             <span>12</span>
                             <div></div>
-                            <span>Sep</span>
+                            <span class="text-gray-400">Sep</span>
                         </div>
                         <div>
                             <span>15</span>
                             <div></div>
-                            <span>Oct</span>
+                            <span class="text-gray-400">Oct</span>
                         </div>
                         <div>
                             <span>22</span>
                             <div></div>
-                            <span>Nov</span>
+                            <span class="text-gray-400">Nov</span>
                         </div>
                         <div>
                             <span>27</span>
                             <div></div>
-                            <span>Dic</span>
+                            <span class="text-gray-400">Dic</span>
                         </div>
                         <div>
                             <span>34</span>
                             <div></div>
-                            <span>Ene</span>
+                            <span class="text-gray-400">Ene</span>
                         </div>
                     </div>
                 </div>
             </div>
             
+
             <!-- Card Footer Porcentaje -->
-             <div class="text-center pt-24 p-4">
-                <div class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] rounded-3xl p-12 text-white shadow-lg flex flex-row justify-between items-center text-center align-middle space-x-30">
-                    <div class="flex flex-col space-y-4 items-start justify-start text-start">
-                        <div class="text-2xl md:text-3xl font-bold mb-4">El 70% de las personas que piden un RESET logran completar su objetivo</div>
-                        <div class="text-normal md:text-lg mb-8 leading-relaxed">Con el apoyo adecuado, la motivación correcta y un plan claro, la mayoría de las personas consiguen retomar aquello que abandonaron.</div>
+            <div class="text-center pt-16 p-4">
+                <div class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] rounded-3xl p-12 text-white shadow-lg flex flex-col md:flex-row justify-between items-center text-center space-y-6 md:space-y-0 md:space-x-10">
+                    <!-- Texto -->
+                    <div class="flex flex-col space-y-4 items-start justify-start text-start mb-6 md:mb-0">
+                        <div class="text-2xl md:text-3xl font-bold">El 70% de las personas que piden un RESET logran completar su objetivo</div>
+                        <div class="text-normal md:text-lg leading-relaxed">Con el apoyo adecuado, la motivación correcta y un plan claro, la mayoría de las personas consiguen retomar aquello que abandonaron.</div>
                     </div>
-                    <div class="flex flex-col space-y-1">
+                    <!-- Porcentaje -->
+                    <div class="flex flex-col space-y-1 items-center">
                         <div class="font-semibold md:text-8xl text-6xl">70%</div>
                         <div class="font-thin text-normal md:text-lg">Tasa de éxito</div>
                     </div>
-                    </a>
                 </div>
             </div>
         </div>
-        
     </main>
     <!-- Importamos el footer -->
     <footer>
