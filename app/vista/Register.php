@@ -84,7 +84,7 @@
 
           <div class="hidden peer-checked/voluntario:block animate-in fade-in duration-300">
               <label class="block text-sm font-medium text-slate-700 mb-2">¿Cómo puedes <i class="text-[#00a5cf]">ayudar</i>?</label>
-              <select name="tipo_ayuda_voluntario" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] ">
+              <select name="tipo_ayuda_voluntario" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#00a5cf] ">
               <option>Apoyo emocional</option>
               <option>Ayuda técnica</option>
               <option>Guía creativa</option>
