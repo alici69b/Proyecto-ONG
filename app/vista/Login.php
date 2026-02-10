@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -41,7 +44,16 @@
       <h1 class="text-3xl font-bold text-gray-900">Bienvenido/a de vuelta</h1>
       <p class="mt-2 mb-8 text-gray-600">Accede a tu cuenta para continuar tu proceso RESET.</p>
 
+
       <form action="#" class="space-y-6">
+<!-- Muestro los errores de el error del login  -->
+        <?php if (isset($_SESSION['error_login'])): ?>
+          <div class="bg-red-100 border-l-4 border-[#ff3b30] text-[#ff3b30] p-4 mb-6 rounded shadow-sm animate-pulse">
+              <p class="font-bold">Atención:</p>
+              <p><?php echo $_SESSION['error_login']; unset($_SESSION['error_login']); ?></p>
+          </div>
+        <?php endif; ?>
+
         <div>
           <label class="block text-sm  text-gray-700">Email</label>
           <input type="email" placeholder="tu@email.com" class="mt-1 w-full rounded-lg border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] " />
@@ -62,12 +74,15 @@
           </label>
           <a href="#" class="text-sm  text-[#00a5cf] hover:underline">¿Olvidaste tu contraseña?</a>
         </div>
-
-        <button type="submit" class="flex w-full items-center justify-center gap-2 rounded-lg bg-[#00a5cf] p-3 font-semibold text-white transition hover:bg-black">
+<!-- Muestro los errores de los intentos  -->
+        <button type="submit" class="flex w-full items-center justify-center gap-2 rounded-lg bg-[#00a5cf] p-3 font-semibold text-white transition hover:bg-black" name="iniciar_sesion" id="iniciar_sesion">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" /></svg>
-          Iniciar sesión
-        
+          Iniciar sessión
         </button>
+
+        
+       
+
 
         
       </form>

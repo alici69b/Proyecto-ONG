@@ -18,6 +18,9 @@ if(isset($_POST['crear_cuenta'])) {
         $opcion = $_POST['tipo_ayuda_voluntario'] ?? '';
     }
 
+    $email = $_SESSION['guardar_email'];
+    $contrasena = $_SESSION['guardar_contrasena'];
+
     $longitud_nombre = mb_strlen($nombre);
 
     //agregamos las funciones para validar los campos

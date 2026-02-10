@@ -36,7 +36,7 @@
 
             <div class="absolute top-full left-0 right-0 mt-4 mx-2 bg-white rounded-2xl shadow-2xl border border-gray-100 flex-col hidden peer-checked:flex overflow-hidden animate-in fade-in slide-in-from-top-4 duration-300">
                 <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="index.php">Inicio</a>
-                <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="../pages/Historys.php">Historias</a>
+                <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="pages/Historys.php">Historias</a>
                 <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="../pages/Impact.php">Impacto</a>
                 <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="../pages/Contact.php">Contacto</a>
                 <div class=" bg-gray-50 flex flex-col gap-1">
