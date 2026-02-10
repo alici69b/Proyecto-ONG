@@ -26,7 +26,6 @@ $base = "/RESET-ong/";
             <a class="text-gray-600 hover:text-[#25a18e] font-medium transition" href="<?php echo $base; ?>index.php">Inicio</a>
             <a class="text-gray-600 hover:text-[#25a18e] font-medium transition" href="<?php echo $base; ?>pages/Historys.php">Historias</a>
             <a class="text-gray-600 hover:text-[#25a18e] font-medium transition" href="<?php echo $base; ?>pages/Impact.php">Impacto</a>
-            <a class="text-gray-600 hover:text-[#25a18e] font-medium transition" href="<?php echo $base; ?>pages/Volunteers.php">Voluntarios</a>
             <a class="text-gray-600 hover:text-[#25a18e] font-medium transition" href="<?php echo $base; ?>pages/Contact.php">Contacto</a>
             <div class="flex items-center gap-3 ml-4">
                 <a class="px-5 py-2 border-2 border-[#25a18e] text-[#25a18e] rounded-full hover:bg-[#25a18e] hover:text-white transition font-bold text-sm" href="<?php echo $base; ?>app/vista/Login.php">Iniciar Sesión</a>
@@ -44,7 +43,6 @@ $base = "/RESET-ong/";
                 <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="<?php echo $base; ?>index.php">Inicio</a>
                 <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="<?php echo $base; ?>pages/Historys.php">Historias</a>
                 <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="<?php echo $base; ?>pages/Impact.php">Impacto</a>
-                <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="<?php echo $base; ?>pages/Volunteers.php">Voluntarios</a>
                 <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="<?php echo $base; ?>pages/Contact.php">Contacto</a>
                 <div class=" bg-gray-50 flex flex-col gap-1">
                     <a class="w-full py-3 text-center border-2 border-[#25a18e] text-[#25a18e] rounded-xl font-bold" href="<?php echo $base; ?>app/vista/Login.php">Iniciar Sesión</a>
