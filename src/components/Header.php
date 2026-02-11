@@ -42,7 +42,7 @@
                 <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="Impact.php">Impacto</a>
                 <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="Contact.php">Contacto</a>
                 <div class=" bg-gray-50 flex flex-col gap-1">
-                    <a class="w-full py-3 text-center border-2 border-[#25a18e] text-[#25a18e] rounded-xl font-bold" href="../../app/vista/Login.php">Iniciar Sesión</a>
+                    <a class="w-full py-3 text-center border-2 border-[#25a18e] text-[#25a18e] rounded-xl font-bold" href="/../app/vista/Login.php">Iniciar Sesión</a>
                     <a class="w-full py-3 text-center bg-[#25a18e] text-white rounded-xl font-bold" href="../app/vista/Register.php">Registro</a>
                 </div>
             </div>

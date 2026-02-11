@@ -106,7 +106,7 @@
           <input name="nombre" type="text" placeholder="¿Cómo te llamas?" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] transition-all" >
         </div>
 
-        <ul>
+        <ul class="bg-gray-50 border-gray-50 rounded-xl p-3">
           <?php if(!empty($_SESSION['erroresnombre'])): ?>
             <?php foreach($_SESSION['erroresnombre'] as $erroresnombre): ?>
               <li class="text-[#ff3b30] font-bold text-sm"><?php echo $erroresnombre; ?></li>
@@ -120,7 +120,7 @@
           <input name="email" type="email" placeholder="tu@email.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] transition-all" >
         </div>
 
-        <ul>
+        <ul class="bg-gray-50 border-gray-50 rounded-xl p-3">
           <?php if(!empty($_SESSION['erroresemail'])): ?>
             <?php foreach($_SESSION['erroresemail'] as $erroresemail): ?>
               <li class="text-[#ff3b30] font-bold text-sm"><?php echo $erroresemail; ?></li>
@@ -129,12 +129,12 @@
           
         </ul>
 
-        <div>
+        <div >
           <label for="contrasena" class="block text-sm font-medium text-slate-700 mb-2">Contraseña</label>
           <input name="contrasena" type="password" placeholder="Mínimo 8 caracteres" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] transition-all" >
         </div>
 
-        <ul>
+        <ul class="bg-gray-50 border-gray-50 rounded-xl p-3">
           <?php if(!empty($_SESSION['errorcontrasena'])): ?>
             <?php foreach($_SESSION['errorcontrasena'] as $errorescontrasena): ?>
               <li class="text-[#ff3b30] font-bold text-sm"><?php echo $errorescontrasena; ?></li>
