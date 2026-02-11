@@ -8,7 +8,7 @@
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-   <!--font-family: font-serif
+   <!--
     colores
         -azul oscuro: #004e64
         -azul: #00a5cf
@@ -22,7 +22,7 @@
     -->
 
 </head>
-<body class="font-serif bg-[#fAfAfA]">
+<body class=" bg-[#fAfAfA]">
     
 <!-- Importamos el Menú de navegación -->
     <?php
@@ -38,7 +38,7 @@
                 <p class="text-[#25a18e] uppercase font-semibold">
                     Nuestro impacto
                 </p>
-                <h1 class="font-semibold font-serif md:text-5xl text-4xl flex flex-col text-center items-center">
+                <h1 class="font-semibold  md:text-5xl text-4xl flex flex-col text-center items-center">
                     Cada número es una <span class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] bg-clip-text text-transparent"> historia real</span>
                 </h1>
                 <p class="font-normal md:text-lg text-normal text-gray-600/60 ">
