@@ -32,7 +32,7 @@
 <body class=" animacion-entrada bg-[#f4f9fa] " id="inicio">
     <!-- importamos el Header, para tenelo en esta pagina -->
     <?php
-    require_once "src/components/Header.php";
+    require_once "src/components/Header_index.php";
     ?>
 
     <!-- BOTON DE IR A INICIO -->
