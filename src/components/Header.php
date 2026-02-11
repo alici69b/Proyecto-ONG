@@ -20,9 +20,9 @@
 
         <div class="hidden md:flex items-center gap-6">
             <a class="text-gray-600 hover:text-[#25a18e] font-medium transition" href="../index.php">Inicio</a>
-            <a class="text-gray-600 hover:text-[#25a18e] font-medium transition" href="pages/Historys.php">Historias</a>
-            <a class="text-gray-600 hover:text-[#25a18e] font-medium transition" href="pages/Impact.php">Impacto</a>
-            <a class="text-gray-600 hover:text-[#25a18e] font-medium transition" href="pages/Contact.php">Contacto</a>
+            <a class="text-gray-600 hover:text-[#25a18e] font-medium transition" href="Historys.php">Historias</a>
+            <a class="text-gray-600 hover:text-[#25a18e] font-medium transition" href="Impact.php">Impacto</a>
+            <a class="text-gray-600 hover:text-[#25a18e] font-medium transition" href="Contact.php">Contacto</a>
             <div class="flex items-center gap-3 ml-4">
                 <a class="px-5 py-2 border-2 border-[#25a18e] text-[#25a18e] rounded-full hover:bg-[#25a18e] hover:text-white transition font-bold text-sm" href="app/vista/Login.php">Iniciar Sesión</a>
                 <a class="px-5 py-2 bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] transition font-bold text-sm shadow-md" href="
@@ -38,9 +38,9 @@
 
             <div class="absolute top-full left-0 right-0 mt-4 mx-2 bg-white rounded-2xl shadow-2xl border border-gray-100 flex-col hidden peer-checked:flex overflow-hidden animate-in fade-in slide-in-from-top-4 duration-300">
                 <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="../index.php">Inicio</a>
-                <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="pages/Historys.php">Historias</a>
-                <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="pages/Impact.php">Impacto</a>
-                <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="pages/Contact.php">Contacto</a>
+                <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="Historys.php">Historias</a>
+                <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="Impact.php">Impacto</a>
+                <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="Contact.php">Contacto</a>
                 <div class=" bg-gray-50 flex flex-col gap-1">
                     <a class="w-full py-3 text-center border-2 border-[#25a18e] text-[#25a18e] rounded-xl font-bold" href="app/vista/Login.php">Iniciar Sesión</a>
                     <a class="w-full py-3 text-center bg-[#25a18e] text-white rounded-xl font-bold" href="app/vista/Register.php">Registro</a>
