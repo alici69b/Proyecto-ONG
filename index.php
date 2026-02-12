@@ -110,7 +110,7 @@
             <div class="max-w-7xl mx-auto px-6 flex justify-center items-center flex-col mb-9" >
                 <h2 class="text-4xl font-bold mb-6">¿Cómo funciona <span class="text-[#ff3b30]">RESET</span>?</h2>
                     
-                    <p class="text-gray-700 text-center text-lg max-w-md">Un proceso sencillo, humano y acompañado. A medida que bajas, descubrirás cada paso.</p>
+                    <p class="text-gray-700 text-center text-lg max-w-md">Un proceso sencillo, humano y acompañado. A medida que sigues los pasos, descubrirás lo facil que es este proceso.</p>
 
                 
             <div class=" max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 mt-10 gap-6 p">
