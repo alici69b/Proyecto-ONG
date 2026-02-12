@@ -135,7 +135,7 @@
 
 
         <div id="Formulario" class="max-w-100% grid">
-                <form action="../../app/controlador/ContactController.php" method="post" class="m-6 rounded-xl border border-stone-300 px-7 py-5 focus:outline-none border-stone-300 border-white bg-white">
+                <form action="../../app/controlador/ContactController.php" method="post" class="m-6 rounded-xl border  px-7 py-5 focus:outline-none border-stone-300  bg-white">
                     <h3 class="text-black font-bold text-lg sm:text-lg sm:p-2 lg:text-lg">Envíanos un mensaje</h3><br>
                 <!-- Nombre y Email -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
