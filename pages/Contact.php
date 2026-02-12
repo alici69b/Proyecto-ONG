@@ -38,10 +38,12 @@
         <a href="#contacto" class="fixed bottom-10 right-20 z-50 p-3 rounded-full bg-[#8CBEB2] text-white hover:bg-[#F2EBBF] transition shadow-lg flex items-center justify-center" aria-label="Volver al inicio">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg></a>
 
-    </div>
+    </div> 
 
         <div class="text-center pt-15 pb-15">
-            <p class=" text-[#00a5cf] text-xl sm:text-xl sm:p-2 lg:text-xl"><b>Contacto</b></p>
+             <p class="text-[#00a5cf] font-bold text-sm tracking-[0.2em] uppercase 4 opacity-90">
+                        Contacto
+                    </p>
             <p class=" text-3xl sm:text-4xl sm:p-3 md:text-3xl lg:text-5xl"><b>¿Tienes alguna <i class="text-[#ff3b30]">pregunta</i>?</b></p>
             <p class="text-gray-500  sm:text-lg sm:p-2 lg:text-lg px-7">Puede ponerse en contacto con nosotros y le responderemos a la mayor brevedad posible.</p>
         </div>
@@ -49,7 +51,7 @@
         <!-- Texto de la izquierda -->
         <!-- Informacion sobre nosotros y preguntas frecuentes que hemos recibido -->
         <section class="mb-4 grid  grid-cols-1 lg:grid-cols-2 ">
-            <div id="InformaciondeContacto" class="bg-white m-6 rounded-xl border border-stone-300 px-5 py-4 focus:outline-none border-stone-300 border-white bg-white">
+            <div id="InformaciondeContacto" class=" m-6 rounded-xl border  px-5 py-4 focus:outline-none border-stone-300  bg-white">
         
             <p class=" text-black font-bold text-lg sm:text-lg sm:p-2 lg:text-lg">Información de contacto</p>
             <div class="  mx-auto px-4 py-7 grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-3 ">
