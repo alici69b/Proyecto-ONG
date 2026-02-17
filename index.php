@@ -106,8 +106,8 @@
             </div>
         </div>
 
-        <section class="bg-[#f4f9fa] py-24">
-            <div class="flex flex-col items-center text-center mb-16">
+        <section class="bg-[#f4f9fa] m-20 py-24">
+            <div class="flex flex-col items-center text-center ">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6 text-slate-800">
                     ¿Cómo funciona <span class="text-[#ff3b30]">RESET</span>?
                 </h2>
@@ -165,8 +165,8 @@
             </section>
             
         <!-- Tarjetas donde se explican sobre que pueden escribir los que tienen problemas -->
-        <section class="max-w-full mb-20 md:mb-40 text-white mt-10 md:mt-20 font-sans px-4">
-            <div class="bg-[#004e64] rounded-3xl md:rounded-[2vw] overflow-hidden relative p-6 md:p-12 lg:p-20">
+        <section class="max-w-full my-20 md:mb-40 text-white mt-10 md:mt-10 font-sans px-4">
+            <div class="bg-[#004e64] rounded-3xl md:rounded-[2vw] overflow-hidden relative p-6 md:p-8 lg:p-20">
                 
                 <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-48 md:h-64 bg-cyan-500/10 blur-[60px] md:blur-[100px] rounded-full pointer-events-none"></div>
 
