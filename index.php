@@ -72,8 +72,8 @@
             <div class=" max-w-xl mx-auto text-center my-4 top-0">
                 <p class="pl-3 pr-3 mb-5  text-gray-700  sm:text-sm sm:p-2 lg:text-lg font-["Archivo Black"]">Volvemos a dar vida a proyectos, hábitos, ideas, estudios y pequeños sueños que quedaron en pausa</p>
                 <div class=" flex justify-center text-center items-center  gap-3 p-2">
-                    <a class="block w-47 px-4 py-2 bg-[#1a7a6b]  text-white  rounded-full shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/RequestReset.php">Solicitar RESET</a>
-                <a class="block w-47 px-4 py-2   bg-[#1a7a6b] text-white  hover:bg-[#1a7a6b] hover:text-white rounded-full shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/Volunteers.php">Quiero ser voluntario</a>
+                    <a class="px-5 py-3  w-47 bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] font-bold text-sm shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/RequestReset.php">Solicitar RESET</a>
+                <a class="px-5 py-3  w-47 bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] font-bold text-sm shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/Volunteers.php">Quiero ser voluntario</a>
                
                 </div>
             </div>
@@ -106,14 +106,8 @@
             </div>
         </div>
 
-<<<<<<< HEAD
         <section class="bg-[#f4f9fa] m-20 py-24">
             <div class="flex flex-col items-center text-center ">
-=======
-
-        <section class="my-60">
-            <div class="flex flex-col items-center text-center  ">
->>>>>>> main
                 <h2 class="text-4xl md:text-5xl font-bold mb-6 text-slate-800">
                     ¿Cómo funciona <span class="text-[#ff3b30]">RESET</span>?
                 </h2>
@@ -145,9 +139,19 @@
                     Un voluntario con algun problema similar te acompañará en el proceso.
                     </p>
                 </div>
+                <!-- CARD 3 -->
+                <div class="relative bg-white rounded-3xl md:w-70 lg:w-full p-8 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100">
+                    <div class="absolute -top-3 -right-4 w-20 h-10 bg-[#00a5cf] text-white rounded-full flex items-center justify-center font-bold shadow-lg">Paso 3</div>
+                   <svg class="w-10 h-10 md:w-10 md:h-10 duration-300 group-hover:bg-[#00a5cf]" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#004e64]"><path d="M12 2v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="M20 12h2"></path><path d="m19.07 4.93-1.41 1.41"></path><path d="M15.947 12.65a4 4 0 0 0-7.925 0"></path><path d="M2 12h2"></path><path d="M2 16h20"></path><path d="M4 20h16"></path></svg>
+
+                    <h4 class="text-xl font-bold mt-6 text-slate-800">Empiezas de nuevo</h4>
+                    <p class="text-gray-500">
+                    Con nuestro apoyo, recursos y un plan personalizado para tu RESET.
+                    </p>
+                </div>
 
                 <!-- CARD 4 -->
-                <div class="relative bg-white rounded-4xl p-8 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100">
+                <div class="relative bg-white rounded-4xl p-8 hover:shadow-xl md:col-span-2 hover:-translate-y-2 transition-all duration-300 border border-slate-100">
                     <div class="absolute -top-3 -right-4 w-20 h-10 bg-[#00a5cf] text-white rounded-full flex items-center justify-center font-bold shadow-lg">Paso 4</div>
                     <svg class="group-hover:bg-[#00a5cf]/10" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#004e64]"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
 
@@ -156,16 +160,7 @@
                     Celebramos contigo tu nueva oportunidad hecha realidad.
                     </p>
                 </div>
-                <!-- CARD 3 -->
-                <div class=" relative bg-white rounded-4xl p-8  md:col-span-2 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100">
-                    <div class="absolute -top-3 -right-4 w-20 h-10 bg-[#00a5cf] text-white rounded-full flex items-center justify-center font-bold shadow-lg">Paso 3</div>
-                   <svg class="group-hover:bg-[#00a5cf]/10" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#004e64]"><path d="M12 2v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="M20 12h2"></path><path d="m19.07 4.93-1.41 1.41"></path><path d="M15.947 12.65a4 4 0 0 0-7.925 0"></path><path d="M2 12h2"></path><path d="M2 16h20"></path><path d="M4 20h16"></path></svg>
-
-                    <h4 class="text-xl font-bold mt-6 text-slate-800">Empiezas de nuevo</h4>
-                    <p class="text-gray-500">
-                    Con nuestro apoyo, recursos y un plan personalizado para tu RESET.
-                    </p>
-                </div>
+                
                 </div>
             </div>
             </section>
@@ -273,8 +268,8 @@
                     <div class="max-w-xl mx-auto text-center my-8 top-0">
                         <p class="pl-3 pr-3 mb-5  text-gray-900  sm:text-sm sm:p-2 lg:text-lg">No tienes que hacerlo solo/a. Da el primer paso y déjanos ayudarte a reiniciar lo que quedó pendiente.</p>
                         <div class=" flex justify-center text-center items-center  gap-3 p-2">
-                            <a class="block w-47 px-4 py-2 bg-[#1a7a6b]  text-white  rounded-full shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/RequestReset.php">Solicitar RESET</a>
-                        <a class="block w-47 px-4 py-2   bg-[#1a7a6b] text-white  hover:bg-[#1a7a6b] hover:text-white rounded-full shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/Volunteers.php">Quiero ser voluntario</a>
+                            <a class="px-5 py-3  w-47 bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] font-bold text-sm shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/RequestReset.php">Solicitar RESET</a>
+                            <a class="px-5 py-3  w-47 bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] font-bold text-sm shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/Volunteers.php">Quiero ser voluntario</a>
                     
                         </div>
                     </div>
