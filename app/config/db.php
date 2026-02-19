@@ -1,11 +1,13 @@
 <?php
-$servidor = "localhost";
-$usuario  = "root";
+$servername = "localhost";
+$username  = "root";
+$database = "proyecto_ong";
 $password = "";
-$base_datos = "Proyecto_ong";
 
-// Guardamos la conexion en una variable
-$conexion = mysqli_connect($servidor, $usuario, $password, $base_datos);
+/*
+ Guardamos la conexion en una variable
+*/
+$conexion = mysqli_connect($servername, $username, $database, $password);
 
 // Miramos si hemos hecho bien la conexionn, si no, manda un mensaje con el problema detallado
 if (!$conexion) {
