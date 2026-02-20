@@ -86,16 +86,16 @@
         <!-- Botones conectados con la base de datos, deberan aumentar cuando las personas escriban  --> 
         <div class="flex justify-center gap-10 pt-15">
             <div class="text-center">
-                <p class="text-white font-bold text-[clamp(1.25rem,4vw,2.5rem)]">127</p>
-                <p class="text-gray-900">Reset Iniciados</p>
+                <p class="text-white font-bold text-4xl lg:text-5xl">127</p>
+                <p class="text-gray-900 font-bold">Reset Iniciados</p>
             </div>
             <div class="text-center">
-                <p class="text-white font-bold text-[clamp(1.25rem,4vw,2.5rem)]">89</p>
-                <p class="text-gray-900">Completados</p>
+                <p class="text-white font-bold text-4xl lg:text-5xl">89</p>
+                <p class="text-gray-900 font-bold">Completados</p>
             </div>
             <div class="text-center">
-                <p class="text-white font-bold text-[clamp(1.25rem,4vw,2.5rem)]">34</p>
-                <p class="text-gray-900">Voluntarios</p>
+                <p class="text-white font-bold text-4xl lg:text-5xl">34</p>
+                <p class="text-gray-900 font-bold">Voluntarios</p>
             </div>
         </div>
     </main>
@@ -170,38 +170,36 @@
             </section>
             
         <!-- Tarjetas donde se explican sobre que pueden escribir los que tienen problemas -->
-        <section class="max-w-full my-20 md:mb-40 text-white mt-10 md:mt-10 px-4">
-            <div class="bg-[#004e64] rounded-3xl md:rounded-[2vw] overflow-hidden relative p-6 md:p-8 lg:p-20">
-                
-                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-48 md:h-64 bg-cyan-500/10 blur-[60px] md:blur-[100px] rounded-full pointer-events-none"></div>
+        <section class="w-full  md:mb-5 text-black mt-5 ">
+            <div class=" p-6 md:p-8 lg:p-20">
 
                 <div class="text-center pt-10 md:pt-16 pb-12 relative z-10">
                     <p class="text-[#00a5cf] font-bold text-xs md:text-sm tracking-[0.2em] uppercase mb-4 opacity-90">
                         ¿Qué ayudamos a reiniciar?
                     </p>
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6 text-slate-800">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">
                         Todos merecemos una <br class="block sm:hidden"> <span class="text-[#ff3b30]">segunda oportunidad</span>
                     </h2>
                 </div>
 
-                <div class="max-w-7xl mx-auto pb-10 md:pb-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 text-center relative z-10">
+                <div class="max-w-7xl mx-auto pb-10 md:pb-20 grid grid-cols-1 sm:grid-cols-2  gap-4 md:gap-6 text-center relative z-10  px-6  lg:grid-cols-4 mt-10  p">
                     
-                    <div class="group bg-white/5 backdrop-blur-lg border border-white/10 flex flex-col items-center gap-5 rounded-2xl p-6 md:p-8 hover:bg-white/10 hover:border-white/20 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="p-4 rounded-full bg-white/5 group-hover:bg-[#ff3b30]/20 duration-300">
-                            <svg class="w-8 h-8 md:w-10 md:h-10 text-white group-hover:text-[#ff3b30] duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="group bg-white backdrop-blur-lg border border-black/5 flex flex-col items-center gap-5 rounded-2xl p-6 md:p-8 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                        <div class="p-4 rounded-full bg-black/5 group-hover:bg-[#ff3b30]/20 duration-300">
+                            <svg class="w-8 h-8 md:w-10 md:h-10 text-black group-hover:text-[#ff3b30] duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
                                 <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
                             </svg>
                         </div>
                         <div>
                             <h4 class="text-lg md:text-xl font-bold mb-2">Estudios</h4>
-                            <p class="text-white/70 text-sm">Carreras, cursos y certificaciones que quedaron en pausa.</p>
+                            <p class="text-black/70 text-sm">Carreras, cursos y certificaciones que quedaron en pausa.</p>
                         </div>
                     </div>
 
-                    <div class="group bg-white/5 backdrop-blur-lg border border-white/10 flex flex-col items-center gap-5 rounded-2xl p-6 md:p-8 hover:bg-white/10 hover:border-white/20 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="p-4 rounded-full bg-white/5 group-hover:bg-[#ff3b30]/20 duration-300">
-                            <svg class="w-8 h-8 md:w-10 md:h-10 text-white group-hover:text-[#ff3b30] duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="group bg-white backdrop-blur-lg border border-black/5 flex flex-col items-center gap-5 rounded-2xl p-6 md:p-8 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                        <div class="p-4 rounded-full bg-black/5 group-hover:bg-[#ff3b30]/20 duration-300">
+                            <svg class="w-8 h-8 md:w-10 md:h-10 text-black group-hover:text-[#ff3b30] duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M9 18h6"></path>
                                 <path d="M10 22h4"></path>
                                 <path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"></path>
@@ -209,13 +207,13 @@
                         </div>
                         <div>
                             <h4 class="text-lg md:text-xl font-bold mb-2">Proyectos</h4>
-                            <p class="text-white/70 text-sm">Apps, negocios e ideas brillantes que no llegaron a lanzarse.</p>
+                            <p class="text-black/70 text-sm">Apps, negocios e ideas brillantes que no llegaron a lanzarse.</p>
                         </div>
                     </div>
 
-                    <div class="group bg-white/5 backdrop-blur-lg border border-white/10 flex flex-col items-center gap-5 rounded-2xl p-6 md:p-8 hover:bg-white/10 hover:border-white/20 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="p-4 rounded-full bg-white/5 group-hover:bg-[#ff3b30]/20 duration-300">
-                            <svg class="w-8 h-8 md:w-10 md:h-10 text-white group-hover:text-[#ff3b30] duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="group bg-white backdrop-blur-lg border border-black/5 flex flex-col items-center gap-5 rounded-2xl p-6 md:p-8 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                        <div class="p-4 rounded-full bg-black/5 group-hover:bg-[#ff3b30]/20 duration-300">
+                            <svg class="w-8 h-8 md:w-10 md:h-10 text-black group-hover:text-[#ff3b30] duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
                                 <polyline points="14 2 14 8 20 8"></polyline>
                                 <path d="M9 13v-1h6v1"></path>
@@ -225,19 +223,19 @@
                         </div>
                         <div>
                             <h4 class="text-lg md:text-xl font-bold mb-2">Hábitos</h4>
-                            <p class="text-white/70 text-sm">Rutinas de ejercicio, lectura y alimentación saludable.</p>
+                            <p class="text-black/70 text-sm">Rutinas de ejercicio, lectura y alimentación saludable.</p>
                         </div>
                     </div>
 
-                    <div class="group bg-white/5 backdrop-blur-lg border border-white/10 flex flex-col items-center gap-5 rounded-2xl p-6 md:p-8 hover:bg-white/10 hover:border-white/20 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="p-4 rounded-full bg-white/5 group-hover:bg-[#ff3b30]/20 duration-300">
-                            <svg class="w-8 h-8 md:w-10 md:h-10 text-white group-hover:text-[#ff3b30] duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="group bg-white backdrop-blur-lg border border-black/5 flex flex-col items-center gap-5 rounded-2xl p-6 md:p-8 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                        <div class="p-4 rounded-full bg-black/5 group-hover:bg-[#ff3b30]/20 duration-300">
+                            <svg class="w-8 h-8 md:w-10 md:h-10 text-black group-hover:text-[#ff3b30] duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                             </svg>
                         </div>
                         <div>
                             <h4 class="text-lg md:text-xl font-bold mb-2">Sueños</h4>
-                            <p class="text-white/70 text-sm">Esas metas personales importantes que dejaste de lado.</p>
+                            <p class="text-black/70 text-sm">Esas metas personales importantes que dejaste de lado.</p>
                         </div>
                     </div>
 

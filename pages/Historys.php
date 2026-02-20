@@ -34,7 +34,7 @@
 
 </head>
 <!-- Script para efecto Sticky Stack -->
-<script>
+<!-- <script>
     window.addEventListener('scroll', () => {
         const cards = document.querySelectorAll('.story-card');
         
@@ -53,12 +53,20 @@
             }
         });
     });
-</script>
-<body class="font-sans bg-[#fAfAfA]">
+</script> -->
+<body class="font-sans bg-[#fAfAfA]" id="inicio">
     <!-- Importamos el Menú de navegación -->
     <?php
     require_once "../src/components/Header.php";
     ?>
+
+    <!-- BOTON DE IR A INICIO -->
+    <div  class="scroll-smooth ">
+
+        <a href="#inicio" class="fixed bottom-10 right-20 z-50 p-3 rounded-full bg-[#8CBEB2] text-white hover:bg-[#F2EBBF] transition shadow-lg flex items-center justify-center" aria-label="Volver al inicio">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg></a>
+
+    </div>
 
     <main class="max-w-7xl mx-auto px-4 py-12 pt-25">
         <div>
@@ -66,7 +74,7 @@
             
             <!-- Título -->
              <div class="text-center my-12">
-                <h1 class="text-3xl font-bold mb-4">Historias de <span class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] bg-clip-text text-transparent text-4xl">Éxito</span></h1>
+                <h1 class="md:text-5xl text-3xl font-bold mb-4">Historias de <span class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] bg-clip-text text-transparent text-4xl">Éxito</span></h1>
                 <p class="max-w-2xl mx-auto  text-gray-500">Personas reales que decidieron darse otra oportunidad. Lee sus historias y encuentra inspiración para la tuya.</p>
             </div>
             
@@ -74,7 +82,8 @@
             <div class="relative min-h-[300vh]">
                 <!-- Historias de Éxito ( Contenido Principal ) -->
                 <!-- Primera Historia -->
-                <div class="story-card sticky top-24 flex flex-col lg:flex-row gap-12 items-center mb-12 transition-all duration-300 bg-white rounded-3xl shadow-2xl p-6 z-10">
+                <!-- He quitado story-card sticky de cada card -->
+                <div class="top-24 flex flex-col lg:flex-row gap-12 items-center mb-12 transition-all duration-300 bg-white rounded-3xl shadow-2xl p-6 z-10">
                     <!-- Foto -->
                     <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
                         <div class="relative inline-block"> 
@@ -150,7 +159,7 @@
                 </div>
 
                 <!-- Segunda Historia -->
-                <div class="story-card sticky top-32 flex flex-col lg:flex-row-reverse gap-12 items-center mb-12 transition-all duration-300 bg-white rounded-3xl shadow-2xl p-6 z-20">
+                <div class="top-32 flex flex-col lg:flex-row-reverse gap-12 items-center mb-12 transition-all duration-300 bg-white rounded-3xl shadow-2xl p-6 z-20">
                     <!-- Foto -->
                     <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
                         <div class="relative"> 
@@ -226,7 +235,7 @@
                 </div>
 
                 <!-- Tercera Historia -->
-                <div class="story-card sticky top-40 flex flex-col lg:flex-row gap-12 items-center mb-12 transition-all duration-300 bg-white rounded-3xl shadow-2xl p-6 z-30">
+                <div class="top-40 flex flex-col lg:flex-row gap-12 items-center mb-12 transition-all duration-300 bg-white rounded-3xl shadow-2xl p-6 z-30">
                     <!-- Foto -->
                     <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
                         <div class="relative inline-block"> 
@@ -302,7 +311,7 @@
                 </div>
 
                 <!-- Cuarta Historia -->
-                <div class="story-card sticky top-48 flex flex-col lg:flex-row-reverse gap-12 items-center mb-12 transition-all duration-300 bg-white rounded-3xl shadow-2xl p-6 z-40">
+                <div class="top-48 flex flex-col lg:flex-row-reverse gap-12 items-center mb-12 transition-all duration-300 bg-white rounded-3xl shadow-2xl p-6 z-40">
                     <!-- Foto -->
                     <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
                         <div class="relative"> 
@@ -379,7 +388,7 @@
             </div>  
             <!-- Card para Solicitar RESET -->
             <div class="text-center mt-12 relative z-50">
-                <div class="bg-gradient-to-br from-teal-600 to-red-300 rounded-3xl p-12 text-white shadow-lg">
+                <div class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] rounded-3xl p-12 text-white shadow-lg">
                     <h1 class="text-3xl lg:text-4xl font-bold mb-4">Tu historia puede ser la próxima</h1>
                     <p class="text-lg lg:text-xl mb-8 leading-relaxed">Cada una de estas personas estuvo donde tú estás ahora. El primer paso es siempre el más difícil, pero no tienes que darlo solo/a.</p>
                     <a href="RequestReset.php" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-red-600 font-bold rounded-xl shadow-md hover:bg-red-600 hover:text-white transition-colors duration-300">
