@@ -25,7 +25,11 @@
 
 <!-- Importamos el Menú de navegación -->
     <?php
+<<<<<<< HEAD
     require_once "../src/components/Header_documentation.php";
+=======
+    require_once "../src/components/Header_index.php";
+>>>>>>> 774ec8f (Modificaciones footer)
     ?>
 
     <header class="text-center mb-10">
