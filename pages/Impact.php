@@ -36,12 +36,20 @@
     -->
 
 </head>
-<body class=" bg-[#fAfAfA]">
+<body class="font-serif bg-[#fAfAfA]" id="inicio">
     
-<!-- Importamos el Menú de navegación -->
+    <!-- Importamos el Menú de navegación -->
     <?php
     require_once "../src/components/Header.php";
     ?>
+
+    <!-- BOTON DE IR A INICIO -->
+    <div  class="scroll-smooth ">
+
+        <a href="#inicio" class="fixed bottom-10 right-20 z-50 p-3 rounded-full bg-[#8CBEB2] text-white hover:bg-[#F2EBBF] transition shadow-lg flex items-center justify-center" aria-label="Volver al inicio">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg></a>
+
+    </div>
    
    <!-- Contenido Principal Impacto -->
     <main class="pt-40">
@@ -245,9 +253,9 @@
             </div>
             
 
-            <!-- Card Footer Porcentaje -->
+            <!-- Card Footer Porcentaje --> <!-- COLORES DE ANTES: from-[#00a5cf] to-[#9fffcb]  --> <!-- to-[#83e0ad] -->
             <div class="text-center pt-16 p-4">
-                <div class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] rounded-3xl p-12 text-white shadow-lg flex flex-col md:flex-row justify-between items-center text-center space-y-6 md:space-y-0 md:space-x-10">
+                <div class="bg-linear-to-r from-[#00a5cf] to-[#78d4a1] rounded-3xl p-12 text-white shadow-lg flex flex-col md:flex-row justify-between items-center text-center space-y-6 md:space-y-0 md:space-x-10">
                     <!-- Texto -->
                     <div class="flex flex-col space-y-4 items-start justify-start text-start mb-6 md:mb-0">
                         <div class="text-2xl md:text-3xl font-bold">El 70% de las personas que piden un RESET logran completar su objetivo</div>
