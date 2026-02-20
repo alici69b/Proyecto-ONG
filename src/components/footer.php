@@ -60,11 +60,10 @@
                     ©RESET ONG. Mini-proyecto 1º DAW.
                 </p>
                 <div class="flex justify-around gap-4">
-                <a href="" class=" text-center md:text-right">
-                <a href="" class=" text-center md:text-right hover:text-[#00a5cf]">
+                <a href="documentation/Politic_and_privacity.php" class=" text-center md:text-right hover:text-[#00a5cf]">
                     Politica y privacidad 
                 </a>
-                <a href="" class="text-center md:text-right hover:text-[#00a5cf]"> 
+                <a href="documentation/Legal_Notice.php" class="text-center md:text-right hover:text-[#00a5cf]"> 
                     Aviso legal
                 </a>
                 </div>
