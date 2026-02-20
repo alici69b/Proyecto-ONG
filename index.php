@@ -57,7 +57,7 @@
                 -Voluntarios
             - REcuento de las personas que participan en esta ong
      -->
-    <main class=" bg-linear-to-r from-[#00a5cf] to-[#9fffcb] min-h-130  pt-50">
+    <main class=" bg-linear-to-r from-[#00a5cf] to-[#9fffcb] min-h-130  pt-60">
         <div class="md:px-20 flex justify-center">
             <div class="flex bg-white/40 backdrop-blur-md items-center justify-center rounded-full shadow-sm">
                 <p class=" text-gray-900 py-2 px-5 font-bold text-sm  md:text-md whitespace-nowrap">ONG de Segundas Oportunidades</p>
@@ -112,8 +112,11 @@
 
         <section class="bg-[#f4f9fa] m-20 py-24">
             <div class="flex flex-col items-center text-center ">
+                <p class="text-[#00a5cf] font-bold text-xs md:text-sm tracking-[0.2em] uppercase mb-4 opacity-90">
+                        ¿Cómo funciona RESET?
+                    </p>
                 <h2 class="text-4xl md:text-5xl font-bold mb-6 text-slate-800">
-                    ¿Cómo funciona <span class="text-[#ff3b30]">RESET</span>?
+                    Aprende un poco más sobre <span class="text-[#ff3b30]">nosotros</span>
                 </h2>
                 <p class="text-slate-600 text-lg max-w-2xl leading-relaxed">
                     Un proceso sencillo, humano y acompañado. <br class="hidden md:block"> 
@@ -177,14 +180,14 @@
                     <p class="text-[#00a5cf] font-bold text-xs md:text-sm tracking-[0.2em] uppercase mb-4 opacity-90">
                         ¿Qué ayudamos a reiniciar?
                     </p>
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 text-slate-800">
                         Todos merecemos una <br class="block sm:hidden"> <span class="text-[#ff3b30]">segunda oportunidad</span>
                     </h2>
                 </div>
 
                 <div class="max-w-7xl mx-auto pb-10 md:pb-20 grid grid-cols-1 sm:grid-cols-2  gap-4 md:gap-6 text-center relative z-10  px-6  lg:grid-cols-4 mt-10  p">
                     
-                    <div class="group bg-white backdrop-blur-lg border border-black/5 flex flex-col items-center gap-5 rounded-2xl p-6 md:p-8 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="relative bg-white rounded-3xl md:w-70 lg:w-full p-8  border-slate-100 group  backdrop-blur-lg border border-black/5 flex flex-col items-center gap-5  md:p-8 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                         <div class="p-4 rounded-full bg-black/5 group-hover:bg-[#ff3b30]/20 duration-300">
                             <svg class="w-8 h-8 md:w-10 md:h-10 text-black group-hover:text-[#ff3b30] duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
@@ -192,8 +195,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-lg md:text-xl font-bold mb-2">Estudios</h4>
-                            <p class="text-black/70 text-sm">Carreras, cursos y certificaciones que quedaron en pausa.</p>
+                            <h4 class="text-xl font-bold text-slate-800">Estudios</h4>
+                            <p class="text-gray-500">Carreras, cursos y certificaciones que quedaron en pausa.</p>
                         </div>
                     </div>
 
@@ -206,8 +209,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-lg md:text-xl font-bold mb-2">Proyectos</h4>
-                            <p class="text-black/70 text-sm">Apps, negocios e ideas brillantes que no llegaron a lanzarse.</p>
+                            <h4 class="text-xl font-bold text-slate-800">Proyectos</h4>
+                            <p class="text-gray-500">Apps, negocios e ideas brillantes que no llegaron a lanzarse.</p>
                         </div>
                     </div>
 
@@ -222,8 +225,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-lg md:text-xl font-bold mb-2">Hábitos</h4>
-                            <p class="text-black/70 text-sm">Rutinas de ejercicio, lectura y alimentación saludable.</p>
+                            <h4 class="text-xl font-bold text-slate-800">Hábitos</h4>
+                            <p class="text-gray-500">Rutinas de ejercicio, lectura y alimentación saludable.</p>
                         </div>
                     </div>
 
@@ -234,8 +237,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-lg md:text-xl font-bold mb-2">Sueños</h4>
-                            <p class="text-black/70 text-sm">Esas metas personales importantes que dejaste de lado.</p>
+                            <h4 class="text-xl font-bold text-slate-800">Sueños</h4>
+                            <p class="text-gray-500">Esas metas personales importantes que dejaste de lado.</p>
                         </div>
                     </div>
 
@@ -277,7 +280,7 @@
     
     <!-- Importacion del footer -->
     <?php
-    require_once "src/components/Footer.php";
+    require_once "src/components/footer_index.php";
     ?>
 
 </body>
