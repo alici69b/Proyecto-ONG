@@ -12,6 +12,17 @@
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+
+    <!-- Fuentes de google fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Domine">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage Grotesque">
+
+
+    <style>
+      body {
+        font-family: 'Bricolage Grotesque';
+        }
+    </style>
    
 <!--font-family: font-serif
     colores
@@ -27,7 +38,7 @@
     -->
 
 </head>
-<body class="font-sans bg-[#EBEBEB] pt-25 " id="contacto">
+<body class="font-['Bricolage Grotesque'] bg-[#EBEBEB] pt-25 " id="contacto">
     <!-- importamos el Header, para tenelo en esta pagina -->
     <?php
     require_once "../src/components/Header.php";
@@ -45,7 +56,7 @@
              <p class="text-[#00a5cf] font-bold text-sm tracking-[0.2em] uppercase 4 opacity-90">
                         Contacto
                     </p>
-            <p class=" text-3xl sm:text-4xl sm:p-3 md:text-3xl lg:text-5xl"><b>¿Tienes alguna <i class="text-[#ff3b30]">pregunta</i>?</b></p>
+            <p class="font-['Domine'] text-3xl sm:text-4xl sm:p-3 md:text-3xl lg:text-5xl"><b>¿Tienes alguna <i class="text-[#ff3b30]">pregunta</i>?</b></p>
             <p class="text-gray-500  sm:text-lg sm:p-2 lg:text-lg px-7">Puede ponerse en contacto con nosotros y le responderemos a la mayor brevedad posible.</p>
         </div>
 
