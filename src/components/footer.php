@@ -12,7 +12,7 @@
 </head>
 <body class="font-bold bg-gray-100 max-w-screen ">
 
-    <footer class="bg-gray-900 text-white py-12 mt-12 max-w-screen bottom-0 left-0 right-0">
+    <footer class="bg-gray-900 text-white py-12  max-w-screen bottom-0 left-0 right-0">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row md:justify-around gap-8 text-center md:text-left">
 
