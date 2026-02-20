@@ -7,7 +7,7 @@
     <title>Reset-ONG</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head> 
-<body class="font-sans bg-[#f4f9fa]"> 
+<body class="font-bold bg-[#f4f9fa]"> 
     <nav class="absolute top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl bg-white/60 backdrop-blur-md border border-white/10 shadow-lg rounded-full z-[100] px-6 py-3 flex items-center justify-between">
         
         <a href="../index.php" class="flex items-center gap-2 hover:opacity-80 transition">

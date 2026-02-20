@@ -11,6 +11,17 @@
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+        <!-- Fuentes de google fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Domine">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage Grotesque">
+
+
+    <style>
+      body {
+        font-family: 'Bricolage Grotesque';
+        }
+    </style>
+
    <!--
     colores
         -azul oscuro: #004e64
