@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="../public/img/Logo_RESET.svg">
     <title>Solicita tu Reset - RESET</title>
+
+        <!-- Fuentes de google fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Domine">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage Grotesque">
+
+
+    <style>
+      body {
+        font-family: 'Bricolage Grotesque';
+        }
+    </style>
 </head>
 <body>
     

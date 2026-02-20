@@ -10,13 +10,20 @@
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-<!-- Fuentes de google fonts  -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+    <!-- Fuentes de google fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Domine">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage Grotesque">
+    
+    
+    <style>
+      body {
+        font-family: 'Bricolage Grotesque';
+        }
+    </style>
     
 
    
-<!--font-family: font-serif
+<!--
     colores
         -azul oscuro: #004e64
         -azul: #00a5cf
@@ -30,7 +37,7 @@
     -->
 
 </head>
-<body class=" animacion-entrada bg-[#f4f9fa] " id="inicio">
+<body class=" bg-[#f4f9fa] " id="inicio">
     <!-- importamos el Header, para tenelo en esta pagina -->
     <?php
     require_once "src/components/Header_index.php";
@@ -38,10 +45,8 @@
 
     <!-- BOTON DE IR A INICIO -->
     <div  class="scroll-smooth ">
-
         <a href="#inicio" class="fixed bottom-10 right-20 z-50 p-3 rounded-full bg-[#25a18e] text-white hover:bg-[#1a7a6b] transition shadow-lg flex items-center justify-center" aria-label="Volver al inicio">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg></a>
-
     </div>
 
     <!-- Aqui podremos encontrar 
@@ -54,30 +59,32 @@
      -->
     <main class=" bg-linear-to-r from-[#00a5cf] to-[#9fffcb] min-h-130  pt-50">
         <div class="md:px-20 flex justify-center">
-            <div class="flex bg-white/40 backdrop-blur-md items-center justify-center rounded-full   shadow-sm">
-                <p class="text-gray-900 py-2 px-5 font-bold text-sm  md:text-md whitespace-nowrap">ONG de Segundas Oportunidades</p>
+            <div class="flex bg-white/40 backdrop-blur-md items-center justify-center rounded-full shadow-sm">
+                <p class=" text-gray-900 py-2 px-5 font-bold text-sm  md:text-md whitespace-nowrap">ONG de Segundas Oportunidades</p>
             </div>
         </div>
 
         <!-- Mensaje principal -->
+         <!-- Letras definidas con el Google Fonts -->
         <div>
-            <div class="flex justify-center  text-center my-3 p-2">
-                <h1 class="max-w-3xl text-gray-900 font-bold text-4xl sm:text-5xl sm:p-3 lg:text-6xl">
+            <div  class="font-['Domine'] flex justify-center  text-center my-3 p-2">
+                <h1 class="max-w-6xl text-gray-900 font-bold text-5xl p-2 md:p-3 md:text-6xl lg:text-7xl">
                     Nada está <i class="text-white">perdido</i> hasta que decides <i class="text-white">reiniciarlo</i>
                 </h1>
             </div>
-            <div class=" max-w-xl mx-auto text-center my-4 top-0">
-                <p class="pl-3 pr-3 mb-5  text-gray-700  sm:text-sm sm:p-2 lg:text-lg font-["Archivo Black"]">Volvemos a dar vida a proyectos, hábitos, ideas, estudios y pequeños sueños que quedaron en pausa</p>
-                <div class=" flex justify-center text-center items-center  gap-3 p-2">
-                    <a class="px-5 py-3  w-47 bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] font-bold text-sm shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/RequestReset.php">Solicitar RESET</a>
-                <a class="px-5 py-3  w-47 bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] font-bold text-sm shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/Volunteers.php">Quiero ser voluntario</a>
+            <div class=" max-w-4xl mx-auto text-center top-0">
+                <p class="px-15  text-gray-800  text-md md:text-md lg:text-lg">Volvemos a dar vida a proyectos, hábitos, ideas, estudios y pequeños sueños que quedaron en pausa.</p>
+                <div class=" flex justify-center text-center items-center  gap-3 px-15 pt-15">
+                    <a class="px-5 py-3 text-sm w-50 md:w-47 md:text-md lg:text-md bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] font-bold  shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/RequestReset.php">Solicitar RESET</a>
+
+                    <a class="px-5  py-3 w-53 md:w-47 md:text-md lg:text-md bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] font-bold text-sm shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/Volunteers.php">Quiero ser voluntario</a>
                
                 </div>
             </div>
         </div>
         
         <!-- Botones conectados con la base de datos, deberan aumentar cuando las personas escriban  --> 
-        <div class="flex justify-center gap-10 ">
+        <div class="flex justify-center gap-10 pt-15">
             <div class="text-center">
                 <p class="text-white font-bold text-[clamp(1.25rem,4vw,2.5rem)]">127</p>
                 <p class="text-gray-900">Reset Iniciados</p>
@@ -163,7 +170,7 @@
             </section>
             
         <!-- Tarjetas donde se explican sobre que pueden escribir los que tienen problemas -->
-        <section class="max-w-full my-20 md:mb-40 text-white mt-10 md:mt-10 font-sans px-4">
+        <section class="max-w-full my-20 md:mb-40 text-white mt-10 md:mt-10 px-4">
             <div class="bg-[#004e64] rounded-3xl md:rounded-[2vw] overflow-hidden relative p-6 md:p-8 lg:p-20">
                 
                 <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-48 md:h-64 bg-cyan-500/10 blur-[60px] md:blur-[100px] rounded-full pointer-events-none"></div>
@@ -254,21 +261,18 @@
                 </div>
                 
             <!-- Botones de reset y voluntarios en la pagina -->
-            <section class="relative  bg-linear-to-r from-[#9fffcb] to-[#00a5cf] min-h-150  py-20">
-            
-                <div>
-                    <div class="flex justify-center  text-center my-10 p-2">
-                        <h1 class="max-w-3xl text-gray-900 font-bold text-4xl sm:text-5xl sm:p-3 lg:text-6xl">
-                            Hoy puede ser el <i class="text-white">dia</i> que todo lo <i class="text-white">cambie</i>
-                        </h1>
+            <section class="relative  bg-linear-to-r from-[#9fffcb] to-[#00a5cf] min-h-150  py-50">
+                <div  class="font-['Domine'] flex justify-center  text-center my-3 p-2">
+                    <h1 class="max-w-4xl text-gray-900 font-bold text-5xl p-2 md:p-3 md:text-6xl lg:text-7xl">Hoy puede ser el <i class="text-white">dia</i> que todo lo <i class="text-white">cambie</i></h1>
+                </div>
+
+                <div class=" max-w-4xl mx-auto text-center top-0">
+                    <p class="px-15  text-gray-800  text-md md:text-md lg:text-lg">No tienes que hacerlo solo/a. Da el primer paso y déjanos ayudarte a reiniciar lo que quedó pendiente.</p>
+                    <div class=" flex justify-center text-center items-center  gap-3 pt-6">
+                        <a class="px-5 py-3  w-47 bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] font-bold text-sm shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/RequestReset.php">Solicitar RESET<a>
+                        <a class="px-5 py-3  w-47 bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] font-bold text-sm shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/Volunteers.php">Quiero ser voluntario</a>   
                     </div>
-                    <div class="max-w-xl mx-auto text-center my-8 top-0">
-                        <p class="pl-3 pr-3 mb-5  text-gray-900  sm:text-sm sm:p-2 lg:text-lg">No tienes que hacerlo solo/a. Da el primer paso y déjanos ayudarte a reiniciar lo que quedó pendiente.</p>
-                        <div class=" flex justify-center text-center items-center  gap-3 p-2">
-                            <a class="px-5 py-3  w-47 bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] font-bold text-sm shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/RequestReset.php">Solicitar RESET</a>
-                            <a class="px-5 py-3  w-47 bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] font-bold text-sm shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/Volunteers.php">Quiero ser voluntario</a>
                     
-                        </div>
                     </div>
                 </div> 
             </section>
