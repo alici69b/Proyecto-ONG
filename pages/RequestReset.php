@@ -35,7 +35,7 @@
     -->
 
 </head>
-<body class="font-serif bg-[#fAfAfA]" id="inicio">
+<body class="font-serif bg-[#f5f7fc]" id="inicio">
     
     <!-- Importamos el Menú de navegación -->
     <?php

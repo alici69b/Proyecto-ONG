@@ -31,12 +31,12 @@
         -verde vivo: #7ae582
         -coral: #ff3b30
         -poner letras con el degradado del inicio: bg-linear-to-r from-[#00a5cf] to-[#9fffcb] bg-clip-text text-transparent 
-        -color del  bg-[#f4f9fa]
+        -color del  bg-[#f5f7fc]
 
     -->
 
 </head>
-<body class="font-serif bg-[#fAfAfA]" id="inicio">
+<body class="font-serif bg-[#f5f7fc]" id="inicio">
     
     <!-- Importamos el Menú de navegación -->
     <?php

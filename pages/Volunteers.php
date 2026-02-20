@@ -17,7 +17,7 @@
         }
     </style>
 </head>
-<body>
+<body class="bg-[#f5f7fc]">
     
 </body>
 </html>

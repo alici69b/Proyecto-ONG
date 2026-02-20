@@ -54,7 +54,7 @@
         });
     });
 </script> -->
-<body class="font-sans bg-[#fAfAfA]" id="inicio">
+<body class="font-sans bg-[#f5f7fc]" id="inicio">
     <!-- Importamos el Menú de navegación -->
     <?php
     require_once "../src/components/Header.php";

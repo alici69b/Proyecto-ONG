@@ -84,7 +84,7 @@
         </div>
         
         <!-- Botones conectados con la base de datos, deberan aumentar cuando las personas escriban  --> 
-        <div class="flex justify-center gap-10 pt-15">
+        <div class="flex justify-center gap-15 pt-15">
             <div class="text-center">
                 <p class="text-white font-bold text-4xl lg:text-5xl">127</p>
                 <p class="text-gray-900 font-bold">Reset Iniciados</p>
@@ -259,7 +259,7 @@
                 </div>
                 
             <!-- Botones de reset y voluntarios en la pagina -->
-            <section class="relative  bg-linear-to-r from-[#9fffcb] to-[#00a5cf] min-h-150  py-50">
+            <section class="relative  bg-linear-to-r from-[#9fffcb] to-[#00a5cf] min-h-150  py-30">
                 <div  class="font-['Domine'] flex justify-center  text-center my-3 p-2">
                     <h1 class="max-w-4xl text-gray-900 font-bold text-5xl p-2 md:p-3 md:text-6xl lg:text-7xl">Hoy puede ser el <i class="text-white">dia</i> que todo lo <i class="text-white">cambie</i></h1>
                 </div>
