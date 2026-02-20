@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historias</title>
+    <link rel="icon" type="image/svg+xml" href="../public/img/Logo_RESET.svg">
+    <title>Historias - RESET</title>
 
      
     <!-- Link al css -->
@@ -11,6 +12,17 @@
 
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+        <!-- Fuentes de google fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Domine">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage Grotesque">
+
+
+    <style>
+      body {
+        font-family: 'Bricolage Grotesque';
+        }
+    </style>
 
     <!--font-family: font-serif
     color: coral principal #ff3b30
