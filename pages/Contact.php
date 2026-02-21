@@ -38,7 +38,7 @@
     -->
 
 </head>
-<body class="font-['Bricolage Grotesque'] bg-[#EBEBEB] pt-25 " id="contacto">
+<body class="font-['Bricolage Grotesque']  bg-[#f5f7fc] pt-25 " id="contacto">
     <!-- importamos el Header, para tenelo en esta pagina -->
     <?php
     require_once "../src/components/Header.php";
