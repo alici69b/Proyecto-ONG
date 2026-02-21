@@ -71,9 +71,12 @@
             
             
             <!-- Título -->
-             <div class="text-center my-12">
-                <h1 class="font-['Domine'] md:text-6xl lg:text-7xl text-5xl font-bold mb-4">
-                    Historias de <span class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] bg-clip-text text-transparent">Éxito</span>
+             <div class="text-center pt-15 pb-15">
+                <p class="text-[#00a5cf] font-bold text-sm tracking-[0.2em] uppercase 4 opacity-90">
+                        Historias de reset
+                    </p>
+                <h1 class="font-['Domine'] md:text-6xl lg:text-6xl text-4xl font-bold mb-4">
+                    El antes y después de no  <span class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] bg-clip-text text-transparent">rendirse</span>
                 </h1>
                 <p class="max-w-2xl mx-auto  text-gray-500">Personas reales que decidieron darse otra oportunidad. Lee sus historias y encuentra inspiración para la tuya.</p>
             </div>
