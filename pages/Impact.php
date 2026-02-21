@@ -50,18 +50,18 @@
     </div>
    
    <!-- Contenido Principal Impacto -->
-    <main class="pt-40">
+    <main class="max-w-7xl mx-auto px-4 py-12 pt-40">
         <div class="flex flex-col">
            
             <!-- Título de la página -->
-            <div class="flex flex-col items-center justify-center">
-                <p class="text-[#25a18e] uppercase font-semibold">
-                    Nuestro impacto
-                </p>
-                <h1 class="font-['Domine'] md:text-6xl lg:text-7xl text-5xl font-semibold flex flex-col text-center items-center">
-                    Cada número es una <span class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] bg-clip-text text-transparent"> historia real</span>
+            <div class="text-center">
+                <p class="text-[#00a5cf] font-bold text-sm tracking-[0.2em] uppercase 4 opacity-90">
+                        Nuestro impacto
+                    </p>
+                <h1 class="font-['Domine']  text-slate-800 md:text-6xl lg:text-6xl text-4xl font-bold mb-4">
+                   Cada número es una <i class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] bg-clip-text text-transparent">historia real</i>
                 </h1>
-                <p class="font-normal md:text-lg text-normal text-gray-600/60 ">
+                <p class="text-gray-500 max-w-2xl mx-auto  sm:text-lg sm:p-2 lg:text-lg px-7 ">
                     Detrás de cada estadística hay una persona que decidió no rendirse
                 </p>
             </div>

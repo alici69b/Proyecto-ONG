@@ -8,10 +8,7 @@
 </head>
 <body class=" bg-[#EBEBEB] pt-25 max-h-screen  ">
 
-    <!-- importamos el Header, para tenelo en esta pagina -->
-    <?php
-    require_once "../src/components/Header.php";
-    ?>
+   <a href="../index.php" class="mb-10 flex items-center text-sm text-gray-500 hover:text-gray-700"><span class="mr-2">←</span> Volver al inicio</a>
 
     <div>
     <h1>Política de Privacidad</h1>
@@ -68,9 +65,6 @@
             </p>
     </div>
 
- <!-- importamos el Header, para tenelo en esta pagina -->
-    <?php
-    require_once "../src/components/footer.php";
-    ?>
+
 </body>
 </html>
