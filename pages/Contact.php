@@ -47,7 +47,7 @@
     <!-- BOTON DE IR A INICIO -->
     <a href="#inicio" class="fixed bottom-10 right-10 z-[9999] p-3 rounded-full bg-[#25a18e] text-white hover:bg-[#1a7a6b] transition-all shadow-xl flex items-center justify-center border-2 border-white/20" aria-label="Volver al inicio"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
     </a>
-     
+
     <main class="max-w-7xl mx-auto px-4 py-12 pt-40">
    
            
@@ -185,7 +185,7 @@
         
                  </main>
     <?php
-    require_once "../src/components/Footer.php";
+    require_once "../src/components/footer.php";
     ?>
 
 </body>

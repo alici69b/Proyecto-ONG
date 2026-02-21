@@ -268,7 +268,7 @@
     <!-- Importamos el footer -->
     <footer>
     <?php
-    require_once "../src/components/Footer.php";
+    require_once "../src/components/footer.php";
     ?>    
     </footer>
 </body>
