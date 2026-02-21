@@ -5,27 +5,10 @@
             <?php require_once "src/components/Header_index.php"; ?>
         </div>
     </header>
-
-    <div class="absolute inset-0 grid grid-cols-6 lg:grid-cols-4 md:grid-cols-3 gap-2 p-10 opacity-5 pointer-events-none select-none">
-            <span class="text-7xl md:text-9xl font-black text-white">404</span>
-            <span class="text-7xl md:text-9xl font-black text-white">404</span>
-            <span class="text-7xl md:text-9xl font-black text-white">404</span>
-            <span class="text-7xl md:text-9xl font-black text-white">404</span>
-            <span class="text-7xl md:text-9xl font-black text-white">404</span>
-            <span class="text-7xl md:text-9xl font-black text-white">404</span>
-            <span class="text-7xl md:text-9xl font-black text-white">404</span>
-            <span class="text-7xl md:text-9xl font-black text-white">404</span>
-            <span class="text-7xl md:text-9xl font-black text-white">404</span>
-            <span class="text-7xl md:text-9xl font-black text-white">404</span>
-            <span class="text-7xl md:text-9xl font-black text-white">404</span>
-            <span class="text-7xl md:text-9xl font-black text-white">404</span>
-
-
-       
-
-        </div>
-
-    <main class="flex-grow relative flex items-center justify-center overflow-hidden w-full px-4 my-35">
+        
+    <div class="text-7xl md:text-9xl font-black text-white mt-40">Error 404</div>
+    
+    <main class="flex-grow relative flex items-center justify-center overflow-hidden w-full px-4 my-20">
         
         
 
