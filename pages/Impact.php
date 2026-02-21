@@ -36,7 +36,7 @@
     -->
 
 </head>
-<body class="font-serif bg-[#f5f7fc]" id="inicio">
+<body class="bg-[#f4f9fa]" id="inicio">
     
     <!-- Importamos el Menú de navegación -->
     <?php
@@ -45,10 +45,8 @@
 
     <!-- BOTON DE IR A INICIO -->
     <div  class="scroll-smooth ">
-
-        <a href="#inicio" class="fixed bottom-10 right-20 z-50 p-3 rounded-full bg-[#8CBEB2] text-white hover:bg-[#F2EBBF] transition shadow-lg flex items-center justify-center" aria-label="Volver al inicio">
+        <a href="#inicio" class="fixed bottom-10 right-20 z-50 p-3 rounded-full bg-[#25a18e] text-white hover:bg-[#1a7a6b] transition shadow-lg flex items-center justify-center" aria-label="Volver al inicio">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg></a>
-
     </div>
    
    <!-- Contenido Principal Impacto -->
@@ -60,7 +58,7 @@
                 <p class="text-[#25a18e] uppercase font-semibold">
                     Nuestro impacto
                 </p>
-                <h1 class="font-semibold  md:text-5xl text-4xl flex flex-col text-center items-center">
+                <h1 class="font-['Domine'] md:text-6xl lg:text-7xl text-5xl font-semibold flex flex-col text-center items-center">
                     Cada número es una <span class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] bg-clip-text text-transparent"> historia real</span>
                 </h1>
                 <p class="font-normal md:text-lg text-normal text-gray-600/60 ">
