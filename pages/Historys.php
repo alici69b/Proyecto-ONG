@@ -54,7 +54,7 @@
         });
     });
 </script> -->
-<body class="font-sans bg-[#fAfAfA]" id="inicio">
+<body class=" bg-[#f4f9fa]" id="inicio">
     <!-- Importamos el Menú de navegación -->
     <?php
     require_once "../src/components/Header.php";
@@ -62,10 +62,8 @@
 
     <!-- BOTON DE IR A INICIO -->
     <div  class="scroll-smooth ">
-
-        <a href="#inicio" class="fixed bottom-10 right-20 z-50 p-3 rounded-full bg-[#8CBEB2] text-white hover:bg-[#F2EBBF] transition shadow-lg flex items-center justify-center" aria-label="Volver al inicio">
+        <a href="#inicio" class="fixed bottom-10 right-20 z-50 p-3 rounded-full bg-[#25a18e] text-white hover:bg-[#1a7a6b] transition shadow-lg flex items-center justify-center" aria-label="Volver al inicio">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg></a>
-
     </div>
 
     <main class="max-w-7xl mx-auto px-4 py-12 pt-25">
@@ -74,7 +72,9 @@
             
             <!-- Título -->
              <div class="text-center my-12">
-                <h1 class="md:text-5xl text-3xl font-bold mb-4">Historias de <span class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] bg-clip-text text-transparent text-4xl">Éxito</span></h1>
+                <h1 class="font-['Domine'] md:text-6xl lg:text-7xl text-5xl font-bold mb-4">
+                    Historias de <span class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] bg-clip-text text-transparent">Éxito</span>
+                </h1>
                 <p class="max-w-2xl mx-auto  text-gray-500">Personas reales que decidieron darse otra oportunidad. Lee sus historias y encuentra inspiración para la tuya.</p>
             </div>
             
@@ -388,10 +388,10 @@
             </div>  
             <!-- Card para Solicitar RESET -->
             <div class="text-center mt-12 relative z-50">
-                <div class="bg-linear-to-r from-[#00a5cf] to-[#9fffcb] rounded-3xl p-12 text-white shadow-lg">
+                <div class="bg-linear-to-r from-[#00a5cf] to-[#78d4a1] rounded-3xl p-12 text-white shadow-lg">
                     <h1 class="text-3xl lg:text-4xl font-bold mb-4">Tu historia puede ser la próxima</h1>
                     <p class="text-lg lg:text-xl mb-8 leading-relaxed">Cada una de estas personas estuvo donde tú estás ahora. El primer paso es siempre el más difícil, pero no tienes que darlo solo/a.</p>
-                    <a href="RequestReset.php" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-red-600 font-bold rounded-xl shadow-md hover:bg-red-600 hover:text-white transition-colors duration-300">
+                    <a href="RequestReset.php" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-red-600/80 font-bold rounded-xl shadow-md hover:bg-red-600/80 hover:text-white transition-colors duration-300">
                         Solicitar mi RESET 
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right-dashed"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12h.5m3 0h1.5m3 0h6" /><path d="M15 16l4 -4" /><path d="M15 8l4 4" /></svg>
                     </a>
