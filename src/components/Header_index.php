@@ -1,21 +1,6 @@
-<<<<<<< HEAD
 <nav class="absolute top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl bg-white/60 backdrop-blur-md border border-white/10 shadow-lg rounded-full z-[100] px-6 py-3 flex items-center justify-between">
     
     <div class="flex-1 flex justify-start">
-=======
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset-ONG</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-</head> 
-<body class="font-bold bg-[#f4f9fa]"> 
-    <nav class="absolute top-6 left-1/2 -translate-x-1/2 w-[95%] h-15 max-w-7xl bg-white/60 backdrop-blur-md border border-white/10 shadow-lg rounded-full z-[100] px-6 py-3 flex items-center justify-between">
-        
->>>>>>> 774ec8f (Modificaciones footer)
         <a href="index.php" class="flex items-center gap-2 hover:opacity-80 transition">
             <svg fill="#ff3b30" height="40px" width="40px" viewBox="0 0 612.00 612.00">
                 <path d="M44.563,250.179l237.89,41.871c0.485,0.085,0.964,0.118,1.451,0.118c4.33-0.027,7.831-3.545,7.831-7.88 c0-1.831-0.624-3.516-1.672-4.853l-39.919-61.25c24.027-10.024,64.762-23.283,112.095-23.283c24.594,0,48.118,3.69,69.918,10.972 c19.861,6.631,47.495,24.447,70.4,45.389c16.415,15.01,31.403,32.073,45.896,48.573c3.34,3.802,6.682,7.607,10.048,11.396 c1.521,1.713,3.677,2.648,5.894,2.648c0.788,0,1.581-0.116,2.357-0.361c2.961-0.928,5.101-3.508,5.468-6.588l0.116-0.991 c6.506-56.017-7.174-114.855-37.531-161.427c-32.502-49.852-84.035-85.972-145.111-101.71 c-24.353-6.275-49.973-9.456-76.149-9.456c-34.717,0-69.827,5.501-104.373,16.35c-18.876,5.971-37.136,13.429-54.376,22.198 L110.264,3.574c-1.714-2.631-4.832-3.978-7.921-3.467c-3.096,0.526-5.584,2.838-6.333,5.887L38.278,240.535 c-0.521,2.118-0.142,4.359,1.05,6.186C40.519,248.549,42.415,249.802,44.563,250.179z"></path>
