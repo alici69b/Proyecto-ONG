@@ -34,7 +34,6 @@
         </h1>
         
         
-        
     </header>
 
     <main class="w-full max-w-4xl bg-white rounded-[40px] shadow-2xl shadow-[#004e64]/5 p-8 md:p-16 border border-white relative overflow-hidden">
