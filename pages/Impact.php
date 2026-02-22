@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +19,9 @@
     <style>
       body {
         font-family: 'Bricolage Grotesque';
+        }
+        html {
+            scroll-behavior: smooth; 
         }
     </style>
 
@@ -66,7 +69,7 @@
             <!-- CARDS -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-16 p-4">
                 <!-- Resets Iniciados -->
-                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 min-h-[250px] p-5 transition-transform transform hover:-translate-y-2 hover:shadow-2xl hover:bg-[#e0f7f2] duration-300">
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 min-h-[250px] p-5 transition-transform transform hover:-translate-y-1 hover:scale-105 hover:shadow-xl hover:bg-[#e0f7f2] duration-300">
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -82,7 +85,7 @@
                 </div>
 
                 <!-- Resets Completados -->
-                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 min-h-[250px] p-5 transition-transform transform hover:scale-105 hover:shadow-2xl hover:bg-[#fff4e6] duration-300">
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 min-h-[250px] p-5 transition-transform transform hover:-translate-y-1 hover:scale-105 hover:shadow-xl hover:bg-[#fff4e6] duration-300">
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -98,7 +101,7 @@
                 </div>
 
                 <!-- Voluntarios Activos -->
-                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 min-h-[250px] p-5 transition-all transform hover:-translate-y-1 hover:scale-105 hover:shadow-xl hover:bg-[#fffdf0] duration-300">
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 min-h-[250px] p-5 transition-all transform  hover:-translate-y-1 hover:scale-105 hover:shadow-xl hover:bg-[#fffdf0] duration-300">
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -116,7 +119,7 @@
                 </div>
 
                 <!-- Tasa de Satisfacción -->
-                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 min-h-[250px] p-5 transition-transform transform hover:rotate-1 hover:scale-105 hover:shadow-2xl hover:bg-[#e0f7f2] duration-300">
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 min-h-[250px] p-5 transition-transform transform hover:-translate-y-1 hover:scale-105 hover:shadow-xl hover:bg-[#e0f7f2] duration-300">
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"

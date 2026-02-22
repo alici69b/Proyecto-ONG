@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +14,9 @@
     <style>
       body {
         font-family: 'Bricolage Grotesque';
+        }
+        html {
+            scroll-behavior: smooth; 
         }
     </style>
 </head>
