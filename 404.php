@@ -25,7 +25,7 @@
                     <p class="text-white/70 text-lg leading-relaxed">La página que buscas no existe o ha sido movida a otra dimensión.</p>
                 </div>
                 
-                <a href="index.php" class="w-full md:w-auto px-10 py-4 bg-[#ff3b30] text-white rounded-full font-bold hover:scale-105 transition-all shadow-lg shadow-[#ff3b30]/30">
+                <a href="../index.php" class="w-full md:w-auto px-10 py-4 bg-[#ff3b30] text-white rounded-full font-bold hover:scale-105 transition-all shadow-lg shadow-[#ff3b30]/30">
                     Volver al inicio
                 </a>
             </div>
