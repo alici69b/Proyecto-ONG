@@ -67,9 +67,9 @@
     </div>
 
     <main class="max-w-7xl mx-auto px-4 py-12 pt-25">
+        
         <div>
-            
-            
+
             <!-- Título -->
              <div class="text-center my-12">
                 <h1 class="font-['Domine'] md:text-6xl lg:text-7xl text-5xl font-bold mb-4">
@@ -79,7 +79,8 @@
             </div>
             
             <!-- Contenedor Sticky -->
-            <div class="relative min-h-[300vh]">
+             <!-- relative min-h-[300vh] -->
+            <div class="">
                 <!-- Historias de Éxito ( Contenido Principal ) -->
                 <!-- Primera Historia -->
                 <!-- He quitado story-card sticky de cada card -->
@@ -311,7 +312,7 @@
                 </div>
 
                 <!-- Cuarta Historia -->
-                <div class="top-48 flex flex-col lg:flex-row-reverse gap-12 items-center mb-12 transition-all duration-300 bg-white rounded-3xl shadow-2xl p-6 z-40">
+                <div class="top-40 flex flex-col lg:flex-row-reverse gap-12 items-center mb-12 transition-all duration-300 bg-white rounded-3xl shadow-2xl p-6 z-40">
                     <!-- Foto -->
                     <div class="w-full lg:w-auto shrink-0 flex justify-center lg:justify-end"> 
                         <div class="relative"> 
@@ -386,8 +387,9 @@
                     </div>
                 </div> 
             </div>  
+
             <!-- Card para Solicitar RESET -->
-            <div class="text-center mt-12 relative z-50">
+            <div class="pt-12 text-center relative z-50">
                 <div class="bg-linear-to-r from-[#00a5cf] to-[#78d4a1] rounded-3xl p-12 text-white shadow-lg">
                     <h1 class="text-3xl lg:text-4xl font-bold mb-4">Tu historia puede ser la próxima</h1>
                     <p class="text-lg lg:text-xl mb-8 leading-relaxed">Cada una de estas personas estuvo donde tú estás ahora. El primer paso es siempre el más difícil, pero no tienes que darlo solo/a.</p>
