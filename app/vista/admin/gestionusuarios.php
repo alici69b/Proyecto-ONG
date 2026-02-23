@@ -1,30 +1,13 @@
-<?php
-
-include_once "../../controlador/AdminController.php";
-
-?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Admin - RESET</title>
+    <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;500;800&display=swap" rel="stylesheet">
-    <style>
-        body { 
-            font-family: 'Bricolage Grotesque', sans-serif; 
-            background-color: #f4f9fa;
-
-        }
-    </style>
 </head>
-
-<body class="text-[#004e64] min-h-screen flex flex-col">
-<!-- Panel Admin --> 
-    <div class="flex flex-1 ">
-
-<!-- Menú de la izquierda, que va cambiando con forme vamos cambiando de pagina -->
+<body>
+    <!-- Menú de la izquierda, que va cambiando con forme vamos cambiando de pagina -->
         <aside class="w-64 bg-[#004e64] text-blue-100 flex flex-col p-6 gap-8 ">
 
             <div class="flex items-center gap-3 mt-20 px-2">
@@ -45,7 +28,7 @@ include_once "../../controlador/AdminController.php";
                 <a href="gestionarreset.php" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-all text-sm group">
                     <span class="opacity-70 group-hover:opacity-100"><svg fill="#ffffff" width="30px" height="30px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M276.941 440.584v565.722c0 422.4 374.174 625.468 674.71 788.668l8.02 4.292 8.131-4.292c300.537-163.2 674.71-366.268 674.71-788.668V440.584l-682.84-321.657L276.94 440.584Zm682.73 1479.529c-9.262 0-18.523-2.372-26.993-6.89l-34.9-18.974C588.095 1726.08 164 1495.906 164 1006.306V404.78c0-21.91 12.65-41.788 32.414-51.162L935.727 5.42c15.134-7.228 32.866-7.228 48 0l739.313 348.2c19.765 9.374 32.414 29.252 32.414 51.162v601.525c0 489.6-424.207 719.774-733.779 887.943l-34.899 18.975c-8.47 4.517-17.731 6.889-27.105 6.889Zm467.158-547.652h-313.412l-91.595-91.482v-83.803H905.041v-116.78h-83.69l-58.503-58.504c-1.92.113-3.84.113-5.76.113-176.075 0-319.285-143.21-319.285-319.285 0-176.075 143.21-319.398 319.285-319.398 176.075 0 319.285 143.323 319.285 319.398 0 1.92 0 3.84-.113 5.647l350.57 350.682v313.412Zm-266.654-112.941h153.713v-153.713L958.462 750.155l3.953-37.27c1.017-123.897-91.595-216.621-205.327-216.621S550.744 588.988 550.744 702.72c0 113.845 92.612 206.344 206.344 206.344l47.21-5.309 63.811 63.7h149.873v116.78h116.781v149.986l25.412 25.299Zm-313.4-553.57c0 46.758-37.949 84.706-84.706 84.706-46.758 0-84.706-37.948-84.706-84.706s37.948-84.706 84.706-84.706c46.757 0 84.706 37.948 84.706 84.706" fill-rule="evenodd"></path> </g></svg></span> Gestionar Resets
                 </a>
-                <a href="gestionusuarios.php" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-all text-sm group">
+                <a href="gestionarusuarios.php" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-all text-sm group">
                     <span class="opacity-70 group-hover:opacity-100"><svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8 13H16C17.7107 13 19.1506 14.2804 19.3505 15.9795L20 21.5M8 13C6.28928 13 4.84936 14.2804 4.64948 15.9795L4 21.5M8 13V18C8 19.8856 8 20.8284 8.58579 21.4142C9.17157 22 10.1144 22 12 22C13.8856 22 14.8284 22 15.4142 21.4142C16 20.8284 16 19.8856 16 18V17" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> <circle cx="12" cy="6" r="4" stroke="#ffffff" stroke-width="1.5"></circle> </g></svg></span> Usuarios
                 </a>
                 <a href="gestionarhistorias.php" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-all text-sm group">
@@ -61,64 +44,5 @@ include_once "../../controlador/AdminController.php";
                 </a>
             </div>
         </aside>
-
-<!-- PAgina principal, donde se encuentra todo el contenido -->
-        <main class="flex-1 p-8 md:p-12 overflow-y-auto">
-            <div class="max-w-6xl mx-auto">
-                
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
-                    <div>
-                        <h2 class="text-4xl font-extrabold tracking-tight mb-2">Vista General</h2>
-                        <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-[#7ae582] animate-pulse"></span>
-                            <p class="text-gray-400 text-sm italic">Bienvenido, Admin RESET</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-3">
-                        <button class="px-6 py-3 bg-white border border-gray-200 rounded-2xl text-sm font-bold hover:shadow-md active:scale-95 transition-all">
-                            Actualizar
-                        </button>
-                        <button class="px-6 py-3 bg-[#25a18e] text-white rounded-2xl text-sm font-bold shadow-lg shadow-[#25a18e]/30 hover:bg-[#1e8575] active:scale-95 transition-all">
-                            + Nueva Historia
-                        </button>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-16 p-4">
-                <!-- total usuarios -->
-                <div class="bg-white rounded-4xl shadow-xl shadow-slate-200/60 border border-slate-100 p-8 md:p-10 w-full relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-24 h-24  rounded-bl-[2.5rem] -mr-10 -mt-10 z-10 bg-purple-100" ></div>
-                    <div class="font-semibold text-4xl md:text-5xl mt-5"><?php echo $total_usuarios ?></div>
-                    <h2 class="font-semibold text-lg mt-5">Total de Usuarios</h2>
-                    </div>
-
-                <!-- resets pendientes -->
-                <div class="bg-white rounded-4xl shadow-xl shadow-slate-200/60 border border-slate-100 p-8 md:p-10 w-full relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-24 h-24  rounded-bl-[2.5rem] -mr-10 -mt-10 z-0 bg-yellow-100" ></div>
-                    <div class="font-semibold text-4xl md:text-5xl mt-5"><?php echo $total_usuarios_pendientes_resets ?></div>
-                    <h2 class="font-semibold text-lg mt-5">RESETs pendientes</h2>
-
-                </div>
-
-                <!-- reests completados -->
-                <div class="bg-white rounded-4xl shadow-xl shadow-slate-200/60 border border-slate-100 p-8 md:p-10 w-full relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-24 h-24  rounded-bl-[2.5rem] -mr-10 -mt-10 z-0 bg-green-100" ></div>
-                    <div class="font-semibold text-4xl md:text-5xl mt-5"><?php echo $total_usuarios_Completado_resets ?></div>
-                    <h2 class="font-semibold text-lg mt-5">RESETs completados</h2>
-                </div>
-
-                <!-- Voluntarios -->
-                <div class="bg-white rounded-4xl shadow-xl shadow-slate-200/60 border border-slate-100 p-8 md:p-10 w-full relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-24 h-24  rounded-bl-[2.5rem] -mr-10 -mt-10 z-0 bg-blue-100" ></div>
-                    <div class="font-semibold text-4xl md:text-5xl mt-5"><?php echo $total_usuarios_voluntarios ?></div>
-                    <h2 class="font-semibold text-lg mt-5">Voluntarios</h2>
-                </div>
-            </div>
-
-                </div>
-            </div>
-        </main>
-    </div>
-
 </body>
 </html>
