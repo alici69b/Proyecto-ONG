@@ -1,4 +1,8 @@
+<?php
 
+include_once "../../controlador/AdminController.php";
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -78,7 +82,7 @@
                 <!-- total usuarios -->
                 <div class="bg-white rounded-4xl shadow-xl shadow-slate-200/60 border border-slate-100 p-8 md:p-10 w-full relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-24 h-24  rounded-bl-[2.5rem] -mr-10 -mt-10 z-0 bg-purple-50" ></div>
-                    <div class="font-semibold text-4xl md:text-5xl mt-5">4</div>
+                    <div class="font-semibold text-4xl md:text-5xl mt-5"><?php echo $total_usuarios ?></div>
                     <h2 class="font-semibold text-lg mt-5">Total de Usuarios</h2>
                     </div>
 
