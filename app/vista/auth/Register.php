@@ -1,4 +1,11 @@
-<?php session_start(); ?>
+<?php
+ session_start();
+
+ require_once "../../controlador/AdminController.php";
+
+
+ 
+ ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -49,54 +56,69 @@
               <h3 class="font-bold text-xl">RESET</h3>
           </div>
 
+          
+
       <!-- Pequeño resumen de lo que vamos a hacer, crear la cuenta en la ong -->
       <h1 class="text-3xl font-bold text-slate-900 mb-2">Crea tu cuenta</h1>
       <p class="text-slate-500 mb-8">Únete a RESET y empieza tu camino hacia una nueva oportunidad.</p>
+      <div class="mb-4">
+        <?php if (isset($_SESSION['errores']) && !empty($_SESSION['errores'])): ?>
+            <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-xl">
+                <ul class="text-sm text-red-700">
+                    <?php 
+                    foreach ($_SESSION['errores'] as $campo => $mensajes) {
+                        foreach ($mensajes as $mensaje) {
+                            echo "<li>• " . htmlspecialchars($mensaje) . "</li>";
+                        }
+                    }
+                    // Limpiamos los errores para que no salgan la próxima vez que recargue
+                    unset($_SESSION['errores']);
+                    ?>
+                </ul>
+            </div>
+        <?php endif; ?>
+      </div>
+
       
-      <!-- Menu de ayuda o quiero ayudar, depede lo que escojas te mostrará algo diferente -->
-      <div class="flex w-full flex-col mx-auto mb-5">
-          <input type="radio" name="tipo" id="soy-usuario" class="peer/usuario hidden" checked >
-          <input type="radio" name="tipo" id="soy-voluntario" class="peer/voluntario hidden">
+
+      <div>
+
+      </div>
+      <!-- Formulario con los campos: nombre, email, contraseña y el boton -->
+      <form class="space-y-5" method="post" action="../../controlador/RegisterController.php">
+        <!-- Menu de ayuda o quiero ayudar, depede lo que escojas te mostrará algo diferente -->
+          <div class="flex w-full flex-col mx-auto mb-5">
+          <input type="radio" name="tipo" id="soy-usuario" value="soy-usuario" class="peer/usuario hidden" checked >
+          <input type="radio" name="tipo" id="soy-voluntario" value="soy-voluntario" class="peer/voluntario hidden">
 
           <div class="flex gap-2 mb-8 bg-[#004e64] p-1 rounded-xl">
-              <label for="soy-usuario" class="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg font-medium cursor-pointer transition-all text-white hover:bg-[#00a5cf]">
+              <label for="soy-usuario" class="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg font-medium cursor-pointer transition-all text-white hover:bg-[#00a5cf] peer-checked/usuario:bg-[#00a5cf]">
               Necesito ayuda
               </label>
 
-              <label for="soy-voluntario" class="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg font-medium cursor-pointer transition-all text-white  hover:bg-[#00a5cf]">
+              <label for="soy-voluntario" class="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg font-medium cursor-pointer transition-all text-white hover:bg-[#00a5cf] peer-checked/voluntario:bg-[#00a5cf]">
               Quiero ayudar
               </label>
           </div>
 
           <div class="hidden peer-checked/usuario:block animate-in fade-in duration-300">
-              <label class="block text-sm font-medium text-slate-700 mb-2">¿Qué quieres <i class="text-[#00a5cf]">reiniciar</i>?</label>
-              <select name="tipo_ayuda_usuario" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#00a5cf]">
+              <label class="block text-sm font-medium text-slate-700 mb-2">¿Qué quieres reiniciar?</label>
+              <select name="tipo_ayuda_usuario" class="w-full px-4 py-3 rounded-xl border border-slate-200">
                   <option value="estudios">Estudios</option>
-                  <option value="proyecto">Proyecto/Emprendimiento</option>
-                  <option value="personal">Personal/Bienestar</option>
-                  <option value="otro">Otro</option>
+                  <option value="proyecto">Proyecto</option>
               </select>
           </div>
 
           <div class="hidden peer-checked/voluntario:block animate-in fade-in duration-300">
-              <label class="block text-sm font-medium text-slate-700 mb-2">¿Cómo puedes <i class="text-[#00a5cf]">ayudar</i>?</label>
-              <select name="tipo_ayuda_voluntario" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#00a5cf] ">
-              <option>Apoyo emocional</option>
-              <option>Ayuda técnica</option>
-              <option>Guía creativa</option>
+              <label class="block text-sm font-medium text-slate-700 mb-2">¿Cómo puedes ayudar?</label>
+              <select name="tipo_ayuda_voluntario" class="w-full px-4 py-3 rounded-xl border border-slate-200">
+                  <option value="apoyo">Apoyo emocional</option>
+                  <option value="tecnica">Ayuda técnica</option>
               </select>
           </div>
-
-          <div class="hidden peer-checked:bg-[#00a5cf] peer-checked/explorador:block animate-in fade-in duration-300 p-4 bg-slate-50 rounded-xl border border-slate-300">
-        <p class="text-sm text-slate-600 italic">
-            "¡No hay problema! Puedes unirte para ver la comunidad y aprender de otros. Siempre podrás cambiar tu perfil más tarde."
-        </p>
-    </div>
-      </div>
+        </div>
 
 
-      <!-- Formulario con los campos: nombre, email, contraseña y el boton -->
-      <form class="space-y-5" method="post" action="../controlador/RegisterController.php">
         <div>
           <label for="nombre"class="block text-sm font-medium text-slate-700 mb-2">Tu nombre</label>
           <input name="nombre" type="text" placeholder="¿Cómo te llamas?" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] transition-all" >
@@ -122,6 +144,22 @@
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="16" y1="11" x2="22" y2="11"/></svg>
           Crear mi cuenta
         </button>
+        <!-- Muestro el mensaje de exit si todo ha ido bien -->
+          <div class="mb-4">
+            <?php if (isset($_SESSION['mensaje_exito'])): ?>
+                <div class="flex items-center p-4 mb-4 text-green-800 border-t-4 border-green-300 bg-green-50 rounded-xl" role="alert">
+                    <svg class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <div class="ml-3 text-sm font-medium">
+                        <?php 
+                            echo $_SESSION['mensaje_exito']; 
+                            unset($_SESSION['mensaje_exito']); 
+                        ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
       </form>
 
         <!-- si tienes una cuenta, inicia sesion -->

@@ -1,70 +1,51 @@
 <?php
 
-function validarnombre($nombre, $longitud_nombre) {
-    $errornombre = [];
+function validarRegistro($nombre, $email, $contrasena) {
+    $errores = [];
 
-    //Comporbamos que el nombre no este vacio y no sea numerico
-   
-    if(empty($nombre)) {
-        $errornombre[] = "El nombre es obligatorio";
-    } 
-    
-    if(is_numeric($nombre)) {
-        $errornombre[] = "El nombre tiene números";
+    // --- VALIDACIÓN DEL NOMBRE ---
+    $nombre = trim($nombre); // Limpiamos espacios en blanco
+    $longitud_nombre = strlen($nombre);
+
+    if (empty($nombre)) {
+        $errores['nombre'][] = "El nombre es obligatorio";
+    } elseif (is_numeric($nombre)) {
+        // Nota: is_numeric comprueba si el string es un número 
+        $errores['nombre'][] = "El nombre no puede ser solo números";
     }
 
-     // Longitud del nombre, no puede pasarse de 20 caracteres y no puede ser mas pequeño de  3
-    if($longitud_nombre < 3) {
-        $errornombre[] = "El nombre es demasido corto (minimo 3)";
-    } elseif($longitud_nombre > 20) {
-        $errornombre[] = "El nombre es demasiado largo (maximo 20)";
-    }
-    return $errornombre;
-}
-
-function validaremail( $email) {
-    $erroresemail = [];
-//comprobamos que el email no esté vacio y el formato sea valido
-    if(empty($email)) {
-        $erroresemail[] = "El email es obligatorio";
-    } 
-    
-    if(!filter_var($email , FILTER_VALIDATE_EMAIL)) {
-        $erroresemail[] = "El formato del email no es válido";
-    }
-    return $erroresemail;
-}
-
-function validarcontrasena($contrasena) {
-    $errorescontra = [];
-    $tieneNumero = false;
-
-    //mira si esta vacía
-    if(empty($contrasena)) {
-        $errorescontra[] = "La contraseña es obligatoria";
+    if ($longitud_nombre < 3) {
+        $errores['nombre'][] = "El nombre es demasiado corto (mínimo 3)";
+    } elseif ($longitud_nombre > 20) {
+        $errores['nombre'][] = "El nombre es demasiado largo (máximo 20)";
     }
 
-    //medimos la logitud de la contraseña
-    if(strlen($contrasena) < 8) {
-        $errorescontra[] = "Debe tener al menos 8 caracteres";
+
+    // --- VALIDACIÓN DEL EMAIL ---
+    if (empty($email)) {
+        $errores['email'][] = "El email es obligatorio";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errores['email'][] = "El formato del email no es válido";
     }
 
-    // comprueba que la contraseña tenga algun numero, si tiene estará correcto 
-    $letras = str_split($contrasena);
-    foreach ($letras as $letra) {
-        if (is_numeric($letra)) {
-            $tieneNumero = true;
-            break; 
+
+    // --- VALIDACIÓN DE LA CONTRASEÑA ---
+    if (empty($contrasena)) {
+        $errores['contrasena'][] = "La contraseña es obligatoria";
+    } else {
+        if (strlen($contrasena) < 8) {
+            $errores['contrasena'][] = "La contraseña debe tener al menos 8 caracteres";
+        }
+        
+        // Usamos una expresión regular para verificar si tiene al menos un número
+        if (!preg_match('/[0-9]/', $contrasena)) {
+            $errores['contrasena'][] = "La contraseña debe incluir al menos un número";
         }
     }
 
-    //si tiene no tiene algun número, entonces mandará el mensaje
-    if($tieneNumero == false) {
-        $errorescontra[] = "Debe incluir al menos un número";
-    }
-
-    return $errorescontra;
-    
+    return $errores;
 }
+
+
 
 ?>

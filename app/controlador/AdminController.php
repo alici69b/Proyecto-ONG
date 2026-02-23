@@ -41,10 +41,30 @@ $usuarios_resets_Completado = mysqli_query($conexion,
 $datos_reset_completado = mysqli_fetch_assoc($usuarios_resets_Completado);
 $total_usuarios_Completado_resets = $datos_reset['TOTAL_RESET_Completado'] ?? 0;
 
+//mostrar los resets nuevos
+$usuarios_resets_Nuevo = mysqli_query($conexion, 
+        "SELECT r.id_reset,
+            r.titulo,
+            r.descripcion,
+            r.fecha,
+            c.nombre_categoria,
+            e.nombre_estado
+        FROM reset r
+        JOIN categoria_reset c ON r.id_categoria = c.id_categoria
+        JOIN estado_maestro e ON r.id_estado = e.id_estado
+        WHERE e.nombre_estado = 'Nuevos'
+        ORDER BY r.fecha ASC; ");
+$datos_reset_Nuevo = mysqli_fetch_assoc($usuarios_resets_Nuevo);
+$total_usuarios_Nuevo_resets = $datos_reset['TOTAL_RESET_Nuevo'] ?? 0;
 
-//mostrar los usuarios en el panel de administrador
-$usuarios_voluntarios = mysqli_query($conexion, "SELECT COUNT(*) as total FROM voluntario");
-$datos_volutarios = mysqli_fetch_assoc($usuarios_voluntarios);
-$total_usuarios_voluntarios = $datos_voluntarios['total'] ?? 0;
+
+// Contar voluntarios que existen legalmente en la tabla usuarios
+$sql_join_voluntarios = "SELECT COUNT(v.id_voluntario) as total 
+                         FROM voluntario v 
+                         INNER JOIN usuario u ON v.id_registrado = u.id_usuario";
+
+$res_v = mysqli_query($conexion, $sql_join_voluntarios);
+$datos_v = mysqli_fetch_assoc($res_v);
+$total_usuarios_voluntarios = $datos_v['total'] ?? 0;
 
 ?>

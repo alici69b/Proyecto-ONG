@@ -66,7 +66,7 @@ include_once "../../controlador/AdminController.php";
 <!-- PAgina principal, donde se encuentra todo el contenido -->
         <main class="flex-1 p-8 md:p-12 overflow-y-auto">
             <div class="max-w-6xl mx-auto">
-                
+                <!-- Titulo de la pagina de administracion -->
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
                     <div>
                         <h2 class="text-4xl font-extrabold tracking-tight mb-2">Vista General</h2>
@@ -86,44 +86,158 @@ include_once "../../controlador/AdminController.php";
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-16 p-4">
-                <!-- total usuarios -->
-                <div class="bg-white rounded-4xl shadow-xl shadow-slate-200/60 border border-slate-100 p-8 md:p-10 w-full relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-24 h-24  rounded-bl-[2.5rem] -mr-10 -mt-10 z-10 bg-purple-100" ></div>
-                    <div class="font-semibold text-4xl md:text-5xl mt-5"><?php echo $total_usuarios ?></div>
-                    <h2 class="font-semibold text-lg mt-5">Total de Usuarios</h2>
+                    <!-- total usuarios -->
+                    <div class="bg-white rounded-4xl shadow-xl shadow-slate-200/60 border border-slate-100 p-8 md:p-10 w-full relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24  rounded-bl-[2.5rem] -mr-10 -mt-10 z-10 bg-purple-100" ></div>
+                        <div class="font-semibold text-4xl md:text-5xl mt-5"><?php echo $total_usuarios ?></div>
+                        <h2 class="font-semibold text-lg mt-5">Total de Usuarios</h2>
                     </div>
 
                 <!-- resets pendientes -->
-                <div class="bg-white rounded-4xl shadow-xl shadow-slate-200/60 border border-slate-100 p-8 md:p-10 w-full relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-24 h-24  rounded-bl-[2.5rem] -mr-10 -mt-10 z-0 bg-yellow-100" ></div>
-                    <div class="font-semibold text-4xl md:text-5xl mt-5"><?php echo $total_usuarios_pendientes_resets ?></div>
-                    <h2 class="font-semibold text-lg mt-5">RESETs pendientes</h2>
+                    <div class="bg-white rounded-4xl shadow-xl shadow-slate-200/60 border border-slate-100 p-8 md:p-10 w-full relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24  rounded-bl-[2.5rem] -mr-10 -mt-10 z-0 bg-yellow-100" ></div>
+                        <div class="font-semibold text-4xl md:text-5xl mt-5"><?php echo $total_usuarios_pendientes_resets ?></div>
+                        <h2 class="font-semibold text-lg mt-5">RESETs pendientes</h2>
 
-                </div>
+                    </div>
 
                 <!-- reests completados -->
-                <div class="bg-white rounded-4xl shadow-xl shadow-slate-200/60 border border-slate-100 p-8 md:p-10 w-full relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-24 h-24  rounded-bl-[2.5rem] -mr-10 -mt-10 z-0 bg-green-100" ></div>
-                    <div class="font-semibold text-4xl md:text-5xl mt-5"><?php echo $total_usuarios_Completado_resets ?></div>
-                    <h2 class="font-semibold text-lg mt-5">RESETs completados</h2>
-                </div>
+                    <div class="bg-white rounded-4xl shadow-xl shadow-slate-200/60 border border-slate-100 p-8 md:p-10 w-full relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24  rounded-bl-[2.5rem] -mr-10 -mt-10 z-0 bg-green-100" ></div>
+                        <div class="font-semibold text-4xl md:text-5xl mt-5"><?php echo $total_usuarios_Completado_resets ?></div>
+                        <h2 class="font-semibold text-lg mt-5">RESETs completados</h2>
+                    </div>
 
-                <!-- Voluntarios -->
-                <div class="bg-white rounded-4xl shadow-xl shadow-slate-200/60 border border-slate-100 p-8 md:p-10 w-full relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-24 h-24  rounded-bl-[2.5rem] -mr-10 -mt-10 z-0 bg-blue-100" ></div>
-                    <div class="font-semibold text-4xl md:text-5xl mt-5"><?php echo $total_usuarios_voluntarios ?></div>
-                    <h2 class="font-semibold text-lg mt-5">Voluntarios</h2>
+                    <!-- Voluntarios -->
+                    <div class="bg-white rounded-4xl shadow-xl shadow-slate-200/60 border border-slate-100 p-8 md:p-10 w-full relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24  rounded-bl-[2.5rem] -mr-10 -mt-10 z-0 bg-blue-100" ></div>
+                        <div class="font-semibold text-4xl md:text-5xl mt-5"><?php echo $total_usuarios_voluntarios ?></div>
+                        <h2 class="font-semibold text-lg mt-5">Voluntarios</h2>
+                    </div>
+                </div >
+
+                
+            
+                <div class="max-w-6xl mx-auto rounded-3xl bg-white shadow-xl shadow-slate-200/60 border border-slate-100 p-8 md:p-10 w-full relative overflow-hidden pt-16 gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    
+                    <div class="">
+
+                        <div class="flex items-center gap-2 mb-4">
+                            <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                            <span class="text-gray-800 font-semibold text-sm">Tasa de éxito</span>
+                        </div>
+
+                        <div class="relative h-48  mb-6">
+                            <canvas id="miGrafico"></canvas>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-3">
+                            <div class="bg-blue-50 rounded-2xl p-3 text-center">
+                                <div class="text-blue-600 font-bold text-lg"><?php echo $total_usuarios_Nuevo_resets ?></div>
+                                <div class="text-gray-500 text-xs">Nuevos</div>
+                            </div>
+                            <div class="bg-green-50 rounded-2xl p-3 text-center">
+                                <div class="text-green-600 font-bold text-lg"><?php echo $total_usuarios_pendientes_resets ?></div>
+                                <div class="text-gray-500 text-xs">En proceso</div>
+                            </div>
+                            <div class="bg-teal-50 rounded-2xl p-3 text-center">
+                                <div class="text-teal-600 font-bold text-lg"><?php echo $total_usuarios_Completado_resets ?></div>
+                                <div class="text-gray-500 text-xs">Listos</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="md:border-l md:pl-10 border-slate-100 h-full">
+                            <h2 class="text-gray-800 font-semibold text-sm mb-4">Actividad Reciente</h2>
+                            
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
-
-                </div>
+                
             </div>
+            </div>
+    
+            
         </main>
 
-        <div class="chart-container">
-                                <canvas id="myExpensesChart"></canvas>
-                            </div>
-    </div>
+        
+<script>
+    // 1. Plugin para el texto central (se mantiene igual, pero dinámico)
+    const centroTexto = {
+      id: 'centroTexto',
+      afterDraw(chart) {
+        const { ctx, chartArea: { width, height } } = chart;
+        ctx.save();
+        
+        // Calculamos el porcentaje total de "Listos" para mostrar en el centro
+        // chart.data.datasets[0].data[2] es el valor de "Listos"
+        const dataArray = chart.data.datasets[0].data;
+        const total = dataArray.reduce((a, b) => a + b, 0);
+        const listos = dataArray[2]; // El tercer valor es "Listos"
 
+        // 2. Validación: Si el total es 0, el porcentaje es "0%" para evitar el NaN
+        const porcentaje = total > 0 ? Math.round((listos / total) * 100) + '%' : '0%';
+
+        ctx.font = 'bold 30px sans-serif';
+        ctx.fillStyle = '#1a3331';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(porcentaje, width / 2, height / 2 - 5);
+
+        ctx.font = '14px sans-serif';
+        ctx.fillStyle = '#666';
+        ctx.fillText('completados', width / 2, height / 2 + 20);
+        
+        ctx.restore();
+      }
+    };
+
+    // 2. Configuración de los Datos
+    const data = {
+        // Estas etiquetas ayudan a herramientas de lectura de pantalla
+        labels: ['Nuevos', 'En proceso', 'Listos'], 
+        datasets: [{
+            // AQUÍ AGREGAMOS LOS 3 VALORES
+            // Usamos 1 para "Nuevos", y las variables PHP para los otros dos
+            data: [
+                <?php echo $total_usuarios_Nuevo_resets ?>, 
+                <?php echo $total_usuarios_pendientes_resets ?>, 
+                <?php echo $total_usuarios_Completado_resets ?>
+            ],
+            // COLORES: Azul (Nuevos), Verde (Proceso), Teal (Listos)
+            backgroundColor: ['#3b82f6', '#22c55e', '#28948c'],
+            borderWidth: 0,
+            borderRadius: 10, // Suaviza las uniones de los segmentos
+            cutout: '80%',    // Hace el "agujero" central más grande
+        }]
+    };
+
+    // 3. Configuración del Gráfico
+    const config = {
+        type: 'doughnut',
+        data: data,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }, // Ocultamos la leyenda automática
+                tooltip: { enabled: true }  // Activamos el tooltip para ver info al pasar el mouse
+            },
+            rotation: -90, // Empezamos el dibujo desde arriba
+            circumference: 360, 
+        },
+        plugins: [centroTexto] 
+    };
+
+    // 4. Renderizado
+    const ctx = document.getElementById('miGrafico').getContext('2d');
+    new Chart(ctx, config);
+</script>
 </body>
 </html>

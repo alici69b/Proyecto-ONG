@@ -1,6 +1,7 @@
 <?php
 
 require_once "../modelo/RegisterModel.php";
+require_once "../config/db.php";
 
 session_start();
 
@@ -9,29 +10,56 @@ if(isset($_POST['crear_cuenta'])) {
     $nombre = trim($_POST['nombre']);
     $email = trim($_POST['email']);
     $contrasena = trim($_POST['contrasena']);
-    $rol = trim($_POST['tipo']) ?? '';
-
-    $opcion = "";
-    if ($rol === "soy-usuario") {
-        $opcion = $_POST['tipo_ayuda_usuario'] ?? '';
-    } elseif ($rol === "soy-voluntario") {
-        $opcion = $_POST['tipo_ayuda_voluntario'] ?? '';
-    }
-
-    $email = $_SESSION['guardar_email'];
-    $contrasena = $_SESSION['guardar_contrasena'];
-
-    $longitud_nombre = mb_strlen($nombre);
+    $rol = $_POST['tipo'] ?? 'soy-usuario';
 
     //agregamos las funciones para validar los campos
-    $erroresnombre = validarnombre($nombre, $longitud_nombre);
-    $_SESSION['erroresnombre'] = $erroresnombre;
-    $erroresemail = validaremail( $email);
-    $_SESSION['erroresemail'] = $erroresemail;
-    $errorcontrasena = validarcontrasena($contrasena);
-    $_SESSION['errorcontrasena'] = $errorcontrasena;
+    $errores = validarRegistro($nombre, $email, $contrasena);
+    $_SESSION['errores'] = $errores;
 
+    if(empty($errores)) {
+        //Inserto la consulta sql para guardar los datos
+        $sql = "INSERT INTO usuario (nombre, email, password) VALUES (?,?,?)";
+        $stmt = mysqli_prepare($conexion, $sql);
+        mysqli_stmt_bind_param($stmt, "sss", $nombre, $email, $contrasena );
+
+        //ejecuto lo que he hecho con el comando anterior con el execute
+        if(mysqli_stmt_execute($stmt)) {
+
+            //esto lo que hace es obtener el id  que se le asigno a el nuevo usuario
+            $id_usuario = mysqli_insert_id($conexion);
+
+            // PASO 1: Insertar en usuario_normal (Obligatorio para ambos roles)
+            $sql_normal = "INSERT INTO usuario_normal (id_user_normal, fecha_ultimo_acceso) VALUES (?, NOW())";
+            $stmt_normal = mysqli_prepare($conexion, $sql_normal);
+            mysqli_stmt_bind_param($stmt_normal, "i", $id_usuario);
+            mysqli_stmt_execute($stmt_normal);
+
+            // PASO 2: Insertar en registrado (Obligatorio para ambos roles según tu SQL)
+            $sql_reg = "INSERT INTO registrado (id_registrado, estado_registro) VALUES (?, 'activo')";
+            $stmt_reg = mysqli_prepare($conexion, $sql_reg);
+            mysqli_stmt_bind_param($stmt_reg, "i", $id_usuario);
+            mysqli_stmt_execute($stmt_reg);
+            
+
+                //seguun el rol que tenga, tendrá que hacer una cosas u otra
+                if($rol === "soy-voluntario") {
+                    //metemos el voluntario dentro de su tabla
+                    $sql_voluntario = "INSERT INTO voluntario (id_registrado, tipo_ayuda) VALUES (?, ?)";
+                    $stmt_vol = mysqli_prepare($conexion, $sql_voluntario);
+                    $ayuda = $_POST['tipo_ayuda_voluntario'] ?? 'General';
+                    mysqli_stmt_bind_param($stmt_vol, "is", $id_usuario, $ayuda);
+                    mysqli_stmt_execute($stmt_vol);
+
+                } 
+
+
+            $_SESSION['mensaje_exito'] = "¡Registro completado! Ya puedes iniciar sesión con tu cuenta.";
+            
+        }  else {
+            $_SESSION['errores']['db'][] = "El correo ya existe.";
+        }
+    }
 }
- header("Location: ../vista/Register.php");
+ header("Location: ../vista/auth/Register.php");
  exit();
 ?>
