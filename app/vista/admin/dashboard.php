@@ -10,6 +10,7 @@ include_once "../../controlador/AdminController.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Admin - RESET</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;500;800&display=swap" rel="stylesheet">
     <style>
         body { 
@@ -25,7 +26,7 @@ include_once "../../controlador/AdminController.php";
     <div class="flex flex-1 ">
 
 <!-- Menú de la izquierda, que va cambiando con forme vamos cambiando de pagina -->
-        <aside class="w-64 bg-[#004e64] text-blue-100 flex flex-col p-6 gap-8 ">
+        <aside class="w-64 h-screen bg-[#004e64] text-blue-100 flex flex-col p-6 gap-8 ">
 
             <div class="flex items-center gap-3 mt-20 px-2">
 
@@ -56,7 +57,7 @@ include_once "../../controlador/AdminController.php";
                 </a>
             </nav>
             <div class="mt-auto pt-6 border-t border-white/10">
-                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-red-500/20 text-red-300 transition-all text-sm font-bold">
+                <a href="../auth/Login.php" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-red-500/20 text-red-300 transition-all text-sm font-bold">
                     <span><svg fill="#ffffff" width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" transform="matrix(-1, 0, 0, 1, 0, 0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M4,12a1,1,0,0,0,1,1h7.59l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H5A1,1,0,0,0,4,12ZM17,2H7A3,3,0,0,0,4,5V8A1,1,0,0,0,6,8V5A1,1,0,0,1,7,4H17a1,1,0,0,1,1,1V19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V16a1,1,0,0,0-2,0v3a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V5A3,3,0,0,0,17,2Z"></path></g></svg></span> Salir
                 </a>
             </div>
@@ -118,6 +119,10 @@ include_once "../../controlador/AdminController.php";
                 </div>
             </div>
         </main>
+
+        <div class="chart-container">
+                                <canvas id="myExpensesChart"></canvas>
+                            </div>
     </div>
 
 </body>

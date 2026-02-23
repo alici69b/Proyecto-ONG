@@ -35,7 +35,7 @@ function validar_categoria($categoria) {
 
 //Funcion para validar descripciones
 function validar_descripcion($descripcion) {
-    if(strlen($descripcion) >= 10 && strlen($descripcion) <= 200) {
+    if(strlen($descripcion) >= 10) {
         return true;
     } else {
         return false;
