@@ -28,13 +28,13 @@ if(isset($_POST['crear_cuenta'])) {
             //esto lo que hace es obtener el id  que se le asigno a el nuevo usuario
             $id_usuario = mysqli_insert_id($conexion);
 
-            // PASO 1: Insertar en usuario_normal (Obligatorio para ambos roles)
+            // Insertar en usuario_normal
             $sql_normal = "INSERT INTO usuario_normal (id_user_normal, fecha_ultimo_acceso) VALUES (?, NOW())";
             $stmt_normal = mysqli_prepare($conexion, $sql_normal);
             mysqli_stmt_bind_param($stmt_normal, "i", $id_usuario);
             mysqli_stmt_execute($stmt_normal);
 
-            // PASO 2: Insertar en registrado (Obligatorio para ambos roles según tu SQL)
+            //Insertar en registrado
             $sql_reg = "INSERT INTO registrado (id_registrado, estado_registro) VALUES (?, 'activo')";
             $stmt_reg = mysqli_prepare($conexion, $sql_reg);
             mysqli_stmt_bind_param($stmt_reg, "i", $id_usuario);
@@ -51,6 +51,13 @@ if(isset($_POST['crear_cuenta'])) {
                     mysqli_stmt_execute($stmt_vol);
 
                 } 
+
+                if($rol === "admin") {
+                    $sql_admin = "INSERT INTO admin (id_admin, nivel_permiso) VALUES (?, 'Básico')";
+                    $stmt_adm = mysqli_prepare($conexion, $sql_admin);
+                    mysqli_stmt_bind_param($stmt_adm, "i", $id_usuario);
+                    mysqli_stmt_execute($stmt_adm);
+                }
 
 
             $_SESSION['mensaje_exito'] = "¡Registro completado! Ya puedes iniciar sesión con tu cuenta.";

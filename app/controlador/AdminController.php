@@ -72,9 +72,13 @@ $total_usuarios_voluntarios = $datos_v['total'] ?? 0;
 
 //pagin de usuaios, para mostrarlos paginados
 // 1. Configuración de Paginación y Búsqueda
+//quiero 7 usuarios por pagina
 $usuarios_por_pagina = 7;
+//revisa la url haciendo que si hay p=3 se dividirá en 3 paginas
 $pagina_actual = isset($_GET['p']) ? (int)$_GET['p'] : 1;
+//usuarios que ignora desde donde empezo a mostrar los usuarios
 $offset = ($pagina_actual - 1) * $usuarios_por_pagina;
+
 
 $buscar = isset($_GET['search']) ? mysqli_real_escape_string($conexion, $_GET['search']) : '';
 $condicion = "";
