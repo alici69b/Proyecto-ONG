@@ -64,11 +64,17 @@
       <div class="mb-4">
         <?php if (isset($_SESSION['errores']) && !empty($_SESSION['errores'])): ?>
             <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-xl">
-                <ul class="text-sm text-red-700">
+                <ul class="text-sm text-red-700 space-y-1">
                     <?php 
                     foreach ($_SESSION['errores'] as $campo => $mensajes) {
-                        foreach ($mensajes as $mensaje) {
-                            echo "<li>• " . htmlspecialchars($mensaje) . "</li>";
+                        // Verificamos si es una lista (array) o un texto simple (string)
+                        if (is_array($mensajes)) {
+                            foreach ($mensajes as $mensaje) {
+                                echo "<li>• " . htmlspecialchars($mensaje) . "</li>";
+                            }
+                        } else {
+                            // Si es un texto directo, lo imprimimos sin hacer otro bucle
+                            echo "<li>• " . htmlspecialchars($mensajes) . "</li>";
                         }
                     }
                     // Limpiamos los errores para que no salgan la próxima vez que recargue
@@ -77,7 +83,7 @@
                 </ul>
             </div>
         <?php endif; ?>
-      </div>
+    </div>
 
       
 
