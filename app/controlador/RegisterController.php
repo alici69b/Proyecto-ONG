@@ -14,10 +14,10 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 if(isset($_POST['crear_cuenta'])) {
-    $nombre = trim($_POST['nombre']);
-    $email = trim($_POST['email']);
-    $contrasena = trim($_POST['contrasena']);
-    $rol = $_POST['tipo'] ?? 'soy-usuario';
+    $nombre = htmlspecialchars(trim($_POST['nombre']));
+    $email = htmlspecialchars(trim($_POST['email'])); 
+    $contrasena = htmlspecialchars(trim($_POST['contrasena']));
+    $rol = htmlspecialchars(trim($_POST['tipo'])) ?? 'soy-usuario';
 
     $errores = validarRegistro($nombre, $email, $contrasena);
 
@@ -106,8 +106,14 @@ if(isset($_POST['crear_cuenta'])) {
                 $_SESSION['errores']['db'][] = "Error en el registro: " . mysqli_error($conexion);
             }
         }
+
     }
+
 }
+
+//cerramos la conexion con la base de datos
+mysqli_close($conexion);
+
 
 // Redirigimos de vuelta a la vista de registro para mostrar mensajes o errores
 header("Location: ../vista/auth/Register.php");

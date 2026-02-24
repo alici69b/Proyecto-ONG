@@ -83,10 +83,10 @@ $total_usuarios_Nuevo_resets = $total_usuarios_Nuevo_resets ?? 0;
 
         <div id="sidebarOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden"></div>
 
-        <main class="flex-1 md:ml-64  lg:ml-75 p-8  md:p-12  md:max-w-6xl lg:max-w-6xl w-full">
+        <main class="flex-1 md:ml-64   p-8  md:p-12  md:max-w-6xl lg:max-w-full w-full">
             <div class=" mx-auto my-10">
                 
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
+                <div class="flex flex-col md:flex-row justify-between items-center md:items-end gap-6 mb-12">
                     <div>
                         <h2 class="text-4xl font-extrabold tracking-tight mb-2">Vista General</h2>
                         <div class="flex items-center gap-2">
