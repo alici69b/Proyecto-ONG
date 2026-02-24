@@ -79,7 +79,87 @@ include_once "../../controlador/AdminController.php";
                 </a>
             </div>
         </aside>
+
+        <div class="md:ml-64 p-8  md:p-12 md:max-w-6xl lg:max-w-full w-full">
     
-    <main class="md:max-w-6xl lg:max-w-6xl w-full mx-auto"></main>
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-slate-800">Configuración del Sistema</h1>
+        <p class="text-slate-500">Actualiza la información de tu cuenta y preferencias de seguridad.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 ">
+
+    
+        
+        <div class="lg:col-span-2 space-y-8">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
+                <div class="flex items-center gap-4 mb-8 border-b border-slate-100 pb-4">
+                    <div class="p-3 bg-blue-50 rounded-lg text-blue-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-xl font-semibold text-slate-800">Información Personal</h2>
+                </div>
+
+                <form action="actualizar_perfil.php" method="POST" enctype="multipart/form-data" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="md:col-span-2 flex items-center gap-6 p-4 bg-slate-50 rounded-xl">
+                        <div class="h-24 w-24 rounded-full bg-slate-200 flex-shrink-0 border-4 border-white shadow-sm overflow-hidden">
+                            <img id="avatar-preview" src="https://ui-avatars.com/api/?name=Admin" class="h-full w-full object-cover">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Foto de perfil</label>
+                            <input type="file" name="nueva_foto" class="text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-600 file:text-white hover:file:bg-blue-700 cursor-pointer">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">Nombre de Usuario</label>
+                        <input type="text" value="admin" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 outline-none bg-slate-50">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">Correo Electrónico</label>
+                        <input type="email" value="admin@gmail.com" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 outline-none bg-slate-50">
+                    </div>
+
+                    <div class="md:col-span-2 mt-4 pt-6 border-t border-slate-100">
+                        <h3 class="text-lg font-semibold text-slate-800 mb-4 ">Cambiar Contraseña</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <input type="password" name="nueva_password" placeholder="Nueva contraseña" class="px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 outline-none">
+                            <input type="password" placeholder="Confirmar contraseña" class="px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 outline-none">
+                        </div>
+                        <p class="mt-2 text-xs text-slate-400 italic">Si no deseas cambiarla, deja estos campos vacíos.</p>
+                    </div>
+
+                    <div class="md:col-span-2 flex justify-end pt-4">
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded-lg shadow-md transition-all active:scale-95">
+                            Guardar todos los cambios
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        
+        </div>
+        <div class="space-y-6 w-120 grid grid-cols-1 lg:grid-cols-2">
+            <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-6 text-white shadow-lg">
+                <h3 class="font-bold text-lg mb-2">Estado de la cuenta</h3>
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="h-3 w-3 bg-green-400 rounded-full animate-pulse"></span>
+                    <span class="text-sm">Administrador Activo</span>
+                </div>
+                <p class="text-blue-100 text-sm">Registrado el: 24-02-2026</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                <h3 class="font-bold text-slate-800 mb-4">Consejo de seguridad</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    Asegúrate de que tu contraseña tenga al menos 12 caracteres, incluyendo números y símbolos especiales para mayor seguridad.
+                </p>
+            </div>
+    </div>
+</div>
 </body>
 </html>

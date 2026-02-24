@@ -13,20 +13,32 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Si el usuario pulsa el botón de crear cuenta
 if(isset($_POST['crear_cuenta'])) {
-    // Recogemos y limpiamos los datos del formulario
-    $nombre = trim($_POST['nombre']);
-    $email = trim($_POST['email']);
-    $contrasena = trim($_POST['contrasena']);
-    $rol = $_POST['tipo'] ?? 'soy-usuario';
+    $nombre = htmlspecialchars(trim($_POST['nombre']));
+    $email = htmlspecialchars(trim($_POST['email'])); 
+    $contrasena = htmlspecialchars(trim($_POST['contrasena']));
+    $rol = htmlspecialchars(trim($_POST['tipo'])) ?? 'soy-usuario';
 
-    // Agregamos las funciones para validar los campos (desde el modelo)
     $errores = validarRegistro($nombre, $email, $contrasena);
+
+    if(empty($errores['email'])) { 
+        $sql_check = "SELECT email FROM usuario WHERE email = ?";
+        $stmt_check = mysqli_prepare($conexion, $sql_check);
+        mysqli_stmt_bind_param($stmt_check, "s", $email);
+        mysqli_stmt_execute($stmt_check);
+        mysqli_stmt_store_result($stmt_check);
+        
+        if(mysqli_stmt_num_rows($stmt_check) > 0) {
+            $errores['email'] = "Este correo electrónico ya está registrado.";
+        }
+        mysqli_stmt_close($stmt_check);
+    }
+
     $_SESSION['errores'] = $errores;
 
-    // Si no hay errores de validación, procedemos al registro
+    // Si no hay errores de validación ni el email está duplicado, procedemos al registro
     if(empty($errores)) {
+        // ... el resto de tu código INSERT sin cambios ...
         // Hasheamos la contraseña para guardarla de forma segura
         $password_hasheada = password_hash($contrasena, PASSWORD_DEFAULT);
 
@@ -94,8 +106,14 @@ if(isset($_POST['crear_cuenta'])) {
                 $_SESSION['errores']['db'][] = "Error en el registro: " . mysqli_error($conexion);
             }
         }
+
     }
+
 }
+
+//cerramos la conexion con la base de datos
+mysqli_close($conexion);
+
 
 // Redirigimos de vuelta a la vista de registro para mostrar mensajes o errores
 header("Location: ../vista/auth/Register.php");
