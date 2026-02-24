@@ -66,7 +66,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     
     //Descripcion del problema
     if (!isset($descripcion_problema) || $descripcion_problema === "") {
-        $_SESSION["error_descripcionProblema"] = "La descripcion es obligatoria";
+        $_SESSION["error_descripcionProblema"] = "La descripcion es obligatoria. (Mínimo 10 caracteres)";
         $errores[] = $_SESSION["error_descripcionProblema"];
     } else {
         //Validamos la descripcion
@@ -80,7 +80,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     
     //Causa del abandono
     if (!isset($causa_abandono) || $causa_abandono === "") {
-        $_SESSION["error_causaAbandono"] = "La descripcion es obligatoria";
+        $_SESSION["error_causaAbandono"] = "La descripcion es obligatoria. (Mínimo 10 caracteres)";
         $errores[] = $_SESSION["error_causaAbandono"];
     } else {
         //Validamos la descripcion
@@ -90,14 +90,17 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
             $errores[] = $_SESSION["error_causaAbandono"];
         }
     }
+    
     //Necesidades para volver
     if (!isset($necesidades_reset) || $necesidades_reset === "") {
-        $_SESSION["error_necesidadesReset"] = "La descripcion es obligatoria";
+        $_SESSION["error_necesidadesReset"] = "La descripcion es obligatoria. (Mínimo 10 caracteres)";
         $errores[] = $_SESSION["error_necesidadesReset"];
     } else {
-        //Validamos la descripcion
-        if(validar_descripcion($$necesidades_reset)) {
-            //Todo correcto
+        
+    //Validamos la descripcion
+        if(validar_descripcion($necesidades_reset)) {
+            
+        //Todo correcto
         } else {
             $_SESSION["error_necesidadesReset"] = "La descripcion tiene que tener mínimo 10 caracteres";
             $errores[] = $_SESSION["error_necesidadesReset"];
@@ -106,6 +109,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 
     //Comprobamos que no hay errores
     if(empty($errores)) {
+        
         //Guardamos los datos en un array
         $_SESSION["datos"] = [
             "nombre"                    => $nombre,
@@ -116,12 +120,28 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
             "necesidades"               => $necesidades_reset
         ];
 
+        //Guardamos los datos en la base de datos
+        // 1. PREPARACIÓN: Enviamos la estructura SQL con un "comodín" (?)
+        $sql = "INSERT INTO tabla () VALUES (?)";
+        
+        //El servidor de BD ya sabe qué orden va a ejecutar
+        $stmt = mysqli_prepare($conexion, $sql);
+
+        // 2. VINCULACIÓN: Asignamos la variable al "comodín"
+        mysqli_stmt_bind_param($stmt, "s", $_SESSION["datos"]["nombre"]);
+
     } else {
-        //Redirigimos a la pagina REQUESTRESET
+        //Redirigimos a la pagina REQUESTRESET para mostramos errores
         header("Location: ../../pages/RequestReset.php");
         exit;
     }
 }
+
+
+
+
+//Cerramos la conexion con la base de datos
+mysqli_close($conexion);
 
 //Redirigimos a la pagina REQUESTRESET
 header("Location: ../../pages/RequestReset.php");
