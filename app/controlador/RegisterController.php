@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 require_once "../modelo/RegisterModel.php";
 require_once "../config/db.php";
@@ -13,11 +16,16 @@ if(isset($_POST['crear_cuenta'])) {
     $contrasena = trim($_POST['contrasena']);
     $rol = $_POST['tipo'] ?? 'soy-usuario';
 
+    
+
     //agregamos las funciones para validar los campos
     $errores = validarRegistro($nombre, $email, $contrasena);
     $_SESSION['errores'] = $errores;
 
     if(empty($errores)) {
+        // haseamos la contraseña y luego la utilizaremos de nuevo
+        $password_hasheada = password_hash($contrasena, PASSWORD_DEFAULT);
+
         $sql_rol = "SELECT id_rol FROM roles WHERE nombre_rol = ?";
         $stmt_rol = mysqli_prepare($conexion, $sql_rol);
         mysqli_stmt_bind_param($stmt_rol, "s", $rol);
@@ -27,10 +35,11 @@ if(isset($_POST['crear_cuenta'])) {
         $id_rol_db = $fila_rol['id_rol'] ?? 1;
 
         //Inserto la consulta sql para guardar los datos
-        $sql = "INSERT INTO usuario (nombre, email, password, id_rol, rol) VALUES (?,?,?,?,?)";
+        $sql = "INSERT INTO usuario (nombre, email, password, id_rol) VALUES (?,?,?,?,?)";
         $stmt = mysqli_prepare($conexion, $sql);
-        mysqli_stmt_bind_param($stmt, "sssis", $nombre, $email, $contrasena, $id_rol_db, $rol);
-
+    
+        // aqui usamos todos los parametros 
+        mysqli_stmt_bind_param($stmt, "sssis", $nombre, $email, $password_hasheada, $id_rol_db);
         //ejecuto lo que he hecho con el comando anterior con el execute
         if(mysqli_stmt_execute($stmt)) {
 
