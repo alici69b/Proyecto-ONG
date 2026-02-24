@@ -9,10 +9,12 @@ $errorCategoria = $_SESSION["error_categoria"] ?? null;
 $errorDescripcion = $_SESSION["error_descripcionProblema"] ?? null;
 $errorAbandono = $_SESSION["error_causaAbandono"] ?? null;
 $errorNecesidad = $_SESSION["error_necesidadesReset"] ?? null;
+$mensajeExito = $_SESSION["exito"] ?? null;
+$errorCrearSolicitud = $_SESSION["errorSolicitud"] ?? null;
 
 //unset de las sesiones para evitar errores
-if (isset($_SESSION["error_nombre"]) || isset($_SESSION["error_email"]) || isset($_SESSION["error_categoria"]) || isset($_SESSION["error_descripcionProblema"]) || isset($_SESSION["error_causaAbandono"]) || isset($_SESSION["error_necesidadesReset"])) {
-    unset($_SESSION["error_nombre"], $_SESSION["error_email"], $_SESSION["error_categoria"], $_SESSION["error_descripcionProblema"], $_SESSION["error_causaAbandono"], $_SESSION["error_necesidadesReset"]);
+if (isset($_SESSION["error_nombre"]) || isset($_SESSION["error_email"]) || isset($_SESSION["error_categoria"]) || isset($_SESSION["error_descripcionProblema"]) || isset($_SESSION["error_causaAbandono"]) || isset($_SESSION["error_necesidadesReset"]) || isset($_SESSION["mensajeFinal"]) || isset($_SESSION["errorSolicitud"])) {
+    unset($_SESSION["error_nombre"], $_SESSION["error_email"], $_SESSION["error_categoria"], $_SESSION["error_descripcionProblema"], $_SESSION["error_causaAbandono"], $_SESSION["error_necesidadesReset"], $_SESSION["exito"], $_SESSION["errorSolicitud"]);
 }
 ?>
 <!DOCTYPE html>
@@ -86,6 +88,18 @@ if (isset($_SESSION["error_nombre"]) || isset($_SESSION["error_email"]) || isset
             </div>
         </div>
         <form action="../app/controlador/ResetController.php" method="POST" class="mt-10">
+            <?php if (isset($errorCrearSolicitud)): ?>
+                <div class="bg-red-100 border-l-4 border-[#ff3b30] text-[#ff3b30] p-4 mb-6 rounded shadow-sm animate-pulse">
+                    <p class="font-bold">Atención:</p>
+                    <p><?= $errorCrearSolicitud ?></p>
+                </div>
+            <?php endif; ?>
+            <?php if (isset($mensajeExito)): ?>
+                <div class="bg-green-100 border-l-4 border-[#37ff30] text-[#37ff30] p-4 mb-6 rounded shadow-sm animate-pulse">
+                    <p class="font-bold">Atención:</p>
+                    <p><?= $mensajeExito ?></p>
+                </div>
+            <?php endif; ?>
             <div class="bg-white rounded-xl shadow-lg text-start flex flex-col w-full max-w-3xl mx-auto pb-8 px-6 sm:px-8 md:px-10 pt-8 gap-7">
                 <div class="flex flex-row gap-4 w-full">
                     <div class="flex flex-col flex-1 space-y-2">
