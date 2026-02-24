@@ -31,18 +31,19 @@ function comprobar_credenciales($email, $password, $conexion) {
     $resultado = mysqli_stmt_get_result($stmt);
 
     if($usuario = mysqli_fetch_assoc($resultado)) {
-
+        /*
         //Para pruebas con contraseñas en texto plano
         if ($password === $usuario["password"]) {
             unset($usuario["password"]);
             return $usuario;
         }
+        */
 
         //Para contraseñas hasheadas
-        /* if(password_verify($password, $usuario["password"])) {
+        if(password_verify($password, $usuario["password"])) {
             unset($usuario["password"]);
             return $usuario;
-        } */
+        }
     }
     return false;
 }
