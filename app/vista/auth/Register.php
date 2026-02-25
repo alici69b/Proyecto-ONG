@@ -111,16 +111,24 @@
           <div class="hidden peer-checked/usuario:block animate-in fade-in duration-300">
               <label class="block text-sm font-medium text-slate-700 mb-2">¿Qué quieres reiniciar?</label>
               <select name="tipo_ayuda_usuario" class="w-full px-4 py-3 rounded-xl border border-slate-200">
-                  <option value="estudios">Estudios</option>
+                  <option>Selecciona una categoría</option>
+                  <option value="estudio">Estudios</option>
+                  <option value="salud">Salud</option>
+                  <option value="creatividad">Creatividad</option>
                   <option value="proyecto">Proyecto</option>
+                  <option value="otros">Otros</option>
               </select>
           </div>
 
           <div class="hidden peer-checked/voluntario:block animate-in fade-in duration-300">
               <label class="block text-sm font-medium text-slate-700 mb-2">¿Cómo puedes ayudar?</label>
               <select name="tipo_ayuda_voluntario" class="w-full px-4 py-3 rounded-xl border border-slate-200">
-                  <option value="apoyo">Apoyo emocional</option>
-                  <option value="tecnica">Ayuda técnica</option>
+                  <option>Tipo de ayuda</option>
+                  <option value="estudio">Mentoría en estudios</option>
+                  <option value="salud">Coaching de salud</option>
+                  <option value="creatividad">Guía creativa</option>
+                  <option value="proyecto">Asesoría de emprendimiento</option>
+                  <option value="otros">Otro</option>
               </select>
           </div>
         </div>
@@ -154,7 +162,7 @@
         <!-- Muestro el mensaje de exit si todo ha ido bien -->
           <div class="mb-4">
             <?php if (isset($_SESSION['mensaje_exito'])): ?>
-                <div class="flex items-center p-4 mb-4 text-green-800 border-t-4 border-green-300 bg-green-50 rounded-xl" role="alert">
+                <div class="flex border-l-4 border-green-500 bg-green-50 p-4 rounded-xl" role="alert">
                     <svg class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                     </svg>
