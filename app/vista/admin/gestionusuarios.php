@@ -1,6 +1,6 @@
 <?php
 // Asegúrate de que el controlador tenga la función obtenerIniciales() definida ARRIBA del todo
-include_once "../../controlador/AdminController.php";
+include_once "../../controlador/UserController.php";
 
 // Definimos valores por defecto para evitar Warnings si el controlador falla o la búsqueda está vacía
 $buscar = $buscar ?? '';
@@ -44,9 +44,6 @@ $pagina_actual = $pagina_actual ?? 1;
             </button>
 
             <div class="flex items-center gap-3 mt-10 px-2">
-            <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center border border-white/10">
-                <span class="text-xl">🛡️</span>
-            </div>
             <div>
                 <p class="font-bold text-white text-sm">Panel Admin</p>
                 <p class="text-[10px] text-[#9fffcb] uppercase tracking-widest font-bold">RESET ONG</p>
@@ -70,10 +67,7 @@ $pagina_actual = $pagina_actual ?? 1;
                     <span class="opacity-70"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span> 
                     Historias
                 </a>
-                <a href="configuracion.php" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-all text-sm group">
-                <span class="opacity-70 group-hover:opacity-100"><svg viewBox="0 0 32 32" enable-background="new 0 0 32 32" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Home"></g> <g id="Print"></g> <g id="Mail"></g> <g id="Camera"></g> <g id="Video"></g> <g id="Film"></g> <g id="Message"></g> <g id="Telephone"></g> <g id="User"></g> <g id="File"></g> <g id="Folder"></g> <g id="Map"></g> <g id="Download"></g> <g id="Upload"></g> <g id="Video_Recorder"></g> <g id="Schedule"></g> <g id="Cart"></g> <g id="Setting"> <path d="M29,12l-1.7,0c-0.1-0.4-0.3-0.8-0.5-1.1L28,9.6c0.4-0.4,0.6-0.9,0.6-1.4c0-0.5-0.2-1-0.6-1.4L25.2,4 c-0.8-0.8-2.1-0.8-2.8,0l-1.2,1.2C20.8,5,20.4,4.8,20,4.7V3c0-1.1-0.9-2-2-2h-2h-2c-1.1,0-2,0.9-2,2l0,1.7 c-0.4,0.1-0.8,0.3-1.1,0.5L9.6,4C8.9,3.2,7.6,3.2,6.8,4L4,6.8C3.6,7.2,3.4,7.7,3.4,8.2c0,0.5,0.2,1,0.6,1.4l1.2,1.2 C5,11.2,4.8,11.6,4.7,12H3c-1.1,0-2,0.9-2,2v4c0,1.1,0.9,2,2,2l1.7,0c0.1,0.4,0.3,0.8,0.5,1.1L4,22.4c-0.8,0.8-0.8,2,0,2.8L6.8,28 c0.8,0.8,2.1,0.8,2.8,0l1.2-1.2c0.4,0.2,0.7,0.3,1.1,0.5V29c0,1.1,0.9,2,2,2h2h2c1.1,0,2-0.9,2-2l0-1.7c0.4-0.1,0.8-0.3,1.1-0.5 l1.2,1.2c0.8,0.8,2.1,0.8,2.8,0l2.8-2.8c0.8-0.8,0.8-2,0-2.8l-1.2-1.2c0.2-0.4,0.3-0.7,0.5-1.1H29c1.1,0,2-0.9,2-2v-4 C31,12.9,30.1,12,29,12z M16,22c-3.3,0-6-2.7-6-6s2.7-6,6-6s6,2.7,6,6S19.3,22,16,22z" fill="#ffffff"></path> </g> <g id="Search"></g> <g id="Pencils"></g> <g id="Group"></g> <g id="Record"></g> <g id="Headphone"></g> <g id="Music_Player"></g> <g id="Sound_On"></g> <g id="Sound_Off"></g> <g id="Lock"></g> <g id="Lock_open"></g> <g id="Love"></g> <g id="Favorite"></g> <g id="Film_1_"></g> <g id="Music"></g> <g id="Puzzle"></g> <g id="Turn_Off"></g> <g id="Book"></g> <g id="Save"></g> <g id="Reload"></g> <g id="Trash"></g> <g id="Tag"></g> <g id="Link"></g> <g id="Like"></g> <g id="Bad"></g> <g id="Gallery"></g> <g id="Add"></g> <g id="Close"></g> <g id="Forward"></g> <g id="Back"></g> <g id="Buy"></g> <g id="Mac"></g> <g id="Laptop"></g> </g></svg></span> 
-                Configuracion
-                </a>
+                
             </nav>
 
             <div class="mt-auto pt-6 border-t border-white/10">
@@ -84,10 +78,12 @@ $pagina_actual = $pagina_actual ?? 1;
             </div>
         </aside>
 
-    <main class="flex-1 ml-0 md:ml-64 lg:ml-75 p-4 md:p-12 w-full transition-all duration-300 overflow-hidden">
-            <div class=" mx-auto my-10">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-8  gap-4">
-                <h2 class="text-3xl font-extrabold text-[#004e64]">Gestión de Usuarios</h2>
+    <main class="flex-1 md:ml-64   p-8  md:p-12  md:max-w-6xl lg:max-w-full w-full">
+        <header class="flex justify-between items-center mb-10">
+            <div>
+            <h1 class="text-3xl font-black text-[#005f73]">Gestion de Usuarios</h1>
+                    <p class="text-slate-500">Supervisión de todos los usuarios</p>
+            </div>
                 
                 <form method="GET" class="relative w-full md:w-96">
                     <input type="text" name="search" value="<?php echo htmlspecialchars($buscar); ?>" 
@@ -97,7 +93,7 @@ $pagina_actual = $pagina_actual ?? 1;
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                     </span>
                 </form>
-            </div>
+        </header>
 
             <div class="bg-white rounded-[2rem] shadow-xl shadow-blue-900/5 border border-slate-100 overflow-hidden">
                 <div class="overflow-x-auto">
@@ -163,6 +159,7 @@ $pagina_actual = $pagina_actual ?? 1;
                 </div>
             </div>
         </div>
+
     </main>
 </div>
 

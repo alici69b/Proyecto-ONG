@@ -60,7 +60,7 @@ $datos_reset_Nuevo = mysqli_fetch_assoc($usuarios_resets_Nuevo);
 $total_usuarios_Nuevo_resets = $datos_reset['TOTAL_RESET_Nuevo'] ?? 0;
 
 
-// Contar voluntarios que existen legalmente en la tabla usuarios
+// Contar voluntarios que existen  en la tabla usuarios
 $sql_join_voluntarios = "SELECT COUNT(v.id_voluntario) as total 
                          FROM voluntario v 
                          INNER JOIN usuario u ON v.id_registrado = u.id_usuario";
@@ -69,39 +69,32 @@ $res_v = mysqli_query($conexion, $sql_join_voluntarios);
 $datos_v = mysqli_fetch_assoc($res_v);
 $total_usuarios_voluntarios = $datos_v['total'] ?? 0;
 
+// Consulta para obtener usuarios y su estado de conexión
+$sql_status = "SELECT *, 
+               (CASE 
+                    WHEN ultima_actividad > NOW() - INTERVAL 5 MINUTE THEN 'online' 
+                    ELSE 'offline' 
+                END) as estado_conexion 
+               FROM usuario 
+               WHERE id_rol != 3"; // Excluimos al admin si quieres
 
-//pagin de usuaios, para mostrarlos paginados
-// 1. Configuración de Paginación y Búsqueda
-//quiero 7 usuarios por pagina
-$usuarios_por_pagina = 7;
-//revisa la url haciendo que si hay p=3 se dividirá en 3 paginas
-$pagina_actual = isset($_GET['p']) ? (int)$_GET['p'] : 1;
-//usuarios que ignora desde donde empezo a mostrar los usuarios
-$offset = ($pagina_actual - 1) * $usuarios_por_pagina;
-
-
-$buscar = isset($_GET['search']) ? mysqli_real_escape_string($conexion, $_GET['search']) : '';
-$condicion = "";
-if (!empty($buscar)) {
-    $condicion = "WHERE nombre LIKE '%$buscar%' OR apellidos LIKE '%$buscar%' OR email LIKE '%$buscar%'";
+$res_status = mysqli_query($conexion, $sql_status);
+$usuarios_con = [];
+while ($u = mysqli_fetch_assoc($res_status)) {
+    $usuarios_con[] = $u;
 }
 
-// 2. Obtener el total de registros filtrados
-$res_count = mysqli_query($conexion, "SELECT COUNT(*) as total FROM usuario $condicion");
-$total_registros = mysqli_fetch_assoc($res_count)['total'];
-$total_paginas = ceil($total_registros / $usuarios_por_pagina);
+// Consultamos usuarios, calculando si están online (5 min de margen)
+$sql_online = "SELECT nombre, foto_perfil, id_rol,
+               (CASE 
+                    WHEN ultima_actividad > NOW() - INTERVAL 5 MINUTE THEN 'online' 
+                    ELSE 'offline' 
+                END) as estado 
+               FROM usuario 
+               WHERE id_rol != 3 
+               ORDER BY estado DESC, nombre ASC";
 
-// 3. Consulta de usuarios con LIMIT para la página actual
-$sql_usuarios = "SELECT id_usuario, nombre, apellidos, email, fecha_registro 
-                 FROM usuario $condicion 
-                 ORDER BY fecha_registro DESC 
-                 LIMIT $offset, $usuarios_por_pagina";
-                 
-$res_usuarios_lista = mysqli_query($conexion, $sql_usuarios);
-$usuarios = [];
+$res_online = mysqli_query($conexion, $sql_online);
+$lista_usuarios = mysqli_fetch_all($res_online, MYSQLI_ASSOC);
 
-while($fila = mysqli_fetch_assoc($res_usuarios_lista)) {
-    $fila['iniciales'] = obtenerIniciales($fila['email']); 
-    $usuarios[] = $fila;
-}
 ?>

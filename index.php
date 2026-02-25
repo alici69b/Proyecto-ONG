@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
@@ -75,7 +76,7 @@
                 </h1>
             </div>
             <div class=" max-w-xl mx-auto text-center top-0">
-                <p class=" text-md text-gray-800  md:text-md lg:text-lg">Volvemos a dar vida a proyectos, hábitos, ideas, estudios y pequeños sueños que quedaron en pausa.</p>
+                <p class="px-15  text-gray-800  text-md md:text-md lg:text-lg">Volvemos a dar vida a proyectos, hábitos, ideas, estudios y pequeños sueños que quedaron en pausa.</p>
                 <div class=" flex justify-center text-center items-center  gap-3 px-15 pt-15">
                     <a class="px-5 py-3 text-sm w-50 md:w-47 md:text-md lg:text-md bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] font-bold  shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/RequestReset.php">Solicitar RESET</a>
 
