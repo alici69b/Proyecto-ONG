@@ -1,6 +1,7 @@
 <?php
+session_start();
+include_once "../../controlador/ManageresetController.php";
 
-include_once "../../controlador/AdminController.php";
 
 ?>
 <!DOCTYPE html>
@@ -39,9 +40,6 @@ include_once "../../controlador/AdminController.php";
             </button>
 
             <div class="flex items-center gap-3 mt-10 px-2">
-            <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center border border-white/10">
-                <span class="text-xl">🛡️</span>
-            </div>
             <div>
                 <p class="font-bold text-white text-sm">Panel Admin</p>
                 <p class="text-[10px] text-[#9fffcb] uppercase tracking-widest font-bold">RESET ONG</p>
@@ -65,10 +63,7 @@ include_once "../../controlador/AdminController.php";
                     <span class="opacity-70"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span> 
                     Historias
                 </a>
-                <a href="configuracion.php" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-all text-sm group">
-                <span class="opacity-70 group-hover:opacity-100"><svg viewBox="0 0 32 32" enable-background="new 0 0 32 32" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Home"></g> <g id="Print"></g> <g id="Mail"></g> <g id="Camera"></g> <g id="Video"></g> <g id="Film"></g> <g id="Message"></g> <g id="Telephone"></g> <g id="User"></g> <g id="File"></g> <g id="Folder"></g> <g id="Map"></g> <g id="Download"></g> <g id="Upload"></g> <g id="Video_Recorder"></g> <g id="Schedule"></g> <g id="Cart"></g> <g id="Setting"> <path d="M29,12l-1.7,0c-0.1-0.4-0.3-0.8-0.5-1.1L28,9.6c0.4-0.4,0.6-0.9,0.6-1.4c0-0.5-0.2-1-0.6-1.4L25.2,4 c-0.8-0.8-2.1-0.8-2.8,0l-1.2,1.2C20.8,5,20.4,4.8,20,4.7V3c0-1.1-0.9-2-2-2h-2h-2c-1.1,0-2,0.9-2,2l0,1.7 c-0.4,0.1-0.8,0.3-1.1,0.5L9.6,4C8.9,3.2,7.6,3.2,6.8,4L4,6.8C3.6,7.2,3.4,7.7,3.4,8.2c0,0.5,0.2,1,0.6,1.4l1.2,1.2 C5,11.2,4.8,11.6,4.7,12H3c-1.1,0-2,0.9-2,2v4c0,1.1,0.9,2,2,2l1.7,0c0.1,0.4,0.3,0.8,0.5,1.1L4,22.4c-0.8,0.8-0.8,2,0,2.8L6.8,28 c0.8,0.8,2.1,0.8,2.8,0l1.2-1.2c0.4,0.2,0.7,0.3,1.1,0.5V29c0,1.1,0.9,2,2,2h2h2c1.1,0,2-0.9,2-2l0-1.7c0.4-0.1,0.8-0.3,1.1-0.5 l1.2,1.2c0.8,0.8,2.1,0.8,2.8,0l2.8-2.8c0.8-0.8,0.8-2,0-2.8l-1.2-1.2c0.2-0.4,0.3-0.7,0.5-1.1H29c1.1,0,2-0.9,2-2v-4 C31,12.9,30.1,12,29,12z M16,22c-3.3,0-6-2.7-6-6s2.7-6,6-6s6,2.7,6,6S19.3,22,16,22z" fill="#ffffff"></path> </g> <g id="Search"></g> <g id="Pencils"></g> <g id="Group"></g> <g id="Record"></g> <g id="Headphone"></g> <g id="Music_Player"></g> <g id="Sound_On"></g> <g id="Sound_Off"></g> <g id="Lock"></g> <g id="Lock_open"></g> <g id="Love"></g> <g id="Favorite"></g> <g id="Film_1_"></g> <g id="Music"></g> <g id="Puzzle"></g> <g id="Turn_Off"></g> <g id="Book"></g> <g id="Save"></g> <g id="Reload"></g> <g id="Trash"></g> <g id="Tag"></g> <g id="Link"></g> <g id="Like"></g> <g id="Bad"></g> <g id="Gallery"></g> <g id="Add"></g> <g id="Close"></g> <g id="Forward"></g> <g id="Back"></g> <g id="Buy"></g> <g id="Mac"></g> <g id="Laptop"></g> </g></svg></span> 
-                Configuracion
-                </a>
+                
             </nav>
 
             <div class="mt-auto pt-6 border-t border-white/10">
@@ -78,5 +73,74 @@ include_once "../../controlador/AdminController.php";
                 </a>
             </div>
         </aside>
+
+        <main>
+    
+
+    <main class="flex-1 md:ml-64   p-8  md:p-12  md:max-w-6xl lg:max-w-full w-full">
+        <header class="flex justify-between items-center mb-10">
+                <div>
+                    <h1 class="text-3xl font-black text-[#005f73]">Gestionar Resets</h1>
+                    <p class="text-slate-500">Supervisión de solicitudes activas</p>
+                </div>
+                <button onclick="window.location.reload()" class="bg-white border-2 border-slate-200 px-5 py-2 rounded-xl hover:bg-slate-50 transition font-medium flex items-center gap-2">
+                    <span>🔃</span> Actualizar
+                </button>
+            </header>
+
+            <div class="space-y-4">
+                <?php if (empty($resets)): ?>
+                    <p class="text-center py-10 text-slate-400">No hay resets registrados actualmente.</p>
+                <?php endif; ?>
+
+                <?php foreach ($resets as $r): ?>
+                <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-100 flex flex-col lg:flex-row lg:items-center justify-between gap-6 hover:shadow-md transition-shadow">
+                    
+                    <div class="flex items-start gap-5">
+                        <div class="w-14 h-14 rounded-2xl bg-cyan-50 flex items-center justify-center text-2xl">
+                            ♻️
+                        </div>
+                        <div>
+                            <h2 class="font-bold text-lg text-slate-800"><?= htmlspecialchars($r['titulo']) ?></h2>
+                            <div class="flex flex-wrap items-center gap-2 mt-1 text-sm text-slate-400">
+                                <span class="font-semibold text-slate-600"><?= htmlspecialchars($r['solicitante']) ?></span>
+                                <span>•</span>
+                                <span class="bg-slate-100 px-2 py-0.5 rounded-md text-[10px] font-bold uppercase"><?= htmlspecialchars($r['nombre_categoria']) ?></span>
+                                <span>•</span>
+                                <span><?= date('d/m/Y', strtotime($r['fecha'])) ?></span>
+                            </div>
+                            <p class="mt-2 text-slate-500 text-sm line-clamp-1">"<?= htmlspecialchars($r['descripcion']) ?>"</p>
+                        </div>
+                    </div>
+
+                    <form method="POST" class="flex flex-wrap items-center gap-3">
+                        <input type="hidden" name="id_reset" value="<?= $r['id_reset'] ?>">
+
+                        <select name="id_voluntario" class="bg-slate-50 border-none text-sm rounded-xl px-4 py-3 ring-1 ring-slate-200 focus:ring-2 focus:ring-cyan-500 outline-none min-w-[160px]">
+                            <option value="">👤 Asignar voluntario</option>
+                            <?php foreach ($voluntarios as $vol): ?>
+                                <option value="<?= $vol['id_voluntario'] ?>" <?= ($r['id_voluntario'] == $vol['id_voluntario']) ? 'selected' : '' ?>>
+                                    <?= htmlspecialchars($vol['nombre']) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+
+                        <select name="id_estado" onchange="this.form.submit()" class="bg-white border-none text-sm font-bold rounded-xl px-4 py-3 ring-1 ring-slate-200 focus:ring-2 focus:ring-cyan-500 outline-none cursor-pointer min-w-[140px]">
+                            <?php foreach ($estados as $est): ?>
+                                <option value="<?= $est['id_estado'] ?>" <?= ($r['id_estado'] == $est['id_estado']) ? 'selected' : '' ?>>
+                                    <?= htmlspecialchars($est['nombre_estado']) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                        
+                        <button type="submit" class="bg-[#0a9396] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#005f73] transition">Guardar</button>
+                    </form>
+                </div>
+                <?php endforeach; ?>
+            </div>
+    </main>
+</div>
+</div>
+        </main>
 </body>
 </html>

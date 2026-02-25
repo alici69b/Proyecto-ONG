@@ -8,6 +8,19 @@ $total_usuarios_Completado_resets = $total_usuarios_Completado_resets ?? 0;
 $total_usuarios_voluntarios = $total_usuarios_voluntarios ?? 0;
 $total_usuarios_Nuevo_resets = $total_usuarios_Nuevo_resets ?? 0;
 ?>
+
+<!--
+    colores
+        -azul oscuro: #004e64
+        -azul: #00a5cf
+        - verdeagua  #9fffcb
+        -verde : #25a18e
+        -verde vivo: #7ae582
+        -coral: #ff3b30
+        -poner letras con el degradado del inicio: bg-linear-to-r from-[#00a5cf] to-[#9fffcb] bg-clip-text text-transparent 
+        -color del  bg-[#f4f9fa]
+
+    -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -41,9 +54,6 @@ $total_usuarios_Nuevo_resets = $total_usuarios_Nuevo_resets ?? 0;
             </button>
 
             <div class="flex items-center gap-3 mt-10 px-2">
-            <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center border border-white/10">
-                <span class="text-xl">🛡️</span>
-            </div>
             <div>
                 <p class="font-bold text-white text-sm">Panel Admin</p>
                 <p class="text-[10px] text-[#9fffcb] uppercase tracking-widest font-bold">RESET ONG</p>
@@ -67,10 +77,7 @@ $total_usuarios_Nuevo_resets = $total_usuarios_Nuevo_resets ?? 0;
                     <span class="opacity-70"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span> 
                     Historias
                 </a>
-                <a href="configuracion.php" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-all text-sm group">
-                <span class="opacity-70 group-hover:opacity-100"><svg viewBox="0 0 32 32" enable-background="new 0 0 32 32" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Home"></g> <g id="Print"></g> <g id="Mail"></g> <g id="Camera"></g> <g id="Video"></g> <g id="Film"></g> <g id="Message"></g> <g id="Telephone"></g> <g id="User"></g> <g id="File"></g> <g id="Folder"></g> <g id="Map"></g> <g id="Download"></g> <g id="Upload"></g> <g id="Video_Recorder"></g> <g id="Schedule"></g> <g id="Cart"></g> <g id="Setting"> <path d="M29,12l-1.7,0c-0.1-0.4-0.3-0.8-0.5-1.1L28,9.6c0.4-0.4,0.6-0.9,0.6-1.4c0-0.5-0.2-1-0.6-1.4L25.2,4 c-0.8-0.8-2.1-0.8-2.8,0l-1.2,1.2C20.8,5,20.4,4.8,20,4.7V3c0-1.1-0.9-2-2-2h-2h-2c-1.1,0-2,0.9-2,2l0,1.7 c-0.4,0.1-0.8,0.3-1.1,0.5L9.6,4C8.9,3.2,7.6,3.2,6.8,4L4,6.8C3.6,7.2,3.4,7.7,3.4,8.2c0,0.5,0.2,1,0.6,1.4l1.2,1.2 C5,11.2,4.8,11.6,4.7,12H3c-1.1,0-2,0.9-2,2v4c0,1.1,0.9,2,2,2l1.7,0c0.1,0.4,0.3,0.8,0.5,1.1L4,22.4c-0.8,0.8-0.8,2,0,2.8L6.8,28 c0.8,0.8,2.1,0.8,2.8,0l1.2-1.2c0.4,0.2,0.7,0.3,1.1,0.5V29c0,1.1,0.9,2,2,2h2h2c1.1,0,2-0.9,2-2l0-1.7c0.4-0.1,0.8-0.3,1.1-0.5 l1.2,1.2c0.8,0.8,2.1,0.8,2.8,0l2.8-2.8c0.8-0.8,0.8-2,0-2.8l-1.2-1.2c0.2-0.4,0.3-0.7,0.5-1.1H29c1.1,0,2-0.9,2-2v-4 C31,12.9,30.1,12,29,12z M16,22c-3.3,0-6-2.7-6-6s2.7-6,6-6s6,2.7,6,6S19.3,22,16,22z" fill="#ffffff"></path> </g> <g id="Search"></g> <g id="Pencils"></g> <g id="Group"></g> <g id="Record"></g> <g id="Headphone"></g> <g id="Music_Player"></g> <g id="Sound_On"></g> <g id="Sound_Off"></g> <g id="Lock"></g> <g id="Lock_open"></g> <g id="Love"></g> <g id="Favorite"></g> <g id="Film_1_"></g> <g id="Music"></g> <g id="Puzzle"></g> <g id="Turn_Off"></g> <g id="Book"></g> <g id="Save"></g> <g id="Reload"></g> <g id="Trash"></g> <g id="Tag"></g> <g id="Link"></g> <g id="Like"></g> <g id="Bad"></g> <g id="Gallery"></g> <g id="Add"></g> <g id="Close"></g> <g id="Forward"></g> <g id="Back"></g> <g id="Buy"></g> <g id="Mac"></g> <g id="Laptop"></g> </g></svg></span> 
-                Configuracion
-                </a>
+                
             </nav>
 
             <div class="mt-auto pt-6 border-t border-white/10">
@@ -84,9 +91,9 @@ $total_usuarios_Nuevo_resets = $total_usuarios_Nuevo_resets ?? 0;
         <div id="sidebarOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden"></div>
 
         <main class="flex-1 md:ml-64   p-8  md:p-12  md:max-w-6xl lg:max-w-full w-full">
-            <div class=" mx-auto my-10">
+            <header class="flex justify-between items-center mb-10">
                 
-                <div class="flex flex-col md:flex-row justify-between items-center md:items-end gap-6 mb-12">
+                
                     <div>
                         <h2 class="text-4xl font-extrabold tracking-tight mb-2">Vista General</h2>
                         <div class="flex items-center gap-2">
@@ -94,12 +101,12 @@ $total_usuarios_Nuevo_resets = $total_usuarios_Nuevo_resets ?? 0;
                             <p class="text-gray-400 text-sm italic">Sincronizado: <?php echo date('H:i'); ?>hs</p>
                         </div>
                     </div>
-                    <div class="flex gap-3">
+                    <div class="flex gap-3 ">
                         <button onclick="location.reload()" class="px-6 py-3 bg-white border border-gray-200 rounded-2xl text-sm font-bold hover:shadow-md transition-all active:scale-95">Actualizar</button>
                         <button class="px-6 py-3 bg-[#25a18e] text-white rounded-2xl text-sm font-bold shadow-lg shadow-[#25a18e]/30 hover:bg-[#1e8575] transition-all active:scale-95">+ Nueva Historia</button>
                     </div>
-                </div>
-
+                
+            </header>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                     <div class="bg-white rounded-[2.5rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-8 relative overflow-hidden group">
                         <div class="absolute top-0 right-0 w-24 h-24 rounded-bl-[2.5rem] -mr-8 -mt-8 bg-purple-50 group-hover:bg-purple-100 transition-colors"></div>
@@ -126,44 +133,94 @@ $total_usuarios_Nuevo_resets = $total_usuarios_Nuevo_resets ?? 0;
                     </div>
                 </div>
 
-                <div class="bg-white rounded-[3rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-10">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                        <div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    
+                        <div class=" bg-white rounded-[3rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-10">
+                            <div>
                             <div class="flex items-center gap-2 mb-8">
                                 <div class="w-8 h-8 bg-teal-50 rounded-lg flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                                    <svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                    </svg>
                                 </div>
                                 <span class="text-slate-700 font-extrabold">Rendimiento RESETs</span>
                             </div>
+                            <!-- si no existen datos mostrará que no hya datos que los añada a la base de datos -->
+                            <?php if(empty($total_usuarios_Nuevo_resets) && empty($total_usuarios_Pendientes_resets) && empty($total_usuarios_Completado_resets)): ?>
+                                <div class="flex flex-col items-center justify-center h-64  rounded-[2rem] bg-slate-50/100   p-8 text-center">
+                                    <div class="w-16 h-16 bg-white rounded-full shadow-sm flex items-center justify-center mb-4">
+                                        <svg class="w-10 h-10 text-slate-700" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M24 42C33.9411 42 42 33.9411 42 24C42 14.0589 33.9411 6 24 6C14.0589 6 6 14.0589 6 24C6 33.9411 14.0589 42 24 42ZM24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" fill="currentColor"></path>
+                                            <path d="M19 20C19 21.1046 18.1046 22 17 22C15.8954 22 15 21.1046 15 20C15 18.8954 15.8954 18 17 18C18.1046 18 19 18.8954 19 20Z" fill="currentColor"></path>
+                                            <path d="M33 20C33 21.1046 32.1046 22 31 22C29.8954 22 29 21.1046 29 20C29 18.8954 29.8954 18 31 18C32.1046 18 33 18.8954 33 20Z" fill="currentColor"></path>
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M18.5673 33.8235C18.5673 33.8235 21 31 24 31C27 31 29.4327 33.8235 29.4327 33.8235" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-slate-700 font-bold max-w-[200px] mx-auto leading-tight">No hay datos guardados, añade resets para ver tu grafica</h3>
+                                </div>
+                            <?php else: ?>
+                                <div class="relative h-64 mb-8">
+                                    <canvas id="miGrafico"></canvas>
+                                </div>
 
-                            <div class="relative h-64 mb-8">
-                                <canvas id="miGrafico"></canvas>
-                            </div>
-
-                            <div class="grid grid-cols-3 gap-4">
-                                <div class="bg-blue-50/50 rounded-2xl p-4 text-center border border-blue-100/50">
-                                    <div class="text-blue-600 font-black text-xl"><?php echo $total_usuarios_Nuevo_resets ?></div>
-                                    <div class="text-slate-400 text-[10px] font-bold uppercase">Nuevos</div>
+                                <div class="grid grid-cols-3 gap-4">
+                                    <div class="bg-blue-50/50 rounded-2xl p-4 text-center border border-blue-100/50">
+                                        <div class="text-blue-600 font-black text-xl"><?php echo $total_usuarios_Nuevo_resets ?></div>
+                                        <div class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Nuevos</div>
+                                    </div>
+                                    <div class="bg-green-50/50 rounded-2xl p-4 text-center border border-green-100/50">
+                                        <div class="text-green-600 font-black text-xl"><?php echo $total_usuarios_pendientes_resets ?></div>
+                                        <div class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Proceso</div>
+                                    </div>
+                                    <div class="bg-teal-50/50 rounded-2xl p-4 text-center border border-teal-100/50">
+                                        <div class="text-teal-600 font-black text-xl"><?php echo $total_usuarios_Completado_resets ?></div>
+                                        <div class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Éxito</div>
+                                    </div>
                                 </div>
-                                <div class="bg-green-50/50 rounded-2xl p-4 text-center border border-green-100/50">
-                                    <div class="text-green-600 font-black text-xl"><?php echo $total_usuarios_pendientes_resets ?></div>
-                                    <div class="text-slate-400 text-[10px] font-bold uppercase">Proceso</div>
-                                </div>
-                                <div class="bg-teal-50/50 rounded-2xl p-4 text-center border border-teal-100/50">
-                                    <div class="text-teal-600 font-black text-xl"><?php echo $total_usuarios_Completado_resets ?></div>
-                                    <div class="text-slate-400 text-[10px] font-bold uppercase">Éxito</div>
-                                </div>
+                            <?php endif; ?>
                             </div>
                         </div>
 
-                        <div class="lg:border-l border-slate-100 lg:pl-16 flex flex-col justify-center">
+                        <div class="grid grid-cols-1 lg:grid-cols-2  bg-white rounded-[3rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-10">
                             <h2 class="text-slate-700 font-extrabold mb-8 flex items-center gap-2">
-                                <span class="w-2 h-2 bg-indigo-500 rounded-full"></span> Actividad Reciente
+                                <span class="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></span> Actividad Reciente
                             </h2>
-                            
+                            <div class="space-y-4">
+                                </div>
+                        </div>
+                    
+                </div>
+
+                <div class="bg-white rounded-[2.5rem] p-8 shadow-xl shadow-blue-900/5 border border-slate-100 w-full mt-6">
+                    <div class="flex justify-between items-center mb-8">
+                        <h3 class="font-black text-slate-800 tracking-tight text-lg">Actividad</h3>
+                        <span class="flex items-center gap-1.5 bg-emerald-50 text-emerald-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border border-emerald-100">
+                            <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping"></span>
+                            En vivo
+                        </span>
+                    </div>
+
+                    <div class="flex flex-wrap justify-start items-center gap-8">
+                        <?php foreach ($lista_usuarios as $user): ?>
+                            <div class="flex items-center gap-4 group transition-all duration-300 hover:translate-x-1">
+                                <div class="relative">
+                                    <div class="absolute -inset-1 bg-gradient-to-tr from-slate-100 to-slate-50 rounded-[1.2rem] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                    <img src="../../public/img/<?= $user['foto_perfil'] ?>" class="relative w-12 h-12 rounded-[1.1rem] object-cover shadow-sm border border-white">
+                                    <span class="absolute -bottom-1 -right-1 w-4 h-4 border-2 border-white rounded-full 
+                                        <?= $user['estado'] === 'online' ? 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]' : 'bg-slate-300' ?>">
+                                    </span>
+                                </div>
+                                
+                                <div>
+                                    <p class="text-sm font-bold text-slate-700 leading-none group-hover:text-indigo-600 transition-colors"><?= htmlspecialchars($user['nombre']) ?></p>
+                                    <p class="text-[10px] text-slate-400 font-bold mt-1.5 uppercase tracking-widest flex items-center gap-1">
+                                        <?= $user['estado'] === 'online' ? 'Activo ahora' : 'Desconectado' ?>
+                                    </p>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
-            </div>
         </main>
     </div>
 
