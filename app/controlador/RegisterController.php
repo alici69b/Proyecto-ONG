@@ -17,7 +17,7 @@ if(isset($_POST['crear_cuenta'])) {
     $nombre = htmlspecialchars(trim($_POST['nombre']));
     $email = htmlspecialchars(trim($_POST['email'])); 
     $contrasena = htmlspecialchars(trim($_POST['contrasena']));
-    $rol = htmlspecialchars(trim($_POST['tipo'])) ?? 'soy-usuario';
+    $rol = htmlspecialchars(trim($_POST['tipo']));
 
     $errores = validarRegistro($nombre, $email, $contrasena);
 
