@@ -30,7 +30,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
                 header("Location: ../vista/admin/dashboard.php");
                 exit;
             case "soy-voluntario": // 2 es el id_rol = Voluntario
-                header("Location: ../vista/voluntario/panel.php");
+                header("Location: ../vista/voluntario/dashboard.php");
                 exit;
             case "soy-usuario": // 1 es el id_rol = Usuario
                 header("Location: ../vista/usuario/dashboard.php");
