@@ -1,11 +1,6 @@
 <?php
-
-
- require_once "../../controlador/AdminController.php";
-
-
- 
- ?>
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -63,8 +58,9 @@
       <p class="text-slate-500 mb-8">Únete a RESET y empieza tu camino hacia una nueva oportunidad.</p>
       <div class="mb-4">
         <?php if (isset($_SESSION['errores']) && !empty($_SESSION['errores'])): ?>
-            <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-xl">
-                <ul class="text-sm text-red-700 space-y-1">
+           <div class="bg-red-100 border-l-4 border-[#ff3b30] text-[#ff3b30] p-4 mb-6 rounded shadow-sm animate-pulse">
+              <p class="font-bold">Atención:</p>
+                <ul class=" text-red space-y-1">
                     <?php 
                     foreach ($_SESSION['errores'] as $campo => $mensajes) {
                         // Verificamos si es una lista (array) o un texto simple (string)
@@ -93,44 +89,46 @@
       <!-- Formulario con los campos: nombre, email, contraseña y el boton -->
       <form class="space-y-5" method="post" action="../../controlador/RegisterController.php">
         <!-- Menu de ayuda o quiero ayudar, depede lo que escojas te mostrará algo diferente -->
-          <div class="flex w-full flex-col mx-auto mb-5">
-          <input type="radio" name="tipo" id="soy-usuario" value="soy-usuario" class="peer/usuario hidden" checked >
-          <input type="radio" name="tipo" id="soy-voluntario" value="soy-voluntario" class="peer/voluntario hidden">
+            <div class="flex w-full flex-col mx-auto mb-5">
+                
+                <input type="hidden" name="tipo" id="input-rol" value="soy-usuario">
 
-          <div class="flex gap-2 mb-8 bg-[#004e64] p-1 rounded-xl">
-              <label for="soy-usuario" class="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg font-medium cursor-pointer transition-all text-white hover:bg-[#00a5cf] peer-checked/usuario:bg-[#00a5cf]">
-              Necesito ayuda
-              </label>
+                <div class="flex gap-2 mb-8 bg-[#004e64] p-1 rounded-xl">
+                    <button type="button" id="btn-usuario" onclick="cambiarRol('soy-usuario')" 
+                        class="flex-1 py-2.5 px-4 rounded-lg font-medium transition-all text-white bg-[#00a5cf]">
+                        Necesito ayuda
+                    </button>
 
-              <label for="soy-voluntario" class="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg font-medium cursor-pointer transition-all text-white hover:bg-[#00a5cf] peer-checked/voluntario:bg-[#00a5cf]">
-              Quiero ayudar
-              </label>
-          </div>
+                    <button type="button" id="btn-voluntario" onclick="cambiarRol('soy-voluntario')" 
+                        class="flex-1 py-2.5 px-4 rounded-lg font-medium transition-all text-white">
+                        Quiero ayudar
+                    </button>
+                </div>
 
-          <div class="hidden peer-checked/usuario:block animate-in fade-in duration-300">
-              <label class="block text-sm font-medium text-slate-700 mb-2">¿Qué quieres reiniciar?</label>
-              <select name="tipo_ayuda_usuario" class="w-full px-4 py-3 rounded-xl border border-slate-200">
-                  <option>Selecciona una categoría</option>
-                  <option value="estudio">Estudios</option>
-                  <option value="salud">Salud</option>
-                  <option value="creatividad">Creatividad</option>
-                  <option value="proyecto">Proyecto</option>
-                  <option value="otros">Otros</option>
-              </select>
-          </div>
+                <div id="bloque-usuario" class="animate-in fade-in duration-300">
+                    <label class="block text-sm font-medium text-slate-700 mb-2">¿Qué quieres reiniciar?</label>
+                    <select name="tipo_ayuda_usuario" class="w-full px-4 py-3 rounded-xl border border-slate-200">
+                        <option value="">Selecciona una categoría</option>
+                        <option value="estudio">Estudios</option>
+                        <option value="salud">Salud</option>
+                        <option value="creatividad">Creatividad</option>
+                        <option value="proyecto">Proyecto</option>
+                        <option value="otros">Otros</option>
+                    </select>
+                </div>
 
-          <div class="hidden peer-checked/voluntario:block animate-in fade-in duration-300">
-              <label class="block text-sm font-medium text-slate-700 mb-2">¿Cómo puedes ayudar?</label>
-              <select name="tipo_ayuda_voluntario" class="w-full px-4 py-3 rounded-xl border border-slate-200">
-                  <option>Tipo de ayuda</option>
-                  <option value="estudio">Mentoría en estudios</option>
-                  <option value="salud">Coaching de salud</option>
-                  <option value="creatividad">Guía creativa</option>
-                  <option value="proyecto">Asesoría de emprendimiento</option>
-                  <option value="otros">Otro</option>
-              </select>
-          </div>
-        </div>
+                <div id="bloque-voluntario" class="hidden animate-in fade-in duration-300">
+                    <label class="block text-sm font-medium text-slate-700 mb-2">¿Cómo puedes ayudar?</label>
+                    <select name="tipo_ayuda_voluntario" class="w-full px-4 py-3 rounded-xl border border-slate-200">
+                        <option value="">Selecciona una ayuda</option>
+                        <option value="estudio">Mentoría en estudios</option>
+                        <option value="salud">Coaching de salud</option>
+                        <option value="creatividad">Guía creativa</option>
+                        <option value="proyecto">Asesoría de emprendimiento</option>
+                        <option value="otros">Otro</option>
+                    </select>
+                </div>
+            </div>
 
 
         <div>
@@ -161,11 +159,11 @@
         <!-- Muestro el mensaje de exit si todo ha ido bien -->
           <div class="mb-4">
             <?php if (isset($_SESSION['mensaje_exito'])): ?>
-                <div class="flex border-l-4 border-green-500 bg-green-50 p-4 rounded-xl" role="alert">
-                    <svg class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <div class="mb-6 rounded shadow-sm animate-pulse flex border-l-4 border-green-500 bg-green-50 p-4 text-green" role="alert">
+                    <svg class="flex w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                     </svg>
-                    <div class="ml-3 text-sm font-medium">
+                    <div class="ml-3  font-medium">
                         <?php 
                             echo $_SESSION['mensaje_exito']; 
                             unset($_SESSION['mensaje_exito']); 
@@ -184,7 +182,38 @@
     </div>
   </div>
 
+<script>
+function cambiarRol(rol) {
+    // cogen los elementos definidos con esos nombres para poder mandar sobre ellos
+    const btnU = document.getElementById('btn-usuario');
+    const btnV = document.getElementById('btn-voluntario');
+    const bloqueU = document.getElementById('bloque-usuario');
+    const bloqueV = document.getElementById('bloque-voluntario');
+    const inputHidden = document.getElementById('input-rol');
 
+    // Actualizamos el valor del input oculto para enviarlo al servidor
+    inputHidden.value = rol;
+
+    //aqui si pulsamos el boton del usuario, le añade el color y si nota que es el otro, cambia
+    if (rol === 'soy-usuario') {
+
+        btnU.classList.add('bg-[#00a5cf]');
+        btnV.classList.remove('bg-[#00a5cf]');
+        
+        // Visibilidad de bloques
+        bloqueU.classList.remove('hidden');
+        bloqueV.classList.add('hidden');
+    } else {
+
+        btnV.classList.add('bg-[#00a5cf]');
+        btnU.classList.remove('bg-[#00a5cf]');
+
+        // Visibilidad de bloques
+        bloqueV.classList.remove('hidden');
+        bloqueU.classList.add('hidden');
+    }
+}
+</script>
 
 </body>
 </html>

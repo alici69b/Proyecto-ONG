@@ -19,6 +19,7 @@ if(isset($_POST['crear_cuenta'])) {
     $contrasena = htmlspecialchars(trim($_POST['contrasena']));
     $rol = htmlspecialchars(trim($_POST['tipo'])) ?? 'soy-usuario';
 
+    $_SESSION['rol'] = $rol;
     $errores = validarRegistro($nombre, $email, $contrasena);
 
     if(empty($errores['email'])) { 
@@ -97,6 +98,8 @@ if(isset($_POST['crear_cuenta'])) {
 
             // Si todo sale bien, guardamos mensaje de éxito
             $_SESSION['mensaje_exito'] = "¡Registro completado! Ya puedes iniciar sesión con tu cuenta.";
+            header("Location: ../vista/auth/Register.php");
+            exit();
             
         } else {
             // Manejo de errores específicos de la base de datos
@@ -104,6 +107,8 @@ if(isset($_POST['crear_cuenta'])) {
                 $_SESSION['errores']['db'][] = "El correo ya existe.";
             } else {
                 $_SESSION['errores']['db'][] = "Error en el registro: " . mysqli_error($conexion);
+                header("Location: ../vista/auth/Register.php");
+                exit();
             }
         }
 
