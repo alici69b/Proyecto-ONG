@@ -22,6 +22,7 @@ if (isset($_SESSION["error_nombre"]) || isset($_SESSION["error_email"]) || isset
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../public/img/Logo_RESET.svg">
     <title>Solicitar RESET</title>
     <!-- Link css -->
     <link rel="stylesheet" href="../public/styles.css">
