@@ -86,8 +86,12 @@ if (isset($_SESSION["error_nombre"]) || isset($_SESSION["error_email"]) || isset
             <div class="text-xl text-gray-500/70">
                 Cuéntanos tu historia. Sin juicios, solo comprensión y ganas de ayudarte.
             </div>
+            <div class="max-w-3xl mx-auto mb-6 p-4 bg-[#e8fbff] border-l-4 border-[#00a5cf] text-[#004e64] rounded shadow-sm text-center">
+                Este formulario <strong>no requiere registro</strong>. Si prefieres crear una cuenta para llevar un seguimiento de tus solicitudes, 
+                <a href="../app/vista/auth/Register.php" class="text-[#25a18e] font-semibold hover:underline">haz clic aquí para registrarte</a>.
+            </div>
         </div>
-        <form action="../app/controlador/ResetController.php" method="POST" class="mt-10">
+        <form action="../app/controlador/ResetController.php" method="POST" class="">
             <?php if (isset($errorCrearSolicitud)): ?>
                 <div class="bg-red-100 border-l-4 border-[#ff3b30] text-[#ff3b30] p-4 mb-6 rounded shadow-sm animate-pulse">
                     <p class="font-bold">Atención:</p>
@@ -106,14 +110,14 @@ if (isset($_SESSION["error_nombre"]) || isset($_SESSION["error_email"]) || isset
                         <label for="name">Tu nombre o alias</label>
                         <input type="text" name="name" placeholder="¿Cómo te llamas?" class="bg-[#f4f9fa] border border-[#e1e6e7] p-2 rounded-lg pl-3 w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25a18e] focus-visible:ring-offset-2 transiti duration-300 ease-in-out focus:border-[#25a18e]">
                         <?php if(isset($errorNombre)) :?>
-                            <p class="text-red-600 font-semibold"><?= $errorNombre; ?></p>
+                            <p class="text-red-600 font-medium"><?= $errorNombre; ?></p>
                         <?php endif; ?>
                     </div>
                     <div class="flex flex-col flex-1 space-y-2">
                         <label for="email">Tu email</label>
                         <input type="email" name="email" placeholder="Para contactarte" class="bg-[#f4f9fa] border border-[#e1e6e7] p-2 rounded-lg pl-3 w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25a18e] focus-visible:ring-offset-2 transiti duration-300 ease-in-out focus:border-[#25a18e]">
                         <?php if(isset($errorEmail)) :?>
-                            <p class="text-red-600 font-semibold"><?= $errorEmail; ?></p>
+                            <p class="text-red-600 font-medium"><?= $errorEmail; ?></p>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -128,28 +132,28 @@ if (isset($_SESSION["error_nombre"]) || isset($_SESSION["error_email"]) || isset
                         <option value="otros">Otros</option>
                     </select>
                     <?php if(isset($errorCategoria)) :?>
-                        <p class="text-red-600 font-semibold"><?= $errorCategoria; ?></p>
+                        <p class="text-red-600 font-medium"><?= $errorCategoria; ?></p>
                     <?php endif; ?>
                 </div>
                 <div class="flex flex-col flex-1 space-y-2">
                     <label for="descripcion-problema">¿Qué abandonaste?</label>
                     <textarea type="text" name="descripcion-problema" placeholder="Cuéntanos qué proyecto, sueño o hábito dejaste atrás..." class="bg-[#f4f9fa] border border-[#e1e6e7] p-2 rounded-lg pl-3 w-full min-h-[120px] resize-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25a18e] focus-visible:ring-offset-2 transiti duration-300 ease-in-out focus:border-[#25a18e]"></textarea>
                     <?php if(isset($errorDescripcion)) :?>
-                        <p class="text-red-600 font-semibold"><?= $errorDescripcion; ?></p>
+                        <p class="text-red-600 font-medium"><?= $errorDescripcion; ?></p>
                     <?php endif; ?>
                 </div>
                 <div class="flex flex-col flex-1 space-y-2">
                     <label for="causa-abandono">¿Por qué lo dejaste?</label>
                     <textarea type="text" name="causa-abandono" placeholder="No hay respuestas incorrectas.A veces la vida simplemente pasa..." class="bg-[#f4f9fa] border border-[#e1e6e7] p-2 rounded-lg pl-3 w-full min-h-[120px] resize-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25a18e] focus-visible:ring-offset-2 transiti duration-300 ease-in-out focus:border-[#25a18e]"></textarea>
                     <?php if(isset($errorAbandono)) :?>
-                        <p class="text-red-600 font-semibold"><?= $errorAbandono; ?></p>
+                        <p class="text-red-600 font-medium"><?= $errorAbandono; ?></p>
                     <?php endif; ?>
                 </div>
                 <div class="flex flex-col flex-1 space-y-2">
                     <label for="necesidades-reset">¿Qué necesitas para volver a empezar?</label>
                     <textarea type="text" name="necesidades-reset" placeholder="Apoyo emocional, ayuda técnica, alguien que te acompañe..." class="bg-[#f4f9fa] border border-[#e1e6e7] p-2 rounded-lg pl-3 w-full min-h-[120px] resize-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25a18e] focus-visible:ring-offset-2 transiti duration-300 ease-in-out focus:border-[#25a18e]"></textarea>
                     <?php if(isset($errorNecesidad)) :?>
-                        <p class="text-red-600 font-semibold"><?= $errorNecesidad; ?></p>
+                        <p class="text-red-600 font-medium"><?= $errorNecesidad; ?></p>
                     <?php endif; ?>
                 </div>
             </div>

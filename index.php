@@ -79,7 +79,7 @@
                 <div class=" flex justify-center text-center items-center  gap-3 px-15 pt-15">
                     <a class="px-5 py-3 text-sm w-50 md:w-47 md:text-md lg:text-md bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] font-bold  shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/RequestReset.php">Solicitar RESET</a>
 
-                    <a class="px-5  py-3 w-53 md:w-47 md:text-md lg:text-md bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] font-bold text-sm shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/Volunteers.php">Quiero ser voluntario</a>
+                    <a class="px-5  py-3 w-53 md:w-47 md:text-md lg:text-md bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] font-bold text-sm shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="app/vista/auth/Register.php">Quiero ser voluntario</a>
                
                 </div>
             </div>

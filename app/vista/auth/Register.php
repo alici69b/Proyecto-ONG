@@ -58,9 +58,8 @@ session_start();
       <p class="text-slate-500 mb-8">Únete a RESET y empieza tu camino hacia una nueva oportunidad.</p>
       <div class="mb-4">
         <?php if (isset($_SESSION['errores']) && !empty($_SESSION['errores'])): ?>
-           <div class="bg-red-100 border-l-4 border-[#ff3b30] text-[#ff3b30] p-4 mb-6 rounded shadow-sm animate-pulse">
-              <p class="font-bold">Atención:</p>
-                <ul class=" text-red space-y-1">
+            <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-xl">
+                <ul class="text-sm text-red-700 space-y-1">
                     <?php 
                     foreach ($_SESSION['errores'] as $campo => $mensajes) {
                         // Verificamos si es una lista (array) o un texto simple (string)
