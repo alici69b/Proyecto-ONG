@@ -20,7 +20,7 @@ cargarEnv(dirname(__DIR__, 2) . '/.env');
 $servername = $_ENV['DB_HOST'] ?? 'localhost';
 $username   = $_ENV['DB_USER'] ?? 'root';
 $password   = $_ENV['DB_PWD']  ?? '';
-$database   = $_ENV['DB_NAME'] ?? '';
+$database   = $_ENV['DB_NAME'] ?? 'proyecto_ong';
 
 if (empty($database)) {
     die("Error: La variable DB_NAME no se cargó correctamente desde el .env");
