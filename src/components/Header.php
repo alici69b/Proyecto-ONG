@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 $rol = $_SESSION['rol'] ?? null; 
 $datos = $_SESSION['datos'] ?? null;

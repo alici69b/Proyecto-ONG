@@ -96,7 +96,7 @@ include_once "../../controlador/ManageresetController.php";
                 <?php foreach ($resets as $r): ?>
                 <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-100 flex flex-col lg:flex-row lg:items-center justify-between gap-6 hover:shadow-md transition-shadow">
                     
-                    <div class="flex items-start gap-5">
+                    <div class="flex items-start gap-5 ">
                         <div class="w-14 h-14 rounded-2xl bg-cyan-50 flex items-center justify-center text-2xl">
                             ♻️
                         </div>
