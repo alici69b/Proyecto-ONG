@@ -13,7 +13,7 @@ $mensajeExito = $_SESSION["exito"] ?? null;
 $errorCrearSolicitud = $_SESSION["errorSolicitud"] ?? null;
 
 //unset de las sesiones para evitar errores
-if (isset($_SESSION["error_nombre"]) || isset($_SESSION["error_email"]) || isset($_SESSION["error_categoria"]) || isset($_SESSION["error_descripcionProblema"]) || isset($_SESSION["error_causaAbandono"]) || isset($_SESSION["error_necesidadesReset"]) || isset($_SESSION["mensajeFinal"]) || isset($_SESSION["errorSolicitud"])) {
+if (isset($_SESSION["error_nombre"]) || isset($_SESSION["error_email"]) || isset($_SESSION["error_categoria"]) || isset($_SESSION["error_descripcionProblema"]) || isset($_SESSION["error_causaAbandono"]) || isset($_SESSION["error_necesidadesReset"]) || isset($_SESSION["exito"]) || isset($_SESSION["errorSolicitud"])) {
     unset($_SESSION["error_nombre"], $_SESSION["error_email"], $_SESSION["error_categoria"], $_SESSION["error_descripcionProblema"], $_SESSION["error_causaAbandono"], $_SESSION["error_necesidadesReset"], $_SESSION["exito"], $_SESSION["errorSolicitud"]);
 }
 ?>
@@ -99,7 +99,7 @@ if (isset($_SESSION["error_nombre"]) || isset($_SESSION["error_email"]) || isset
                     <p><?= $errorCrearSolicitud ?></p>
                 </div>
             <?php endif; ?>
-            <?php if (isset($mensajeExito)): ?>
+            <?php if (isset($mensajeExito) && $mensajeExito): ?>
                 <div class="bg-green-100 border-l-4 border-[#37ff30] text-[#37ff30] p-4 mb-6 rounded shadow-sm animate-pulse">
                     <p class="font-bold">Atención:</p>
                     <p><?= $mensajeExito ?></p>
