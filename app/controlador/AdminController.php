@@ -17,14 +17,15 @@ $usuarios_resets_pendientes = mysqli_query($conexion,
             r.descripcion,
             r.fecha,
             c.nombre_categoria,
-            e.nombre_estado
+            e.nombre_estado,
+            COUNT(r.id_reset) as contar_reset
         FROM reset r
         JOIN categoria_reset c ON r.id_categoria = c.id_categoria
         JOIN estado_maestro e ON r.id_estado = e.id_estado
-        WHERE e.nombre_estado = 'Pendiente'
+        WHERE e.nombre_estado = 'pendiente'
         ORDER BY r.fecha ASC; ");
 $datos_reset = mysqli_fetch_assoc($usuarios_resets_pendientes);
-$total_usuarios_pendientes_resets = $datos_reset['TOTAL_RESET_PENDIENTES'] ?? 0;
+$total_usuarios_pendientes_resets = $datos_reset['contar_reset'] ?? 0;
 
 
 //mostrar los resets Completado
@@ -34,14 +35,15 @@ $usuarios_resets_Completado = mysqli_query($conexion,
             r.descripcion,
             r.fecha,
             c.nombre_categoria,
-            e.nombre_estado
+            e.nombre_estado,
+            COUNT(r.id_reset) as contar_reset_resuelto
         FROM reset r
         JOIN categoria_reset c ON r.id_categoria = c.id_categoria
         JOIN estado_maestro e ON r.id_estado = e.id_estado
-        WHERE e.nombre_estado = 'Completado'
+        WHERE e.nombre_estado = 'resuelto'
         ORDER BY r.fecha ASC; ");
 $datos_reset_completado = mysqli_fetch_assoc($usuarios_resets_Completado);
-$total_usuarios_Completado_resets = $datos_reset['TOTAL_RESET_Completado'] ?? 0;
+$total_usuarios_Completado_resets = $datos_reset['contar_reset_resuelto'] ?? 0;
 
 //mostrar los resets nuevos
 $usuarios_resets_Nuevo = mysqli_query($conexion, 
@@ -50,14 +52,15 @@ $usuarios_resets_Nuevo = mysqli_query($conexion,
             r.descripcion,
             r.fecha,
             c.nombre_categoria,
-            e.nombre_estado
+            e.nombre_estado,
+            COUNT(r.id_reset) as contar_reset_resuelto
         FROM reset r
         JOIN categoria_reset c ON r.id_categoria = c.id_categoria
         JOIN estado_maestro e ON r.id_estado = e.id_estado
-        WHERE e.nombre_estado = 'Nuevos'
+        WHERE e.nombre_estado = 'activo'
         ORDER BY r.fecha ASC; ");
 $datos_reset_Nuevo = mysqli_fetch_assoc($usuarios_resets_Nuevo);
-$total_usuarios_Nuevo_resets = $datos_reset['TOTAL_RESET_Nuevo'] ?? 0;
+$total_usuarios_Nuevo_resets = $datos_reset['contar_reset_resuelto'] ?? 0;
 
 
 // Contar voluntarios que existen  en la tabla usuarios
