@@ -1,12 +1,6 @@
 <?php
 include_once "../../controlador/AdminController.php";
 
-// Evitamos errores si las variables no vienen del controlador
-$total_usuarios = $total_usuarios ?? 0;
-$total_usuarios_pendientes_resets = $total_usuarios_pendientes_resets ?? 0;
-$total_usuarios_Completado_resets = $total_usuarios_Completado_resets ?? 0;
-$total_usuarios_voluntarios = $total_usuarios_voluntarios ?? 0;
-$total_usuarios_Nuevo_resets = $total_usuarios_Nuevo_resets ?? 0;
 ?>
 
 <!--
@@ -146,7 +140,7 @@ $total_usuarios_Nuevo_resets = $total_usuarios_Nuevo_resets ?? 0;
                                 <span class="text-slate-700 font-extrabold">Rendimiento RESETs</span>
                             </div>
                             <!-- si no existen datos mostrará que no hya datos que los añada a la base de datos -->
-                            <?php if(empty($total_usuarios_Nuevo_resets) && empty($total_usuarios_Pendientes_resets) && empty($total_usuarios_Completado_resets)): ?>
+                            <?php if($total_usuarios_Nuevo_resets = 0 or $total_usuarios_Nuevo_resets < 0 && $total_usuarios_Pendientes_resets = 0  or $total_usuarios_Pendientes_resets < 0 && $total_usuarios_Completado_resets = 0 or $total_usuarios_Completado_resets < 0): ?>
                                 <div class="flex flex-col items-center justify-center h-64  rounded-[2rem] bg-slate-50/100   p-8 text-center">
                                     <div class="w-16 h-16 bg-white rounded-full shadow-sm flex items-center justify-center mb-4">
                                         <svg class="w-10 h-10 text-slate-700" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">

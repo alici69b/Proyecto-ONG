@@ -94,14 +94,14 @@ session_start();
 
                 <div class="flex gap-2 mb-8 bg-[#004e64] p-1 rounded-xl">
                     <button type="button" id="btn-usuario" onclick="cambiarRol('soy-usuario')" 
-                        class="flex-1 py-2.5 px-4 rounded-lg font-medium transition-all text-white bg-[#00a5cf]">
+                        class="flex-1 py-2.5 px-4 rounded-lg font-medium transition-all text-white">
                         Necesito ayuda
                     </button>
-
                     <button type="button" id="btn-voluntario" onclick="cambiarRol('soy-voluntario')" 
-                        class="flex-1 py-2.5 px-4 rounded-lg font-medium transition-all text-white">
+                        class="flex-1 py-2.5 px-4 rounded-lg font-medium transition-all text-white bg-[#00a5cf]">
                         Quiero ayudar
                     </button>
+
                 </div>
 
                 <div id="bloque-usuario" class="animate-in fade-in duration-300">
