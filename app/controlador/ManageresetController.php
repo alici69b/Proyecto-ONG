@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 require_once "../../config/db.php";
-require_once "../../modelo/AdminModel.php";
+require_once "../../modelo/ManageresetModel.php";
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
