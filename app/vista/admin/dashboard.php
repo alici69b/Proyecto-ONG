@@ -185,36 +185,7 @@ include_once "../../controlador/AdminController.php";
                     
                 </div>
 
-                <div class="bg-white rounded-[2.5rem] p-8 shadow-xl shadow-blue-900/5 border border-slate-100 w-full mt-6">
-                    <div class="flex justify-between items-center mb-8">
-                        <h3 class="font-black text-slate-800 tracking-tight text-lg">Actividad</h3>
-                        <span class="flex items-center gap-1.5 bg-emerald-50 text-emerald-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border border-emerald-100">
-                            <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping"></span>
-                            En vivo
-                        </span>
-                    </div>
-
-                    <div class="flex flex-wrap justify-start items-center gap-8">
-                        <?php foreach ($lista_usuarios as $user): ?>
-                            <div class="flex items-center gap-4 group transition-all duration-300 hover:translate-x-1">
-                                <div class="relative">
-                                    <div class="absolute -inset-1 bg-gradient-to-tr from-slate-100 to-slate-50 rounded-[1.2rem] opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                    <img src="../../public/img/<?= $user['foto_perfil'] ?>" class="relative w-12 h-12 rounded-[1.1rem] object-cover shadow-sm border border-white">
-                                    <span class="absolute -bottom-1 -right-1 w-4 h-4 border-2 border-white rounded-full 
-                                        <?= $user['estado'] === 'online' ? 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]' : 'bg-slate-300' ?>">
-                                    </span>
-                                </div>
-                                
-                                <div>
-                                    <p class="text-sm font-bold text-slate-700 leading-none group-hover:text-indigo-600 transition-colors"><?= htmlspecialchars($user['nombre']) ?></p>
-                                    <p class="text-[10px] text-slate-400 font-bold mt-1.5 uppercase tracking-widest flex items-center gap-1">
-                                        <?= $user['estado'] === 'online' ? 'Activo ahora' : 'Desconectado' ?>
-                                    </p>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
+                
         </main>
     </div>
 

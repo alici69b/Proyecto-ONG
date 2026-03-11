@@ -84,9 +84,7 @@ include_once "../../controlador/ManageresetController.php";
                     <h1 class="text-3xl font-black text-[#005f73]">Gestionar Resets</h1>
                     <p class="text-slate-500">Supervisión de solicitudes activas</p>
                 </div>
-                <button onclick="window.location.reload()" class="bg-white border-2 border-slate-200 px-5 py-2 rounded-xl hover:bg-slate-50 transition font-medium flex items-center gap-2">
-                    <span>🔃</span> Actualizar
-                </button>
+                <button onclick="location.reload()" class="px-6 py-3 bg-white border border-gray-200 rounded-2xl text-sm font-bold hover:shadow-md transition-all active:scale-95">Actualizar</button>
             </header>
 
             <div class="space-y-4">
