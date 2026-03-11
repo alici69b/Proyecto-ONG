@@ -190,21 +190,23 @@
 
                 <div class="max-w-7xl mx-auto pb-10 md:pb-20 grid grid-cols-1 sm:grid-cols-2  gap-4 md:gap-6 text-center relative z-10  px-6  lg:grid-cols-4 mt-10  p">
                     
-                    <div class="relative bg-white rounded-3xl md:w-70 lg:w-full p-8  border-slate-100 group  backdrop-blur-lg border border-black/5 flex flex-col items-center gap-5  md:p-8 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="p-4 rounded-full bg-black/5 group-hover:bg-[#ff3b30]/20 duration-300">
+                    <div class=" bg-white rounded-4xl p-8  hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100">
+                        <div class="flex justify-center p-4 rounded-full text-center bg-[#00a5cf]/50 group-hover:bg-[#ff3b30]/20 duration-300">
                             <svg class="w-8 h-8 md:w-10 md:h-10 text-black group-hover:text-[#ff3b30] duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
                                 <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold text-slate-800">Estudios</h4>
+                            <h4 class="text-xl font-bold mt-6 text-slate-800">Estudios</h4>
                             <p class="text-gray-500">Carreras, cursos y certificaciones que quedaron en pausa.</p>
                         </div>
                     </div>
 
-                    <div class="group bg-white backdrop-blur-lg border border-black/5 flex flex-col items-center gap-5 rounded-2xl p-6 md:p-8 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="p-4 rounded-full bg-black/5 group-hover:bg-[#ff3b30]/20 duration-300">
+                    
+
+                    <div class=" bg-white rounded-4xl p-8  hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100">
+                        <div class="flex justify-center p-4 rounded-full bg-[#00a5cf]/50 group-hover:bg-[#ff3b30]/20 duration-300">
                             <svg class="w-8 h-8 md:w-10 md:h-10 text-black group-hover:text-[#ff3b30] duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M9 18h6"></path>
                                 <path d="M10 22h4"></path>
@@ -212,13 +214,13 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold text-slate-800">Proyectos</h4>
+                            <h4 class="text-xl font-bold mt-6 text-slate-800">Proyectos</h4>
                             <p class="text-gray-500">Apps, negocios e ideas brillantes que no llegaron a lanzarse.</p>
                         </div>
                     </div>
 
-                    <div class="group bg-white backdrop-blur-lg border border-black/5 flex flex-col items-center gap-5 rounded-2xl p-6 md:p-8 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="p-4 rounded-full bg-black/5 group-hover:bg-[#ff3b30]/20 duration-300">
+                    <div class=" bg-white rounded-4xl p-8  hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100">
+                        <div class="flex justify-center p-4 rounded-full bg-[#00a5cf]/50 group-hover:bg-[#ff3b30]/20 duration-300">
                             <svg class="w-8 h-8 md:w-10 md:h-10 text-black group-hover:text-[#ff3b30] duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
                                 <polyline points="14 2 14 8 20 8"></polyline>
@@ -228,19 +230,19 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold text-slate-800">Hábitos</h4>
+                            <h4 class="text-xl font-bold mt-6 text-slate-800">Hábitos</h4>
                             <p class="text-gray-500">Rutinas de ejercicio, lectura y alimentación saludable.</p>
                         </div>
                     </div>
 
-                    <div class="group bg-white backdrop-blur-lg border border-black/5 flex flex-col items-center gap-5 rounded-2xl p-6 md:p-8 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="p-4 rounded-full bg-black/5 group-hover:bg-[#ff3b30]/20 duration-300">
+                    <div class=" bg-white rounded-4xl p-8  hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100">
+                        <div class="flex justify-center p-4 rounded-full bg-[#00a5cf]/50 group-hover:bg-[#ff3b30]/20 duration-300">
                             <svg class="w-8 h-8 md:w-10 md:h-10 text-black group-hover:text-[#ff3b30] duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold text-slate-800">Sueños</h4>
+                            <h4 class="text-xl font-bold mt-6 text-slate-800">Sueños</h4>
                             <p class="text-gray-500">Esas metas personales importantes que dejaste de lado.</p>
                         </div>
                     </div>

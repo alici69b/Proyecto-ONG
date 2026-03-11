@@ -24,8 +24,8 @@
 
     <div class="flex-1 flex justify-end items-center gap-3">
             <div class="hidden md:flex items-center gap-3">
-                <a class="px-5 py-2 border-2 border-[#25a18e] text-[#25a18e] rounded-full hover:bg-[#25a18e] hover:text-white transition font-bold text-sm" href="Login.php">Iniciar Sesión</a>
-                <a class="px-5 py-2 bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] transition font-bold text-sm shadow-md" href="Register.php">Registro</a>
+                <a class="px-5 py-2 border-2 border-[#25a18e] text-[#25a18e] rounded-full hover:bg-[#25a18e] hover:text-white transition font-bold text-sm" href="../app/vista/auth/Login.php">Iniciar Sesión</a>
+                <a class="px-5 py-2 bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] transition font-bold text-sm shadow-md" href="../app/vista/auth/Register.php">Registro</a>
             </div>
         </div>
 </nav>
