@@ -105,7 +105,7 @@ include_once "../../controlador/AdminController.php";
                     <div class="bg-white rounded-[2.5rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-8 relative overflow-hidden group">
                         <div class="absolute top-0 right-0 w-24 h-24 rounded-bl-[2.5rem] -mr-8 -mt-8 bg-purple-50 group-hover:bg-purple-100 transition-colors"></div>
                         <p class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">Usuarios</p>
-                        <div class="text-5xl font-extrabold text-slate-800"><?php echo $total_usuarios ?></div>
+                        <div class="text-5xl font-extrabold text-slate-800"><?php echo $usuarios_totales ?></div>
                     </div>
 
                     <div class="bg-white rounded-[2.5rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-8 relative overflow-hidden group">
