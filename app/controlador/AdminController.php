@@ -13,7 +13,7 @@ $usuarios_totales = usuarios_totales($conexion);
 $total_usuarios_pendientes_resets = reset_pendientes($conexion);
 
 //mostrar los resets Completado
-$total_usuars_Completado_resets = reset_completados($conexion);
+$total_usuarios_Completado_resets = reset_completados($conexion);
 
 //mostrar los resets nuevos
 $total_usuarios_Nuevo_resets = reset_nuevos($conexion);

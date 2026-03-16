@@ -60,14 +60,14 @@ function reset_completados($conexion) {
             WHERE e.nombre_estado = 'resuelto'
             ORDER BY r.fecha ASC; ");
         $datos_reset_completado = mysqli_fetch_assoc($usuarios_resets_Completado);
-        $total_usuarios_Completado_resets = $datos_reset['contar_reset_resuelto'] ?? 0;
+        $total_usuarios_Completado_resets = $datos_reset_completado['contar_reset_resuelto'] ?? 0;
 
 
     return $total_usuarios_Completado_resets;
 
 }
 
-function resets_nuevos($conexion) {
+function reset_nuevos($conexion) {
     $usuarios_resets_Nuevo = mysqli_query($conexion, 
             "SELECT r.id_reset,
                 r.titulo,
@@ -82,7 +82,7 @@ function resets_nuevos($conexion) {
             WHERE e.nombre_estado = 'activo'
             ORDER BY r.fecha ASC; ");
     $datos_reset_Nuevo = mysqli_fetch_assoc($usuarios_resets_Nuevo);
-    $total_usuarios_Nuevo_resets = $datos_reset['contar_reset_resuelto'] ?? 0;
+    $total_usuarios_Nuevo_resets = $datos_reset_Nuevo['contar_reset_resuelto'] ?? 0;
 
     return $total_usuarios_Nuevo_resets;
 
