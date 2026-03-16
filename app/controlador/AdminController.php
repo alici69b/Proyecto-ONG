@@ -5,62 +5,18 @@ require_once "../../config/db.php";
 require_once "../../modelo/AdminModel.php";
 
 //mostrar los usuarios en el panel de administrador
-$res_usuarios = mysqli_query($conexion, "SELECT COUNT(*) as total FROM usuario");
-$data_u = mysqli_fetch_assoc($res_usuarios);
-$total_usuarios = $data_u['total'] ?? 0;
+$usuarios_totales = usuarios_totales($conexion);
+
 
 
 //mostrar los resets pendientes
-$usuarios_resets_pendientes = mysqli_query($conexion, 
-        "SELECT r.id_reset,
-            r.titulo,
-            r.descripcion,
-            r.fecha,
-            c.nombre_categoria,
-            e.nombre_estado,
-            COUNT(r.id_reset) as contar_reset
-        FROM reset r
-        JOIN categoria_reset c ON r.id_categoria = c.id_categoria
-        JOIN estado_maestro e ON r.id_estado = e.id_estado
-        WHERE e.nombre_estado = 'pendiente'
-        ORDER BY r.fecha ASC; ");
-$datos_reset = mysqli_fetch_assoc($usuarios_resets_pendientes);
-$total_usuarios_pendientes_resets = $datos_reset['contar_reset'] ?? 0;
-
+$total_usuarios_pendientes_resets = reset_pendientes($conexion);
 
 //mostrar los resets Completado
-$usuarios_resets_Completado = mysqli_query($conexion, 
-        "SELECT r.id_reset,
-            r.titulo,
-            r.descripcion,
-            r.fecha,
-            c.nombre_categoria,
-            e.nombre_estado,
-            COUNT(r.id_reset) as contar_reset_resuelto
-        FROM reset r
-        JOIN categoria_reset c ON r.id_categoria = c.id_categoria
-        JOIN estado_maestro e ON r.id_estado = e.id_estado
-        WHERE e.nombre_estado = 'resuelto'
-        ORDER BY r.fecha ASC; ");
-$datos_reset_completado = mysqli_fetch_assoc($usuarios_resets_Completado);
-$total_usuarios_Completado_resets = $datos_reset['contar_reset_resuelto'] ?? 0;
+$total_usuarios_Completado_resets = reset_completados($conexion);
 
 //mostrar los resets nuevos
-$usuarios_resets_Nuevo = mysqli_query($conexion, 
-        "SELECT r.id_reset,
-            r.titulo,
-            r.descripcion,
-            r.fecha,
-            c.nombre_categoria,
-            e.nombre_estado,
-            COUNT(r.id_reset) as contar_reset_resuelto
-        FROM reset r
-        JOIN categoria_reset c ON r.id_categoria = c.id_categoria
-        JOIN estado_maestro e ON r.id_estado = e.id_estado
-        WHERE e.nombre_estado = 'activo'
-        ORDER BY r.fecha ASC; ");
-$datos_reset_Nuevo = mysqli_fetch_assoc($usuarios_resets_Nuevo);
-$total_usuarios_Nuevo_resets = $datos_reset['contar_reset_resuelto'] ?? 0;
+$total_usuarios_Nuevo_resets = reset_nuevos($conexion);
 
 
 // Contar voluntarios que existen  en la tabla usuarios

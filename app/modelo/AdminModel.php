@@ -9,11 +9,84 @@ function obtenerIniciales($email) {
     return strtoupper(substr($nombre, 0, 2));
 }
 
-
-
-
-
-
+//funcion para mostrar los usuarios en el panel del administrador
+function usuarios_totales($conexion) {
     
+    $res_usuarios = mysqli_query($conexion, "SELECT COUNT(*) as total FROM usuario");
+    $data_u = mysqli_fetch_assoc($res_usuarios);
+    $total_usuarios = $data_u['total'] ?? 0;
+
+    return $total_usuarios;
+}
+
+//funcion para mostrar los resets pendientes
+function reset_pendientes($conexion) {
+
+    $usuarios_resets_pendientes = mysqli_query($conexion, 
+            "SELECT r.id_reset,
+                r.titulo,
+                r.descripcion,
+                r.fecha,
+                c.nombre_categoria,
+                e.nombre_estado,
+                COUNT(r.id_reset) as contar_reset
+            FROM reset r
+            JOIN categoria_reset c ON r.id_categoria = c.id_categoria
+            JOIN estado_maestro e ON r.id_estado = e.id_estado
+            WHERE e.nombre_estado = 'pendiente'
+            ORDER BY r.fecha ASC; ");
+    $datos_reset = mysqli_fetch_assoc($usuarios_resets_pendientes);
+    $total_usuarios_pendientes_resets = $datos_reset['contar_reset'] ?? 0;
+
+    return $total_usuarios_pendientes_resets;
+
+}
+
+
+//funcion para mostrar los rest completados
+function reset_completados($conexion) {
+
+        $usuarios_resets_Completado = mysqli_query($conexion, 
+            "SELECT r.id_reset,
+                r.titulo,
+                r.descripcion,
+                r.fecha,
+                c.nombre_categoria,
+                e.nombre_estado,
+                COUNT(r.id_reset) as contar_reset_resuelto
+            FROM reset r
+            JOIN categoria_reset c ON r.id_categoria = c.id_categoria
+            JOIN estado_maestro e ON r.id_estado = e.id_estado
+            WHERE e.nombre_estado = 'resuelto'
+            ORDER BY r.fecha ASC; ");
+        $datos_reset_completado = mysqli_fetch_assoc($usuarios_resets_Completado);
+        $total_usuarios_Completado_resets = $datos_reset_completado['contar_reset_resuelto'] ?? 0;
+
+
+    return $total_usuarios_Completado_resets;
+
+}
+
+function reset_nuevos($conexion) {
+    $usuarios_resets_Nuevo = mysqli_query($conexion, 
+            "SELECT r.id_reset,
+                r.titulo,
+                r.descripcion,
+                r.fecha,
+                c.nombre_categoria,
+                e.nombre_estado,
+                COUNT(r.id_reset) as contar_reset_resuelto
+            FROM reset r
+            JOIN categoria_reset c ON r.id_categoria = c.id_categoria
+            JOIN estado_maestro e ON r.id_estado = e.id_estado
+            WHERE e.nombre_estado = 'activo'
+            ORDER BY r.fecha ASC; ");
+    $datos_reset_Nuevo = mysqli_fetch_assoc($usuarios_resets_Nuevo);
+    $total_usuarios_Nuevo_resets = $datos_reset_Nuevo['contar_reset_resuelto'] ?? 0;
+
+    return $total_usuarios_Nuevo_resets;
+
+}
+  
 
 ?>

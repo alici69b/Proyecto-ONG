@@ -113,7 +113,7 @@
             </div>
         </div>
 
-        <section class="bg-[#f4f9fa] m-20 py-24">
+        <section class="w-full  md:mb-5 text-black mt-5 p-6 md:p-8 lg:p-20 ">
             <div class="flex flex-col items-center text-center ">
                 <p class="text-[#00a5cf] font-bold text-xs md:text-sm tracking-[0.2em] uppercase mb-4 opacity-90">
                         ¿Cómo funciona RESET?
@@ -188,7 +188,7 @@
                     </h2>
                 </div>
 
-                <div class="max-w-7xl mx-auto pb-10 md:pb-20 grid grid-cols-1 sm:grid-cols-2  gap-4 md:gap-6 text-center relative z-10  px-6  lg:grid-cols-4 mt-10  p">
+                <div class="max-w-7xl mx-auto pb-10 md:pb-20 grid grid-cols-1 sm:grid-cols-2  gap-4 md:gap-6 text-center relative z-10  px-6  lg:grid-cols-4 mt-3  ">
                     
                     <div class=" bg-white rounded-4xl p-8  hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100">
                         <div class="flex justify-center p-4 rounded-full text-center bg-[#00a5cf]/50 group-hover:bg-[#ff3b30]/20 duration-300">
@@ -269,11 +269,11 @@
             <!-- Botones de reset y voluntarios en la pagina -->
             <section class="relative  bg-linear-to-r from-[#9fffcb] to-[#00a5cf] min-h-150  py-30">
                 <div  class="font-['Domine'] flex justify-center  text-center my-3 p-2">
-                    <h1 class="max-w-4xl text-gray-900 font-bold text-5xl p-2 md:p-3 md:text-6xl lg:text-7xl">Hoy puede ser el <i class="text-white">dia</i> que todo lo <i class="text-white">cambie</i></h1>
+                <h1 class="max-w-4xl text-gray-900 font-bold text-5xl p-2 md:p-3 md:text-6xl lg:text-7xl">Hoy puede ser el <i class="text-white">dia</i> que todo lo <i class="text-white">cambie</i></h1>
                 </div>
 
-                <div class=" max-w-4xl mx-auto text-center top-0">
-                    <p class="px-15  text-gray-800  text-md md:text-md lg:text-lg">No tienes que hacerlo solo/a. Da el primer paso y déjanos ayudarte a reiniciar lo que quedó pendiente.</p>
+                <div class=" max-w-xl mx-auto text-center top-0">
+                <p class="px-15  text-gray-800  text-md md:text-md lg:text-lg">No tienes que hacerlo solo/a. Da el primer paso y déjanos ayudarte a reiniciar lo que quedó pendiente.</p>
                     <div class=" flex justify-center text-center items-center  gap-3 pt-6">
                         <a class="px-5 py-3  w-47 bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] font-bold text-sm shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/RequestReset.php">Solicitar RESET<a>
                         <a class="px-5 py-3  w-47 bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] font-bold text-sm shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/Volunteers.php">Quiero ser voluntario</a>   
