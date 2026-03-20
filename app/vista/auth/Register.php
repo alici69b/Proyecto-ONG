@@ -13,16 +13,16 @@ session_start();
     <link rel="stylesheet" href="../../public/css/style.css">
 
       <style>
-      @keyframes slideOutLeft {
-          from { opacity: 1; transform: translateX(0); }
-          to   { opacity: 0; transform: translateX(-60px); }
-      }
-      @keyframes slideInRight {
-          from { opacity: 0; transform: translateX(60px); }
-          to   { opacity: 1; transform: translateX(0); }
-      }
-      body { animation: slideInRight 0.4s ease both; }
-      body.saliendo { animation: slideOutLeft 0.3s ease both; }
+            @keyframes slideOutRight {
+            from { opacity: 1; transform: translateX(0); }
+            to   { opacity: 0; transform: translateX(60px); }  
+}
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-60px); }  
+            to   { opacity: 1; transform: translateX(0); }
+        }
+        body { animation: slideInLeft 0.4s ease both; }
+        body.saliendo { animation: slideOutRight 0.3s ease both; }
   </style>
 
     <!-- Link del Tailwind -->

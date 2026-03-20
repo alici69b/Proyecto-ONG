@@ -20,11 +20,11 @@ if(isset($_SESSION["error_login"])) {
 
   <style>
       @keyframes slideOutLeft {
-          from { opacity: 1; transform: translateX(0); }
-          to   { opacity: 0; transform: translateX(-60px); }
+      from { opacity: 1; transform: translateX(0); }
+      to   { opacity: 0; transform: translateX(-60px); }  
       }
       @keyframes slideInRight {
-          from { opacity: 0; transform: translateX(60px); }
+          from { opacity: 0; transform: translateX(60px); } 
           to   { opacity: 1; transform: translateX(0); }
       }
       body { animation: slideInRight 0.4s ease both; }
