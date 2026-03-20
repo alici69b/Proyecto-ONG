@@ -36,14 +36,31 @@ if (isset($_SESSION["error_nombre"]) || isset($_SESSION["error_email"]) || isset
 
 
     <style>
-      body {
-        font-family: 'Bricolage Grotesque';
+        body {
+            font-family: 'Bricolage Grotesque';
         }
+
         html {
             scroll-behavior: smooth; 
         }
-    </style>
 
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50%       { background-position: 100% 50%; }
+        }
+
+        .fade-in { animation: fadeIn 0.5s ease both; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-1 { animation-delay: 0.05s; }
+        .fade-in-2 { animation-delay: 0.15s; }
+        .fade-in-3 { animation-delay: 0.25s; }
+        .fade-in-4 { animation-delay: 0.35s; }
+        .fade-in-5 { animation-delay: 0.45s; }
+        .fade-in-6 { animation-delay: 0.55s; }
+    </style>
    <!--font-family: font-serif
     colores
         -azul oscuro: #004e64

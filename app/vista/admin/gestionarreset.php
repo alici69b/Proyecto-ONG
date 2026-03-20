@@ -21,7 +21,8 @@ include_once "../../controlador/ManageresetController.php";
         }
     </style>
 </head>
-<body class="text-[#004e64] min-h-full flex flex-col">
+<body class="text-[#004e64] min-h-screen flex">
+    
 
 <!-- Menú de la izquierda, que va cambiando con forme vamos cambiando de pagina -->
         <!-- boton hamburguesa para que desaparezca en movil -->
@@ -77,15 +78,13 @@ include_once "../../controlador/ManageresetController.php";
         <main>
     
 
-    <main class="flex-1 md:ml-64   p-8  md:p-12  md:max-w-6xl lg:max-w-full w-full">
+    <main class="flex-1 md:ml-64  p-8  md:p-12 lg:px-24 md:max-w-xl lg:max-w-7xl w-full">
         <header class="flex justify-between items-center mb-10">
                 <div>
                     <h1 class="text-3xl font-black text-[#005f73]">Gestionar Resets</h1>
                     <p class="text-slate-500">Supervisión de solicitudes activas</p>
                 </div>
-                <button onclick="window.location.reload()" class="bg-white border-2 border-slate-200 px-5 py-2 rounded-xl hover:bg-slate-50 transition font-medium flex items-center gap-2">
-                    <span>🔃</span> Actualizar
-                </button>
+                <button onclick="location.reload()" class="px-6 py-3 bg-white border border-gray-200 rounded-2xl text-sm font-bold hover:shadow-md transition-all active:scale-95">Actualizar</button>
             </header>
 
             <div class="space-y-4">
@@ -98,12 +97,12 @@ include_once "../../controlador/ManageresetController.php";
                     
                     <div class="flex items-start gap-5 ">
                         <div class="w-14 h-14 rounded-2xl bg-cyan-50 flex items-center justify-center text-2xl">
-                            ♻️
+                            🌞
                         </div>
                         <div>
-                            <h2 class="font-bold text-lg text-slate-800"><?= htmlspecialchars($r['titulo']) ?></h2>
+                            <h2 class="font-bold text-lg text-slate-800"><?= htmlspecialchars($r['titulo'] ?? '') ?></h2>
                             <div class="flex flex-wrap items-center gap-2 mt-1 text-sm text-slate-400">
-                                <span class="font-semibold text-slate-600"><?= htmlspecialchars($r['solicitante']) ?></span>
+                                <span class="font-semibold text-slate-600"><?= htmlspecialchars($r['solicitante'] ?? '') ?></span>
                                 <span>•</span>
                                 <span class="bg-slate-100 px-2 py-0.5 rounded-md text-[10px] font-bold uppercase"><?= htmlspecialchars($r['nombre_categoria']) ?></span>
                                 <span>•</span>
@@ -117,7 +116,7 @@ include_once "../../controlador/ManageresetController.php";
                         <input type="hidden" name="id_reset" value="<?= $r['id_reset'] ?>">
 
                         <select name="id_voluntario" class="bg-slate-50 border-none text-sm rounded-xl px-4 py-3 ring-1 ring-slate-200 focus:ring-2 focus:ring-cyan-500 outline-none min-w-[160px]">
-                            <option value="">👤 Asignar voluntario</option>
+                            <option value="">Asignar voluntario</option>
                             <?php foreach ($voluntarios as $vol): ?>
                                 <option value="<?= $vol['id_voluntario'] ?>" <?= ($r['id_voluntario'] == $vol['id_voluntario']) ? 'selected' : '' ?>>
                                     <?= htmlspecialchars($vol['nombre']) ?>
@@ -133,7 +132,8 @@ include_once "../../controlador/ManageresetController.php";
                             <?php endforeach; ?>
                         </select>
                         
-                        <button type="submit" class="bg-[#0a9396] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#005f73] transition">Guardar</button>
+                        <input type="hidden" name="actualizar_reset" value="1">
+                        <input type="submit" class="bg-[#0a9396] text-white px-4 py-2 rounded-xl text-sm hover:bg-[#005f73] transition" value="Guardar">
                     </form>
                 </div>
                 <?php endforeach; ?>

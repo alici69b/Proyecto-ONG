@@ -24,6 +24,23 @@
         html {
             scroll-behavior: smooth; 
         }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50%       { background-position: 100% 50%; }
+        }
+
+        .fade-in { animation: fadeIn 0.5s ease both; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-1 { animation-delay: 0.05s; }
+        .fade-in-2 { animation-delay: 0.15s; }
+        .fade-in-3 { animation-delay: 0.25s; }
+        .fade-in-4 { animation-delay: 0.35s; }
+        .fade-in-5 { animation-delay: 0.45s; }
+        .fade-in-6 { animation-delay: 0.55s; }
     </style>
     
 
@@ -42,7 +59,7 @@
     -->
 
 </head>
-<body class=" bg-[#f4f9fa]" id="inicio">
+<body class=" bg-[#f4f9fa] " id="inicio" >
     <!-- importamos el Header, para tenelo en esta pagina -->
     <?php
     require_once "src/components/Header_index.php";
@@ -60,8 +77,8 @@
                 -Voluntarios
             - REcuento de las personas que participan en esta ong
      -->
-    <main class=" bg-linear-to-r from-[#00a5cf] to-[#9fffcb] min-h-130  pt-60">
-        <div class="md:px-20 flex justify-center">
+    <main class="fade-in fade-in-1 bg-linear-to-r from-[#00a5cf] to-[#9fffcb] min-h-130  pt-60 ">
+        <div class="md:px-20 flex justify-center ">
             <div class="flex bg-white/40 backdrop-blur-md items-center justify-center rounded-full shadow-sm">
                 <p class=" text-gray-900 py-2 px-5 font-bold text-sm  md:text-md whitespace-nowrap">ONG de Segundas Oportunidades</p>
             </div>
@@ -104,7 +121,7 @@
     </main>
 
     <!-- ola del inicio -->
-        <div class=" relative bg-gradient-to-r from-[#00a5cf] to-[#9fffcb] w-full pt-20 pb-40">
+        <div class="fade-in fade-in-2 relative bg-gradient-to-r from-[#00a5cf] to-[#9fffcb] w-full pt-20 pb-40">
             <div class="relative z-10"></div>
             <div class="absolute bottom-0 left-0 w-full leading-[0]">
                 <svg class="relative block w-full h-[120px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
@@ -113,7 +130,7 @@
             </div>
         </div>
 
-        <section class="bg-[#f4f9fa] m-20 py-24">
+        <section class=" fade-in fade-in-3 w-full  md:mb-5 text-black mt-5 p-6 md:p-8 lg:p-20 ">
             <div class="flex flex-col items-center text-center ">
                 <p class="text-[#00a5cf] font-bold text-xs md:text-sm tracking-[0.2em] uppercase mb-4 opacity-90">
                         ¿Cómo funciona RESET?
@@ -176,7 +193,7 @@
             </section>
             
         <!-- Tarjetas donde se explican sobre que pueden escribir los que tienen problemas -->
-        <section class="w-full  md:mb-5 text-black mt-5 ">
+        <section class="fade-in fade-in-4  w-full  md:mb-5 text-black mt-5 ">
             <div class=" p-6 md:p-8 lg:p-20">
 
                 <div class="text-center pt-10 md:pt-16 pb-12 relative z-10">
@@ -188,23 +205,25 @@
                     </h2>
                 </div>
 
-                <div class="max-w-7xl mx-auto pb-10 md:pb-20 grid grid-cols-1 sm:grid-cols-2  gap-4 md:gap-6 text-center relative z-10  px-6  lg:grid-cols-4 mt-10  p">
+                <div class="max-w-7xl mx-auto pb-10 md:pb-20 grid grid-cols-1 sm:grid-cols-2  gap-4 md:gap-6 text-center relative z-10  px-6  lg:grid-cols-4 mt-3  ">
                     
-                    <div class="relative bg-white rounded-3xl md:w-70 lg:w-full p-8  border-slate-100 group  backdrop-blur-lg border border-black/5 flex flex-col items-center gap-5  md:p-8 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="p-4 rounded-full bg-black/5 group-hover:bg-[#ff3b30]/20 duration-300">
+                    <div class=" bg-white rounded-4xl p-8  hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100">
+                        <div class="flex justify-center p-4 rounded-full text-center bg-[#00a5cf]/50 group-hover:bg-[#ff3b30]/20 duration-300">
                             <svg class="w-8 h-8 md:w-10 md:h-10 text-black group-hover:text-[#ff3b30] duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
                                 <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold text-slate-800">Estudios</h4>
+                            <h4 class="text-xl font-bold mt-6 text-slate-800">Estudios</h4>
                             <p class="text-gray-500">Carreras, cursos y certificaciones que quedaron en pausa.</p>
                         </div>
                     </div>
 
-                    <div class="group bg-white backdrop-blur-lg border border-black/5 flex flex-col items-center gap-5 rounded-2xl p-6 md:p-8 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="p-4 rounded-full bg-black/5 group-hover:bg-[#ff3b30]/20 duration-300">
+                    
+
+                    <div class=" bg-white rounded-4xl p-8  hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100">
+                        <div class="flex justify-center p-4 rounded-full bg-[#00a5cf]/50 group-hover:bg-[#ff3b30]/20 duration-300">
                             <svg class="w-8 h-8 md:w-10 md:h-10 text-black group-hover:text-[#ff3b30] duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M9 18h6"></path>
                                 <path d="M10 22h4"></path>
@@ -212,13 +231,13 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold text-slate-800">Proyectos</h4>
+                            <h4 class="text-xl font-bold mt-6 text-slate-800">Proyectos</h4>
                             <p class="text-gray-500">Apps, negocios e ideas brillantes que no llegaron a lanzarse.</p>
                         </div>
                     </div>
 
-                    <div class="group bg-white backdrop-blur-lg border border-black/5 flex flex-col items-center gap-5 rounded-2xl p-6 md:p-8 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="p-4 rounded-full bg-black/5 group-hover:bg-[#ff3b30]/20 duration-300">
+                    <div class=" bg-white rounded-4xl p-8  hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100">
+                        <div class="flex justify-center p-4 rounded-full bg-[#00a5cf]/50 group-hover:bg-[#ff3b30]/20 duration-300">
                             <svg class="w-8 h-8 md:w-10 md:h-10 text-black group-hover:text-[#ff3b30] duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
                                 <polyline points="14 2 14 8 20 8"></polyline>
@@ -228,19 +247,19 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold text-slate-800">Hábitos</h4>
+                            <h4 class="text-xl font-bold mt-6 text-slate-800">Hábitos</h4>
                             <p class="text-gray-500">Rutinas de ejercicio, lectura y alimentación saludable.</p>
                         </div>
                     </div>
 
-                    <div class="group bg-white backdrop-blur-lg border border-black/5 flex flex-col items-center gap-5 rounded-2xl p-6 md:p-8 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="p-4 rounded-full bg-black/5 group-hover:bg-[#ff3b30]/20 duration-300">
+                    <div class=" bg-white rounded-4xl p-8  hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100">
+                        <div class="flex justify-center p-4 rounded-full bg-[#00a5cf]/50 group-hover:bg-[#ff3b30]/20 duration-300">
                             <svg class="w-8 h-8 md:w-10 md:h-10 text-black group-hover:text-[#ff3b30] duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold text-slate-800">Sueños</h4>
+                            <h4 class="text-xl font-bold mt-6 text-slate-800">Sueños</h4>
                             <p class="text-gray-500">Esas metas personales importantes que dejaste de lado.</p>
                         </div>
                     </div>
@@ -250,7 +269,7 @@
         </section>
 
             <!-- Ola de los botones reset y voluntarios del final de la pagina -->
-                <div class="relative bg-transparent pt-20">
+                <div class=" fade-in fade-in-5 relative bg-transparent pt-20">
                     <div class="relative leading-[0] h-[150px]">
                         <svg class="relative block w-full h-[150px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
                             <defs>
@@ -265,13 +284,13 @@
                 </div>
                 
             <!-- Botones de reset y voluntarios en la pagina -->
-            <section class="relative  bg-linear-to-r from-[#9fffcb] to-[#00a5cf] min-h-150  py-30">
+            <section class="fade-in fade-in-6 relative  bg-linear-to-r from-[#9fffcb] to-[#00a5cf] min-h-150  py-30">
                 <div  class="font-['Domine'] flex justify-center  text-center my-3 p-2">
-                    <h1 class="max-w-4xl text-gray-900 font-bold text-5xl p-2 md:p-3 md:text-6xl lg:text-7xl">Hoy puede ser el <i class="text-white">dia</i> que todo lo <i class="text-white">cambie</i></h1>
+                <h1 class="max-w-4xl text-gray-900 font-bold text-5xl p-2 md:p-3 md:text-6xl lg:text-7xl">Hoy puede ser el <i class="text-white">dia</i> que todo lo <i class="text-white">cambie</i></h1>
                 </div>
 
-                <div class=" max-w-4xl mx-auto text-center top-0">
-                    <p class="px-15  text-gray-800  text-md md:text-md lg:text-lg">No tienes que hacerlo solo/a. Da el primer paso y déjanos ayudarte a reiniciar lo que quedó pendiente.</p>
+                <div class=" max-w-xl mx-auto text-center top-0">
+                <p class="px-15  text-gray-800  text-md md:text-md lg:text-lg">No tienes que hacerlo solo/a. Da el primer paso y déjanos ayudarte a reiniciar lo que quedó pendiente.</p>
                     <div class=" flex justify-center text-center items-center  gap-3 pt-6">
                         <a class="px-5 py-3  w-47 bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] font-bold text-sm shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/RequestReset.php">Solicitar RESET<a>
                         <a class="px-5 py-3  w-47 bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] font-bold text-sm shadow-md  hover:shadow-lg  hover:-translate-y-1 transition transform duration-300" href="pages/Volunteers.php">Quiero ser voluntario</a>   

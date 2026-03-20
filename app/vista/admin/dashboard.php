@@ -1,12 +1,6 @@
 <?php
 include_once "../../controlador/AdminController.php";
 
-// Evitamos errores si las variables no vienen del controlador
-$total_usuarios = $total_usuarios ?? 0;
-$total_usuarios_pendientes_resets = $total_usuarios_pendientes_resets ?? 0;
-$total_usuarios_Completado_resets = $total_usuarios_Completado_resets ?? 0;
-$total_usuarios_voluntarios = $total_usuarios_voluntarios ?? 0;
-$total_usuarios_Nuevo_resets = $total_usuarios_Nuevo_resets ?? 0;
 ?>
 
 <!--
@@ -111,7 +105,7 @@ $total_usuarios_Nuevo_resets = $total_usuarios_Nuevo_resets ?? 0;
                     <div class="bg-white rounded-[2.5rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-8 relative overflow-hidden group">
                         <div class="absolute top-0 right-0 w-24 h-24 rounded-bl-[2.5rem] -mr-8 -mt-8 bg-purple-50 group-hover:bg-purple-100 transition-colors"></div>
                         <p class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">Usuarios</p>
-                        <div class="text-5xl font-extrabold text-slate-800"><?php echo $total_usuarios ?></div>
+                        <div class="text-5xl font-extrabold text-slate-800"><?php echo $usuarios_totales ?></div>
                     </div>
 
                     <div class="bg-white rounded-[2.5rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-8 relative overflow-hidden group">
@@ -146,7 +140,7 @@ $total_usuarios_Nuevo_resets = $total_usuarios_Nuevo_resets ?? 0;
                                 <span class="text-slate-700 font-extrabold">Rendimiento RESETs</span>
                             </div>
                             <!-- si no existen datos mostrará que no hya datos que los añada a la base de datos -->
-                            <?php if(empty($total_usuarios_Nuevo_resets) && empty($total_usuarios_Pendientes_resets) && empty($total_usuarios_Completado_resets)): ?>
+                            <?php if($total_usuarios_Nuevo_resets = 0 or $total_usuarios_Nuevo_resets < 0 && $total_usuarios_Pendientes_resets = 0  or $total_usuarios_Pendientes_resets < 0 && $total_usuarios_Completado_resets = 0 or $total_usuarios_Completado_resets < 0): ?>
                                 <div class="flex flex-col items-center justify-center h-64  rounded-[2rem] bg-slate-50/100   p-8 text-center">
                                     <div class="w-16 h-16 bg-white rounded-full shadow-sm flex items-center justify-center mb-4">
                                         <svg class="w-10 h-10 text-slate-700" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -191,36 +185,7 @@ $total_usuarios_Nuevo_resets = $total_usuarios_Nuevo_resets ?? 0;
                     
                 </div>
 
-                <div class="bg-white rounded-[2.5rem] p-8 shadow-xl shadow-blue-900/5 border border-slate-100 w-full mt-6">
-                    <div class="flex justify-between items-center mb-8">
-                        <h3 class="font-black text-slate-800 tracking-tight text-lg">Actividad</h3>
-                        <span class="flex items-center gap-1.5 bg-emerald-50 text-emerald-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border border-emerald-100">
-                            <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping"></span>
-                            En vivo
-                        </span>
-                    </div>
-
-                    <div class="flex flex-wrap justify-start items-center gap-8">
-                        <?php foreach ($lista_usuarios as $user): ?>
-                            <div class="flex items-center gap-4 group transition-all duration-300 hover:translate-x-1">
-                                <div class="relative">
-                                    <div class="absolute -inset-1 bg-gradient-to-tr from-slate-100 to-slate-50 rounded-[1.2rem] opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                    <img src="../../public/img/<?= $user['foto_perfil'] ?>" class="relative w-12 h-12 rounded-[1.1rem] object-cover shadow-sm border border-white">
-                                    <span class="absolute -bottom-1 -right-1 w-4 h-4 border-2 border-white rounded-full 
-                                        <?= $user['estado'] === 'online' ? 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]' : 'bg-slate-300' ?>">
-                                    </span>
-                                </div>
-                                
-                                <div>
-                                    <p class="text-sm font-bold text-slate-700 leading-none group-hover:text-indigo-600 transition-colors"><?= htmlspecialchars($user['nombre']) ?></p>
-                                    <p class="text-[10px] text-slate-400 font-bold mt-1.5 uppercase tracking-widest flex items-center gap-1">
-                                        <?= $user['estado'] === 'online' ? 'Activo ahora' : 'Desconectado' ?>
-                                    </p>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
+                
         </main>
     </div>
 

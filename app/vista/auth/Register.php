@@ -12,6 +12,19 @@ session_start();
     <!-- Link al css -->
     <link rel="stylesheet" href="../../public/css/style.css">
 
+      <style>
+            @keyframes slideOutRight {
+            from { opacity: 1; transform: translateX(0); }
+            to   { opacity: 0; transform: translateX(60px); }  
+}
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-60px); }  
+            to   { opacity: 1; transform: translateX(0); }
+        }
+        body { animation: slideInLeft 0.4s ease both; }
+        body.saliendo { animation: slideOutRight 0.3s ease both; }
+  </style>
+
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
@@ -28,6 +41,7 @@ session_start();
         -color del  bg-[#f4f9fa]
 
     -->
+
 <body class="">
   
   <div class="flex min-h-screen ">
@@ -58,7 +72,8 @@ session_start();
       <p class="text-slate-500 mb-8">Únete a RESET y empieza tu camino hacia una nueva oportunidad.</p>
       <div class="mb-4">
         <?php if (isset($_SESSION['errores']) && !empty($_SESSION['errores'])): ?>
-            <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-xl">
+            <div class="bg-red-100 border-l-4 border-[#ff3b30] text-[#ff3b30] p-4 mb-6 rounded shadow-sm animate-pulse">
+               
                 <ul class="text-sm text-red-700 space-y-1">
                     <?php 
                     foreach ($_SESSION['errores'] as $campo => $mensajes) {
@@ -94,14 +109,14 @@ session_start();
 
                 <div class="flex gap-2 mb-8 bg-[#004e64] p-1 rounded-xl">
                     <button type="button" id="btn-usuario" onclick="cambiarRol('soy-usuario')" 
-                        class="flex-1 py-2.5 px-4 rounded-lg font-medium transition-all text-white bg-[#00a5cf]">
+                        class="flex-1 py-2.5 px-4 rounded-lg font-medium transition-all text-white">
                         Necesito ayuda
                     </button>
-
                     <button type="button" id="btn-voluntario" onclick="cambiarRol('soy-voluntario')" 
-                        class="flex-1 py-2.5 px-4 rounded-lg font-medium transition-all text-white">
+                        class="flex-1 py-2.5 px-4 rounded-lg font-medium transition-all text-white bg-[#00a5cf]">
                         Quiero ayudar
                     </button>
+
                 </div>
 
                 <div id="bloque-usuario" class="animate-in fade-in duration-300">
@@ -175,7 +190,7 @@ session_start();
 
         <!-- si tienes una cuenta, inicia sesion -->
         <p class="mt-10 text-center text-sm text-gray-600">
-          ¿Ya tienes cuenta? <a href="../auth/Login.php" class="font-bold text-[#00a5cf] hover:underline">Inicia Sesión</a>
+          ¿Ya tienes cuenta? <a href="../auth/Login.php"  onclick="navegarCon(../auth/Login.php)" class="cursor-pointer font-bold text-[#00a5cf] hover:underline">Inicia Sesión</a>
         </p>
     
     </div>
@@ -212,6 +227,11 @@ function cambiarRol(rol) {
         bloqueU.classList.add('hidden');
     }
 }
+function navegarCon(url) {
+    document.body.classList.add('saliendo');
+    setTimeout(() => window.location.href = url, 300); // espera a que termine la animación
+}
+
 </script>
 
 </body>
