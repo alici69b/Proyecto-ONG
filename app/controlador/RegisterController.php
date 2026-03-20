@@ -13,7 +13,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-if(isset($_POST['crear_cuenta'])) {
+if (isset($_POST['crear_cuenta'])) {
     $nombre = SanearDatos($_POST['nombre']);
     $email = SanearDatos($_POST['email']); 
     $contrasena = SanearDatos($_POST['contrasena']);
@@ -21,29 +21,21 @@ if(isset($_POST['crear_cuenta'])) {
 
     $_SESSION['rol'] = $rol;
     $errores = ValidarRegistro($nombre, $email, $contrasena);
-    $_SESSION['errores'] = $errores;
 
-    // Si no hay errores de validación, procedemos al registro
-    $resultado = RegistrarUsuario($conexion, $nombre, $email, $contrasena, $rol);
+    if (empty($errores)) {
+        $resultado = RegistrarUsuario($conexion, $nombre, $email, $contrasena, $rol);
 
-    if ($resultado['exito']) {
-        $_SESSION['mensaje_exito'] = $resultado['mensaje'];
-         header("Location: ../vista/auth/Register.php");
-        exit();
+        if ($resultado['exito']) {
+            $_SESSION['mensaje_exito'] = $resultado['mensaje'];
+        } else {
+            $_SESSION['errores'][$resultado['error']] = $resultado['mensaje'];
+        }
     } else {
-        $_SESSION['errores'][$resultado['error']] = $resultado['mensaje'];
+        $_SESSION['errores'] = $errores;
     }
 
-
-    //cerramos la conexion con la base de datos
     mysqli_close($conexion);
-
-    // Redirigimos de vuelta a la vista de registro para mostrar mensajes o errores
     header("Location: ../vista/auth/Register.php");
     exit();
 }
-
-
-
-
 ?>

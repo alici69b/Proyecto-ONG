@@ -20,7 +20,11 @@ function comprobar_credenciales($email, $password, $conexion) {
     if (!$stmt) {
         return false;
     }
+
+    //Le decimos a la consulta que reemplace el "?" por el email (tipo string)
     mysqli_stmt_bind_param($stmt, "s", $email);
+
+    //Ejecutamos la consulta
     mysqli_stmt_execute($stmt);
 
     //Guardamos el resultado de la consulta para poder usarlo después
