@@ -67,6 +67,7 @@ function reset_completados($conexion) {
 
 }
 
+//funcion para contar los reset nuevos que hay en la base de datos
 function reset_nuevos($conexion) {
     $usuarios_resets_Nuevo = mysqli_query($conexion, 
             "SELECT r.id_reset,
@@ -87,6 +88,22 @@ function reset_nuevos($conexion) {
     return $total_usuarios_Nuevo_resets;
 
 }
+
+//funcion para contar los voluntarios y mostrarlos en la base de datos
+function ContarVoluntarios($conexion) {
+    $sql_join_voluntarios = "SELECT COUNT(v.id_voluntario) as total 
+                         FROM voluntario v 
+                         INNER JOIN usuario u ON v.id_registrado = u.id_usuario";
+
+    $res_v = mysqli_query($conexion, $sql_join_voluntarios);
+    $datos_v = mysqli_fetch_assoc($res_v);
+    $total_usuarios_voluntarios = $datos_v['total'] ?? 0;
+
+
+    return $total_usuarios_voluntarios;
+}
+
+
   
 
 ?>
