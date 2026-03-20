@@ -2,11 +2,11 @@
 // Asegúrate de que el controlador tenga la función obtenerIniciales() definida ARRIBA del todo
 include_once "../../controlador/UserController.php";
 
-// Definimos valores por defecto para evitar Warnings si el controlador falla o la búsqueda está vacía
-$buscar = $buscar ?? '';
-$usuarios = $usuarios ?? [];
-$total_paginas = $total_paginas ?? 1;
-$pagina_actual = $pagina_actual ?? 1;
+    // Definimos valores por defecto para evitar Warnings si el controlador falla o la búsqueda está vacía
+    $buscar = $buscar ?? '';
+    $usuarios = $usuarios ?? [];
+    $total_paginas = $total_paginas ?? 1;
+    $pagina_actual = $pagina_actual ?? 1;
 ?>
 <!DOCTYPE html>
 <html lang="es">
