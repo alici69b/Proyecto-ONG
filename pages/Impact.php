@@ -17,12 +17,30 @@
 
 
     <style>
-      body {
-        font-family: 'Bricolage Grotesque';
+        body {
+            font-family: 'Bricolage Grotesque';
         }
+
         html {
             scroll-behavior: smooth; 
         }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50%       { background-position: 100% 50%; }
+        }
+
+        .fade-in { animation: fadeIn 0.5s ease both; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-1 { animation-delay: 0.05s; }
+        .fade-in-2 { animation-delay: 0.15s; }
+        .fade-in-3 { animation-delay: 0.25s; }
+        .fade-in-4 { animation-delay: 0.35s; }
+        .fade-in-5 { animation-delay: 0.45s; }
+        .fade-in-6 { animation-delay: 0.55s; }
     </style>
 
    <!--
@@ -50,7 +68,7 @@
     </a>
    
    <!-- Contenido Principal Impacto -->
-    <main class="max-w-7xl mx-auto px-4 py-12 pt-40">
+    <main class="fade-in fade-in-1 max-w-7xl mx-auto px-4 py-12 pt-40">
         <div class="flex flex-col">
            
             <!-- Título de la página -->
@@ -67,7 +85,7 @@
             </div>
             
             <!-- CARDS -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-16 p-4">
+            <div class="fade-in fade-in-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-16 p-4">
                 <!-- Resets Iniciados -->
                 <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 min-h-[250px] p-5 transition-transform transform hover:-translate-y-1 hover:scale-105 hover:shadow-xl hover:bg-[#e0f7f2] duration-300">
                     <div>
@@ -85,7 +103,7 @@
                 </div>
 
                 <!-- Resets Completados -->
-                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 min-h-[250px] p-5 transition-transform transform hover:-translate-y-1 hover:scale-105 hover:shadow-xl hover:bg-[#fff4e6] duration-300">
+                <div class=" bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 min-h-[250px] p-5 transition-transform transform hover:-translate-y-1 hover:scale-105 hover:shadow-xl hover:bg-[#fff4e6] duration-300">
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -137,7 +155,7 @@
 
             <!-- Segundos CARDS -->
             <!-- Card Categorías y Evolución mensual -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-16 p-4 items-stretch">
+            <div class="fade-in fade-in-3 grid grid-cols-1 lg:grid-cols-2 gap-6 pt-16 p-4 items-stretch">
                 <!-- Categorías -->
                 <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col flex-1 p-7 space-y-5 h-full">
                     <h2 class="font-semibold text-xl">Por categoría</h2>
@@ -252,7 +270,7 @@
             
 
             <!-- Card Footer Porcentaje --> <!-- COLORES DE ANTES: from-[#00a5cf] to-[#9fffcb]  --> <!-- to-[#83e0ad] -->
-            <div class="text-center pt-16 p-4">
+            <div class=" fade-in fade-in-4 text-center pt-16 p-4">
                 <div class="bg-linear-to-r from-[#00a5cf] to-[#78d4a1] rounded-3xl p-12 text-white shadow-lg flex flex-col md:flex-row justify-between items-center text-center space-y-6 md:space-y-0 md:space-x-10">
                     <!-- Texto -->
                     <div class="flex flex-col space-y-4 items-start justify-start text-start mb-6 md:mb-0">

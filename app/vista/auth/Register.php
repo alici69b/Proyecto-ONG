@@ -12,6 +12,19 @@ session_start();
     <!-- Link al css -->
     <link rel="stylesheet" href="../../public/css/style.css">
 
+      <style>
+      @keyframes slideOutLeft {
+          from { opacity: 1; transform: translateX(0); }
+          to   { opacity: 0; transform: translateX(-60px); }
+      }
+      @keyframes slideInRight {
+          from { opacity: 0; transform: translateX(60px); }
+          to   { opacity: 1; transform: translateX(0); }
+      }
+      body { animation: slideInRight 0.4s ease both; }
+      body.saliendo { animation: slideOutLeft 0.3s ease both; }
+  </style>
+
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
@@ -28,6 +41,7 @@ session_start();
         -color del  bg-[#f4f9fa]
 
     -->
+
 <body class="">
   
   <div class="flex min-h-screen ">
@@ -176,7 +190,7 @@ session_start();
 
         <!-- si tienes una cuenta, inicia sesion -->
         <p class="mt-10 text-center text-sm text-gray-600">
-          ¿Ya tienes cuenta? <a href="../auth/Login.php" class="font-bold text-[#00a5cf] hover:underline">Inicia Sesión</a>
+          ¿Ya tienes cuenta? <a href="../auth/Login.php"  onclick="navegarCon(../auth/Login.php)" class="cursor-pointer font-bold text-[#00a5cf] hover:underline">Inicia Sesión</a>
         </p>
     
     </div>
@@ -213,6 +227,11 @@ function cambiarRol(rol) {
         bloqueU.classList.add('hidden');
     }
 }
+function navegarCon(url) {
+    document.body.classList.add('saliendo');
+    setTimeout(() => window.location.href = url, 300); // espera a que termine la animación
+}
+
 </script>
 
 </body>

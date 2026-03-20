@@ -18,7 +18,18 @@ if(isset($_SESSION["error_login"])) {
     <link rel="icon" type="image/svg+xml" href="../../../public/img/Logo_RESET.svg">
     <title>Inicio Sesión - RESET</title>
 
-
+  <style>
+      @keyframes slideOutLeft {
+          from { opacity: 1; transform: translateX(0); }
+          to   { opacity: 0; transform: translateX(-60px); }
+      }
+      @keyframes slideInRight {
+          from { opacity: 0; transform: translateX(60px); }
+          to   { opacity: 1; transform: translateX(0); }
+      }
+      body { animation: slideInRight 0.4s ease both; }
+      body.saliendo { animation: slideOutLeft 0.3s ease both; }
+  </style>
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
@@ -91,7 +102,7 @@ if(isset($_SESSION["error_login"])) {
       </form>
 
       <p class="mt-10 text-center text-sm text-gray-600">
-        ¿No tienes cuenta? <a href="../auth/Register.php" class="font-bold text-[#00a5cf] hover:underline">Regístrate aquí</a>
+        ¿No tienes cuenta? <a href="../auth/Register.php"  onclick="navegarCon(../auth/Register.php)" class=" cursor-pointer font-bold text-[#00a5cf] hover:underline">Regístrate aquí</a>
       </p>
     </div>
   </div>
@@ -108,6 +119,11 @@ if(isset($_SESSION["error_login"])) {
 
 </div>
 
-
+<script>
+  function navegarCon(url) {
+    document.body.classList.add('saliendo');
+    setTimeout(() => window.location.href = url, 300); // espera a que termine la animación
+}
+</script>
 </body>
 </html>

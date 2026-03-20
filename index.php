@@ -24,6 +24,23 @@
         html {
             scroll-behavior: smooth; 
         }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50%       { background-position: 100% 50%; }
+        }
+
+        .fade-in { animation: fadeIn 0.5s ease both; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-1 { animation-delay: 0.05s; }
+        .fade-in-2 { animation-delay: 0.15s; }
+        .fade-in-3 { animation-delay: 0.25s; }
+        .fade-in-4 { animation-delay: 0.35s; }
+        .fade-in-5 { animation-delay: 0.45s; }
+        .fade-in-6 { animation-delay: 0.55s; }
     </style>
     
 
@@ -42,7 +59,7 @@
     -->
 
 </head>
-<body class=" bg-[#f4f9fa]" id="inicio">
+<body class=" bg-[#f4f9fa] " id="inicio" >
     <!-- importamos el Header, para tenelo en esta pagina -->
     <?php
     require_once "src/components/Header_index.php";
@@ -60,8 +77,8 @@
                 -Voluntarios
             - REcuento de las personas que participan en esta ong
      -->
-    <main class=" bg-linear-to-r from-[#00a5cf] to-[#9fffcb] min-h-130  pt-60">
-        <div class="md:px-20 flex justify-center">
+    <main class="fade-in fade-in-1 bg-linear-to-r from-[#00a5cf] to-[#9fffcb] min-h-130  pt-60 ">
+        <div class="md:px-20 flex justify-center ">
             <div class="flex bg-white/40 backdrop-blur-md items-center justify-center rounded-full shadow-sm">
                 <p class=" text-gray-900 py-2 px-5 font-bold text-sm  md:text-md whitespace-nowrap">ONG de Segundas Oportunidades</p>
             </div>
@@ -104,7 +121,7 @@
     </main>
 
     <!-- ola del inicio -->
-        <div class=" relative bg-gradient-to-r from-[#00a5cf] to-[#9fffcb] w-full pt-20 pb-40">
+        <div class="fade-in fade-in-2 relative bg-gradient-to-r from-[#00a5cf] to-[#9fffcb] w-full pt-20 pb-40">
             <div class="relative z-10"></div>
             <div class="absolute bottom-0 left-0 w-full leading-[0]">
                 <svg class="relative block w-full h-[120px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
@@ -113,7 +130,7 @@
             </div>
         </div>
 
-        <section class="w-full  md:mb-5 text-black mt-5 p-6 md:p-8 lg:p-20 ">
+        <section class=" fade-in fade-in-3 w-full  md:mb-5 text-black mt-5 p-6 md:p-8 lg:p-20 ">
             <div class="flex flex-col items-center text-center ">
                 <p class="text-[#00a5cf] font-bold text-xs md:text-sm tracking-[0.2em] uppercase mb-4 opacity-90">
                         ¿Cómo funciona RESET?
@@ -176,7 +193,7 @@
             </section>
             
         <!-- Tarjetas donde se explican sobre que pueden escribir los que tienen problemas -->
-        <section class="w-full  md:mb-5 text-black mt-5 ">
+        <section class="fade-in fade-in-4  w-full  md:mb-5 text-black mt-5 ">
             <div class=" p-6 md:p-8 lg:p-20">
 
                 <div class="text-center pt-10 md:pt-16 pb-12 relative z-10">
@@ -252,7 +269,7 @@
         </section>
 
             <!-- Ola de los botones reset y voluntarios del final de la pagina -->
-                <div class="relative bg-transparent pt-20">
+                <div class=" fade-in fade-in-5 relative bg-transparent pt-20">
                     <div class="relative leading-[0] h-[150px]">
                         <svg class="relative block w-full h-[150px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
                             <defs>
@@ -267,7 +284,7 @@
                 </div>
                 
             <!-- Botones de reset y voluntarios en la pagina -->
-            <section class="relative  bg-linear-to-r from-[#9fffcb] to-[#00a5cf] min-h-150  py-30">
+            <section class="fade-in fade-in-6 relative  bg-linear-to-r from-[#9fffcb] to-[#00a5cf] min-h-150  py-30">
                 <div  class="font-['Domine'] flex justify-center  text-center my-3 p-2">
                 <h1 class="max-w-4xl text-gray-900 font-bold text-5xl p-2 md:p-3 md:text-6xl lg:text-7xl">Hoy puede ser el <i class="text-white">dia</i> que todo lo <i class="text-white">cambie</i></h1>
                 </div>
