@@ -17,7 +17,9 @@ function cargarEnv($ruta) {
 
 cargarEnv(dirname(__DIR__, 2) . '/.env');
 
-$servername = $_ENV['DB_HOST'] ?? 'localhost';
+
+
+$servername = $_ENV['DB_HOST'] ?? '127.0.0.1';
 $username   = $_ENV['DB_USER'] ?? 'root';
 $password   = $_ENV['DB_PWD']  ?? '';
 $database   = $_ENV['DB_NAME'] ?? 'proyecto_ong';
@@ -26,7 +28,9 @@ if (empty($database)) {
     die("Error: La variable DB_NAME no se cargó correctamente desde el .env");
 }
 
-$conexion = mysqli_connect($servername, $username, $password, $database);
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+$conexion = mysqli_connect($servername, $username, $password, $database); 
 
 if (!$conexion) {
     die("Error al conectar: " . mysqli_connect_error());

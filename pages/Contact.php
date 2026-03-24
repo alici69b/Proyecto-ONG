@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
@@ -169,31 +173,59 @@
 
 
         <div id="Formulario" class="fade-in fade-in-2 max-w-100% grid">
-                <form action="../../app/controlador/ContactController.php" method="post" class="bg-white rounded-4xl p-8 border border-slate-100">
+                
+                <form action="../app/controlador/ContactController.php" method="post" class="bg-white rounded-4xl p-8 border border-slate-100">
+                        
                     <h3 class=" text-black font-bold text-lg md:text-xl p-2 lg:text-xl">Envíanos un mensaje</h3><br>
                 <!-- Nombre y Email -->
+                 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                         <label class="block font-bold text-gray-800 my-5">Nombre *</label>
-                        <input type="text" name="nombre_remitente" placeholder="Tu nombre" class="w-full rounded-xl border border-stone-300 px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] " required/>
+                        <input type="text" name="nombre_remitente" placeholder="Tu nombre" class="w-full rounded-xl border border-stone-300 px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] " />
                         </div>
 
                         <div>
                         <label class="block font-bold text-gray-800 my-5">Email *</label>
-                        <input type="email" name="email_remitente" placeholder="tu@email.com" class="w-full rounded-xl border border-stone-300 px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] " required />
+                        <input type="email" name="email_remitente" placeholder="tu@email.com" class="w-full rounded-xl border border-stone-300 px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] "  />
                         </div>
                     </div>
 
                     <!-- Asunto -->
                     <div>
                         <label class="block font-bold text-gray-800 my-5">Asunto *</label>
-                        <input type="text" name="asunto" placeholder="¿De qué quieres hablar?" class="w-full rounded-xl border border-stone-300 px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] " require />
+                        <input type="text" name="asunto" placeholder="¿De qué quieres hablar?" class="w-full rounded-xl border border-stone-300 px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] "  />
                     </div>
 
                     <!-- Mensaje -->
                     <div>
                         <label class="block font-bold text-gray-800 my-5">Mensaje *</label>
-                        <textarea rows="5" name="cuerpo_mensaje" placeholder="Hablanos de lo que te ocurre" class="w-full rounded-xl border border-stone-300 px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#00a5cf]  resize-none" required></textarea>
+                        <textarea rows="5" name="cuerpo_mensaje" placeholder="Hablanos de lo que te ocurre" class="w-full rounded-xl border border-stone-300 px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#00a5cf]  resize-none" ></textarea>
+                    </div>
+
+                    <div class="">
+                        <?php if (isset($_SESSION['errores']) && !empty($_SESSION['errores'])): ?>
+                                <div class="bg-red-100 border-l-4 border-[#ff3b30] text-[#ff3b30] p-4 mb-6 rounded shadow-sm animate-pulse">
+                                    <ul class="text-sm text-red-700 space-y-1">
+                                        <?php foreach ($_SESSION['errores'] as $campo => $mensajes): ?>
+                                            <?php if (is_array($mensajes)): ?>
+                                                <?php foreach ($mensajes as $mensaje): ?>
+                                                    <li>• <?= htmlspecialchars($mensaje) ?></li>
+                                                <?php endforeach; ?>
+                                            <?php else: ?>
+                                                <li>• <?= htmlspecialchars($mensajes) ?></li>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            <?php endif; ?>
+                            <?php unset($_SESSION['errores']); ?>
+                            <?php if (isset($_SESSION['exito'])): ?>
+                                <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6 rounded">
+                                    <?= htmlspecialchars($_SESSION['exito']) ?>
+                                </div>
+                                <?php unset($_SESSION['exito']); ?>
+                            <?php endif; ?>
                     </div>
 
                     <!-- Botón -->
@@ -201,12 +233,7 @@
                     </input>
                 </form>
 
-                <?php if (isset($_GET['status']) && $_GET['status'] == 'success'): ?>
-                    <div class="bg-emerald-100 border border-emerald-400 text-emerald-700 px-4 py-3 rounded-xl mb-6 flex items-center shadow-sm">
-                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                    <span>¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.</span>
-    </div>
-<?php endif; ?>
+                
             </div>
         </section>
 

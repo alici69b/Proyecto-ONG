@@ -229,7 +229,7 @@ function cambiarRol(rol) {
 }
 function navegarCon(url) {
     document.body.classList.add('saliendo');
-    setTimeout(() => window.location.href = url, 300); // espera a que termine la animación
+    setTimeout(() => window.location.href = url, 300); 
 }
 
 </script>
