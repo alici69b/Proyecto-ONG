@@ -7,8 +7,6 @@ require_once "../../modelo/AdminModel.php";
 //mostrar los usuarios en el panel de administrador
 $usuarios_totales = usuarios_totales($conexion);
 
-
-
 //mostrar los resets pendientes
 $total_usuarios_pendientes_resets = reset_pendientes($conexion);
 

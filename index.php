@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Domine">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bricolage Grotesque">
     
-    
+<!-- Estilos sobre la fuente de la pagina, el tamaño que debe tener y las animaciones al iniciar la pagina-->
     <style>
         body {
             font-family: 'Bricolage Grotesque';

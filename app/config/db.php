@@ -26,9 +26,6 @@ if (empty($database)) {
     die("Error: La variable DB_NAME no se cargó correctamente desde el .env");
 }
 
-$conexion = mysqli_connect($servername, $username, $password, $database);
+$conexion = mysqli_connect($servername, $username, $password, $database) or die("Error al conectar: " . mysqli_connect_error());
 
-if (!$conexion) {
-    die("Error al conectar: " . mysqli_connect_error());
-}
 ?>
