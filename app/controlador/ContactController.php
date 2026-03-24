@@ -15,20 +15,32 @@ if(isset($_POST['enviar'])) {
     $asunto = Sanear($_POST['asunto']);
     $cuerpo_mensaje = Sanear($_POST['cuerpo_mensaje']);
 
-    //valido los campos
     $errores = ValidarDatos($nombre_remitente, $email_remitente, $asunto, $cuerpo_mensaje);
-    $_SESSION['errores'] = $errores;
 
-    //muestro la funcion 
-    InsertarMensaje($nombre_remitente, $email_remitent, $asunto, $cuerpo_mensaje, $id_usuario);
+   if (!empty($errores)) {
+        // si hay errores pues lo guardo en la sesion
+        $_SESSION['errores'] = $errores;
+        header("Location: ../../pages/Contact.php");
+        exit();
+    }
 
-    header("Location: ../../pages/Contact.php");
+    // lo guardo en una variable para ahora verificar si no hay errores o si hay mostrarlo
+    $ok = InsertarMensaje($nombre_remitente, $email_remitente, $asunto, $cuerpo_mensaje);
+
+    if ($ok) {
+        $_SESSION['exito'] = "Mensaje enviado correctamente.";
+    } else {
+        $_SESSION['errores'] = ['db' => 'Error al enviar el mensaje. Inténtalo de nuevo.'];
+    }
+
+    header("Location: /pages/Contact.php");
     exit();
+
 }
 
 mysqli_close($conexion);
 // Redirigimos de vuelta a la pagina de contacto para mostrar mensajes o errores
-header("Location: ../../pages/Contact.php");
+header("Location: /pages/Contact.php");
     exit();
 
 ?>

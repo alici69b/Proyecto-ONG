@@ -34,11 +34,11 @@ function ValidarDatos($nombre_remitente, $email_remitente, $asunto, $cuerpo_mens
     }
 
 
-    if(strlen($asunto) >= 10)  {
+    if(strlen($asunto) < 10)  {
         $errores['asunto'][] = "El asunto  debe tener al menos 10 caracteres";
     }
 
-    if(strlen($cuerpo_mensaje) >= 15)  {
+    if(strlen($cuerpo_mensaje) < 15)  {
         $errores['asunto'][] = "El mensaje debe tener al menos 15 caracteres";
         }
         

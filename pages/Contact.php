@@ -169,7 +169,7 @@
 
 
         <div id="Formulario" class="fade-in fade-in-2 max-w-100% grid">
-                <form action="../../app/controlador/ContactController.php" method="post" class="bg-white rounded-4xl p-8 border border-slate-100">
+                <form action="../app/controlador/ContactController.php" method="post" class="bg-white rounded-4xl p-8 border border-slate-100">
                     <h3 class=" text-black font-bold text-lg md:text-xl p-2 lg:text-xl">Envíanos un mensaje</h3><br>
                 <!-- Nombre y Email -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -204,25 +204,25 @@
                 <div class="mb-4">
                 <?php if (isset($_SESSION['errores']) && !empty($_SESSION['errores'])): ?>
                     <div class="bg-red-100 border-l-4 border-[#ff3b30] text-[#ff3b30] p-4 mb-6 rounded shadow-sm animate-pulse">
-                    
                         <ul class="text-sm text-red-700 space-y-1">
-                            <?php 
-                            foreach ($_SESSION['errores'] as $campo => $mensajes) {
-                                // Verificamos si es una lista (array) o un texto simple (string)
-                                if (is_array($mensajes)) {
-                                    foreach ($mensajes as $mensaje) {
-                                        echo "<li>• " . htmlspecialchars($mensaje) . "</li>";
-                                    }
-                                } else {
-                                    // Si es un texto directo, lo imprimimos sin hacer otro bucle
-                                    echo "<li>• " . htmlspecialchars($mensajes) . "</li>";
-                                }
-                            }
-                            // Limpiamos los errores para que no salgan la próxima vez que recargue
-                            unset($_SESSION['errores']);
-                            ?>
+                            <?php foreach ($_SESSION['errores'] as $campo => $mensajes): ?>
+                                <?php if (is_array($mensajes)): ?>
+                                    <?php foreach ($mensajes as $mensaje): ?>
+                                        <li>• <?= htmlspecialchars($mensaje) ?></li>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <li>• <?= htmlspecialchars($mensajes) ?></li>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
+                <?php endif; ?>
+                <?php unset($_SESSION['errores']); ?>
+                <?php if (isset($_SESSION['exito'])): ?>
+                    <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6 rounded">
+                        <?= htmlspecialchars($_SESSION['exito']) ?>
+                    </div>
+                    <?php unset($_SESSION['exito']); ?>
                 <?php endif; ?>
             </div>
             </div>
