@@ -49,26 +49,31 @@ function ValidarDatos($nombre_remitente, $email_remitente, $asunto, $cuerpo_mens
 }
 
 //funcion para insertar los mensajes que se mandan a traves de la pagina de contacto y ser mostrados en la pagina del administrador
-function InsertarMensaje($nombre_remitente, $email_remitent, $asunto, $cuerpo_mensaje, $id_usuario) {
+function InsertarMensaje($nombre_remitente, $email_remitente, $asunto, $mensaje) {
     global $conexion;
 
-    $id_usuario = isset($_SESSION['id_usuario']) ? (int)$_SESSION['id_usuario'] : "NULL";
+    $id_usuario = isset($_SESSION['id_usuario']) ? (int)$_SESSION['id_usuario'] : null;
 
-    try {
-        $sql = "INSERT INTO mensaje(nombre_remitente, email_remitente, asunto, cuerpo_mensaje, id_usuario)
-        VALUES (?, ?,?, ?, ?)";
+    $sql = "INSERT INTO mensaje (nombre_remitente, email_remitente, asunto, cuerpo_mensaje, id_usuario)
+            VALUES (?, ?, ?, ?, ?)";
 
-        $stmt = $conexion->prepare($sql);
-        $stmt->bind_param("ssssi", $nombre_remitente, $email_remitent, $asunto, $cuerpo_mensaje, $id_usuario );
+    $stmt = $conexion->prepare($sql);
 
-        $stmt->execute();
-
-        return true;
-
-    } catch (mysqli_sql_exception $error) {
-        error_log("Error" . $error->getMessage());
+    if (!$stmt) {
+        error_log("Error prepare: " . $conexion->error);
         return false;
     }
+
+    $stmt->bind_param("ssssi", $nombre_remitente, $email_remitente, $asunto, $mensaje, $id_usuario);
+
+    if (!$stmt->execute()) {
+        error_log("Error execute: " . $stmt->error);
+        $stmt->close();
+        return false;
+    }
+
+    $stmt->close();
+    return true;
 }
     
 ?>

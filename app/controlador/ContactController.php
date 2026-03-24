@@ -33,14 +33,13 @@ if(isset($_POST['enviar'])) {
         $_SESSION['errores'] = ['db' => 'Error al enviar el mensaje. Inténtalo de nuevo.'];
     }
 
-    header("Location: /pages/Contact.php");
+    header("Location: ../../pages/Contact.php");
     exit();
 
 }
 
-mysqli_close($conexion);
 // Redirigimos de vuelta a la pagina de contacto para mostrar mensajes o errores
-header("Location: /pages/Contact.php");
+header("Location: ../../pages/Contact.php");
     exit();
 
 ?>
