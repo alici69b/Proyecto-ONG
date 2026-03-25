@@ -16,7 +16,7 @@ if(isset($_SESSION["error_login"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="../../../public/img/Logo_RESET.svg">
-    <title>Inicio Sesión - RESET</title>
+    <title>Resetear Contraseña - RESET</title>
 
   <style>
        @keyframes shimmer {
@@ -74,9 +74,9 @@ if(isset($_SESSION["error_login"])) {
 
       <form action="" method="post">
         <label for="email">Introduce tu email</label><br>
-        <input type="email" name="email" class="mt-1 w-full rounded-lg border mb-4 border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] " placeholder="ejemplo@gmail.com"><br>
+        <input type="email" name="email_restablecer_contrasena" class="mt-1 w-full rounded-lg border mb-4 border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] " placeholder="ejemplo@gmail.com"><br>
 
-        <input type="submit" class="flex mt-2 w-full items-center justify-center gap-2 rounded-lg bg-[#00a5cf] p-3 font-semibold text-white transition hover:bg-black" value="Restablecer" name="restablecer">
+        <input type="submit"  class="flex mt-2 w-full items-center justify-center gap-2 rounded-lg bg-[#00a5cf] p-3 font-semibold text-white transition hover:bg-black" value="Restablecer" name="restablecer">
       </form>
       
     </div>
