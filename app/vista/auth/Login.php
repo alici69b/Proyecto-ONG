@@ -92,7 +92,7 @@ if(isset($_SESSION["error_login"])) {
             <input name="recordarDatos" type="checkbox" class="mr-2 h-4 w-4 rounded border-gray-300 text-[#00a5cf] " />
             Recordarme
           </label>
-          <a href="#" class="text-sm  text-[#00a5cf] hover:underline">¿Olvidaste tu contraseña?</a>
+          <a href="../auth/Reset_password.php" class="text-sm  text-[#00a5cf] hover:underline">¿Olvidaste tu contraseña?</a>
         </div>
 <!-- Muestro los errores de los intentos  -->
         <button type="submit" class="flex w-full items-center justify-center gap-2 rounded-lg bg-[#00a5cf] p-3 font-semibold text-white transition hover:bg-black" name="iniciar_sesion" id="iniciar_sesion">
