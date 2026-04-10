@@ -19,6 +19,8 @@ if (isset($_POST['crear_cuenta'])) {
     $contrasena = SanearDatos($_POST['contrasena']);
     $rol = SanearDatos($_POST['tipo']);
 
+    $_SESSION["usuario"] = $nombre ;
+
     $_SESSION['rol'] = $rol;
     $errores = ValidarRegistro($nombre, $email, $contrasena);
 
