@@ -1,6 +1,6 @@
 <?php
 
-include_once "../../controlador/AdminController.php";
+include_once "../../controlador/AdminControllers/AdminController.php";
 
 ?>
 <!DOCTYPE html>

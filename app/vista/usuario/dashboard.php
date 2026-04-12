@@ -1,5 +1,10 @@
 <?php
-include_once "../../controlador/UserController.php";
+require_once "../../controlador/UserController.php";
+
+if (!isset($_SESSION["usuario"])) {
+    header("Location: ../auth/Login.php");
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">

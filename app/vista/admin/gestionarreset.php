@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once "../../controlador/ManageresetController.php";
+include_once "../../controlador//AdminControllers/ManageresetController.php";
 
 
 ?>

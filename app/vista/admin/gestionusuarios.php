@@ -1,6 +1,6 @@
 <?php
 // Asegúrate de que el controlador tenga la función obtenerIniciales() definida ARRIBA del todo
-include_once "../../controlador/UserController.php";
+include_once "../../controlador/AdminControllers/UserController.php";
 
     // Definimos valores por defecto para evitar Warnings si el controlador falla o la búsqueda está vacía
     $buscar = $buscar ?? '';
