@@ -148,26 +148,31 @@ $pagina_actual = $pagina_actual ?? 1;
                                         <td class="px-8 py-4">
                                             <div class="flex justify-center gap-2">
 
-                                                <a
-                                                    href="editar_usuario.php?id=<?php echo $u['id_usuario']; ?>"
+                                                <button onclick="abrirModalEditar(
+                                                            <?php echo $u['id_usuario']; ?>,
+                                                            '<?php echo htmlspecialchars($u['nombre'],    ENT_QUOTES); ?>',
+                                                            '<?php echo htmlspecialchars($u['apellidos'] ?? '', ENT_QUOTES); ?>',
+                                                            '<?php echo htmlspecialchars($u['email'],     ENT_QUOTES); ?>',
+                                                            <?php echo (int)($u['id_rol'] ?? 1); ?>
+                                                        )"
                                                     title="Editar usuario"
                                                     class="p-2 hover:bg-blue-50 text-blue-500 rounded-xl transition-all active:scale-90">
                                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                         <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
                                                         <path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
                                                     </svg>
-                                                </a>
-
-
-                                                <button
-                                                    onclick="abrirModal(<?php echo $u['id_usuario']; ?>)"
-                                                    title="Eliminar usuario"
-                                                    class="p-2 hover:bg-red-50 text-red-400 hover:text-red-600 rounded-xl transition-all active:scale-90">
-                                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                        <polyline points="3 6 5 6 21 6" />
-                                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                                                    </svg>
                                                 </button>
+
+
+                                                    <button
+                                                        onclick="abrirModal(<?php echo $u['id_usuario']; ?>)"
+                                                        title="Eliminar usuario"
+                                                        class="p-2 hover:bg-red-50 text-red-400 hover:text-red-600 rounded-xl transition-all active:scale-90">
+                                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                            <polyline points="3 6 5 6 21 6" />
+                                                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                                        </svg>
+                                                    </button>
                                             </div>
                                         </td>
                                     </tr>
@@ -192,7 +197,80 @@ $pagina_actual = $pagina_actual ?? 1;
 </div>
 
 </main>
+
+<!-- Modal para editar los usuarios sin necesidad de crear nuevos -->
+<div
+    id="modal-editar"
+    class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm">
+    <div class="bg-white p-8 rounded-[2.5rem] shadow-2xl max-w-lg w-full mx-4 border border-slate-100">
+
+        <h3 class="text-2xl font-black text-slate-800 mb-6">Editar usuario</h3>
+
+        <!-- Enviamos por post los datos y el controlador detecta el POST y hace el UPDATE.-->
+        <form method="POST" class="flex flex-col gap-4">
+
+            <!-- id del usuaio que esta hidden -->
+            <input type="hidden" name="id_usuario" id="edit-id">
+
+            <!-- Nombre y apellidos en la misma fila -->
+            <div class="grid grid-cols-2 gap-4">
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">Nombre</label>
+                    <input type="text" name="nombre" id="edit-nombre" required
+                        class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] outline-none text-slate-700 font-medium">
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">Apellidos</label>
+                    <input type="text" name="apellidos" id="edit-apellidos"
+                        class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] outline-none text-slate-700 font-medium">
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">Email</label>
+                <input type="email" name="email" id="edit-email" required
+                    class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] outline-none text-slate-700 font-medium">
+            </div>
+
+            <!-- Rol -->
+            <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">Rol</label>
+                <select name="id_rol" id="edit-rol"
+                    class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] outline-none text-slate-700 font-medium">
+                    <option value="1">Usuario</option>
+                    <option value="3">Administrador</option>
+                </select>
+            </div>
+
+            <!-- Nueva contraseña (opcional) -->
+            <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">
+                    Nueva contraseña
+                    <span class="normal-case font-normal text-slate-400 ml-1">(dejar vacío para no cambiarla)</span>
+                </label>
+                <input type="password" name="password_nuevo" placeholder="••••••••"
+                    class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] outline-none text-slate-700 font-medium">
+            </div>
+
+            <!-- Botones -->
+            <div class="flex gap-3 pt-2">
+                <button type="button" onclick="cerrarModalEditar()"
+                    class="flex-1 py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold rounded-2xl transition-all">
+                    Cancelar
+                </button>
+                <button type="submit"
+                    class="flex-1 py-3 px-4  bg-red-500 hover:bg-red-600 text-white font-bold rounded-2xl shadow-lg shadow-blue-900/20 transition-all">
+                    Guardar cambios
+                </button>
+            </div>
+
+        </form>
+    </div>
 </div>
+</div>
+
+
 <!-- modal para confirmar el borrado de los usuarios y se vea mucho mejpr qe con el confirm de js -->
 <div
     id="modal-confirmar"
@@ -201,8 +279,16 @@ $pagina_actual = $pagina_actual ?? 1;
 
         <!-- Icono de advertencia -->
         <div class="w-20 h-20 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            <svg width="64px" height="64px" viewBox="-5.76 -5.76 35.52 35.52" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="">
+                <g id="SVGRepo_bgCarrier" stroke-width="0">
+                    <rect x="-5.76" y="-5.76" width="35.52" height="35.52" rx="17.76" fill="#ffe0e0" strokewidth="0"></rect>
+                </g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.048"></g>
+                <g id="SVGRepo_iconCarrier">
+                    <circle cx="12" cy="17" r="1" fill="#ff0000"></circle>
+                    <path d="M12 10L12 14" stroke="#ff0000" stroke-width="1.968" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M3.44722 18.1056L10.2111 4.57771C10.9482 3.10361 13.0518 3.10362 13.7889 4.57771L20.5528 18.1056C21.2177 19.4354 20.2507 21 18.7639 21H5.23607C3.7493 21 2.78231 19.4354 3.44722 18.1056Z" stroke="#ff0000" stroke-width="1.968" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
             </svg>
         </div>
 
@@ -219,9 +305,7 @@ $pagina_actual = $pagina_actual ?? 1;
                 Cancelar
             </button>
 
-            <!--
-                Al hacer clic navega a ?action=delete&id el controlador borra el usuario.
-            -->
+            <!-- Al hacer clic navega a ?action=delete&id el controlador borra el usuario.-->
             <a
                 id="btn-confirmar-eliminar"
                 href="#"
@@ -234,6 +318,29 @@ $pagina_actual = $pagina_actual ?? 1;
 
 <!-- Script para la modal de eliminar el usuario -->
 <script>
+    //modal para EDITAR 
+    function abrirModalEditar(id, nombre, apellidos, email, rol) {
+        // Metemos los datos del usuario en cada campo del formulario
+        document.getElementById('edit-id').value = id;
+        document.getElementById('edit-nombre').value = nombre;
+        document.getElementById('edit-apellidos').value = apellidos;
+        document.getElementById('edit-email').value = email;
+        document.getElementById('edit-rol').value = rol;
+
+        // Mostramos el modal
+        document.getElementById('modal-editar').classList.remove('hidden');
+    }
+
+    function cerrarModalEditar() {
+        document.getElementById('modal-editar').classList.add('hidden');
+    }
+
+    // Clic en el fondo oscuro → cierra modal editar
+    document.getElementById('modal-editar').addEventListener('click', function(e) {
+        if (e.target === this) cerrarModalEditar();
+    });
+
+    // modal  para ELIMINAR
     //    - Recibe el ID del usuario del botón pulsado.
     //    - Pone ese ID en el href del botón "Confirmar".
     //    - Muestra el modal quitando la clase CSS "hidden".
@@ -255,7 +362,7 @@ $pagina_actual = $pagina_actual ?? 1;
     document.getElementById('modal-confirmar').addEventListener('click', function(e) {
         if (e.target === this) cerrarModal();
     });
-    //cierra la modal si toca fuera del recuadro
+    //cierra la modal si toca fuera del recuadro 
     function toggleSidebar() {
         document.getElementById('sidebar').classList.toggle('-translate-x-full');
     }

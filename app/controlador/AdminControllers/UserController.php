@@ -8,6 +8,51 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+//editar usuarios
+
+
+$error_edicion = '';
+$exito_edicion = false;
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_usuario'])) {
+ 
+    $id_editar  = (int) $_POST['id_usuario'];
+    //mysqli_real_escape_strign saca todos los caracteres peligrosos
+    $nombre     = mysqli_real_escape_string($conexion, trim($_POST['nombre']    ?? ''));
+    $apellidos  = mysqli_real_escape_string($conexion, trim($_POST['apellidos'] ?? ''));
+    $email      = mysqli_real_escape_string($conexion, trim($_POST['email']     ?? ''));
+    $id_rol     = (int) ($_POST['id_rol'] ?? 1);
+    $nueva_pass = $_POST['password_nuevo'] ?? '';
+ 
+    // Validación rápida
+    if (empty($nombre) || empty($email)) {
+        $error_edicion = "El nombre y el email son obligatorios.";
+    } else {
+        // Construimos la parte de password solo si escribieron una nueva
+        $sql_pass = '';
+        if (!empty($nueva_pass)) {
+            $hash     = password_hash($nueva_pass, PASSWORD_BCRYPT);
+            $hash_esc = mysqli_real_escape_string($conexion, $hash);
+            $sql_pass = ", password = '$hash_esc'";
+        }
+ 
+        $sql_update = "UPDATE usuario SET
+                           nombre    = '$nombre',
+                           apellidos = '$apellidos',
+                           email     = '$email',
+                           id_rol    = $id_rol
+                           $sql_pass
+                       WHERE id_usuario = $id_editar";
+ 
+        if (mysqli_query($conexion, $sql_update)) {
+            $exito_edicion = true;
+        } else {
+            $error_edicion = "Error al guardar: " . mysqli_error($conexion);
+        }
+    }
+}
+
 //borrar usuarios 
 if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['id'])) {
 
