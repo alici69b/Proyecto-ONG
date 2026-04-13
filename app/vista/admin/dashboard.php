@@ -1,22 +1,21 @@
 <?php
 include_once "../../controlador/AdminControllers/AdminController.php";
+include_once "../../controlador/AdminControllers/RecentActivityController.php";
+// Asumiendo que $conexion es tu variable de conexión a la base de datos
+$listaActividad = obtenerActividadReciente($conexion, 6);
 
+// Simulación de datos de actividad (Esto debería venir de tu AdminController.php)
+// Ejemplo: $actividades = $modelo->obtenerActividadReciente();
+$actividades = [
+    ['tipo' => 'usuario', 'titulo' => 'Nuevo Usuario', 'detalle' => 'Juan Pérez se ha unido', 'tiempo' => 'Hace 5 min'],
+    ['tipo' => 'reset', 'titulo' => 'Reset Completado', 'detalle' => 'Suministros médicos entregados', 'tiempo' => 'Hace 2 horas'],
+    ['tipo' => 'historia', 'titulo' => 'Nueva Historia', 'detalle' => 'Publicada: "El impacto en Valencia"', 'tiempo' => 'Ayer'],
+];
 ?>
 
-<!--
-    colores
-        -azul oscuro: #004e64
-        -azul: #00a5cf
-        - verdeagua  #9fffcb
-        -verde : #25a18e
-        -verde vivo: #7ae582
-        -coral: #ff3b30
-        -poner letras con el degradado del inicio: bg-linear-to-r from-[#00a5cf] to-[#9fffcb] bg-clip-text text-transparent 
-        -color del  bg-[#f4f9fa]
-
-    -->
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,13 +25,26 @@ include_once "../../controlador/AdminControllers/AdminController.php";
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;500;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Bricolage Grotesque', sans-serif; background-color: #f4f9fa; }
+        body {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            background-color: #f4f9fa;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
     </style>
 </head>
 
 <body class="text-[#004e64] min-h-screen">
     <div class="flex">
-        <!-- boton hamburguesa para que desaparezca en movil -->
+        <div id="sidebarOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+
         <button onclick="toggleSidebar()" class="md:hidden fixed top-4 left-4 z-[60] bg-[#004e64] text-white p-2 rounded-lg shadow-lg">
             <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path d="M4 6h16M4 12h16M4 18h16"></path>
@@ -40,217 +52,243 @@ include_once "../../controlador/AdminControllers/AdminController.php";
         </button>
 
         <aside id="sidebar" class="fixed left-0 top-0 z-50 h-screen w-64 bg-[#004e64] text-blue-100 p-6 flex flex-col gap-8 transition-transform duration-300 transform -translate-x-full md:translate-x-0">
-            
-            <button onclick="toggleSidebar()" class="md:hidden absolute top-5 right-5 text-white/50 hover:text-white">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
+            <div class="flex items-center justify-between mt-10 px-2">
+                <div>
+                    <p class="font-bold text-white text-sm">Panel Admin</p>
+                    <p class="text-[10px] text-[#9fffcb] uppercase tracking-widest font-bold">RESET ONG</p>
+                </div>
+            </div>
 
-            <div class="flex items-center gap-3 mt-10 px-2">
-            <div>
-                <p class="font-bold text-white text-sm">Panel Admin</p>
-                <p class="text-[10px] text-[#9fffcb] uppercase tracking-widest font-bold">RESET ONG</p>
-            </div>
-            </div>
-            
             <nav class="flex flex-col gap-2">
                 <a href="dashboard.php" class="bg-gradient-to-r from-[#00a5cf] to-[#9fffcb] text-[#004e64] flex items-center gap-3 px-4 py-3 rounded-xl shadow-lg text-sm font-extrabold">
-                    <span class="opacity-70"><svg fill="currentColor" width="20" height="20" viewBox="0 0 36 36"><path d="M32 5H4c-1.1 0-2 .9-2 2v22c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zM4 29V7h28v22H4z"/><path d="M15.6 15.2l-6 8.7-4-3.5 1-1.2 2.7 2.4 6.3-9.2 6.7 10 6.8-8.9 1.3 1-8.1 10.7z"/></svg></span> 
+                    <span><svg fill="currentColor" width="20" height="20" viewBox="0 0 36 36">
+                            <path d="M32 5H4c-1.1 0-2 .9-2 2v22c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zM4 29V7h28v22H4z" />
+                            <path d="M15.6 15.2l-6 8.7-4-3.5 1-1.2 2.7 2.4 6.3-9.2 6.7 10 6.8-8.9 1.3 1-8.1 10.7z" />
+                        </svg></span>
                     Vista general
                 </a>
                 <a href="gestionarreset.php" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-all text-sm group">
-                    <span class="opacity-70 text-white"><svg fill="currentColor" width="20" height="20" viewBox="0 0 1920 1920"><path d="M276.9 440.6v565.7c0 422.4 374.2 625.5 674.7 788.7l8 4.3 8.1-4.3c300.5-163.2 674.7-366.3 674.7-788.7V440.6l-682.8-321.7-682.8 321.7z"/></svg></span> 
+                    <span class="opacity-70"><svg fill="currentColor" width="20" height="20" viewBox="0 0 1920 1920">
+                            <path d="M276.9 440.6v565.7c0 422.4 374.2 625.5 674.7 788.7l8 4.3 8.1-4.3c300.5-163.2 674.7-366.3 674.7-788.7V440.6l-682.8-321.7-682.8 321.7z" />
+                        </svg></span>
                     Gestionar Resets
                 </a>
                 <a href="gestionusuarios.php" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-all text-sm group">
-                    <span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span> 
+                    <span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                        </svg></span>
                     Usuarios
                 </a>
                 <a href="gestionarhistorias.php" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-all text-sm group">
-                    <span class="opacity-70"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span> 
+                    <span class="opacity-70"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg></span>
                     Historias
                 </a>
-                
             </nav>
 
             <div class="mt-auto pt-6 border-t border-white/10">
                 <a href="../auth/Login.php" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-red-500/20 text-red-300 transition-all text-sm font-bold">
-                    <svg fill="currentColor" width="20" height="20" viewBox="0 0 24 24"><path d="M16 17v-4H9v-2h7V7l5 5-5 5M14 2a2 2 0 012 2v2h-2V4H5v16h9v-2h2v2a2 2 0 01-2 2H5a2 2 0 01-2-2V4a2 2 0 012-2h9z"/></svg>
+                    <svg fill="currentColor" width="20" height="20" viewBox="0 0 24 24">
+                        <path d="M16 17v-4H9v-2h7V7l5 5-5 5M14 2a2 2 0 012 2v2h-2V4H5v16h9v-2h2v2a2 2 0 01-2 2H5a2 2 0 01-2-2V4a2 2 0 012-2h9z" />
+                    </svg>
                     Salir
                 </a>
             </div>
         </aside>
 
-        <div id="sidebarOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden"></div>
-
-        <main class="flex-1 md:ml-64   p-8  md:p-12  md:max-w-6xl lg:max-w-full w-full">
-            <header class="flex justify-between items-center mb-10">
-                
-                
-                    <div>
-                        <h2 class="text-4xl font-extrabold tracking-tight mb-2">Vista General</h2>
-                        <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-[#7ae582] animate-pulse"></span>
-                            <p class="text-gray-400 text-sm italic">Sincronizado: <?php echo date('H:i'); ?>hs</p>
-                        </div>
+        <main class="flex-1 md:ml-64 p-6 md:p-12 w-full transition-all">
+            <header class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-10">
+                <div>
+                    <h2 class="text-4xl font-extrabold tracking-tight mb-2">Vista General</h2>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-[#7ae582] animate-pulse"></span>
+                        <p class="text-gray-400 text-sm italic">Sincronizado: <?php echo date('H:i'); ?>hs</p>
                     </div>
-                    <div class="flex gap-3 ">
-                        <button onclick="location.reload()" class="px-6 py-3 bg-white border border-gray-200 rounded-2xl text-sm font-bold hover:shadow-md transition-all active:scale-95">Actualizar</button>
-                        <button class="px-6 py-3 bg-[#25a18e] text-white rounded-2xl text-sm font-bold shadow-lg shadow-[#25a18e]/30 hover:bg-[#1e8575] transition-all active:scale-95">+ Nueva Historia</button>
-                    </div>
-                
+                </div>
+                <div class="flex flex-wrap gap-3 w-full lg:w-auto">
+                    <button onclick="location.reload()" class="flex-1 lg:flex-none px-6 py-3 bg-white border border-gray-200 rounded-2xl text-sm font-bold hover:shadow-md transition-all active:scale-95">Actualizar</button>
+                    <button class="flex-1 lg:flex-none px-6 py-3 bg-[#25a18e] text-white rounded-2xl text-sm font-bold shadow-lg shadow-[#25a18e]/30 hover:bg-[#1e8575] transition-all active:scale-95">+ Nueva Historia</button>
+                </div>
             </header>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                    <div class="bg-white rounded-[2.5rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-8 relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-24 h-24 rounded-bl-[2.5rem] -mr-8 -mt-8 bg-purple-50 group-hover:bg-purple-100 transition-colors"></div>
-                        <p class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">Usuarios</p>
-                        <div class="text-5xl font-extrabold text-slate-800"><?php echo $usuarios_totales ?></div>
-                    </div>
 
-                    <div class="bg-white rounded-[2.5rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-8 relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-24 h-24 rounded-bl-[2.5rem] -mr-8 -mt-8 bg-yellow-50 group-hover:bg-yellow-100 transition-colors"></div>
-                        <p class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">Pendientes</p>
-                        <div class="text-5xl font-extrabold text-slate-800"><?php echo $total_usuarios_pendientes_resets ?></div>
-                    </div>
-
-                    <div class="bg-white rounded-[2.5rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-8 relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-24 h-24 rounded-bl-[2.5rem] -mr-8 -mt-8 bg-green-50 group-hover:bg-green-100 transition-colors"></div>
-                        <p class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">Completados</p>
-                        <div class="text-5xl font-extrabold text-slate-800"><?php echo $total_usuarios_Completado_resets ?></div>
-                    </div>
-
-                    <div class="bg-white rounded-[2.5rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-8 relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-24 h-24 rounded-bl-[2.5rem] -mr-8 -mt-8 bg-blue-50 group-hover:bg-blue-100 transition-colors"></div>
-                        <p class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">Voluntarios</p>
-                        <div class="text-5xl font-extrabold text-slate-800"><?php echo $total_usuarios_voluntarios ?></div>
-                    </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="bg-white rounded-[2.5rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-8 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-20 h-20 rounded-bl-[2.5rem] -mr-4 -mt-4 bg-purple-50 group-hover:bg-purple-100 transition-colors"></div>
+                    <p class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">Usuarios</p>
+                    <div class="text-5xl font-extrabold text-slate-800"><?php echo $usuarios_totales ?? 0 ?></div>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    
-                        <div class=" bg-white rounded-[3rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-10">
-                            <div>
-                            <div class="flex items-center gap-2 mb-8">
-                                <div class="w-8 h-8 bg-teal-50 rounded-lg flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                    </svg>
-                                </div>
-                                <span class="text-slate-700 font-extrabold">Rendimiento RESETs</span>
-                            </div>
-                            <!-- si no existen datos mostrará que no hya datos que los añada a la base de datos -->
-                            <?php if($total_usuarios_Nuevo_resets = 0 or $total_usuarios_Nuevo_resets < 0 && $total_usuarios_Pendientes_resets = 0  or $total_usuarios_Pendientes_resets < 0 && $total_usuarios_Completado_resets = 0 or $total_usuarios_Completado_resets < 0): ?>
-                                <div class="flex flex-col items-center justify-center h-64  rounded-[2rem] bg-slate-50/100   p-8 text-center">
-                                    <div class="w-16 h-16 bg-white rounded-full shadow-sm flex items-center justify-center mb-4">
-                                        <svg class="w-10 h-10 text-slate-700" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M24 42C33.9411 42 42 33.9411 42 24C42 14.0589 33.9411 6 24 6C14.0589 6 6 14.0589 6 24C6 33.9411 14.0589 42 24 42ZM24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" fill="currentColor"></path>
-                                            <path d="M19 20C19 21.1046 18.1046 22 17 22C15.8954 22 15 21.1046 15 20C15 18.8954 15.8954 18 17 18C18.1046 18 19 18.8954 19 20Z" fill="currentColor"></path>
-                                            <path d="M33 20C33 21.1046 32.1046 22 31 22C29.8954 22 29 21.1046 29 20C29 18.8954 29.8954 18 31 18C32.1046 18 33 18.8954 33 20Z" fill="currentColor"></path>
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M18.5673 33.8235C18.5673 33.8235 21 31 24 31C27 31 29.4327 33.8235 29.4327 33.8235" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-                                        </svg>
-                                    </div>
-                                    <h3 class="text-slate-700 font-bold max-w-[200px] mx-auto leading-tight">No hay datos guardados, añade resets para ver tu grafica</h3>
-                                </div>
-                            <?php else: ?>
-                                <div class="relative h-64 mb-8">
-                                    <canvas id="miGrafico"></canvas>
-                                </div>
-
-                                <div class="grid grid-cols-3 gap-4">
-                                    <div class="bg-blue-50/50 rounded-2xl p-4 text-center border border-blue-100/50">
-                                        <div class="text-blue-600 font-black text-xl"><?php echo $total_usuarios_Nuevo_resets ?></div>
-                                        <div class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Nuevos</div>
-                                    </div>
-                                    <div class="bg-green-50/50 rounded-2xl p-4 text-center border border-green-100/50">
-                                        <div class="text-green-600 font-black text-xl"><?php echo $total_usuarios_pendientes_resets ?></div>
-                                        <div class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Proceso</div>
-                                    </div>
-                                    <div class="bg-teal-50/50 rounded-2xl p-4 text-center border border-teal-100/50">
-                                        <div class="text-teal-600 font-black text-xl"><?php echo $total_usuarios_Completado_resets ?></div>
-                                        <div class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Éxito</div>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 lg:grid-cols-2  bg-white rounded-[3rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-10">
-                            <h2 class="text-slate-700 font-extrabold mb-8 flex items-center gap-2">
-                                <span class="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></span> Actividad Reciente
-                            </h2>
-                            <div class="space-y-4">
-                                </div>
-                        </div>
-                    
+                <div class="bg-white rounded-[2.5rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-8 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-20 h-20 rounded-bl-[2.5rem] -mr-4 -mt-4 bg-yellow-50 group-hover:bg-yellow-100 transition-colors"></div>
+                    <p class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">Pendientes</p>
+                    <div class="text-5xl font-extrabold text-slate-800"><?php echo $total_usuarios_pendientes_resets ?? 0 ?></div>
                 </div>
 
-                
-        </main>
+                <div class="bg-white rounded-[2.5rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-8 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-20 h-20 rounded-bl-[2.5rem] -mr-4 -mt-4 bg-green-50 group-hover:bg-green-100 transition-colors"></div>
+                    <p class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">Completados</p>
+                    <div class="text-5xl font-extrabold text-slate-800"><?php echo $total_usuarios_Completado_resets ?? 0 ?></div>
+                </div>
+
+                <div class="bg-white rounded-[2.5rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-8 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-20 h-20 rounded-bl-[2.5rem] -mr-4 -mt-4 bg-blue-50 group-hover:bg-blue-100 transition-colors"></div>
+                    <p class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">Voluntarios</p>
+                    <div class="text-5xl font-extrabold text-slate-800"><?php echo $total_usuarios_voluntarios ?? 0 ?></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-[3rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-6 md:p-10">
+                    <div class="flex items-center gap-2 mb-8">
+                        <div class="w-8 h-8 bg-teal-50 rounded-lg flex items-center justify-center">
+                            <svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                        <span class="text-slate-700 font-extrabold">Rendimiento RESETs</span>
+                    </div>
+
+                    <?php if (($total_usuarios_Nuevo_resets ?? 0) <= 0 && ($total_usuarios_pendientes_resets ?? 0) <= 0): ?>
+                        <div class="flex flex-col items-center justify-center h-64 rounded-[2rem] bg-slate-50 p-8 text-center">
+                            <h3 class="text-slate-400 font-bold">No hay datos suficientes para la gráfica</h3>
+                        </div>
+                    <?php else: ?>
+                        <div class="relative h-64 mb-8">
+                            <canvas id="miGrafico"></canvas>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="bg-blue-50/50 rounded-2xl p-4 text-center border border-blue-100/50">
+                                <div class="text-blue-600 font-black text-xl"><?php echo $total_usuarios_Nuevo_resets ?? 0 ?></div>
+                                <div class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Nuevos</div>
+                            </div>
+                            <div class="bg-green-50/50 rounded-2xl p-4 text-center border border-green-100/50">
+                                <div class="text-green-600 font-black text-xl"><?php echo $total_usuarios_pendientes_resets ?? 0 ?></div>
+                                <div class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Proceso</div>
+                            </div>
+                            <div class="bg-teal-50/50 rounded-2xl p-4 text-center border border-teal-100/50">
+                                <div class="text-teal-600 font-black text-xl"><?php echo $total_usuarios_Completado_resets ?? 0 ?></div>
+                                <div class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Éxito</div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
+                <div class="bg-white rounded-[3rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-8 md:p-10">
+                    <div class="flex justify-between items-center mb-8">
+                        <h2 class="text-slate-700 font-extrabold flex items-center gap-2">
+                            <span class="w-2 h-2 bg-[#00a5cf] rounded-full animate-pulse"></span>
+                            Actividad Reciente
+                        </h2>
+                        <span class="text-[10px] bg-slate-100 text-slate-500 px-2 py-1 rounded-full font-bold uppercase">En vivo</span>
+                    </div>
+
+                    <div class="space-y-6 relative">
+                        <div class="absolute left-6 top-0 bottom-0 w-px bg-slate-100 hidden sm:block"></div>
+
+                        <?php foreach ($listaActividad as $act): ?>
+                            <div class="flex items-start gap-4 relative group">
+                                <div class="z-10 w-10 h-10 shrink-0 rounded-2xl flex items-center justify-center transition-all group-hover:scale-110 ">
+                                    <?php echo $act['svg']; ?>
+                                </div>
+
+                                <div class="flex-1 min-w-0 pt-1">
+                                    <div class="flex justify-between items-baseline gap-2">
+                                        <h4 class="text-sm font-bold text-slate-800 truncate">
+                                            <?php echo htmlspecialchars($act['titulo']); ?>
+                                        </h4>
+                                        <span class="text-[10px] font-bold text-slate-400 whitespace-nowrap">
+                                            <?php echo $act['tiempo']; ?>
+                                        </span>
+                                    </div>
+                                    <p class="text-xs text-slate-500 line-clamp-1 italic">
+                                        <?php echo htmlspecialchars($act['detalle']); ?>
+                                    </p>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+    </div>
+    </main>
     </div>
 
-    
-
     <script>
-    function toggleSidebar() {
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('sidebarOverlay');
-        
-        // Toggle para mover el sidebar
-        sidebar.classList.toggle('-translate-x-full');
-        
-        // Toggle para el fondo oscuro
-        overlay.classList.toggle('hidden');
-}
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        }
 
+        // Configuración Chart.js
         const centroTexto = {
             id: 'centroTexto',
             afterDraw(chart) {
-                const { ctx, chartArea: { width, height, top } } = chart;
+                const {
+                    ctx,
+                    chartArea: {
+                        width,
+                        height,
+                        top
+                    }
+                } = chart;
                 ctx.save();
                 const dataArray = chart.data.datasets[0].data;
                 const total = dataArray.reduce((a, b) => a + b, 0);
-                const listos = dataArray[2]; 
+                const listos = dataArray[2] || 0;
                 const porcentaje = total > 0 ? Math.round((listos / total) * 100) + '%' : '0%';
 
-                ctx.font = 'bold 36px Bricolage Grotesque';
+                ctx.font = 'bold 32px Bricolage Grotesque';
                 ctx.fillStyle = '#004e64';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
                 ctx.fillText(porcentaje, width / 2, (height / 2) + top - 5);
 
-                ctx.font = 'bold 12px Bricolage Grotesque';
+                ctx.font = 'bold 10px Bricolage Grotesque';
                 ctx.fillStyle = '#94a3b8';
-                ctx.fillText('COMPLETADOS', width / 2, (height / 2) + top + 25);
+                ctx.fillText('ÉXITO TOTAL', width / 2, (height / 2) + top + 25);
                 ctx.restore();
             }
         };
 
-        const ctx = document.getElementById('miGrafico').getContext('2d');
-        new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Nuevos', 'En proceso', 'Listos'],
-                datasets: [{
-                    data: [
-                        <?php echo $total_usuarios_Nuevo_resets ?>, 
-                        <?php echo $total_usuarios_pendientes_resets ?>, 
-                        <?php echo $total_usuarios_Completado_resets ?>
-                    ],
-                    backgroundColor: ['#60a5fa', '#4ade80', '#2dd4bf'],
-                    hoverOffset: 15,
-                    borderWidth: 0,
-                    borderRadius: 20
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                cutout: '85%',
-                plugins: { legend: { display: false } }
-            },
-            plugins: [centroTexto]
-        });
+        const canvasElement = document.getElementById('miGrafico');
+        if (canvasElement) {
+            const ctx = canvasElement.getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Nuevos', 'En proceso', 'Listos'],
+                    datasets: [{
+                        data: [
+                            <?php echo $total_usuarios_Nuevo_resets ?? 0 ?>,
+                            <?php echo $total_usuarios_pendientes_resets ?? 0 ?>,
+                            <?php echo $total_usuarios_Completado_resets ?? 0 ?>
+                        ],
+                        backgroundColor: ['#60a5fa', '#4ade80', '#2dd4bf'],
+                        hoverOffset: 15,
+                        borderWidth: 0,
+                        borderRadius: 15
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '80%',
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: [centroTexto]
+            });
+        }
     </script>
 </body>
+
 </html>
