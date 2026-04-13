@@ -190,7 +190,7 @@ session_start();
 
         <!-- si tienes una cuenta, inicia sesion -->
         <p class="mt-10 text-center text-sm text-gray-600">
-          ¿Ya tienes cuenta? <a href="../auth/Login.php"  onclick="navegarCon(../auth/Login.php)" class="cursor-pointer font-bold text-[#00a5cf] hover:underline">Inicia Sesión</a>
+          ¿Ya tienes cuenta? <a href="../auth/Login.php"  onclick="navegarCon(auth/Login.php)" class="cursor-pointer font-bold text-[#00a5cf] hover:underline">Inicia Sesión</a>
         </p>
     
     </div>

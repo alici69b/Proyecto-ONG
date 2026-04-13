@@ -41,7 +41,7 @@
                             <p class="">aliciantonio@resetong.com</p> 
                         </li>
                         <li class="flex items-center text-center gap-2">
-                            <p class="">+34 625 51 59 33</p> 
+                            <p class="">+34 625 55 55 55</p> 
                         </li>
                         <li class="flex items-center text-center gap-2">
                             <p class="">Lepe, España</p>
