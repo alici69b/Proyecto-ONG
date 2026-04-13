@@ -140,8 +140,8 @@ $actividades = [
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="bg-white rounded-[3rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-6 md:p-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
+                <div class=" bg-white rounded-[3rem] shadow-xl shadow-blue-900/5 border border-slate-100 p-6 md:p-10">
                     <div class="flex items-center gap-2 mb-8">
                         <div class="w-8 h-8 bg-teal-50 rounded-lg flex items-center justify-center">
                             <svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,23 +156,9 @@ $actividades = [
                             <h3 class="text-slate-400 font-bold">No hay datos suficientes para la gráfica</h3>
                         </div>
                     <?php else: ?>
-                        <div class="relative h-64 mb-8">
+                        <div class="flex items-center h-64 mb-8 ">
                             <canvas id="miGrafico"></canvas>
-                        </div>
-                        <div class="grid grid-cols-3 gap-4">
-                            <div class="bg-blue-50/50 rounded-2xl p-4 text-center border border-blue-100/50">
-                                <div class="text-blue-600 font-black text-xl"><?php echo $total_usuarios_Nuevo_resets ?? 0 ?></div>
-                                <div class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Nuevos</div>
-                            </div>
-                            <div class="bg-green-50/50 rounded-2xl p-4 text-center border border-green-100/50">
-                                <div class="text-green-600 font-black text-xl"><?php echo $total_usuarios_pendientes_resets ?? 0 ?></div>
-                                <div class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Proceso</div>
-                            </div>
-                            <div class="bg-teal-50/50 rounded-2xl p-4 text-center border border-teal-100/50">
-                                <div class="text-teal-600 font-black text-xl"><?php echo $total_usuarios_Completado_resets ?? 0 ?></div>
-                                <div class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Éxito</div>
-                            </div>
-                        </div>
+                        </div> 
                     <?php endif; ?>
                 </div>
 
@@ -227,68 +213,62 @@ $actividades = [
         }
 
         // Configuración Chart.js
-        const centroTexto = {
-            id: 'centroTexto',
-            afterDraw(chart) {
-                const {
-                    ctx,
-                    chartArea: {
-                        width,
-                        height,
-                        top
+        const ctx = document.getElementById('miGrafico').getContext('2d');
+    
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Nuevos', 'En proceso', 'Éxito'],
+            datasets: [{
+                label: 'Cantidad de Resets',
+                data: [
+                    <?php echo $total_usuarios_Nuevo_resets ?? 0 ?>,
+                    <?php echo $total_usuarios_pendientes_resets ?? 0 ?>,
+                    <?php echo $total_usuarios_Completado_resets ?? 0 ?>
+                ],
+                // Colores al estilo Chart.js (Fondo suave, borde fuerte)
+                backgroundColor: [
+                    'rgba(96, 165, 250, 0.2)', // Azul
+                    'rgba(74, 222, 128, 0.2)', // Verde
+                    'rgba(45, 212, 191, 0.2)'  // Teal
+                ],
+                borderColor: [
+                    'rgb(96, 165, 250)',
+                    'rgb(74, 222, 128)',
+                    'rgb(45, 212, 191)'
+                ],
+                borderWidth: 1,
+                borderRadius: 8 // Bordes ligeramente redondeados en las barras
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        display: true,
+                        color: 'rgba(0, 0, 0, 0.05)' // Líneas de fondo muy suaves
+                    },
+                    ticks: {
+                        font: { family: 'Bricolage Grotesque', weight: 'bold' }
                     }
-                } = chart;
-                ctx.save();
-                const dataArray = chart.data.datasets[0].data;
-                const total = dataArray.reduce((a, b) => a + b, 0);
-                const listos = dataArray[2] || 0;
-                const porcentaje = total > 0 ? Math.round((listos / total) * 100) + '%' : '0%';
-
-                ctx.font = 'bold 32px Bricolage Grotesque';
-                ctx.fillStyle = '#004e64';
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                ctx.fillText(porcentaje, width / 2, (height / 2) + top - 5);
-
-                ctx.font = 'bold 10px Bricolage Grotesque';
-                ctx.fillStyle = '#94a3b8';
-                ctx.fillText('ÉXITO TOTAL', width / 2, (height / 2) + top + 25);
-                ctx.restore();
+                },
+                x: {
+                    grid: { display: false },
+                    ticks: {
+                        font: { family: 'Bricolage Grotesque', weight: 'bold' }
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false // Ocultamos la leyenda para que se vea más limpio
+                }
             }
-        };
-
-        const canvasElement = document.getElementById('miGrafico');
-        if (canvasElement) {
-            const ctx = canvasElement.getContext('2d');
-            new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Nuevos', 'En proceso', 'Listos'],
-                    datasets: [{
-                        data: [
-                            <?php echo $total_usuarios_Nuevo_resets ?? 0 ?>,
-                            <?php echo $total_usuarios_pendientes_resets ?? 0 ?>,
-                            <?php echo $total_usuarios_Completado_resets ?? 0 ?>
-                        ],
-                        backgroundColor: ['#60a5fa', '#4ade80', '#2dd4bf'],
-                        hoverOffset: 15,
-                        borderWidth: 0,
-                        borderRadius: 15
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    cutout: '80%',
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    }
-                },
-                plugins: [centroTexto]
-            });
         }
+    });
     </script>
 </body>
 
