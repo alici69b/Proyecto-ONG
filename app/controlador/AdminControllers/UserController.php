@@ -8,6 +8,21 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+//borrar usuarios 
+if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['id'])) {
+
+    $id_a_eliminar = (int) $_GET['id'];
+
+    $sql_delete = "DELETE FROM usuario WHERE id_usuario = $id_a_eliminar";
+
+    if (mysqli_query($conexion, $sql_delete)) {
+        // redirigimos de vuelta al listado con una señal de éxito
+        header("Location: gestionusuarios.php?success=1");
+        exit();
+    } else {
+        die("Error al eliminar el usuario: " . mysqli_error($conexion));
+    }
+}
 
 
 //mostrar los usuarios en el panel de administrador en la pagina de usuarios
@@ -41,12 +56,11 @@ $sql_usuarios = "SELECT id_usuario, nombre, apellidos, email, fecha_registro
                  FROM usuario $condicion 
                  ORDER BY fecha_registro DESC 
                  LIMIT $offset, $usuarios_por_pagina";
-                 
+
 $res_usuarios_lista = mysqli_query($conexion, $sql_usuarios);
 $usuarios = [];
 
-while($fila = mysqli_fetch_assoc($res_usuarios_lista)) {
-    $fila['iniciales'] = obtenerIniciales($fila['email']); 
+while ($fila = mysqli_fetch_assoc($res_usuarios_lista)) {
+    $fila['iniciales'] = obtenerIniciales($fila['email']);
     $usuarios[] = $fila;
 }
-?>
