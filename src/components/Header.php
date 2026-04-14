@@ -15,6 +15,19 @@
         </a>
     </div>
 
+     <div class="hidden md:flex flex-none items-center justify-center gap-6">
+        <a class="text-gray-600 hover:text-[#25a18e] font-medium transition" href="../index.php">Inicio</a>
+        <a class="text-gray-600 hover:text-[#25a18e] font-medium transition" href="Historys.php">Historias</a>
+        <a class="text-gray-600 hover:text-[#25a18e] font-medium transition" href="Impact.php">Impacto</a>
+        <a class="text-gray-600 hover:text-[#25a18e] font-medium transition" href="Contact.php">Contacto</a>
+    </div>
+
+    <div class="flex-1 flex justify-end items-center gap-3">
+        <div class="hidden md:flex items-center gap-3">
+            <a class="px-5 py-2 border-2 border-[#25a18e] text-[#25a18e] rounded-full hover:bg-[#25a18e] hover:text-white transition font-bold text-sm" href="../app/vista/auth/Login.php">Iniciar Sesión</a>
+            <a class="px-5 py-2 bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] transition font-bold text-sm shadow-md" href="../app/vista/auth/Register.php">Registro</a>
+        </div>
+
     <div class="md:hidden flex items-center">
             <input type="checkbox" id="menu-toggle" class="peer hidden" />
             <label for="menu-toggle" class="cursor-pointer p-2 rounded-lg hover:bg-gray-100 transition">
