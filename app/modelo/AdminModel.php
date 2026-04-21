@@ -91,16 +91,16 @@ function reset_nuevos($conexion) {
 
 //funcion para contar los voluntarios y mostrarlos en la base de datos
 function ContarVoluntarios($conexion) {
-    $sql_join_voluntarios = "SELECT COUNT(v.id_voluntario) as total 
-                         FROM voluntario v 
-                         INNER JOIN usuario u ON v.id_registrado = u.id_usuario";
+    $sql = "SELECT COUNT(id_voluntario) as total FROM voluntario";
 
-    $res_v = mysqli_query($conexion, $sql_join_voluntarios);
-    $datos_v = mysqli_fetch_assoc($res_v);
-    $total_usuarios_voluntarios = $datos_v['total'] ?? 0;
+    $res = mysqli_query($conexion, $sql);
+    
+    if ($res) {
+        $datos = mysqli_fetch_assoc($res);
+        return $datos['total'];
+    }
 
-
-    return $total_usuarios_voluntarios;
+    return 0;
 }
 
 

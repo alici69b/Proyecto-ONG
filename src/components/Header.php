@@ -15,7 +15,7 @@
         </a>
     </div>
 
-    <div class="hidden md:flex flex-none items-center justify-center gap-6">
+     <div class="hidden md:flex flex-none items-center justify-center gap-6">
         <a class="text-gray-600 hover:text-[#25a18e] font-medium transition" href="../index.php">Inicio</a>
         <a class="text-gray-600 hover:text-[#25a18e] font-medium transition" href="Historys.php">Historias</a>
         <a class="text-gray-600 hover:text-[#25a18e] font-medium transition" href="Impact.php">Impacto</a>
@@ -23,9 +23,25 @@
     </div>
 
     <div class="flex-1 flex justify-end items-center gap-3">
-            <div class="hidden md:flex items-center gap-3">
-                <a class="px-5 py-2 border-2 border-[#25a18e] text-[#25a18e] rounded-full hover:bg-[#25a18e] hover:text-white transition font-bold text-sm" href="../app/vista/auth/Login.php">Iniciar Sesión</a>
-                <a class="px-5 py-2 bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] transition font-bold text-sm shadow-md" href="../app/vista/auth/Register.php">Registro</a>
+        <div class="hidden md:flex items-center gap-3">
+            <a class="px-5 py-2 border-2 border-[#25a18e] text-[#25a18e] rounded-full hover:bg-[#25a18e] hover:text-white transition font-bold text-sm" href="../app/vista/auth/Login.php">Iniciar Sesión</a>
+            <a class="px-5 py-2 bg-[#25a18e] text-white rounded-full hover:bg-[#1a7a6b] transition font-bold text-sm shadow-md" href="../app/vista/auth/Register.php">Registro</a>
+        </div>
+
+    <div class="md:hidden flex items-center">
+            <input type="checkbox" id="menu-toggle" class="peer hidden" />
+            <label for="menu-toggle" class="cursor-pointer p-2 rounded-lg hover:bg-gray-100 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#004e64" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </label>
+            <div class="absolute top-full left-0 right-0 mt-4 mx-2 bg-white rounded-2xl shadow-2xl border border-gray-100 flex-col hidden peer-checked:flex overflow-hidden animate-in fade-in slide-in-from-top-4 duration-300">
+                <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="../index.php">Inicio</a>
+                <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="Historys.php">Historias</a>
+                <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="Impact.php">Impacto</a>
+                <a class="px-6 py-4 hover:bg-gray-50 text-gray-700 border-b border-gray-50" href="Contact.php">Contacto</a>
+                <div class=" bg-gray-50 flex flex-col gap-1 p-4">
+                    <a class="w-full py-3 text-center border-2 border-[#25a18e] text-[#25a18e] rounded-xl font-bold" href="../app/vista/auth/Login.php">Iniciar Sesión</a>
+                    <a class="w-full py-3 text-center bg-[#25a18e] text-white rounded-xl font-bold" href="../app/vista/auth/Register.php">Registro</a>
+                </div>
             </div>
         </div>
 </nav>

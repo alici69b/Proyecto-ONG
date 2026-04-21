@@ -1,5 +1,12 @@
 <?php
 include_once "../../controlador/UserController.php";
+
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+    header("Location: login.php"); 
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -49,7 +56,7 @@ include_once "../../controlador/UserController.php";
         <!-- Saludo -->
         <div class="mb-8 fade-in fade-in-1">
             <h1 class="text-3xl font-bold text-[#004e64] mb-1">
-                ¡Hola, <?php echo isset($usuario['nombre']) ? htmlspecialchars($usuario['nombre']) : 'María'; ?>! 👋
+                ¡Hola, <?php echo isset($_SESSION['usuario']) ? htmlspecialchars($_SESSION['usuario']) : 'María'; ?>! 👋
             </h1>
             <p class="text-slate-500 text-sm">Este es tu espacio personal. Aquí puedes ver el progreso de tu RESET.</p>
         </div>
