@@ -5,13 +5,6 @@ include_once "../../controlador/AdminControllers/RecentActivityController.php";
 // Asumiendo que $conexion es tu variable de conexión a la base de datos
 $listaActividad = obtenerActividadReciente($conexion, 6);
 
-// Simulación de datos de actividad (Esto debería venir de tu AdminController.php)
-// Ejemplo: $actividades = $modelo->obtenerActividadReciente();
-$actividades = [
-    ['tipo' => 'usuario', 'titulo' => 'Nuevo Usuario', 'detalle' => 'Juan Pérez se ha unido', 'tiempo' => 'Hace 5 min'],
-    ['tipo' => 'reset', 'titulo' => 'Reset Completado', 'detalle' => 'Suministros médicos entregados', 'tiempo' => 'Hace 2 horas'],
-    ['tipo' => 'historia', 'titulo' => 'Nueva Historia', 'detalle' => 'Publicada: "El impacto en Valencia"', 'tiempo' => 'Ayer'],
-];
 ?>
 
 <!DOCTYPE html>
@@ -46,11 +39,11 @@ $actividades = [
     <div class="flex">
         <div id="sidebarOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
 
-        <button onclick="toggleSidebar()" class="md:hidden fixed top-4 left-4 z-[60] bg-[#004e64] text-white p-2 rounded-lg shadow-lg">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-        </button>
+        <button onclick="toggleSidebar()" class="md:hidden fixed top-4 right-4 z-[60] bg-[#004e64] text-white p-3 rounded-xl shadow-lg">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+    </button>
 
         <aside id="sidebar" class="fixed left-0 top-0 z-50 h-screen w-64 bg-[#004e64] text-blue-100 p-6 flex flex-col gap-8 transition-transform duration-300 transform -translate-x-full md:translate-x-0">
             <div class="flex items-center justify-between mt-10 px-2">
@@ -87,6 +80,13 @@ $actividades = [
                         </svg></span>
                     Historias
                 </a>
+
+                <a href="gestionarcontacto.php" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-all text-sm group">
+                    <span class="opacity-70"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg></span>
+                    Mensajes
+                </a>
             </nav>
 
             <div class="mt-auto pt-6 border-t border-white/10">
@@ -99,7 +99,7 @@ $actividades = [
             </div>
         </aside>
 
-        <main class="flex-1 md:ml-64 p-6 md:p-12 w-full transition-all">
+        <main class="flex-1 md:ml-64 p-6 md:p-12 w-full transition-all mt-3px">
             <header class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-10">
                 <div>
                     <h2 class="text-4xl font-extrabold tracking-tight mb-2">Vista General</h2>
@@ -110,7 +110,7 @@ $actividades = [
                 </div>
                 <div class="flex flex-wrap gap-3 w-full lg:w-auto">
                     <button onclick="location.reload()" class="flex-1 lg:flex-none px-6 py-3 bg-white border border-gray-200 rounded-2xl text-sm font-bold hover:shadow-md transition-all active:scale-95">Actualizar</button>
-                    <button class="flex-1 lg:flex-none px-6 py-3 bg-[#25a18e] text-white rounded-2xl text-sm font-bold shadow-lg shadow-[#25a18e]/30 hover:bg-[#1e8575] transition-all active:scale-95">+ Nueva Historia</button>
+
                 </div>
             </header>
 
