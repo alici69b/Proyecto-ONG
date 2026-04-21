@@ -192,39 +192,46 @@ $pagina_actual = $pagina_actual ?? 1;
         </main>
     </div>
 
-    <div id="modal-editar" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+    <div id="modal-editar" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4" role="dialog" aria-labelledby="modal-editar-title" aria-modal="true">
         <div class="bg-white p-6 md:p-8 rounded-[2rem] shadow-2xl max-w-lg w-full border border-slate-100 max-h-[90vh] overflow-y-auto">
-            <h3 class="text-2xl font-black text-slate-800 mb-6">Editar usuario</h3>
-            <form method="POST" class="flex flex-col gap-4">
+            <div class="flex items-center justify-between mb-6">
+                <h3 id="modal-editar-title" class="text-2xl font-black text-slate-800">Editar usuario</h3>
+                <button type="button" onclick="cerrarModalEditar()" class="text-slate-400 hover:text-slate-600 transition-colors" aria-label="Cerrar modal">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <form method="POST" class="space-y-4 flex flex-col">
                 <input type="hidden" name="id_usuario" id="edit-id">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="flex flex-col gap-1.5">
-                        <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">Nombre</label>
-                        <input type="text" name="nombre" id="edit-nombre" required class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] outline-none">
+                        <label for="edit-nombre" class="text-xs font-bold text-slate-500 uppercase tracking-widest">Nombre</label>
+                        <input type="text" name="nombre" id="edit-nombre" required class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] focus:border-transparent outline-none transition-all">
                     </div>
                     <div class="flex flex-col gap-1.5">
-                        <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">Apellidos</label>
-                        <input type="text" name="apellidos" id="edit-apellidos" class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] outline-none">
+                        <label for="edit-apellidos" class="text-xs font-bold text-slate-500 uppercase tracking-widest">Apellidos</label>
+                        <input type="text" name="apellidos" id="edit-apellidos" class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] focus:border-transparent outline-none transition-all">
                     </div>
                 </div>
                 <div class="flex flex-col gap-1.5">
-                    <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">Email</label>
-                    <input type="email" name="email" id="edit-email" required class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] outline-none">
+                    <label for="edit-email" class="text-xs font-bold text-slate-500 uppercase tracking-widest">Email</label>
+                    <input type="email" name="email" id="edit-email" required class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] focus:border-transparent outline-none transition-all">
                 </div>
                 <div class="flex flex-col gap-1.5">
-                    <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">Rol</label>
-                    <select name="id_rol" id="edit-rol" class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 outline-none">
+                    <label for="edit-rol" class="text-xs font-bold text-slate-500 uppercase tracking-widest">Rol</label>
+                    <select name="id_rol" id="edit-rol" class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] focus:border-transparent outline-none transition-all cursor-pointer">
                         <option value="1">Usuario</option>
                         <option value="3">Administrador</option>
                     </select>
                 </div>
                 <div class="flex flex-col gap-1.5">
-                    <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">Nueva contraseña <span class="text-[10px] lowercase font-normal">(opcional)</span></label>
-                    <input type="password" name="password_nuevo" placeholder="••••••••" class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 outline-none">
+                    <label for="edit-password" class="text-xs font-bold text-slate-500 uppercase tracking-widest">Nueva contraseña <span class="text-[10px] lowercase font-normal">(opcional)</span></label>
+                    <input type="password" name="password_nuevo" id="edit-password" placeholder="••••••••" class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] focus:border-transparent outline-none transition-all">
                 </div>
-                <div class="flex gap-3 mt-4">
-                    <button type="button" onclick="cerrarModalEditar()" class="flex-1 py-3 bg-slate-100 text-slate-600 font-bold rounded-2xl">Cancelar</button>
-                    <button type="submit" class="flex-1 py-3 bg-red-500 text-white font-bold rounded-2xl shadow-lg">Guardar</button>
+                <div class="flex gap-3 mt-8">
+                    <button type="button" onclick="cerrarModalEditar()" class="flex-1 py-3 bg-slate-100 text-slate-600 font-bold rounded-2xl hover:bg-slate-200 transition-all">Cancelar</button>
+                    <button type="submit" class="flex-1 py-3 bg-[#00a5cf] text-white font-bold rounded-2xl shadow-lg hover:bg-[#0088aa] transition-all">Guardar</button>
                 </div>
             </form>
         </div>
@@ -257,7 +264,11 @@ $pagina_actual = $pagina_actual ?? 1;
             document.getElementById('edit-apellidos').value = apellidos;
             document.getElementById('edit-email').value = email;
             document.getElementById('edit-rol').value = rol;
-            document.getElementById('modal-editar').classList.remove('hidden');
+            document.getElementById('edit-password').value = '';
+            const modal = document.getElementById('modal-editar');
+            modal.classList.remove('hidden');
+            // Enfocar el primer input
+            document.getElementById('edit-nombre').focus();
         }
 
         function cerrarModalEditar() {
@@ -273,12 +284,25 @@ $pagina_actual = $pagina_actual ?? 1;
             document.getElementById('modal-confirmar').classList.add('hidden');
         }
 
-        // Cerrar modales al hacer clic fuera
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('modal-editar')) cerrarModalEditar();
-            if (event.target == document.getElementById('modal-confirmar')) cerrarModal();
-        }
+        // Cerrar modales al hacer clic fuera o presionar ESC
+        window.addEventListener('click', function(event) {
+            const modalEditar = document.getElementById('modal-editar');
+            const modalConfirmar = document.getElementById('modal-confirmar');
+            if (event.target === modalEditar) cerrarModalEditar();
+            if (event.target === modalConfirmar) cerrarModal();
+        });
+
+        // Cerrar modales con la tecla ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modalEditar = document.getElementById('modal-editar');
+                const modalConfirmar = document.getElementById('modal-confirmar');
+                if (modalEditar && !modalEditar.classList.contains('hidden')) cerrarModalEditar();
+                if (modalConfirmar && !modalConfirmar.classList.contains('hidden')) cerrarModal();
+            }
+        });
     </script>
+
 </body>
 
 </html>

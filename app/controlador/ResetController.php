@@ -158,14 +158,17 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         if(mysqli_stmt_execute($stmt)) {
             //Si se manda el formulario correctamente
             $_SESSION["exito"] = "Solicitud enviada correctamente.";
+            mysqli_stmt_close($stmt);
+            mysqli_close($conexion);
             header("Location: ../../pages/RequestReset.php");
             exit;
         } else {
-            $_SESSION["errorSolicitud"] = "Error al guardar la solicitud: " . mysqli_stmt_errno($stmt);
+            $_SESSION["errorSolicitud"] = "Error al guardar la solicitud: " . mysqli_stmt_error($stmt);
+            mysqli_stmt_close($stmt);
+            mysqli_close($conexion);
+            header("Location: ../../pages/RequestReset.php");
+            exit;
         }
-
-        //cerramos el stmt
-        mysqli_stmt_close($stmt);
 
     } else {
         //Redirigimos a la pagina REQUESTRESET para mostramos errores
