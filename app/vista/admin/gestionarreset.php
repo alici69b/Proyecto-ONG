@@ -92,7 +92,7 @@ include_once "../../controlador/AdminControllers/ManageresetController.php";
     <main class="flex-1 transition-all duration-300 md:ml-64 p-4 sm:p-8 lg:p-12">
         <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10">
             <div>
-                <h1 class="text-4xl font-extrabold tracking-tight mb-2">Gestionar Resets</h1>
+                <h1 class="text-3xl font-extrabold tracking-tight mb-2">Gestionar Resets</h1>
                 <p class="text-slate-500">Supervisión de solicitudes activas</p>
             </div>
             <button onclick="location.reload()" class="w-full sm:w-auto px-6 py-3 bg-white border border-gray-200 rounded-2xl text-sm font-bold hover:shadow-md transition-all active:scale-95">

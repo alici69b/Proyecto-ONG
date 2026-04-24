@@ -126,7 +126,7 @@ $historias = [
         
         <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10">
             <div>
-                <h1 class="text-4xl font-extrabold tracking-tight mb-2">Gestión de Historias</h1>
+                <h1 class="text-3xl font-extrabold tracking-tight mb-2">Gestión de Historias</h1>
                 <p class="text-slate-500">Publica historias de éxito para inspirar a otros</p>
             </div>
             <button class="flex-1 lg:flex-none px-6 py-3 bg-[#25a18e] text-white rounded-2xl text-sm font-bold shadow-lg shadow-[#25a18e]/30 hover:bg-[#1e8575] transition-all active:scale-95">+ Nueva Historia</button>

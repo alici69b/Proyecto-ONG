@@ -96,7 +96,7 @@ $pagina_actual = $pagina_actual ?? 1;
         <main class="flex-1 transition-all duration-300 md:ml-64 p-4 sm:p-8 lg:p-12">
             <header class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-10 gap-6">
                 <div>
-                    <h1 class="text-4xl font-extrabold tracking-tight mb-2">Gestión de Usuarios</h1>
+                    <h1 class="text-3xl font-extrabold tracking-tight mb-2">Gestión de Usuarios</h1>
                     <p class="text-slate-500 ">Supervisión de todos los usuarios registrados</p>
                 </div>
 
