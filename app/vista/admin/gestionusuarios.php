@@ -40,13 +40,7 @@ $pagina_actual = $pagina_actual ?? 1;
     </button>
 
         <aside id="sidebar" class="fixed left-0 top-0 z-50 h-screen w-64 bg-[#004e64] text-blue-100 p-6 flex flex-col gap-8 transition-transform duration-300 transform -translate-x-full md:translate-x-0">
-            <button onclick="toggleSidebar()" class="md:hidden absolute top-5 right-5 text-white/50 hover:text-white">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-
-            <div class="flex items-center gap-3 mt-10 px-2">
+            <div class="flex items-center justify-between mt-10 px-2">
                 <div>
                     <p class="font-bold text-white text-sm">Panel Admin</p>
                     <p class="text-[10px] text-[#9fffcb] uppercase tracking-widest font-bold">RESET ONG</p>
@@ -55,14 +49,14 @@ $pagina_actual = $pagina_actual ?? 1;
 
             <nav class="flex flex-col gap-2">
                 <a href="dashboard.php" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-all text-sm group">
-                    <span class="opacity-70"><svg fill="currentColor" width="20" height="20" viewBox="0 0 36 36">
+                    <span><svg fill="currentColor" width="20" height="20" viewBox="0 0 36 36">
                             <path d="M32 5H4c-1.1 0-2 .9-2 2v22c0 1.1.9 2 2 2h28c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zM4 29V7h28v22H4z" />
                             <path d="M15.6 15.2l-6 8.7-4-3.5 1-1.2 2.7 2.4 6.3-9.2 6.7 10 6.8-8.9 1.3 1-8.1 10.7z" />
                         </svg></span>
                     Vista general
                 </a>
                 <a href="gestionarreset.php" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-all text-sm group">
-                    <span class="opacity-70 text-white"><svg fill="currentColor" width="20" height="20" viewBox="0 0 1920 1920">
+                    <span class="opacity-70"><svg fill="currentColor" width="20" height="20" viewBox="0 0 1920 1920">
                             <path d="M276.9 440.6v565.7c0 422.4 374.2 625.5 674.7 788.7l8 4.3 8.1-4.3c300.5-163.2 674.7-366.3 674.7-788.7V440.6l-682.8-321.7-682.8 321.7z" />
                         </svg></span>
                     Gestionar Resets
@@ -80,6 +74,13 @@ $pagina_actual = $pagina_actual ?? 1;
                         </svg></span>
                     Historias
                 </a>
+
+                <a href="gestionarcontacto.php" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-all text-sm group">
+                    <span class="opacity-70"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg></span>
+                    Mensajes
+                </a>
             </nav>
 
             <div class="mt-auto pt-6 border-t border-white/10">
@@ -95,7 +96,7 @@ $pagina_actual = $pagina_actual ?? 1;
         <main class="flex-1 transition-all duration-300 md:ml-64 p-4 sm:p-8 lg:p-12">
             <header class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-10 gap-6">
                 <div>
-                    <h1 class="text-3xl font-black text-[#005f73]">Gestión de Usuarios</h1>
+                    <h1 class="text-3xl font-extrabold tracking-tight mb-2">Gestión de Usuarios</h1>
                     <p class="text-slate-500 ">Supervisión de todos los usuarios registrados</p>
                 </div>
 
@@ -191,39 +192,46 @@ $pagina_actual = $pagina_actual ?? 1;
         </main>
     </div>
 
-    <div id="modal-editar" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+    <div id="modal-editar" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4" role="dialog" aria-labelledby="modal-editar-title" aria-modal="true">
         <div class="bg-white p-6 md:p-8 rounded-[2rem] shadow-2xl max-w-lg w-full border border-slate-100 max-h-[90vh] overflow-y-auto">
-            <h3 class="text-2xl font-black text-slate-800 mb-6">Editar usuario</h3>
-            <form method="POST" class="flex flex-col gap-4">
+            <div class="flex items-center justify-between mb-6">
+                <h3 id="modal-editar-title" class="text-2xl font-black text-slate-800">Editar usuario</h3>
+                <button type="button" onclick="cerrarModalEditar()" class="text-slate-400 hover:text-slate-600 transition-colors" aria-label="Cerrar modal">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <form method="POST" class="space-y-4 flex flex-col">
                 <input type="hidden" name="id_usuario" id="edit-id">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="flex flex-col gap-1.5">
-                        <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">Nombre</label>
-                        <input type="text" name="nombre" id="edit-nombre" required class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] outline-none">
+                        <label for="edit-nombre" class="text-xs font-bold text-slate-500 uppercase tracking-widest">Nombre</label>
+                        <input type="text" name="nombre" id="edit-nombre" required class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] focus:border-transparent outline-none transition-all">
                     </div>
                     <div class="flex flex-col gap-1.5">
-                        <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">Apellidos</label>
-                        <input type="text" name="apellidos" id="edit-apellidos" class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] outline-none">
+                        <label for="edit-apellidos" class="text-xs font-bold text-slate-500 uppercase tracking-widest">Apellidos</label>
+                        <input type="text" name="apellidos" id="edit-apellidos" class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] focus:border-transparent outline-none transition-all">
                     </div>
                 </div>
                 <div class="flex flex-col gap-1.5">
-                    <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">Email</label>
-                    <input type="email" name="email" id="edit-email" required class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] outline-none">
+                    <label for="edit-email" class="text-xs font-bold text-slate-500 uppercase tracking-widest">Email</label>
+                    <input type="email" name="email" id="edit-email" required class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] focus:border-transparent outline-none transition-all">
                 </div>
                 <div class="flex flex-col gap-1.5">
-                    <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">Rol</label>
-                    <select name="id_rol" id="edit-rol" class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 outline-none">
+                    <label for="edit-rol" class="text-xs font-bold text-slate-500 uppercase tracking-widest">Rol</label>
+                    <select name="id_rol" id="edit-rol" class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] focus:border-transparent outline-none transition-all cursor-pointer">
                         <option value="1">Usuario</option>
                         <option value="3">Administrador</option>
                     </select>
                 </div>
                 <div class="flex flex-col gap-1.5">
-                    <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">Nueva contraseña <span class="text-[10px] lowercase font-normal">(opcional)</span></label>
-                    <input type="password" name="password_nuevo" placeholder="••••••••" class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 outline-none">
+                    <label for="edit-password" class="text-xs font-bold text-slate-500 uppercase tracking-widest">Nueva contraseña <span class="text-[10px] lowercase font-normal">(opcional)</span></label>
+                    <input type="password" name="password_nuevo" id="edit-password" placeholder="••••••••" class="px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-[#25a18e] focus:border-transparent outline-none transition-all">
                 </div>
-                <div class="flex gap-3 mt-4">
-                    <button type="button" onclick="cerrarModalEditar()" class="flex-1 py-3 bg-slate-100 text-slate-600 font-bold rounded-2xl">Cancelar</button>
-                    <button type="submit" class="flex-1 py-3 bg-red-500 text-white font-bold rounded-2xl shadow-lg">Guardar</button>
+                <div class="flex gap-3 mt-8">
+                    <button type="button" onclick="cerrarModalEditar()" class="flex-1 py-3 bg-slate-100 text-slate-600 font-bold rounded-2xl hover:bg-slate-200 transition-all">Cancelar</button>
+                    <button type="submit" class="flex-1 py-3 bg-[#00a5cf] text-white font-bold rounded-2xl shadow-lg hover:bg-[#0088aa] transition-all">Guardar</button>
                 </div>
             </form>
         </div>
@@ -256,7 +264,11 @@ $pagina_actual = $pagina_actual ?? 1;
             document.getElementById('edit-apellidos').value = apellidos;
             document.getElementById('edit-email').value = email;
             document.getElementById('edit-rol').value = rol;
-            document.getElementById('modal-editar').classList.remove('hidden');
+            document.getElementById('edit-password').value = '';
+            const modal = document.getElementById('modal-editar');
+            modal.classList.remove('hidden');
+            // Enfocar el primer input
+            document.getElementById('edit-nombre').focus();
         }
 
         function cerrarModalEditar() {
@@ -272,12 +284,25 @@ $pagina_actual = $pagina_actual ?? 1;
             document.getElementById('modal-confirmar').classList.add('hidden');
         }
 
-        // Cerrar modales al hacer clic fuera
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('modal-editar')) cerrarModalEditar();
-            if (event.target == document.getElementById('modal-confirmar')) cerrarModal();
-        }
+        // Cerrar modales al hacer clic fuera o presionar ESC
+        window.addEventListener('click', function(event) {
+            const modalEditar = document.getElementById('modal-editar');
+            const modalConfirmar = document.getElementById('modal-confirmar');
+            if (event.target === modalEditar) cerrarModalEditar();
+            if (event.target === modalConfirmar) cerrarModal();
+        });
+
+        // Cerrar modales con la tecla ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modalEditar = document.getElementById('modal-editar');
+                const modalConfirmar = document.getElementById('modal-confirmar');
+                if (modalEditar && !modalEditar.classList.contains('hidden')) cerrarModalEditar();
+                if (modalConfirmar && !modalConfirmar.classList.contains('hidden')) cerrarModal();
+            }
+        });
     </script>
+
 </body>
 
 </html>
