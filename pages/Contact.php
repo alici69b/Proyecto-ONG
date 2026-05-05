@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
@@ -19,12 +23,30 @@
 
 
     <style>
-      body {
-        font-family: 'Bricolage Grotesque';
+        body {
+            font-family: 'Bricolage Grotesque';
         }
+
         html {
             scroll-behavior: smooth; 
         }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50%       { background-position: 100% 50%; }
+        }
+
+        .fade-in { animation: fadeIn 0.5s ease both; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-1 { animation-delay: 0.05s; }
+        .fade-in-2 { animation-delay: 0.15s; }
+        .fade-in-3 { animation-delay: 0.25s; }
+        .fade-in-4 { animation-delay: 0.35s; }
+        .fade-in-5 { animation-delay: 0.45s; }
+        .fade-in-6 { animation-delay: 0.55s; }
     </style>
    
 <!--font-family: font-serif
@@ -51,7 +73,7 @@
     <a href="#inicio" class="fixed bottom-10 right-10 z-[9999] p-3 rounded-full bg-[#25a18e] text-white hover:bg-[#1a7a6b] transition-all shadow-xl flex items-center justify-center border-2 border-white/20" aria-label="Volver al inicio"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
     </a>
 
-    <main class="max-w-7xl mx-auto px-4 py-12 pt-40">
+    <main class="fade-in fade-in-1 max-w-7xl mx-auto px-4 py-12 pt-40">
    
            
             <!-- Título de la página -->
@@ -65,7 +87,7 @@
 
         <!-- Texto de la izquierda -->
         <!-- Informacion sobre nosotros y preguntas frecuentes que hemos recibido -->
-        <section class="pt-10 grid  grid-cols-1 lg:grid-cols-2">
+        <section class=" pt-10 grid  grid-cols-1 lg:grid-cols-2">
             <div id="InformaciondeContacto" class=" px-5 py-4 focus:outline-none ">
         
             <p class=" text-black font-bold text-lg md:text-xl p-2 lg:text-xl">Información de contacto</p>
@@ -83,7 +105,7 @@
                     <!-- Icono Telefono -->
                     <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15.5562 14.5477L15.1007 15.0272C15.1007 15.0272 14.0181 16.167 11.0631 13.0559C8.10812 9.94484 9.1907 8.80507 9.1907 8.80507L9.47752 8.50311C10.1841 7.75924 10.2507 6.56497 9.63424 5.6931L8.37326 3.90961C7.61028 2.8305 6.13596 2.68795 5.26145 3.60864L3.69185 5.26114C3.25823 5.71766 2.96765 6.30945 3.00289 6.96594C3.09304 8.64546 3.81071 12.259 7.81536 16.4752C12.0621 20.9462 16.0468 21.1239 17.6763 20.9631C18.1917 20.9122 18.6399 20.6343 19.0011 20.254L20.4217 18.7584C21.3806 17.7489 21.1102 16.0182 19.8833 15.312L17.9728 14.2123C17.1672 13.7486 16.1858 13.8848 15.5562 14.5477Z" fill="#000000"></path> <path d="M13.2595 1.87983C13.3257 1.47094 13.7122 1.19357 14.1211 1.25976C14.1464 1.26461 14.2279 1.27983 14.2705 1.28933C14.3559 1.30834 14.4749 1.33759 14.6233 1.38082C14.9201 1.46726 15.3347 1.60967 15.8323 1.8378C16.8286 2.29456 18.1544 3.09356 19.5302 4.46936C20.906 5.84516 21.705 7.17097 22.1617 8.16725C22.3899 8.66487 22.5323 9.07947 22.6187 9.37625C22.6619 9.52466 22.6912 9.64369 22.7102 9.72901C22.7197 9.77168 22.7267 9.80594 22.7315 9.83125L22.7373 9.86245C22.8034 10.2713 22.5286 10.6739 22.1197 10.7401C21.712 10.8061 21.3279 10.53 21.2601 10.1231C21.258 10.1121 21.2522 10.0828 21.2461 10.0551C21.2337 9.9997 21.2124 9.91188 21.1786 9.79572C21.1109 9.56339 20.9934 9.21806 20.7982 8.79238C20.4084 7.94207 19.7074 6.76789 18.4695 5.53002C17.2317 4.29216 16.0575 3.59117 15.2072 3.20134C14.7815 3.00618 14.4362 2.88865 14.2038 2.82097C14.0877 2.78714 13.9417 2.75363 13.8863 2.7413C13.4793 2.67347 13.1935 2.28755 13.2595 1.87983Z" fill="#000000"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M13.4857 5.3293C13.5995 4.93102 14.0146 4.7004 14.4129 4.81419L14.2069 5.53534C14.4129 4.81419 14.4129 4.81419 14.4129 4.81419L14.4144 4.81461L14.4159 4.81505L14.4192 4.81602L14.427 4.81834L14.4468 4.8245C14.4618 4.82932 14.4807 4.8356 14.5031 4.84357C14.548 4.85951 14.6074 4.88217 14.6802 4.91337C14.8259 4.97581 15.0249 5.07223 15.2695 5.21694C15.7589 5.50662 16.4271 5.9878 17.2121 6.77277C17.9971 7.55775 18.4782 8.22593 18.7679 8.7154C18.9126 8.95991 19.009 9.15897 19.0715 9.30466C19.1027 9.37746 19.1254 9.43682 19.1413 9.48173C19.1493 9.50418 19.1555 9.52301 19.1604 9.53809L19.1665 9.55788L19.1688 9.56563L19.1698 9.56896L19.1702 9.5705C19.1702 9.5705 19.1707 9.57194 18.4495 9.77798L19.1707 9.57194C19.2845 9.97021 19.0538 10.3853 18.6556 10.4991C18.2607 10.6119 17.8492 10.3862 17.7313 9.99413L17.7276 9.98335C17.7223 9.96832 17.7113 9.93874 17.6928 9.89554C17.6558 9.8092 17.5887 9.66797 17.4771 9.47938C17.2541 9.10264 16.8514 8.53339 16.1514 7.83343C15.4515 7.13348 14.8822 6.73078 14.5055 6.50781C14.3169 6.39619 14.1757 6.32909 14.0893 6.29209C14.0461 6.27358 14.0165 6.26254 14.0015 6.25721L13.9907 6.25352C13.5987 6.13564 13.3729 5.72419 13.4857 5.3293Z" fill="#000000"></path> </g></svg> 
                     <h4 class="text-xl font-bold mt-6 text-slate-800"><b>Teléfono</b></h4>
-                    <p class="text-[#004e64] font-bold">+34 625 51 59 33</p>
+                    <p class="text-[#004e64] font-bold">+34 625 55 55 55</p>
                     <p class="text-gray-500">Lunes a Viernes, 8-15h</p>
                 </div>
 
@@ -109,7 +131,7 @@
 
         </div>
             <!-- Preguntas frecuentes que hemos tenido que solventar-->
-            <div class="mb-4  py-16 ">
+            <div class=" mb-4  py-16 ">
                 <h3 class=" text-black font-bold text-lg md:text-xl p-2 lg:text-xl">Preguntas Frecuentes</h3><br>
                 <div class="max-w-xl mx-auto space-y-4">
                 <!-- FAQ 1 -->
@@ -150,32 +172,60 @@
         </div>
 
 
-        <div id="Formulario" class="max-w-100% grid">
-                <form action="../../app/controlador/ContactController.php" method="post" class="bg-white rounded-4xl p-8 border border-slate-100">
+        <div id="Formulario" class="fade-in fade-in-2 max-w-100% grid">
+                
+                <form action="../app/controlador/ContactController.php" method="post" class="bg-white rounded-4xl p-8 border border-slate-100">
+                        
                     <h3 class=" text-black font-bold text-lg md:text-xl p-2 lg:text-xl">Envíanos un mensaje</h3><br>
                 <!-- Nombre y Email -->
+                 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                         <label class="block font-bold text-gray-800 my-5">Nombre *</label>
-                        <input type="text" name="nombre_remitente" placeholder="Tu nombre" class="w-full rounded-xl border border-stone-300 px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] " required/>
+                        <input type="text" name="nombre_remitente" placeholder="Tu nombre" class="w-full rounded-xl border border-stone-300 px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] " />
                         </div>
 
                         <div>
                         <label class="block font-bold text-gray-800 my-5">Email *</label>
-                        <input type="email" name="email_remitente" placeholder="tu@email.com" class="w-full rounded-xl border border-stone-300 px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] " required />
+                        <input type="email" name="email_remitente" placeholder="tu@email.com" class="w-full rounded-xl border border-stone-300 px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] "  />
                         </div>
                     </div>
 
                     <!-- Asunto -->
                     <div>
                         <label class="block font-bold text-gray-800 my-5">Asunto *</label>
-                        <input type="text" name="asunto" placeholder="¿De qué quieres hablar?" class="w-full rounded-xl border border-stone-300 px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] " require />
+                        <input type="text" name="asunto" placeholder="¿De qué quieres hablar?" class="w-full rounded-xl border border-stone-300 px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] "  />
                     </div>
 
                     <!-- Mensaje -->
                     <div>
                         <label class="block font-bold text-gray-800 my-5">Mensaje *</label>
-                        <textarea rows="5" name="cuerpo_mensaje" placeholder="Hablanos de lo que te ocurre" class="w-full rounded-xl border border-stone-300 px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#00a5cf]  resize-none" required></textarea>
+                        <textarea rows="5" name="cuerpo_mensaje" placeholder="Hablanos de lo que te ocurre" class="w-full rounded-xl border border-stone-300 px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#00a5cf]  resize-none" ></textarea>
+                    </div>
+
+                    <div class="">
+                        <?php if (isset($_SESSION['errores']) && !empty($_SESSION['errores'])): ?>
+                                <div class="bg-red-100 border-l-4 border-[#ff3b30] text-[#ff3b30] p-4 mb-6 rounded shadow-sm animate-pulse">
+                                    <ul class="text-sm text-red-700 space-y-1">
+                                        <?php foreach ($_SESSION['errores'] as $campo => $mensajes): ?>
+                                            <?php if (is_array($mensajes)): ?>
+                                                <?php foreach ($mensajes as $mensaje): ?>
+                                                    <li>• <?= htmlspecialchars($mensaje) ?></li>
+                                                <?php endforeach; ?>
+                                            <?php else: ?>
+                                                <li>• <?= htmlspecialchars($mensajes) ?></li>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            <?php endif; ?>
+                            <?php unset($_SESSION['errores']); ?>
+                            <?php if (isset($_SESSION['exito'])): ?>
+                                <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6 rounded">
+                                    <?= htmlspecialchars($_SESSION['exito']) ?>
+                                </div>
+                                <?php unset($_SESSION['exito']); ?>
+                            <?php endif; ?>
                     </div>
 
                     <!-- Botón -->
@@ -183,12 +233,7 @@
                     </input>
                 </form>
 
-                <?php if (isset($_GET['status']) && $_GET['status'] == 'success'): ?>
-                    <div class="bg-emerald-100 border border-emerald-400 text-emerald-700 px-4 py-3 rounded-xl mb-6 flex items-center shadow-sm">
-                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                    <span>¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.</span>
-    </div>
-<?php endif; ?>
+                
             </div>
         </section>
 

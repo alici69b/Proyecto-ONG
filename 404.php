@@ -1,14 +1,40 @@
+<style>
+        body {
+            font-family: 'Bricolage Grotesque';
+        }
+
+        html {
+            scroll-behavior: smooth; 
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50%       { background-position: 100% 50%; }
+        }
+
+        .fade-in { animation: fadeIn 0.5s ease both; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-1 { animation-delay: 0.05s; }
+        .fade-in-2 { animation-delay: 0.15s; }
+        .fade-in-3 { animation-delay: 0.25s; }
+        .fade-in-4 { animation-delay: 0.35s; }
+        .fade-in-5 { animation-delay: 0.45s; }
+        .fade-in-6 { animation-delay: 0.55s; }
+    </style>
 <body class="bg-[#004e64] min-h-screen flex flex-col items-center ">
 
-    <header class="w-full flex justify-center pt-6 z-[110]">
+    <header class="fade-in fade-in-1 w-full flex justify-center pt-6 z-[110]">
         <div class="w-[95%] max-w-7xl">
             <?php require_once "src/components/Header_index.php"; ?>
         </div>
     </header>
         
-    <div class="text-7xl md:text-9xl  font-black text-white mt-30">Error 404</div>
+    <div class="fade-in fade-in-2 text-7xl md:text-9xl  font-black text-white mt-30">Error 404</div>
     
-    <main class="flex-grow relative flex items-center justify-center overflow-hidden w-full px-4 my-10">
+    <main class="fade-in fade-in-3 flex-grow relative flex items-center justify-center overflow-hidden w-full px-4 my-10">
         
         
 

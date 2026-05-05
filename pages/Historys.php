@@ -19,12 +19,30 @@
 
 
     <style>
-      body {
-        font-family: 'Bricolage Grotesque';
+        body {
+            font-family: 'Bricolage Grotesque';
         }
+
         html {
             scroll-behavior: smooth; 
         }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50%       { background-position: 100% 50%; }
+        }
+
+        .fade-in { animation: fadeIn 0.5s ease both; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-1 { animation-delay: 0.05s; }
+        .fade-in-2 { animation-delay: 0.15s; }
+        .fade-in-3 { animation-delay: 0.25s; }
+        .fade-in-4 { animation-delay: 0.35s; }
+        .fade-in-5 { animation-delay: 0.45s; }
+        .fade-in-6 { animation-delay: 0.55s; }
     </style>
 
     <!--font-family: font-serif
@@ -67,7 +85,7 @@
     <a href="#inicio" class="fixed bottom-10 right-10 z-[9999] p-3 rounded-full bg-[#25a18e] text-white hover:bg-[#1a7a6b] transition-all shadow-xl flex items-center justify-center border-2 border-white/20" aria-label="Volver al inicio"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
     </a>
 
-    <main class="max-w-7xl mx-auto px-4 py-12 pt-25">
+    <main class="fade-in fade-in-1 max-w-7xl mx-auto px-4 py-12 pt-25">
         
         <div>
 

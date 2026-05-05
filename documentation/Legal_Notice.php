@@ -55,7 +55,7 @@
                 <div class="bg-[#f4f9fa] p-6 rounded-3xl border border-blue-50">
                     <p class="text-[10px] uppercase tracking-widest text-[#00a5cf] font-bold mb-1">Contacto</p>
                     <p class="font-bold text-[#25a18e] underline">aliciantonio@resetong.com</p>
-                    <p class="text-sm text-gray-500 mt-2">+34 625 51 59 33 | Lepe, Huelva | AV. La Arboleda</p>
+                    <p class="text-sm text-gray-500 mt-2">+34 625 55 55 55 | Lepe, Huelva | AV. La Arboleda</p>
                 </div>
             </div>
         </section>

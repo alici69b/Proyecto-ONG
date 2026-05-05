@@ -12,6 +12,19 @@ session_start();
     <!-- Link al css -->
     <link rel="stylesheet" href="../../public/css/style.css">
 
+      <style>
+            @keyframes slideOutRight {
+            from { opacity: 1; transform: translateX(0); }
+            to   { opacity: 0; transform: translateX(60px); }  
+}
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-60px); }  
+            to   { opacity: 1; transform: translateX(0); }
+        }
+        body { animation: slideInLeft 0.4s ease both; }
+        body.saliendo { animation: slideOutRight 0.3s ease both; }
+  </style>
+
     <!-- Link del Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
@@ -28,6 +41,7 @@ session_start();
         -color del  bg-[#f4f9fa]
 
     -->
+
 <body class="">
   
   <div class="flex min-h-screen ">
@@ -51,28 +65,24 @@ session_start();
               <h3 class="font-bold text-xl">RESET</h3>
           </div>
 
-          
-
       <!-- Pequeño resumen de lo que vamos a hacer, crear la cuenta en la ong -->
       <h1 class="text-3xl font-bold text-slate-900 mb-2">Crea tu cuenta</h1>
       <p class="text-slate-500 mb-8">Únete a RESET y empieza tu camino hacia una nueva oportunidad.</p>
       <div class="mb-4">
         <?php if (isset($_SESSION['errores']) && !empty($_SESSION['errores'])): ?>
-            <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-xl">
+            <div class="bg-red-100 border-l-4 border-[#ff3b30] text-[#ff3b30] p-4 mb-6 rounded shadow-sm animate-pulse">
+               
                 <ul class="text-sm text-red-700 space-y-1">
                     <?php 
                     foreach ($_SESSION['errores'] as $campo => $mensajes) {
-                        // Verificamos si es una lista (array) o un texto simple (string)
                         if (is_array($mensajes)) {
                             foreach ($mensajes as $mensaje) {
                                 echo "<li>• " . htmlspecialchars($mensaje) . "</li>";
                             }
                         } else {
-                            // Si es un texto directo, lo imprimimos sin hacer otro bucle
                             echo "<li>• " . htmlspecialchars($mensajes) . "</li>";
                         }
                     }
-                    // Limpiamos los errores para que no salgan la próxima vez que recargue
                     unset($_SESSION['errores']);
                     ?>
                 </ul>
@@ -80,30 +90,29 @@ session_start();
         <?php endif; ?>
     </div>
 
-      
-
-      <div>
-
-      </div>
       <!-- Formulario con los campos: nombre, email, contraseña y el boton -->
       <form class="space-y-5" method="post" action="../../controlador/RegisterController.php">
-        <!-- Menu de ayuda o quiero ayudar, depede lo que escojas te mostrará algo diferente -->
-            <div class="flex w-full flex-col mx-auto mb-5">
-                
-                <input type="hidden" name="tipo" id="input-rol" value="soy-usuario">
 
+        <!--  El value inicial es 'soy-usuario', que coincide con el botón que arranca activo -->
+        <input type="hidden" name="tipo" id="input-rol" value="soy-usuario">
+
+            <div class="flex w-full flex-col mx-auto mb-5">
                 <div class="flex gap-2 mb-8 bg-[#004e64] p-1 rounded-xl">
+
+                    <!--  btn-usuario arranca con bg-[#00a5cf] (activo) -->
                     <button type="button" id="btn-usuario" onclick="cambiarRol('soy-usuario')" 
                         class="flex-1 py-2.5 px-4 rounded-lg font-medium transition-all text-white bg-[#00a5cf]">
                         Necesito ayuda
                     </button>
 
+                    <!--  btn-voluntario arranca SIN bg-[#00a5cf] (inactivo) -->
                     <button type="button" id="btn-voluntario" onclick="cambiarRol('soy-voluntario')" 
                         class="flex-1 py-2.5 px-4 rounded-lg font-medium transition-all text-white">
                         Quiero ayudar
                     </button>
                 </div>
 
+                <!--  bloque-usuario visible por defecto (sin hidden) -->
                 <div id="bloque-usuario" class="animate-in fade-in duration-300">
                     <label class="block text-sm font-medium text-slate-700 mb-2">¿Qué quieres reiniciar?</label>
                     <select name="tipo_ayuda_usuario" class="w-full px-4 py-3 rounded-xl border border-slate-200">
@@ -116,6 +125,7 @@ session_start();
                     </select>
                 </div>
 
+                <!--  bloque-voluntario oculto por defecto (con hidden) -->
                 <div id="bloque-voluntario" class="hidden animate-in fade-in duration-300">
                     <label class="block text-sm font-medium text-slate-700 mb-2">¿Cómo puedes ayudar?</label>
                     <select name="tipo_ayuda_voluntario" class="w-full px-4 py-3 rounded-xl border border-slate-200">
@@ -129,40 +139,33 @@ session_start();
                 </div>
             </div>
 
-
         <div>
-          <label for="nombre"class="block text-sm font-medium text-slate-700 mb-2">Tu nombre</label>
-          <input name="nombre" type="text" placeholder="¿Cómo te llamas?" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] transition-all" >
+          <label for="nombre" class="block text-sm font-medium text-slate-700 mb-2">Tu nombre</label>
+          <input name="nombre" type="text" placeholder="¿Cómo te llamas?" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] transition-all">
         </div>
-
-        
 
         <div>
           <label for="email" class="block text-sm font-medium text-slate-700 mb-2">Email</label>
-          <input name="email" type="email" placeholder="tu@email.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] transition-all" >
+          <input name="email" type="email" placeholder="tu@email.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] transition-all">
         </div>
 
-        
-
-        <div >
+        <div>
           <label for="contrasena" class="block text-sm font-medium text-slate-700 mb-2">Contraseña</label>
-          <input name="contrasena" type="password" placeholder="Mínimo 8 caracteres" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] transition-all" >
+          <input name="contrasena" type="password" placeholder="Mínimo 8 caracteres" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#00a5cf] transition-all">
         </div>
 
-        
-
-        <button name="crear_cuenta" id="crear_cuenta" type="submit" class="w-full bg-[#00a5cf] hover:bg-black text-white font-semibold py-4 rounded-xl shadow-lg  transition-all flex items-center justify-center gap-2 ">
+        <button name="crear_cuenta" id="crear_cuenta" type="submit" class="w-full bg-[#00a5cf] hover:bg-black text-white font-semibold py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="16" y1="11" x2="22" y2="11"/></svg>
           Crear mi cuenta
         </button>
-        <!-- Muestro el mensaje de exit si todo ha ido bien -->
+
           <div class="mb-4">
             <?php if (isset($_SESSION['mensaje_exito'])): ?>
                 <div class="mb-6 rounded shadow-sm animate-pulse flex border-l-4 border-green-500 bg-green-50 p-4 text-green" role="alert">
                     <svg class="flex w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                     </svg>
-                    <div class="ml-3  font-medium">
+                    <div class="ml-3 font-medium">
                         <?php 
                             echo $_SESSION['mensaje_exito']; 
                             unset($_SESSION['mensaje_exito']); 
@@ -173,45 +176,44 @@ session_start();
         </div>
       </form>
 
-        <!-- si tienes una cuenta, inicia sesion -->
         <p class="mt-10 text-center text-sm text-gray-600">
-          ¿Ya tienes cuenta? <a href="../auth/Login.php" class="font-bold text-[#00a5cf] hover:underline">Inicia Sesión</a>
+          ¿Ya tienes cuenta? <a href="../auth/Login.php" onclick="navegarCon('auth/Login.php')" class="cursor-pointer font-bold text-[#00a5cf] hover:underline">Inicia Sesión</a>
         </p>
     
     </div>
   </div>
 
 <script>
-function cambiarRol(rol) {
-    // cogen los elementos definidos con esos nombres para poder mandar sobre ellos
-    const btnU = document.getElementById('btn-usuario');
-    const btnV = document.getElementById('btn-voluntario');
-    const bloqueU = document.getElementById('bloque-usuario');
-    const bloqueV = document.getElementById('bloque-voluntario');
-    const inputHidden = document.getElementById('input-rol');
+    //  Se elimina el DOMContentLoaded que intentaba detectar el botón activo por su clase CSS.
+    // Ya no hace falta porque el estado inicial del HTML y del input hidden ya son coherentes.
 
-    // Actualizamos el valor del input oculto para enviarlo al servidor
-    inputHidden.value = rol;
+    function cambiarRol(rol) {
+        const btnU = document.getElementById('btn-usuario');
+        const btnV = document.getElementById('btn-voluntario');
+        const bloqueU = document.getElementById('bloque-usuario');
+        const bloqueV = document.getElementById('bloque-voluntario');
+        const inputHidden = document.getElementById('input-rol');
 
-    //aqui si pulsamos el boton del usuario, le añade el color y si nota que es el otro, cambia
-    if (rol === 'soy-usuario') {
+        // Actualizamos el valor del input oculto para enviarlo al servidor
+        inputHidden.value = rol;
 
-        btnU.classList.add('bg-[#00a5cf]');
-        btnV.classList.remove('bg-[#00a5cf]');
-        
-        // Visibilidad de bloques
-        bloqueU.classList.remove('hidden');
-        bloqueV.classList.add('hidden');
-    } else {
-
-        btnV.classList.add('bg-[#00a5cf]');
-        btnU.classList.remove('bg-[#00a5cf]');
-
-        // Visibilidad de bloques
-        bloqueV.classList.remove('hidden');
-        bloqueU.classList.add('hidden');
+        if (rol === 'soy-usuario') {
+            btnU.classList.add('bg-[#00a5cf]');
+            btnV.classList.remove('bg-[#00a5cf]');
+            bloqueU.classList.remove('hidden');
+            bloqueV.classList.add('hidden');
+        } else {
+            btnV.classList.add('bg-[#00a5cf]');
+            btnU.classList.remove('bg-[#00a5cf]');
+            bloqueV.classList.remove('hidden');
+            bloqueU.classList.add('hidden');
+        }
     }
-}
+
+    function navegarCon(url) {
+        document.body.classList.add('saliendo');
+        setTimeout(() => window.location.href = url, 300); 
+    }
 </script>
 
 </body>
